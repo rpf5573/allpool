@@ -1,0 +1,195 @@
+<?php
+	/**
+	 * Plugin rewrite rules and query variables
+	 *
+	 * @package   AnsPress
+	 * @author    Rahul Aryan <support@anspress.io>
+	 * @license   GPL-2.0+
+	 * @link      https://anspress.io
+	 * @copyright 2014 Rahul Aryan
+	 */
+
+function sayHello() {
+	
+}
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+/**
+ * This class handle all rewrite rules and define query varibale of anspress
+ *
+ * @since 2.0.0
+ */
+class AP_Rewrite {
+	private static $counter = 1;
+
+	/**
+	 * Filter global request array.
+	 *
+	 * @param  array $request Request array.
+	 * @return array
+	 * @since  4.1.0
+	 */
+	public static function alter_the_query( $request ) {
+		 
+		if ( isset( $request['post_type'] ) && 'answer' === $request['post_type'] ) {
+			if ( ! empty( $request['feed'] ) ) {
+				unset( $request['question_id'] );
+				unset( $request['answer'] );
+			}
+
+			if ( isset( $request['embed'] ) && 'true' === $request['embed'] ) {
+				$request['p'] = $request['answer_id'];
+			}
+    }
+
+		return $request;
+	}
+
+	/**
+	 * Register query vars
+	 *
+	 * @param  array $query_vars Registered query variables.
+	 * @return array
+	 *
+	 * @since 4.1.11 Fixed 'answer_id' is inserted twice.
+	 */
+	public static function query_var( $query_vars ) {
+		$query_vars[] = 'edit_post_id';
+		$query_vars[] = 'ap_nonce';
+		$query_vars[] = 'question_id';
+		$query_vars[] = 'answer_id';
+		$query_vars[] = 'answer';
+		$query_vars[] = 'ask';
+		$query_vars[] = 'ap_page';
+		$query_vars[] = 'qcat_id';
+		$query_vars[] = 'qcat';
+		$query_vars[] = 'qtag_id';
+		$query_vars[] = 'q_tag';
+		$query_vars[] = 'ap_s';
+		$query_vars[] = 'parent';
+		$query_vars[] = 'ap_user';
+		$query_vars[] = 'user_page';
+		$query_vars[] = 'ap_paged';
+
+		return $query_vars;
+	}
+
+	/**
+	 * Generate rewrite rules for AnsPress.
+	 *
+	 * @return void
+	 * @since 4.1.0
+	 */
+	public static function rewrite_rules() {
+		global $wp_rewrite;
+		$q_struct = AP_PostTypes::question_perm_structure();
+		$rules    = $wp_rewrite->generate_rewrite_rules( $q_struct->rule, EP_NONE, false, false, true );
+		$rule = key( $rules );
+
+		anspress()->question_rule = array(
+			'rule'    => substr( $rule, 0, -3 ),
+			'rewrite' => reset( $rules ),
+    );
+	}
+
+	/**
+	 * Rewrite rules.
+	 *
+	 * @return array
+	 */
+	public static function rewrites() {
+		global $wp_rewrite;
+
+		$rule         = anspress()->question_rule['rule'];
+		$rewrite      = anspress()->question_rule['rewrite'];
+		$all_rules    = [];
+		$base_page_id = ap_opt( 'base_page' );
+		$slug         = ap_base_page_slug() . '/';
+
+		$all_rules = array(
+			$slug . 'search/([^/]+)/page/?([0-9]{1,})/?$' => 'index.php?s=$matches[#]&paged=$matches[#]&post_type=question',
+			$slug . 'search/([^/]+)/?$'                   => 'index.php?s=$matches[#]&post_type=question',
+      $slug . 'edit/?$'                             => 'index.php?pagename=' . $slug . '&ap_page=edit',
+      $rule . '/answer/([0-9]+)/?$'                 => $rewrite . '&answer_id=$matches[#]',
+			$rule . '/page/?([0-9]{1,})/?$'               => $rewrite . '&ap_paged=$matches[#]',
+			$rule . '/?$'                                 => $rewrite,
+		);
+
+		/**
+		 * Allows filtering AnsPress rewrite rules.
+		 *
+		 * @param array $all_rules Rewrite rules.
+		 * @since 4.1.0
+		 */
+		$all_rules = apply_filters( 'ap_rewrites', $all_rules, $slug, $base_page_id );
+		$ap_rules = [];
+
+		foreach ( $all_rules as $r => $re ) {
+			$re             = preg_replace( '/\\$([1-9]+)/', '$matches[#]', $re );
+			$re             = preg_replace_callback( '/\#/', [ __CLASS__, 'incr_hash' ], $re );
+			$ap_rules[ $r ] = $re;
+			self::$counter  = 1;
+		}
+		$front             = ltrim( $wp_rewrite->front, '/' );
+		$wp_rewrite->rules = ap_array_insert_after( $wp_rewrite->rules, $front . 'type/([^/]+)/?$', $ap_rules );
+		return $wp_rewrite->rules;
+	}
+
+	public static function incr_hash( $matches ) {
+		return self::$counter++;
+	}
+
+	/**
+	 * Push custom query args in `$wp`.
+	 *
+	 * @param object $wp WP query object.
+	 */
+	public static function add_query_var( $wp ) {
+		if ( ! empty( $wp->query_vars['ap_user'] ) ) {
+			$user = get_user_by( 'login', sanitize_text_field( urldecode( $wp->query_vars['ap_user'] ) ) );
+
+			if ( $user ) {
+				$wp->set_query_var( 'ap_user_id', (int) $user->ID );
+			} else {
+				global $wp_query;
+				$wp_query->set_404();
+				status_header( 404 );
+				get_template_part( 404 );
+				exit();
+			}
+		}
+	}
+
+	/**
+	 * Handles shortlink redirects.
+	 *
+	 * @since unknown
+	 * @since 4.1.6 Fixed: question and answer links are redirected to home.
+	 */
+	public static function shortlink() {
+		global $wp_query;
+		$page = get_query_var( 'ap_page' );
+
+		if ( empty( $page ) || 'shortlink' !== $page ) {
+			return;
+		}
+
+		$post_id = ap_isset_post_value( 'ap_q', ap_isset_post_value( 'ap_a', false ) );
+
+		// Post redirect.
+		if ( $post_id = ap_isset_post_value( 'ap_p', $post_id ) ) {
+			$permalink = get_permalink( $post_id );
+			exit( wp_redirect( $permalink, 302 ) ); // xss okay.
+		}
+
+		// User redirect.
+		if ( ap_isset_post_value( 'ap_u', false ) ) {
+			$permalink = ap_user_link( ap_isset_post_value( 'ap_u' ), ap_isset_post_value( 'sub' ) );
+			exit( wp_redirect( $permalink, 302 ) ); // xss okay.
+		}
+	}
+}

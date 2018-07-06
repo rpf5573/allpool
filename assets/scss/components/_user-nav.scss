@@ -1,0 +1,24 @@
+.user-nav {
+  .dropdown.ui {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    &:hover {
+      color: inherit;
+    }
+    .menu {
+      margin-right: 10px;
+      &:after {
+        left: 80%;
+      }
+    }
+  }
+  &__name {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

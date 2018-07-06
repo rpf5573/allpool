@@ -1,0 +1,385 @@
+#ap-responsive {
+  /* ------------------------------------------------------------------------- *
+   *  Responsive
+  /* ------------------------------------------------------------------------- */
+  // all responsive style is dealed in here 
+  // because responsiveness is related with other parts not only one component
+  
+  /*  Mega - 1500px
+  /* --------------------------------------------------- */
+  @include mq($until: 'mega') {
+    .front-page {
+      .front-message {
+        font-size: $front-message-fs-mega;
+      }
+      .front-category-search {
+        font-size: $front-category-search-fs-mega;
+      }
+    }
+    .licence-map {
+      font-size: $licence-map-fs-mega;
+    }
+  }
+  
+  /*  Extra large
+  /* --------------------------------------------------- */
+  @include mq($until: 'xl') {
+    .front-page {
+      .front-message {
+        font-size: $front-message-fs-xl;
+      }
+      .front-category-search {
+        font-size: $front-category-search-fs-xl;
+      }
+    }
+    .licence-map {
+      font-size: $licence-map-fs-xl;
+    }
+  }
+  
+  /*  Large
+  /* --------------------------------------------------- */
+  @include mq($until: 'lg') {
+    .front-page {
+      .front-message {
+        font-size: $front-message-fs-lg;
+      }
+      .front-category-search {
+        font-size: $front-category-search-fs-lg;
+      }
+    }
+    .licence-map {
+      font-size: $licence-map-fs-lg;
+    }
+  }
+  
+  /*  Medium
+  /* --------------------------------------------------- */
+  @include mq($until: 'md') {
+  
+    // Header
+    .site-header {
+      padding-right: 20px;
+      margin-bottom: 20px;
+      .wrapper {
+        justify-content: center;
+      }
+      .login-trigger {
+        display: none;
+      }
+      .main-menu {
+        display: none;
+      }
+      .mobile-menu-trigger {
+        display: flex;
+      }
+      .user-nav {
+        display: none;
+      } 
+    }
+
+    .page-banner {
+      padding: 20px 10px 20px 10px;
+      margin-bottom: 30px;
+    }
+  
+    // Front page
+    .front-page {
+      .front-message {
+        font-size: $front-message-fs-md;
+        margin-bottom: 20px;
+        white-space: pre-line;
+      }
+      .front-category-search {
+        font-size: $front-category-search-fs-md;
+        form {
+          .search {
+            margin-right: 6px;
+            flex: 1;
+          }
+          button {
+            margin: 0;
+            span {
+              display: none;
+            }
+            .fa-search {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  
+    // Questions
+    .question-filter > form {
+      flex-direction: column;
+      // filter setting
+      .question-filter__list {
+        padding-right: 0;
+        & > .l-row:nth-child(2) {
+          & > * {
+            margin-right: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          margin-bottom: 20px;
+          .SumoSelect {
+            width: 100%;
+            max-width: 100%;
+          }
+          .question-filter__category {
+            flex-basis: 100%;
+          }
+          .question-filter__year {
+            flex-basis: 50%;
+            padding-right: 5px;
+          }
+          .question-filter__session {
+            flex-basis: 50%;
+          }
+          .question-filter__did_select {
+            margin-right: 10px;
+          }
+        }
+      }
+      // btn setting
+      .question-filter__btns {
+        width: 100%;
+      }
+    }
+    .ap-q-content {
+      p {
+        word-wrap: break-word;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  
+    // Licence map
+    .licence-map {
+      font-size: $licence-map-fs-md;
+    }
+
+    .question-list-item {
+      &__avatar {
+        display: none;
+      }
+      &__summery {
+        margin-left: 0;
+      }
+      &__list-counts {
+        display: none;
+      }
+    }
+  }
+  
+  /*  Small
+  /* --------------------------------------------------- */
+  @include mq($until: 'sm') {
+  
+    // Front page
+    .front-page {
+      .q-icon img,
+      .a-icon img {
+        display: none;
+      }
+      .front-message {
+        font-size: $front-message-fs-sm;
+      }
+      .front-category-search {
+        font-size: $front-category-search-fs-sm;
+      }
+    }
+  
+    // Licence map
+    .licence-map {
+      font-size: $licence-map-fs-sm;
+      .subject-item {
+        flex-basis: span(4);
+      }
+    }
+
+    .ap-list-counts,
+    .ap-questions-item .ap-avatar,
+    #answer-form-c .ap-avatar {
+      display: none;
+    }
+    .ap-questions-title {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+    .ap-questions .ap-display-meta-item {
+      font-size: 11px;
+      &.history {
+        display: none;
+      }
+    }
+    .ap-display-meta-item:before {
+      width: 4px;
+      height: 4px;
+    }
+    .ap-questions-item {
+      padding: 8px 2px;
+    }
+    .ap-questions .ap-post-type {
+      font-size: 10px;
+      padding: 1px;
+    }
+    .ap-label-name {
+      border-radius: 1px;
+      font-size: 10px;
+      padding: 1px 4px;
+    }
+    .ap-q .ap-avatar img {
+      max-width: 30px;
+      height: auto;
+    }
+    .ap-q .ap-avatar {
+      float: none;
+      position: static;
+    }
+    .ap-cell{
+      margin-left: 0;
+    }
+    .ap-q-content {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+    .ap-content {
+      padding-right: 0;
+    }
+    .ap-single-vote {
+      position: absolute;
+      right: 0;
+      top: 3px;
+      .ap-vote>* {
+        display: inline-block;
+      }
+      .ap-vote>span {
+        width: 30px;
+      }
+    }
+    .ap-questions-summery {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    #answer-form-c{
+      margin-right: 0;
+    }
+    .ap-q-metas{
+      font-size: 11px;
+      > .ap-post-history{
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        display: block;
+      }
+    }
+    #ap-answers-c .ap-answers-tab{
+      float: none;
+      margin-bottom: 10px;
+      li{
+        float: none;
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 10px;
+        a{
+          padding: 0;
+          border: none;
+        }
+      }
+    }
+    .ap-post-footer{
+      .ap-dropdown{
+        display: block;
+      }
+      > * {
+        float: none !important;
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        border-bottom: solid 1px #eee;
+      }
+      .ap-btn{
+        border-right: none;
+      }
+    }
+    .ap-user .ap-tab-nav{
+      border: solid 1px #ddd;
+      li{
+        float: none;
+        border-bottom: solid 1px #eee;
+        &:last-child{
+          border-bottom: none;
+        }
+        a{
+          padding: 10px 5px;
+        }
+        &.active a{
+          border: none;
+          font-weight: bold;
+        }
+      }
+    }
+    .ap-reputation-item{
+      display: block;
+      border-bottom: solid 1px #eee;
+      line-height: 1.5;
+      padding: 10px 0;
+      > td{
+        display: block;
+        border: none;
+        padding: 0;
+      }
+      .col-icon{
+        float: left;
+      }
+      .ap-reputation-ref p{
+        display: none;
+      }
+      .col-event{
+        margin-left: 50px;
+      }
+      .ap-reputation-ref{
+        margin: 0;
+        strong{
+          font-weight: normal;
+        }
+      }
+      .col-date{
+        width: auto;
+        margin-left: 50px;
+      }
+      .col-points{
+        width: auto;
+        span{
+          margin-left: 50px;
+          float: none;
+          margin-top: 8px;
+          padding: 0px;
+          width: 30px;
+        }
+      }
+    }
+  
+    body #noti-dp {
+      position: fixed;
+      left: 2.5% !important;
+      top: 2.5vh !important;
+      width: 95%;
+      height: 95vh;
+      overflow-y: auto;
+      .scroll-wrap {
+        max-height: 100%;
+        overflow-y: visible;
+      }
+      .ap-droptogg{
+        display: block;
+        float: none;
+        margin: 7px 7px 7px auto;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,61 @@
+/* ------------------------------------------------------------------------- *
+ *  Semantic-ui
+/* ------------------------------------------------------------------------- */
+.ui.menu.gigantic {
+  font-size: 2.0rem;
+}
+.ui.segment:last-child {
+  margin-bottom: 1rem;
+}
+.ui.dimmer {
+  background-color: rgba(0,0,0,.50);
+}
+
+/* ------------------------------------------------------------------------- *
+ *  SumoSelect
+/* ------------------------------------------------------------------------- */
+.SumoSelect .select-all {
+  height: auto;
+}
+
+/* ------------------------------------------------------------------------- *
+ *  Theme My Login
+/* ------------------------------------------------------------------------- */
+.tml {
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  .tml-links {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between
+  }
+  .giveup-copyright {
+    max-height: 120px;
+    overflow-y: scroll;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #666;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    margin-bottom: 10px;
+  }
+  .indicator-hint {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------------- *
+ *  myCRED
+/* ------------------------------------------------------------------------- */
+#anspress .ap-reputations {
+}
+
+/* ------------------------------------------------------------------------- *
+ *  AnsPress
+/* ------------------------------------------------------------------------- */
+.ap-field-type-select {
+  display: inline-block;
+  margin-right: 15px;
+}

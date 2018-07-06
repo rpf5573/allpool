@@ -1,0 +1,13 @@
+.login-modal {
+  .login-remember {
+    display: inline-block;
+  }
+  .login-submit {
+    float: right;
+  }
+  &.ui.modal>.actions.actions {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+  }
+}

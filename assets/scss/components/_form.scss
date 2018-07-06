@@ -1,0 +1,230 @@
+/*  Form
+/* --------------------------------------------------- */
+#ap-form-main {
+	padding: 15px;
+}
+.ap-form-c {
+	margin-left: 70px;
+}
+form[apform] {
+
+	/* ------ form fields ------ */
+	.ap-form-control{
+		border: 1px solid #ddd;
+		border-radius: 1px;
+		box-shadow: 0 0 2px rgba(0, 0, 0, 0.02) inset;
+		display: block;
+		height: 33px;
+		margin-bottom: 0;
+		padding: 5px 10px;
+		&[type="text"]{
+			width: 100%;
+		}
+	
+		&[type="checkbox"]{
+			display: inline;
+			margin: 0;
+			padding: 0;
+			width: auto;
+			height: auto;
+		}
+		&.autogrow{
+			overflow: hidden;
+		}
+	}
+	textarea.ap-form-control{
+		height: auto;
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		margin-bottom: 15px;
+	}
+	label.inline-cb{
+		margin-bottom: 15px;
+	}
+	.ap-field-desc {
+		font-size: 90%;
+		margin-top: 6px;
+	}
+	.ap-form-group {
+		margin-bottom: 20px;
+	}
+	.ap-form-errors{
+		border-left: solid 3px #ff665c;
+		padding: 5px 5px 5px 10px;
+		margin-bottom: 15px;
+		background: #ffdedc;
+		i{
+			color: #F44336;
+			vertical-align: middle;
+			margin-right: 5px;
+			font-size: 16px;
+		}
+	}
+	.ap-field-errors{
+		border: solid 1px #ffe4e2;
+		display: table;
+		font-size: 12px;
+		margin-bottom: 5px;
+		padding: 1px 5px;
+		border-radius: 2px;
+		background: #fff0ef;
+		color: #F44336;
+		span{
+			margin-right: 5px;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+	}
+	.ap-form-label{
+		display: block;
+		font-weight: bold;
+		margin-bottom: 10px;
+		font-size: 14px;
+		.ap-field-desc {
+			background: #bbb;
+			border-radius: 50%;
+			color: $white;
+			display: inline-block;
+			font-size: 11px;
+			height: 15px;
+			line-height: 16px;
+			margin-left: 7px;
+			text-align: center;
+			width: 15px;
+	
+			&:hover{
+				background: $color7;
+				cursor: pointer;
+			}
+		}
+	}
+	.ap-form-fields{
+		position: relative;
+		margin-bottom: 15px;
+	
+		&-wrap{
+			border-bottom: 1px solid #f7f7f7;
+			padding: 10px 0;
+			.ap-btn-submit, .ap-btn-cancel{
+				color: #777;
+				font-size: 12px;
+				line-height: 15px;
+				margin-right: 7px;
+				padding: 2px 5px;
+			}
+			.ap-btn-cancel{
+				background: none;
+				box-shadow: none;
+				border: none;
+			}
+			.ap-form-control{
+				margin-bottom: 5px;
+			}
+		}
+		&-wrap-label{
+			float: left;
+			font-weight: 600;
+			width: 150px;
+		}
+		&-wrap-inner{
+			overflow: hidden;
+			> a{
+				float: right;
+				font-style: normal;
+			}
+		}
+		&-edit{
+			float: right;
+		}
+	}
+	.ap-fieldgroup-c{
+		display: none;
+		margin-left: 20px;
+	}
+	.ap-fieldrepeatable-c {
+		margin-left: 20px;
+	}
+	.ap-repeatable-item{
+		border: solid 1px #ddd;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+
+	/* ------ Image upload ------ */
+	&#form_image_upload{
+		.ap-form-label{
+			display: none;
+		}
+		.ap-img-preview{
+			max-width: 80px;
+			height: auto;
+			margin-top: 10px;
+		}
+	}
+
+	/* ------ Answer form ------ */
+	&#form_answer {
+		.ap-field-form_answer-post_content .ap-form-label{
+			display: none;
+		}
+	}
+}
+
+/*  Minial Editor( temporary editor )
+/* --------------------------------------------------- */
+.ap-minimal-placeholder{
+	display: none;
+	background: #fcfcfc;
+	position: relative;
+}
+.ap-minimal-editor {
+	#ap-form-main{
+		display: none;
+	}
+	.ap-cell {
+		font-size: 14px;
+		margin-left: 70px;
+		&-inner {
+			border: 2px solid rgba(0,0,0,0.1);
+			border-radius: 3px;
+		}
+	}
+	.ap-minimal-placeholder{
+		color: #888;
+		cursor: pointer;
+		display: block;
+		min-height: 120px;
+	}
+	.ap-dummy-editor{
+		background: #fff no-repeat url(assets/images/editor-buttons.png);
+		display: block;
+		height: 45px;
+		margin-bottom: 10px;
+		border-bottom: solid 2px #eee;
+	}
+	.ap-dummy-placeholder{
+		padding: 10px;
+	}
+	.ap-editor-fade {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+
+/*  Uncategorized
+/* --------------------------------------------------- */
+.show{
+	display: block !important;
+}
+.ap-loading-icon.q-title {
+	background: rgba(0, 0, 0, 0);
+	.apicon-sync {
+		left: auto;
+		right: 8px;
+	}
+}

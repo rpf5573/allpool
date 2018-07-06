@@ -1,0 +1,11 @@
+.question-categories a {
+  &:last-child {
+    margin-right: 0;
+  }
+  @include all-but(1) {
+    margin-left: 4px;
+    &::before {
+      content: " / ";
+    }
+  }
+}

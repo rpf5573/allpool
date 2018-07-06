@@ -1,0 +1,156 @@
+// set only related data as variables 
+
+/*  Break Points
+/* --------------------------------------------------- */
+// this is overide of mq
+$mq-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  mega : 1500px
+);
+
+/*  Color
+/* --------------------------------------------------- */
+$color1:  #8bc34a;
+$color2:  #f14f4f;
+$color3:  #333;
+$color4:  #888;
+$color5:  #777;
+$color6:  #2488B7;
+$color7:  #11a7db;
+$color8:  #eb5837;
+$color9:  #F4AC20;
+$white: white;
+$theme-color-body: #6f7d95;
+$theme-color-a: #78829d;;
+$theme-color-a-hover: $color7;
+$theme-color-logo: $color9;
+
+/*  Font
+/* --------------------------------------------------- */
+$default-font-size: 14px;
+$medium-font-size: 12px;
+$count-font-size: 19px;
+$list-font-size: 14px;
+$meta-font-size: 13px;
+
+/*  Z-index
+/* --------------------------------------------------- */
+$z-index-weak: 1;
+$z-index-normal: 2;
+$z-index-string: 3;
+$z-index-bully: 4;
+$z-index-god: 99999;
+
+/*  Front message
+/* --------------------------------------------------- */
+$front-message-fs-default: 70px;
+$front-message-fs-mega: 60px;
+$front-message-fs-xl: 50px;
+$front-message-fs-lg: 40px;
+$front-message-fs-md: $front-message-fs-lg;
+$front-message-fs-sm: 30px;
+
+/*  Front search
+/* --------------------------------------------------- */
+$front-category-search-fs-default: 25px;
+$front-category-search-fs-mega: $front-category-search-fs-default;
+$front-category-search-fs-xl: 20px;
+$front-category-search-fs-lg: 18px;
+$front-category-search-fs-md: $front-category-search-fs-lg;
+$front-category-search-fs-sm: 16px;
+
+/*  Licence map
+/* --------------------------------------------------- */
+$licence-map-fs-default: 32px;
+$licence-map-fs-mega: $licence-map-fs-default;
+$licence-map-fs-xl: 24px;
+$licence-map-fs-lg: $licence-map-fs-xl;
+$licence-map-fs-md: 20px;
+$licence-map-fs-sm: 18px;
+
+/*  Uncategorized
+/* --------------------------------------------------- */
+$site-nav-line-height: 80px;
+$main-menu-line-height: $site-nav-line-height;
+$main-menu-text-hover: $theme-color-a-hover;
+$login-trigger-color: $theme-color-a-hover;
+$site-header-height: $site-nav-line-height;
+$question-category-text-hover: $theme-color-a-hover;
+$question-filter-padding: 15px;
+$question-list-item-padding: $question-filter-padding;
+
+/*  AnsPress
+/* --------------------------------------------------- */
+$border-color: rgba(0, 0, 0, 0.1);
+$border-radius : 4px;
+$avatar-border-radius: 0;
+$user-nav-width: 200px;
+$anspress-vars: () !default;
+$anspress-vars: map-merge((
+  "color1":    $color1,
+  "color2":    $color2,
+  "color3":    $color3,
+  "color4":    $color4,
+  "color5":    $color5,
+  "color6":    $color6,
+  "color7":    $color7,
+  "color8":    $color8,
+  "color9":    $color9,
+  "border-radius":    $border-radius,
+  "border-color":    $border-color,
+), $anspress-vars);
+
+$space-breaks: (
+  0: (
+    x: 0px,
+    y: 0px
+  ),
+  3: (
+    x: 3px,
+    y: 3px
+  ),
+  5: (
+    x: 5px,
+    y: 5px
+  ),
+  10: (
+    x: 10px,
+    y: 10px
+  ),
+  15: (
+    x: 15px,
+    y: 15px
+  ),
+  20: (
+    x: 20px,
+    y: 20px
+  ),
+  30: (
+    x: 30px,
+    y: 30px
+  ),
+  50: (
+    x: 50px,
+    y: 50px
+  ),
+  100: (
+    x: 100px,
+    y: 100px
+  ),
+  150: (
+    x: 150px,
+    y: 150px
+  ),
+  200: (
+    x: 200px,
+    y: 200px
+  ),
+  300: (
+    x: 300px,
+    y: 300px
+  )
+) !default;

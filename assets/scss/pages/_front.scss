@@ -1,0 +1,22 @@
+.front-page {
+  position: relative;
+  padding: 0;
+
+  .site-header {
+    margin-bottom: 0;
+  }
+
+  .site-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & {
+    width: 100%; height: 100%;
+  }
+
+  .center-box {
+    padding-bottom: 80px;
+  }
+}

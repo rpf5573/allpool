@@ -1,0 +1,32 @@
+.licence-map {
+  //margin-bottom: 0px;
+  font-size: 2rem;
+  .ui.pointing.level-1 {
+    font-size: 90%;
+    & ~ .tab.segment {
+      font-size: 90%;
+    }
+  }
+  .ui.pointing.level-2 {
+    font-size: 90%;
+    & ~ .tab.segment {
+      font-size: 90%;
+    }
+  }
+  .ui.pointing.level-3 {
+    & ~ .tab.segment {
+      
+    }
+  }
+  .subject-list {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    .subject-item {
+      flex-basis: span(3);
+      padding: 0 gutter();
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.question-filter {
+  & > form {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .question-filter__list {
+    flex: 1;
+    padding-right: 20px;
+    .l-row:nth-child(1) {
+      margin-bottom: 10px;
+    }
+    .l-row:nth-child(2) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      & > * {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      & > *:not(.question-filter__category) {
+        .SumoSelect {
+          max-width: 140px;
+        }
+      }
+    }
+  }
+}

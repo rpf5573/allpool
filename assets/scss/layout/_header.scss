@@ -1,0 +1,19 @@
+.site-header {
+  background-color:#2f364a;
+  padding-left: 20px;
+  margin-bottom: 40px;
+  & > .wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .l-right {
+      display: inline-flex;
+    }
+  }
+  .site-nav {
+    display: inline-flex;
+    line-height: $site-nav-line-height;
+  }
+}
