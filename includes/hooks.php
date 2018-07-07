@@ -18,6 +18,7 @@ class AP_Hooks {
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_filter' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_page_banner' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_expert_categories' );
+		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_choices_answer' );
 
     // Register pages
     anspress()->add_action( 'init', 'AP_Common_Pages', 'register_common_pages', 0 );
@@ -86,6 +87,7 @@ class AP_Hooks {
     anspress()->add_filter( 'nav_menu_css_class', 'AP_Theme', 'fix_nav_current_class', 10, 2 );
 		anspress()->add_filter( 'human_time_diff', 'AP_Theme', 'human_time_diff' );
 		anspress()->add_filter( 'mce_buttons', 'AP_Theme', 'set_mce_btns' );
+		anspress()->add_action( 'ap_after_question_content', 'AP_Theme', 'question_choices_answer' );
 
     // Upload hooks.
     anspress()->add_action( 'deleted_post', 'AP_Uploader', 'deleted_attachment' );

@@ -61,6 +61,7 @@
     .site-header {
       padding-right: 20px;
       margin-bottom: 20px;
+      padding-top: 5px;
       .wrapper {
         justify-content: center;
       }
@@ -177,7 +178,10 @@
   /*  Small
   /* --------------------------------------------------- */
   @include mq($until: 'sm') {
-  
+    .wrs_modal_dialogContainer {
+      
+    }
+
     // Front page
     .front-page {
       .q-icon img,

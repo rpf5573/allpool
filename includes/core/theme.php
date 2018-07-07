@@ -419,6 +419,21 @@ class AP_Theme {
     return $buttons;		
 	}
 
+	public static function question_choices_answer() {
+		$group = get_field( 'question_choices_answer' ); 
+		if ( isset( $group['choices'] ) ) { ?>
+			<div class="question-choices"> 
+				<h2> 보기 </h2><?php 
+				echo $group['choices']; ?>
+			</div> <?php
+		}
+		if ( isset( $group['answer'] ) ) { ?>
+			<div class="question-answer"> 
+				정답 : <span> <?php echo $group['answer']; ?> </span>
+			</div> <?php
+		}
+	}
+
 }
 
 function ap_template_part( $slug, $name = null, $template_args = array() ) {

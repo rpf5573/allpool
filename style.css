@@ -6220,6 +6220,13 @@ form[apform] {
     .single-question .ap-q .ap-content .ap-cell.status-trash .ap-cell-inner {
       border-color: #EF9A9A; }
 
+.single-question .ap-q .question-choices {
+  margin-top: 20px; }
+
+.single-question .ap-q .question-answer {
+  text-align: right;
+  font-size: 18px; }
+
 .ap-q-head {
   margin-bottom: 20px; }
 
@@ -6560,7 +6567,8 @@ ul.ap-actions {
   @media (max-width: 47.99em) {
     #ap-responsive .site-header {
       padding-right: 20px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      padding-top: 5px; }
       #ap-responsive .site-header .wrapper {
         justify-content: center; }
       #ap-responsive .site-header .login-trigger {

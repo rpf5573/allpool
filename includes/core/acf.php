@@ -192,6 +192,13 @@ class AP_ACF {
             'value' => 'edit',
           ),
         ),
+        array(
+          array(
+            'param' => 'current_user_role',
+            'operator' => '==',
+            'value' => 'ap_expert',
+          ),
+        ),
       ),
       'menu_order' => 0,
       'position' => 'normal',
@@ -202,6 +209,87 @@ class AP_ACF {
       'active' => 1,
       'description' => '',
     ));    
+  }
+
+  public static function add_question_choices_answer() {
+    acf_add_local_field_group(array(
+      'key' => 'group_5b3f1f0af36cc',
+      'title' => '보기 및 정답',
+      'fields' => array(
+        array(
+          'key' => 'field_5b3f20e2275c2',
+          'label' => '보기 및 정답',
+          'name' => 'question_choices_answer',
+          'type' => 'group',
+          'instructions' => '보기와 정답을 입력해 주세요',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'layout' => 'row',
+          'sub_fields' => array(
+            array(
+              'key' => 'field_5b3f2101275c3',
+              'label' => '보기',
+              'name' => 'choices',
+              'type' => 'wysiwyg',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'tabs' => 'all',
+              'toolbar' => 'full',
+              'media_upload' => 0,
+              'delay' => 0,
+            ),
+            array(
+              'key' => 'field_5b3f2137275c4',
+              'label' => '정답',
+              'name' => 'answer',
+              'type' => 'text',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'placeholder' => '',
+              'prepend' => '',
+              'append' => '',
+              'maxlength' => '',
+            ),
+          ),
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'question',
+          ),
+        ),
+      ),
+      'menu_order' => 0,
+      'position' => 'normal',
+      'style' => 'default',
+      'label_placement' => 'top',
+      'instruction_placement' => 'label',
+      'hide_on_screen' => '',
+      'active' => 1,
+      'description' => '',
+    ));
   }
 
   /**
@@ -222,6 +310,7 @@ class AP_ACF {
     }
     return $value;
   }
+
   public static function load_qameta( $value, $post_id, $field ) {
     if ( isset( $field['parent'] ) && $field['parent'] == 'question_filter_group' ) {
       $meta = ap_get_qameta( $post_id );
