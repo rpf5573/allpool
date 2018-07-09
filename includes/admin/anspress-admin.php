@@ -87,6 +87,9 @@ class AP_Admin {
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_question_by_expert_categories', -999, 2 );
 		anspress()->add_filter( 'admin_init', __CLASS__, 'prevent_access_answer_edit_page_by_expert_categories' );
 		anspress()->add_filter( 'post_row_actions', __CLASS__, 'hide_quick_edit_btn', 10, 2 );
+
+		// statistic
+		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );

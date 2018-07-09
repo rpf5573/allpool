@@ -1266,3 +1266,14 @@ span.recount-msg {
   color: #2aab02;
   font-weight: bold;
   font-style: italic; }
+
+.anspress_page_ap_statistic #statistic-list-table-form {
+  max-width: 98%; }
+  .anspress_page_ap_statistic #statistic-list-table-form th {
+    width: 13%;
+    text-align: center; }
+    .anspress_page_ap_statistic #statistic-list-table-form th#name {
+      width: 22%; }
+
+.anspress_page_ap_statistic .column-name .name {
+  font-size: 14px; }

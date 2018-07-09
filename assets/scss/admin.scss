@@ -1526,3 +1526,20 @@ span.recount-msg {
   font-weight: bold;
   font-style: italic;
 }
+
+// statistic page
+.anspress_page_ap_statistic {
+  #statistic-list-table-form {
+    max-width: 98%;
+    th {
+      &#name {
+        width: 22%;
+      }
+      width: 13%;
+      text-align: center;
+    }
+  }
+  .column-name .name {
+    font-size: 14px;
+  }
+}

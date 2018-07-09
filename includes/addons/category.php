@@ -185,6 +185,13 @@ function ap_sort_terms_hierarchically(Array &$cats, Array &$into, $parentId = 0,
     $topCat->depth_level = $depth_level;
     $topCat->children = array();
     ap_sort_terms_hierarchically($cats, $topCat->children, $topCat->term_id, $depth_level);
+
+    $topCat->descendant_count = count( $topCat->children );
+    foreach( $topCat->children as $child ) {
+      if ( isset( $child->descendant_count ) ) {
+        $topCat->descendant_count += $child->descendant_count;
+      }
+    }
   }
 }
 

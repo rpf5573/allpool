@@ -2134,6 +2134,20 @@
 		"oAP": "\/includes\/addons\/reputation\/reputation.php",
 		"oF": 0
 		},
+	"\/includes\/addons\/statistic\/class-term-statistic-list-table.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/statistic\/class-term-statistic-list-table.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/statistic\/statistic.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/statistic\/statistic.php",
+		"oF": 0
+		},
 	"\/includes\/addons\/views.php": {
 		"cB": 0,
 		"ft": 8192,

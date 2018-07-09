@@ -232,6 +232,7 @@ class AnsPress {
 		}
 
 		if ( is_admin() ) {
+			require_once ANSPRESS_DIR . 'includes/addons/statistic/statistic.php';
 			require_once ANSPRESS_DIR . 'includes/admin/anspress-admin.php';
 			require_once ANSPRESS_DIR . 'includes/admin/list-table-hooks.php';
 			require_once ANSPRESS_DIR . 'includes/admin/custom-settings.php';

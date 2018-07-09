@@ -9,6 +9,8 @@ ap_sort_terms_hierarchically($terms, $term_familly);
 
 // Level 4 or higher shall be deleted
 ap_delete_term_children( $term_familly, 4 );
+
+
 ?>
 
 <div class="licence-map"> <?php
