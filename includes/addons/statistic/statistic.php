@@ -21,7 +21,7 @@ class AP_Statistic {
     //Fetch, prepare, sort, and filter our data...
 		$statistic_list_table->prepare_items();
 		
-		\PC::debug( ['statistic_list_table' => $statistic_list_table], __FUNCTION__ );
+		
     ?>
     <div>
 			<h2>List Table Test</h2>

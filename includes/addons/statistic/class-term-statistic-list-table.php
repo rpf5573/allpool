@@ -29,6 +29,10 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 
 	private $per_page = 100;
 
+	private $terms = array();
+
+	private $terms_with_inline_family = array();
+
 	/**
 	 * Constructor.
 	 *
@@ -73,6 +77,17 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 	/**
 	 */
 	public function prepare_items() {
+
+		$this->terms = get_terms( array(
+			'taxonomy' => $this->taxonomy,
+			'hide_empty' => false,
+		) );
+
+		foreach( $this->terms as $term ) {
+			$children = get_term_children( $term->term_id, $this->taxonomy );
+			$children[] = $term->term_id;
+			$this->terms_with_inline_family[$term->term_id] = $children;
+		}
 		
     $columns = $this->get_columns();
     $hidden = array();
@@ -90,6 +105,7 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 			'total_items' => wp_count_terms( $this->taxonomy ),
 			'per_page' => $this->per_page,
 		) );
+
 	}
 
 	/**
@@ -154,9 +170,8 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 			// We'll need the full set of terms then.
 			$args['number'] = $args['offset'] = 0;
 		}
-		$terms = get_terms( $taxonomy, $args );
 
-		if ( empty( $terms ) || ! is_array( $terms ) ) {
+		if ( empty( $this->terms ) || ! is_array( $this->terms ) ) {
 			echo '<tr class="no-items"><td class="colspanchange" colspan="' . $this->get_column_count() . '">';
 			$this->no_items();
 			echo '</td></tr>';
@@ -164,12 +179,11 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 		}
 
 		if ( is_taxonomy_hierarchical( $taxonomy ) && ! isset( $args['orderby'] ) ) {
-
 			$children = _get_term_hierarchy( $taxonomy );
 			// Some funky recursion to get the job done( Paging & parents mainly ) is contained within, Skip it for non-hierarchical taxonomies for performance sake
-			$this->_rows( $taxonomy, $terms, $children, $offset, $number, $count );
+			$this->_rows( $taxonomy, $this->terms, $children, $offset, $number, $count );
 		} else {
-			foreach ( $terms as $term ) {
+			foreach ( $this->terms as $term ) {
 				$this->single_row( $term );
 			}
 		}
@@ -263,24 +277,11 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 
 		$pad = str_repeat( '&#8212; ', max( 0, $this->level ) );
 
-		/**
-		 * Filters display of the term name in the terms list table.
-		 *
-		 * The default output may include padding due to the term's
-		 * current level in the term hierarchy.
-		 *
-		 * @since 2.5.0
-		 *
-		 * @see WP_Terms_List_Table::column_name()
-		 *
-		 * @param string $pad_tag_name The term name, padded if not top-level.
-		 * @param WP_Term $tag         Term object.
-		 */
 		$name = $pad . ' ' . $tag->name;
 
 		$link = '#';
 
-		$out .= '<div class="name"> <strong>';
+		$out = '<div class="name"> <strong>';
 		$out .= '<a href="' . $link . '">';
 		$out .= $name . '</a>';
 		$out .= '</strong> </div>';
@@ -290,37 +291,53 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 
 	public function column_questions( $tag ) {
 		global $wpdb;
-		$query = "SELECT *
-							FROM wp_posts
-							LEFT JOIN wp_term_relationships
-							ON (wp_posts.ID = wp_term_relationships.object_id)
-							WHERE 1=1
-							AND ( wp_term_relationships.term_taxonomy_id IN ({$tag->term_id}) )
-							AND wp_posts.post_type = 'question'
-							AND wp_posts.post_status = 'publish'
-							GROUP BY wp_posts.ID DESC 
-							LIMIT 0, 6000";
+		$prefix = $wpdb->prefix;
 
-		$results = $wpdb->get_results( $query );
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		$sql = "SELECT count(*)
+							FROM {$prefix}posts
+							LEFT JOIN {$prefix}term_relationships
+							ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
+							WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
+							AND {$prefix}posts.post_type = 'question'
+							AND {$prefix}posts.post_status = 'publish'";
 
-		return count( $results );
+		return $wpdb->get_var( $sql );
 	}
 
 	public function column_answers( $tag ) {
-		$query = "SELECT count(*)
-							FROM wp_posts
-							LEFT JOIN wp_term_relationships
-							ON (wp_posts.ID = wp_term_relationships.object_id)
-							WHERE ( wp_term_relationships.term_taxonomy_id IN ({$tag->term_id}) )
-							AND wp_posts.post_type = 'answer'
-							AND wp_posts.post_status = 'publish'
-							GROUP BY wp_posts.ID";
+		global $wpdb;
+		$prefix = $wpdb->prefix;
 
-		return 10;
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		$sql = "SELECT count(*)
+							FROM {$prefix}posts
+							LEFT JOIN {$prefix}term_relationships
+							ON ({$prefix}posts.post_parent = {$prefix}term_relationships.object_id)
+							WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ($terms) )
+							AND {$prefix}posts.post_type = 'answer'
+							AND {$prefix}posts.post_status = 'publish'";
+
+		return $wpdb->get_var( $sql );
 	}
 
 	public function column_did_select_answer( $tag ) {
-		return 20;
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		$sql = "SELECT count(*)
+							FROM {$prefix}posts
+							LEFT JOIN {$prefix}term_relationships
+							ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
+							LEFT JOIN {$prefix}ap_qameta qameta
+							ON (qameta.post_id = {$prefix}posts.ID)
+							WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
+							AND {$prefix}posts.post_type = 'question'
+							AND {$prefix}posts.post_status = 'publish'
+							AND qameta.selected_id IS NOT NULL";
+
+		return $wpdb->get_var( $sql );
 	}
 
 	public function column_vote_to_answer( $tag ) {
@@ -381,5 +398,6 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 	public function no_items() {
 		echo get_taxonomy( $this->taxonomy )->labels->not_found;
 	}
+
 
 }

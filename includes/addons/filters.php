@@ -15,7 +15,7 @@ class AP_Filters {
 				'taxonomy' => 'question_category',
 				'field'    => 'term_id',
 				'terms'    => explode( ',', sanitize_comma_delimited( $selected_list ) ),
-			);
+      );
 		}
 
 		return $args;
