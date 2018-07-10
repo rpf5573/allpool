@@ -52,3 +52,37 @@ function filter_questions_by_their_own_category( $query ) {
     }
   }
 }
+
+function change_question_inspection_check( $post_id, $post ) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$question_id = $post->post_parent;
+
+	// check all the other answer's inspection check status
+	$sql = "SELECT count(*)
+					FROM {$prefix}ap_qameta
+					LEFT JOIN {$prefix}posts
+					ON ({$prefix}posts.ID = {$prefix}ap_qameta.post_id)
+					WHERE ({$prefix}posts.post_status = 'publish')
+					AND {$prefix}posts.post_type = 'answer'
+					AND {$prefix}posts.post_parent = {$question_id}
+					AND {$prefix}ap_qameta.inspection_check = 0";
+
+	$count = $wpdb->get_var( $sql );
+
+	// all answers were inspected well
+	if ( (int)$count == 0 ) {
+		$sql = "UPDATE {$prefix}ap_qameta SET `inspection_check` = 1 WHERE `post_id` = {$question_id} ";
+	} 
+	// somee answers were not inspected
+	else {
+		$sql = "UPDATE {$prefix}ap_qameta SET `inspection_check` = 0 WHERE `post_id` = {$question_id} ";
+	}
+
+	$result = $wpdb->query( $sql );
+
+	if ( ! isset( $result ) ) {
+		wp_die( 'Query Error call to Administrator !' );
+	}
+	
+}

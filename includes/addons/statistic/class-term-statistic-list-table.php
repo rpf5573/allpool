@@ -118,8 +118,10 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 			'questions'					=> '질문',
 			'answers'						=> '답변',
 			'did_select_answer' => '답변채택',
-			'vote_to_answer'		=> '답변추천',
-			'moderating'				=> '검수미완료',
+			'vote_to_question'	=> '추천(질문)',
+			'vote_to_answer'		=> '추천(답변)',
+			'moderate_question'	=> '검수미완료(질문)',
+			'moderate_answer'		=> '검수미완료(답변)',
 			'income_of_answer'	=> '추천수익'
 		);
 
@@ -136,8 +138,10 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 			'questions'					=> '질문',
 			'answers'						=> '답변',
 			'did_select_answer' => '답변채택',
+			'vote_to_question'	=> '추천(질문)',
 			'vote_to_answer'		=> '답변추천',
-			'moderating'				=> '검수미완료',
+			'moderate_question' => '검수미완료(질문)',
+			'moderate_answer'   => '검수미완료(답변)',
 			'income_of_answer'  => '추천수익'
 		);
 
@@ -295,14 +299,18 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 
 		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
 		$sql = "SELECT count(*)
-							FROM {$prefix}posts
-							LEFT JOIN {$prefix}term_relationships
-							ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
-							WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
-							AND {$prefix}posts.post_type = 'question'
-							AND {$prefix}posts.post_status = 'publish'";
+						FROM {$prefix}posts
+						LEFT JOIN {$prefix}term_relationships
+						ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
+						WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
+						AND {$prefix}posts.post_type = 'question'
+						AND {$prefix}posts.post_status = 'publish'";
 
-		return $wpdb->get_var( $sql );
+		$count = $wpdb->get_var( $sql );
+		$url = esc_url( admin_url( "edit.php?post_type=question&ap_category={$tag->term_id}" ) );
+		$link = "<a href='" . $url . "'>" . $count . "</a>";
+
+		return $link;
 	}
 
 	public function column_answers( $tag ) {
@@ -327,25 +335,103 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 
 		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
 		$sql = "SELECT count(*)
-							FROM {$prefix}posts
-							LEFT JOIN {$prefix}term_relationships
-							ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
-							LEFT JOIN {$prefix}ap_qameta qameta
-							ON (qameta.post_id = {$prefix}posts.ID)
-							WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
-							AND {$prefix}posts.post_type = 'question'
-							AND {$prefix}posts.post_status = 'publish'
-							AND qameta.selected_id IS NOT NULL";
+						FROM {$prefix}posts
+						LEFT JOIN {$prefix}term_relationships
+						ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
+						LEFT JOIN {$prefix}ap_qameta qameta
+						ON (qameta.post_id = {$prefix}posts.ID)
+						WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
+						AND {$prefix}posts.post_type = 'question'
+						AND {$prefix}posts.post_status = 'publish'
+						AND qameta.selected_id IS NOT NULL";
 
 		return $wpdb->get_var( $sql );
 	}
 
-	public function column_vote_to_answer( $tag ) {
-		return 20;
+	public function column_vote_to_question( $tag ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		
+		$sql = "SELECT count(*)
+						FROM {$prefix}ap_qameta AS qameta
+						LEFT JOIN {$prefix}posts AS posts
+						ON posts.ID = qameta.post_id
+						LEFT JOIN {$prefix}term_relationships AS term_relationships
+						ON (posts.ID = term_relationships.object_id)
+						WHERE posts.post_status = 'publish'
+						AND posts.post_type = 'question'
+						AND term_relationships.term_taxonomy_id IN ($terms)
+						AND (qameta.votes_up + qameta.votes_down) > 0";
+		
+		$count = $wpdb->get_var( $sql );
+
+		return $count;
 	}
 
-	public function column_moderating( $tag ) {
-		return 20;
+	public function column_vote_to_answer( $tag ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		
+		$sql = "SELECT count(*)
+						FROM {$prefix}ap_qameta AS qameta
+						LEFT JOIN {$prefix}posts AS posts
+						ON posts.ID = qameta.post_id
+						LEFT JOIN {$prefix}term_relationships AS term_relationships
+						ON (posts.post_parent = term_relationships.object_id)
+						WHERE posts.post_status = 'publish'
+						AND posts.post_type = 'answer'
+						AND term_relationships.term_taxonomy_id IN ($terms)
+						AND (qameta.votes_up + qameta.votes_down) > 0";
+		
+		$count = $wpdb->get_var( $sql );
+
+		return $count;
+	}
+
+	public function column_moderate_question( $tag ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		$sql = "SELECT count(*)
+						FROM {$prefix}ap_qameta AS qameta
+						LEFT JOIN {$prefix}posts AS posts
+						ON posts.ID = qameta.post_id
+						LEFT JOIN {$prefix}term_relationships AS term_relationships
+						ON (posts.ID = term_relationships.object_id)
+						WHERE posts.post_status = 'publish'
+						AND posts.post_type = 'question'
+						AND term_relationships.term_taxonomy_id IN ($terms)
+						AND qameta.inspection_check = 0";
+
+		$count = $wpdb->get_var( $sql );
+
+		return $count;
+	}
+
+	public function column_moderate_answer( $tag ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+
+		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		$sql = "SELECT count(*)
+						FROM {$prefix}ap_qameta AS qameta
+						LEFT JOIN {$prefix}posts AS posts
+						ON posts.ID = qameta.post_id
+						LEFT JOIN {$prefix}term_relationships AS term_relationships
+						ON (posts.post_parent = term_relationships.object_id)
+						WHERE posts.post_status = 'publish'
+						AND posts.post_type = 'answer'
+						AND term_relationships.term_taxonomy_id IN ($terms)
+						AND qameta.inspection_check = 0";
+
+		$count = $wpdb->get_var( $sql );
+
+		return $count;
 	}
 
 	public function column_income_of_answer( $tag ) {

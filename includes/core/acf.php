@@ -1,5 +1,6 @@
 <?php
 class AP_ACF {
+
   public static function add_question_filter() {
     $year_filter_range = ap_opt('year_filter_range');
     $session_filter_range = ap_opt('session_filter_range');
@@ -292,12 +293,98 @@ class AP_ACF {
     ));
   }
 
+  public static function add_question_inspection_check() {
+    acf_add_local_field_group(array(
+      'key' => 'group_5b44282f17af5',
+      'title' => '검수 완료 확인',
+      'fields' => array(
+        array(
+          'key' => 'question_inspection_check',
+          'label' => '검수완료',
+          'name' => 'question_inspection_check',
+          'type' => 'true_false',
+          'instructions' => '이 질문이 검수 완료되었다면, 체크해주세요. 이 질문에 달린 답변이 검수완료되지 않았다면, 이 질문도 검수되지 않은걸로 처리됩니다.',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'message' => '',
+          'default_value' => 0,
+          'ui' => 1,
+          'ui_on_text' => '',
+          'ui_off_text' => '',
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'question',
+          ),
+        ),
+      ),
+      'menu_order' => 100,
+      'position' => 'side',
+      'style' => 'default',
+      'label_placement' => 'top',
+      'instruction_placement' => 'label',
+      'hide_on_screen' => '',
+      'active' => 1,
+      'description' => '',
+    ));
+  }
+
+  public static function add_answer_inspection_check() {
+    acf_add_local_field_group(array(
+      'key' => 'group_5b4429d534789',
+      'title' => '검수 완료 확인',
+      'fields' => array(
+        array(
+          'key' => 'answer_inspection_check',
+          'label' => '검수완료',
+          'name' => 'answer_inspection_check',
+          'type' => 'true_false',
+          'instructions' => '이 답변이 검수 완료되었다면, 체크해주세요. 이 답변이 검수완료 되지 않았다면, 질문도 검수완료 되지 않은걸로 처리됩니다.',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'message' => '',
+          'default_value' => 0,
+          'ui' => 1,
+          'ui_on_text' => '',
+          'ui_off_text' => '',
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'answer',
+          ),
+        ),
+      ),
+      'menu_order' => 100,
+      'position' => 'side',
+      'style' => 'default',
+      'label_placement' => 'top',
+      'instruction_placement' => 'label',
+      'hide_on_screen' => '',
+      'active' => 1,
+      'description' => '',
+    ));
+  }
+
   /**
-   * Prevent update wp_postmeta table
-   * 
-   * ACF automatically insert custom field data to wp_postmeta
-   * but, I will user only wp_ap_qameta table for performance
-   * so, prevent that
+   * Prevent ACF updating value of fields to wp_postmeta in admin page.
    *
    * @param [type] $value
    * @param [type] $post_id
@@ -305,9 +392,18 @@ class AP_ACF {
    * @return void
    */
   public static function prevent_update_wp_postmeta( $value, $post_id, $field ) {
+    if ( isset( $field['name'] ) && $field['name'] == 'question_inspection_check' ) {
+      return;
+    }
+
+    if ( isset( $field['name'] ) && $field['name'] == 'answer_inspection_check' ) {
+      return;
+    }
+
     if ( isset( $field['parent'] ) && $field['parent'] == 'question_filter_group' ) {
       return;
     }
+
     return $value;
   }
 
@@ -316,9 +412,20 @@ class AP_ACF {
       $meta = ap_get_qameta( $post_id );
       $key = $field['key'];
       if ( $key ) {
-        return (int) $meta->$key;
+        $value = $meta->$key;
       }
     }
+
+    if ( isset( $field['name'] ) && $field['name'] == 'question_inspection_check' ) {
+      $meta = ap_get_qameta( $post_id );
+      $value = $meta->inspection_check;
+    }
+
+    if ( isset( $field['name'] ) && $field['name'] == 'answer_inspection_check' ) {
+      $meta = ap_get_qameta( $post_id );
+      $value = $meta->inspection_check;
+    }
+
     return $value;
   }
 

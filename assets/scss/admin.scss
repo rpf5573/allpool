@@ -1530,14 +1530,22 @@ span.recount-msg {
 // statistic page
 .anspress_page_ap_statistic {
   #statistic-list-table-form {
-    max-width: 98%;
+    width: 98%;
     th {
       &#name {
-        width: 22%;
+        width: 15%;
       }
-      width: 13%;
+      &#moderate_question,
+      &#moderate_answer {
+        width: 8%;
+      }
+      &#income_of_answer {
+        width: 10%;
+      }
+      width: 5%;
       text-align: center;
     }
+
   }
   .column-name .name {
     font-size: 14px;

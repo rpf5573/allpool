@@ -19,6 +19,8 @@ class AP_Hooks {
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_page_banner' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_expert_categories' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_choices_answer' );
+		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_inspection_check' );
+		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_answer_inspection_check' );
 
     // Register pages
     anspress()->add_action( 'init', 'AP_Common_Pages', 'register_common_pages', 0 );
@@ -126,6 +128,11 @@ class AP_Hooks {
 		anspress()->add_action( 'the_post', 'AP_Profile', 'filter_page_title' );
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
+
+		// Inspection Check hooks.
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
+		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
+
 
     // Ajax hooks
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {

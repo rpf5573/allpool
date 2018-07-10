@@ -420,14 +420,15 @@ class AP_Theme {
 	}
 
 	public static function question_choices_answer() {
-		$group = get_field( 'question_choices_answer' ); 
-		if ( isset( $group['choices'] ) ) { ?>
+		$group = get_field( 'question_choices_answer' );
+		\PC::debug( ['group' => $group], __FUNCTION__ );
+		if ( isset( $group['choices'] ) && $group['choices'] ) { ?>
 			<div class="question-choices"> 
 				<h2> 보기 </h2><?php 
 				echo $group['choices']; ?>
 			</div> <?php
 		}
-		if ( isset( $group['answer'] ) ) { ?>
+		if ( isset( $group['answer'] ) && $group['answer'] ) { ?>
 			<div class="question-answer"> 
 				정답 : <span> <?php echo $group['answer']; ?> </span>
 			</div> <?php

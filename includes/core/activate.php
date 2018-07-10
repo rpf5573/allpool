@@ -87,6 +87,7 @@ class AP_Activate {
 			terms LONGTEXT DEFAULT NULL,
 			year smallint(20) DEFAULT 0,
 			session tinyint(1) DEFAULT 0,
+			inspection_check tinyint(1) DEFAULT 0,
 			attach LONGTEXT DEFAULT NULL,
 			activities LONGTEXT DEFAULT NULL,
 			fields LONGTEXT DEFAULT NULL,

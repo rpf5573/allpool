@@ -2113,6 +2113,13 @@
 		"oAP": "\/includes\/addons\/filters.php",
 		"oF": 0
 		},
+	"\/includes\/addons\/inspection-check.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/inspection-check.php",
+		"oF": 0
+		},
 	"\/includes\/addons\/profile.php": {
 		"cB": 0,
 		"ft": 8192,

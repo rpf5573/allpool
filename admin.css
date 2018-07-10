@@ -1268,12 +1268,16 @@ span.recount-msg {
   font-style: italic; }
 
 .anspress_page_ap_statistic #statistic-list-table-form {
-  max-width: 98%; }
+  width: 98%; }
   .anspress_page_ap_statistic #statistic-list-table-form th {
-    width: 13%;
+    width: 5%;
     text-align: center; }
     .anspress_page_ap_statistic #statistic-list-table-form th#name {
-      width: 22%; }
+      width: 15%; }
+    .anspress_page_ap_statistic #statistic-list-table-form th#moderate_question, .anspress_page_ap_statistic #statistic-list-table-form th#moderate_answer {
+      width: 8%; }
+    .anspress_page_ap_statistic #statistic-list-table-form th#income_of_answer {
+      width: 10%; }
 
 .anspress_page_ap_statistic .column-name .name {
   font-size: 14px; }

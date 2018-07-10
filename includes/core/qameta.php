@@ -25,6 +25,7 @@ function ap_qameta_fields() {
 		'year'				 => 0,
 		'session'			 => 0,
 		'is_new'       => false,
+		'inspection_check' => 0,
 	);
 }
 
@@ -115,10 +116,10 @@ function ap_insert_qameta( $post_id, $args, $wp_error = false ) {
 			} elseif ( 'attach' === $field ) {
 				$value     = is_array( $value ) ? sanitize_comma_delimited( $value ) : (int) $value;
 				$formats[] = '%s';
-			} elseif ( in_array( $field, [ 'selected', 'closed' ], true ) ) {
+			} elseif ( in_array( $field, [ 'selected', 'closed', 'inspection_check' ], true ) ) {
 				$value     = (bool) $value;
 				$formats[] = '%d';
-			} elseif ( in_array( $field, [ 'selected_id', 'answers', 'views', 'votes_up', 'votes_down' ], true ) ) {
+			} elseif ( in_array( $field, [ 'selected_id', 'answers', 'views', 'votes_up', 'votes_down', 'year', 'session' ], true ) ) {
 				$value     = (int) $value;
 				$formats[] = '%d';
 			} else {
