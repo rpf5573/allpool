@@ -73,6 +73,8 @@ window.AnsPress = _.extend({
 		var success = options.success;
 		delete options.success;
 		options.success = function(data){
+			console.dir( data );
+
 			var context = options.context||null;
 			var parsedData = self.ajaxResponse(data);
 			if(parsedData.snackbar){
@@ -997,8 +999,8 @@ APjs.admin = function () {};
 			this.savePoints();
 			this.deleteFlag();
 			this.ajaxBtn();
+			this.statistic();
 		},
-
 
 		renameTaxo: function () {
 			jQuery('.ap-rename-taxo').click(function (e) {
@@ -1040,7 +1042,6 @@ APjs.admin = function () {};
 				});
 			});
 		},
-
 		savePoints: function () {
 			jQuery('.wp-admin').on('submit', '[data-action="ap-save-reputation"]', function (e) {
 				e.preventDefault();
@@ -1079,7 +1080,6 @@ APjs.admin = function () {};
 				});
 			});
 		},
-
 		ajaxBtn: function () {
 			$('.ap-ajax-btn').on('click', function (e) {
 				e.preventDefault();
@@ -1104,8 +1104,30 @@ APjs.admin = function () {};
 		},
 		replaceText: function (data, elm) {
 			$(elm).closest('li').find('strong').text(data);
+		},
+		statistic: function() {
+			var btns = $('.yas-table-open-btn');
+			if ( btns.length > 0 ) {
+				btns.on('click', function(e){
+					var self = $(this);
+					var query = JSON.parse(self.attr('apquery'));
+					// query.page = 'ap_statistic';
+					$.ajax({
+						type: "POST",
+						url: ajaxurl,
+						data: query,
+						success: function (response) {
+							var body_content = $('#wpbody-content');
+							body_content.css({
+								'width' 	: '200%',
+								'display'	: 'flex',
+							});
+							$('#wpbody-content').append( response );
+						}
+					});
+				});
+			}
 		}
-
 	}
 
 	$(document).ready(function() {

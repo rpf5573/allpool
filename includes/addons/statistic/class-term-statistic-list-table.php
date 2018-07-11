@@ -16,11 +16,13 @@
  * @see WP_List_Table
  */
 
-if(!class_exists('WP_List_Table')){
-  require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
+if(!class_exists('AP_List_Table')){
+  require_once( 'class-ap-list-table.php' );
 }
 
-class AP_Term_Statistic_List_Table extends WP_List_Table {
+
+
+class AP_Term_Statistic_List_Table extends AP_List_Table {
 	private $level;
 
 	private $callback_args;
@@ -51,8 +53,8 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 		global $post_type, $action, $tax;
 
 		parent::__construct( array(
-			'plural' => 'tags',
-			'singular' => 'tag',
+			'plural' => 'terms',
+			'singular' => 'term',
       'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
       'ajax'  => false,
 		) );
@@ -285,8 +287,16 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 
 		$link = '#';
 
+		$args = wp_json_encode(
+			[
+				'__nonce' 	=> wp_create_nonce( 'statistic_' . $tag->term_id ),
+				'action' => 'open_yas_table_modal',
+				'term_id'		=> $tag->term_id,
+				'term_name'	=> $tag->name
+			]
+		);
 		$out = '<div class="name"> <strong>';
-		$out .= '<a href="' . $link . '">';
+		$out .= '<a class="yas-table-open-btn" apquery="' . esc_js( $args ) . '">';
 		$out .= $name . '</a>';
 		$out .= '</strong> </div>';
 
@@ -307,10 +317,13 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 						AND {$prefix}posts.post_status = 'publish'";
 
 		$count = $wpdb->get_var( $sql );
-		$url = esc_url( admin_url( "edit.php?post_type=question&ap_category={$tag->term_id}" ) );
-		$link = "<a href='" . $url . "'>" . $count . "</a>";
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=category" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
 
-		return $link;
+		return $count;
 	}
 
 	public function column_answers( $tag ) {
@@ -326,7 +339,14 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 							AND {$prefix}posts.post_type = 'answer'
 							AND {$prefix}posts.post_status = 'publish'";
 
-		return $wpdb->get_var( $sql );
+		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=answer&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=category" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
+
+		return $count;
 	}
 
 	public function column_did_select_answer( $tag ) {
@@ -344,8 +364,14 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 						AND {$prefix}posts.post_type = 'question'
 						AND {$prefix}posts.post_status = 'publish'
 						AND qameta.selected_id IS NOT NULL";
+		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=did_select_answer" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
 
-		return $wpdb->get_var( $sql );
+		return $count;
 	}
 
 	public function column_vote_to_question( $tag ) {
@@ -363,9 +389,14 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 						WHERE posts.post_status = 'publish'
 						AND posts.post_type = 'question'
 						AND term_relationships.term_taxonomy_id IN ($terms)
-						AND (qameta.votes_up + qameta.votes_down) > 0";
+						AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=vote" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
 
 		return $count;
 	}
@@ -385,9 +416,14 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 						WHERE posts.post_status = 'publish'
 						AND posts.post_type = 'answer'
 						AND term_relationships.term_taxonomy_id IN ($terms)
-						AND (qameta.votes_up + qameta.votes_down) > 0";
+						AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=answer&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=vote" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
 
 		return $count;
 	}
@@ -409,6 +445,11 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 						AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=inspection_check" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
 
 		return $count;
 	}
@@ -430,6 +471,11 @@ class AP_Term_Statistic_List_Table extends WP_List_Table {
 						AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			$url = esc_url( admin_url( "edit.php?post_type=answer&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=inspection_check" ) );
+			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+			return $link;
+		}
 
 		return $count;
 	}

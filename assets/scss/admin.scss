@@ -1527,27 +1527,64 @@ span.recount-msg {
   font-style: italic;
 }
 
-// statistic page
-.anspress_page_ap_statistic {
-  #statistic-list-table-form {
-    width: 98%;
+
+// statistic table
+.list-table-form {
+  width: 98%;
+
+  .ap-list-table {
+    .toggle-row {
+      position: absolute;
+      right: 8px;
+      top: 10px;
+      display: none;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      border: none;
+      outline: 0;
+      background: 0 0;
+    }
     th {
-      &#name {
-        width: 15%;
-      }
-      &#moderate_question,
-      &#moderate_answer {
-        width: 8%;
-      }
-      &#income_of_answer {
-        width: 10%;
-      }
-      width: 5%;
       text-align: center;
+      &.column-primary {
+        width: 20%;
+      }
+      a {
+        word-wrap: normal;
+        word-break: keep-all;
+      }
+    }
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+    .sortable a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .sorting-indicator {
+        margin-top: 0;
+      }
+    }
+    .column-name .name {
+      font-size: 14px;
     }
 
-  }
-  .column-name .name {
-    font-size: 14px;
+    &.terms {
+      .yas-table-open-btn {
+        cursor: pointer;
+      }
+      td.column-primary {
+        text-align: left;
+      }
+    }
+    &.year_and_session {
+      td.column-primary {
+        font-size: 20px;
+        border-bottom: 4px solid white;
+      }
+    }
+
   }
 }

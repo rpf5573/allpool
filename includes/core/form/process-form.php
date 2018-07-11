@@ -60,7 +60,7 @@ class AP_Process_Form {
 	 * @since 2.0.1
 	 */
 	public function ap_ajax() {
-		 
+
 		if ( ! isset( $_REQUEST['ap_ajax_action'] ) ) {
 			wp_die();
 		}

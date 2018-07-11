@@ -1267,17 +1267,41 @@ span.recount-msg {
   font-weight: bold;
   font-style: italic; }
 
-.anspress_page_ap_statistic #statistic-list-table-form {
+.list-table-form {
   width: 98%; }
-  .anspress_page_ap_statistic #statistic-list-table-form th {
-    width: 5%;
+  .list-table-form .ap-list-table .toggle-row {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    display: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: 0;
+    background: 0 0; }
+  .list-table-form .ap-list-table th {
     text-align: center; }
-    .anspress_page_ap_statistic #statistic-list-table-form th#name {
-      width: 15%; }
-    .anspress_page_ap_statistic #statistic-list-table-form th#moderate_question, .anspress_page_ap_statistic #statistic-list-table-form th#moderate_answer {
-      width: 8%; }
-    .anspress_page_ap_statistic #statistic-list-table-form th#income_of_answer {
-      width: 10%; }
-
-.anspress_page_ap_statistic .column-name .name {
-  font-size: 14px; }
+    .list-table-form .ap-list-table th.column-primary {
+      width: 20%; }
+    .list-table-form .ap-list-table th a {
+      word-wrap: normal;
+      word-break: keep-all; }
+  .list-table-form .ap-list-table td {
+    text-align: center;
+    vertical-align: middle; }
+  .list-table-form .ap-list-table .sortable a {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .list-table-form .ap-list-table .sortable a .sorting-indicator {
+      margin-top: 0; }
+  .list-table-form .ap-list-table .column-name .name {
+    font-size: 14px; }
+  .list-table-form .ap-list-table.terms .yas-table-open-btn {
+    cursor: pointer; }
+  .list-table-form .ap-list-table.terms td.column-primary {
+    text-align: left; }
+  .list-table-form .ap-list-table.year_and_session td.column-primary {
+    font-size: 20px;
+    border-bottom: 4px solid white; }

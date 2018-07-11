@@ -32,6 +32,16 @@ class AP_Post_Table_Hooks {
 		anspress()->add_filter( 'manage_edit-answer_sortable_columns', __CLASS__, 'admin_column_sort_flag' );
 		anspress()->add_action( 'edit_form_after_title', __CLASS__, 'edit_form_after_title' );
 		anspress()->add_filter( 'post_updated_messages', __CLASS__, 'post_custom_message' );
+
+		// statistic
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question_with_did_select_answer', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question_with_vote', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer_with_vote', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question_with_inspection_check', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer_with_inspection_check', 100, 2 );
+
 	}
 
 	/**
@@ -348,5 +358,21 @@ class AP_Post_Table_Hooks {
 		echo '<div class="error">
 				<p>' . esc_html__( 'Please fill parent question field, Answer was not saved!', 'anspress-question-answer' ) . '</p>
 			</div>';
+	}
+
+	public static function output_filters( $post_type, $which ) {
+		$taxonomy = get_taxonomy( 'question_category' );
+		wp_dropdown_categories( array(
+			'show_option_all' => sprintf( __( 'All %s', 'admin-taxonomy-filter' ), $taxonomy->label ),
+			'orderby'         => 'name',
+			'order'           => 'ASC',
+			'hide_empty'      => false,
+			'hide_if_empty'   => true,
+			'selected'        => filter_input( INPUT_GET, $taxonomy->query_var, FILTER_SANITIZE_STRING ),
+			'hierarchical'    => true,
+			'name'            => $taxonomy->query_var,
+			'taxonomy'        => $taxonomy->name,
+			'value_field'     => 'slug',
+		) );
 	}
 }

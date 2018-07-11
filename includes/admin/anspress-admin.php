@@ -126,8 +126,7 @@ class AP_Admin {
 		$ver = rand( 1, 300 );
 		
 		wp_enqueue_script( 'ap-math', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', array(), true );
-		wp_enqueue_script( 'anspress-admin-js', ANSPRESS_URL . 'assets/js/admin-min.js', array( 'jquery', 'jquery-form', 'backbone', 'underscore' ), $ver, true );
-
+		wp_enqueue_script( 'ap-admin-js', ANSPRESS_URL . 'assets/js/admin-min.js', array( 'jquery', 'jquery-form', 'backbone', 'underscore' ), $ver, true );
 		?>
 			<script type="text/javascript">
 				currentQuestionID = '<?php the_ID(); ?>';
@@ -141,7 +140,7 @@ class AP_Admin {
 		$user_id = get_current_user_id();
 		if ( ap_is_expert( $user_id ) && ap_is_admin_edit_or_new_question_page() ) {
 			$expert_categories = ap_get_expert_categories( $user_id );
-			wp_localize_script( 'anspress-admin-js', 'expert_categories', $expert_categories );
+			wp_localize_script( 'ap-admin-js', 'expert_categories', $expert_categories );
 		}
 	}
 

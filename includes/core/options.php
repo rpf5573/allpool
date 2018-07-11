@@ -40,7 +40,7 @@ function ap_default_options() {
 	// Set custom options. Because I can't insert by using filter
 	$current_year = (int) date("Y");
 	$year_filter_range = array();
-	for( $i = 2013; $i <= $current_year; $i++ ) {
+	for( $i = 2011; $i <= $current_year; $i++ ) {
 		$year_filter_range[] = $i;
 	}
 	$session_filter_range = array(1, 2, 3, 4);

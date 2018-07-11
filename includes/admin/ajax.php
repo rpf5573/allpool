@@ -28,6 +28,7 @@ class AP_Admin_Ajax {
 		anspress()->add_action( 'ap_ajax_ap_admin_vote', __CLASS__, 'ap_admin_vote' );
 		anspress()->add_action( 'ap_ajax_get_all_answers', __CLASS__, 'get_all_answers' );
 		anspress()->add_action( 'wp_ajax_ap_uninstall_data', __CLASS__, 'ap_uninstall_data' );
+		anspress()->add_action( 'wp_ajax_open_yas_table_modal', __CLASS__, 'open_yas_table_modal' );
   }
   
 	/**
@@ -214,6 +215,21 @@ class AP_Admin_Ajax {
 
 		// Send empty JSON if nothing done.
 		wp_send_json( [] );
+	}
+
+	public static function open_yas_table_modal() {
+		$term_id = ap_isset_post_value( 'term_id' );
+		if ( $term_id ) {
+			if ( ap_verify_nonce( 'statistic_' . $term_id ) ) {
+				$args = array(
+					'term_id'	=>	$term_id,
+					'screen'	=> 'ap_statistic'
+				);
+				AP_Statistic::display_yas_statistic_page( $args );
+			}
+		}
+
+		wp_die();
 	}
 
 }

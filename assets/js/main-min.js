@@ -73,6 +73,8 @@ window.AnsPress = _.extend({
 		var success = options.success;
 		delete options.success;
 		options.success = function(data){
+			console.dir( data );
+
 			var context = options.context||null;
 			var parsedData = self.ajaxResponse(data);
 			if(parsedData.snackbar){
