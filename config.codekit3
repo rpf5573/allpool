@@ -578,6 +578,53 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/assets\/lib\/jquery.floatThead.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/jquery.floatThead-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/assets\/lib\/loading-indicator\/.eslintrc.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/assets\/lib\/loading-indicator\/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/.gitignore",
+		"oF": 0
+		},
+	"\/assets\/lib\/loading-indicator\/css\/modal-loading.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/css\/modal-loading-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/assets\/lib\/loading-indicator\/js\/modal-loading.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/lib\/math.min.js": {
 		"ft": 64,
 		"ma": 0,

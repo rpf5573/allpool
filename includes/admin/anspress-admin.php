@@ -90,6 +90,7 @@ class AP_Admin {
 
 		// statistic
 		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
+		anspress()->add_action( 'admin_title', 'AP_Statistic', 'admin_title', 100, 2 );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );
@@ -110,6 +111,7 @@ class AP_Admin {
 			return;
 		}
 
+		wp_enqueue_style( 'ap-loading-indicator', ANSPRESS_URL . 'assets/lib/loading-indicator/css/modal-loading.css', [], AP_VERSION );
 		wp_enqueue_style( 'ap-admin-css', ANSPRESS_URL . 'admin.css', [], AP_VERSION );
 		wp_enqueue_style( 'wp-color-picker' );
 	}
@@ -125,6 +127,8 @@ class AP_Admin {
 		}
 		$ver = rand( 1, 300 );
 		
+		wp_enqueue_script( 'ap-sticky-header', ANSPRESS_URL . 'assets/lib/jquery.floatThead.js', array( 'jquery' ), true );
+		wp_enqueue_script( 'ap-loading-indicator', ANSPRESS_URL . 'assets/lib/loading-indicator/js/modal-loading.js', array( 'jquery' ), true );
 		wp_enqueue_script( 'ap-math', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', array(), true );
 		wp_enqueue_script( 'ap-admin-js', ANSPRESS_URL . 'assets/js/admin-min.js', array( 'jquery', 'jquery-form', 'backbone', 'underscore' ), $ver, true );
 		?>

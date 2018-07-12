@@ -23,6 +23,9 @@ if(!class_exists('AP_List_Table')){
 
 
 class AP_Term_Statistic_List_Table extends AP_List_Table {
+
+	private $prefix = 'wp_';
+
 	private $level;
 
 	private $callback_args;
@@ -50,7 +53,9 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	 * @param array $args An associative array of arguments.
 	 */
 	public function __construct( $args = array() ) {
-		global $post_type, $action, $tax;
+		global $post_type, $action, $tax, $wpdb;
+
+		$this->prefix = $wpdb->prefix;
 
 		parent::__construct( array(
 			'plural' => 'terms',
@@ -293,8 +298,10 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 				'action' => 'open_yas_table_modal',
 				'term_id'		=> $tag->term_id,
 				'term_name'	=> $tag->name
-			]
+			],
+			JSON_UNESCAPED_UNICODE
 		);
+
 		$out = '<div class="name"> <strong>';
 		$out .= '<a class="yas-table-open-btn" apquery="' . esc_js( $args ) . '">';
 		$out .= $name . '</a>';
@@ -303,178 +310,104 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 		return $out;
 	}
 
-	public function column_questions( $tag ) {
+	public function column_questions( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
+		$type = 'question';
 
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
-		$sql = "SELECT count(*)
-						FROM {$prefix}posts
-						LEFT JOIN {$prefix}term_relationships
-						ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
-						WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
-						AND {$prefix}posts.post_type = 'question'
-						AND {$prefix}posts.post_status = 'publish'";
+		$sql = $this->get_sql( $type, $term );
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=category" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'default', $term, $count );
 		}
 
 		return $count;
 	}
 
-	public function column_answers( $tag ) {
+	public function column_answers( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
+		$type = 'answer';
 
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
-		$sql = "SELECT count(*)
-							FROM {$prefix}posts
-							LEFT JOIN {$prefix}term_relationships
-							ON ({$prefix}posts.post_parent = {$prefix}term_relationships.object_id)
-							WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ($terms) )
-							AND {$prefix}posts.post_type = 'answer'
-							AND {$prefix}posts.post_status = 'publish'";
+		$sql = $this->get_sql( $type, $term );
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=answer&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=category" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'default', $term, $count );
 		}
 
 		return $count;
 	}
 
-	public function column_did_select_answer( $tag ) {
+	public function column_did_select_answer( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
+		$type = 'question';
 
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
-		$sql = "SELECT count(*)
-						FROM {$prefix}posts
-						LEFT JOIN {$prefix}term_relationships
-						ON ({$prefix}posts.ID = {$prefix}term_relationships.object_id)
-						LEFT JOIN {$prefix}ap_qameta qameta
-						ON (qameta.post_id = {$prefix}posts.ID)
-						WHERE ( {$prefix}term_relationships.term_taxonomy_id IN ({$terms}) )
-						AND {$prefix}posts.post_type = 'question'
-						AND {$prefix}posts.post_status = 'publish'
-						AND qameta.selected_id IS NOT NULL";
+		$sql = $this->get_sql( $type, $term );
+		$sql .= "AND qameta.selected_id IS NOT NULL";
+
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=did_select_answer" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'did_select_answer', $term, $count );
 		}
 
 		return $count;
 	}
 
-	public function column_vote_to_question( $tag ) {
+	public function column_vote_to_question( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
-
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
+		$type = 'question';
 		
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						LEFT JOIN {$prefix}term_relationships AS term_relationships
-						ON (posts.ID = term_relationships.object_id)
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'question'
-						AND term_relationships.term_taxonomy_id IN ($terms)
-						AND (qameta.votes_up - qameta.votes_down) > 0";
+		$sql = $this->get_sql( $type, $term );
+		$sql .= "AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=vote" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'vote', $term, $count );
 		}
 
 		return $count;
 	}
 
-	public function column_vote_to_answer( $tag ) {
+	public function column_vote_to_answer( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
+		$type = 'answer';
 
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
-		
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						LEFT JOIN {$prefix}term_relationships AS term_relationships
-						ON (posts.post_parent = term_relationships.object_id)
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'answer'
-						AND term_relationships.term_taxonomy_id IN ($terms)
-						AND (qameta.votes_up - qameta.votes_down) > 0";
+		$sql = $this->get_sql( $type, $term );
+		$sql .=	"AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=answer&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=vote" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'vote', $term, $count );
 		}
 
 		return $count;
 	}
 
-	public function column_moderate_question( $tag ) {
+	public function column_moderate_question( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
+		$type = 'question';
 
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						LEFT JOIN {$prefix}term_relationships AS term_relationships
-						ON (posts.ID = term_relationships.object_id)
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'question'
-						AND term_relationships.term_taxonomy_id IN ($terms)
-						AND qameta.inspection_check = 0";
+		$sql = $this->get_sql( $type, $term );
+		$sql .= "AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=inspection_check" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'inspection_check', $term, $count );
 		}
 
 		return $count;
 	}
 
-	public function column_moderate_answer( $tag ) {
+	public function column_moderate_answer( $term ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
+		$type = 'answer';
 
-		$terms = implode( ',', $this->terms_with_inline_family[$tag->term_id] );
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						LEFT JOIN {$prefix}term_relationships AS term_relationships
-						ON (posts.post_parent = term_relationships.object_id)
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'answer'
-						AND term_relationships.term_taxonomy_id IN ($terms)
-						AND qameta.inspection_check = 0";
+		$sql = $this->get_sql( $type, $term );
+		$sql .= "AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=answer&term_id={$tag->term_id}&term_name={$tag->name}&term_filter=inspection_check" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( $type, 'inspection_check', $term, $count );
 		}
 
 		return $count;
@@ -531,5 +464,30 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 		echo get_taxonomy( $this->taxonomy )->labels->not_found;
 	}
 
+	public function get_sql( $type, $term ) {
+		$prefix = $this->prefix;
+		$terms = implode( ',', $this->terms_with_inline_family[$term->term_id] );
+		$sql = "SELECT count(*)
+						FROM {$prefix}posts as posts
+						LEFT JOIN {$prefix}term_relationships as term_relationships";
+		if ( $type == 'question' ) {
+			$sql .= " ON (posts.ID = term_relationships.object_id)";
+		} else {
+			$sql .= " ON (posts.post_parent = term_relationships.object_id)";
+		}
+		$sql .= " LEFT JOIN {$prefix}ap_qameta as qameta
+						ON posts.ID = qameta.post_id
+						WHERE ( term_relationships.term_taxonomy_id IN ({$terms}) )
+						AND posts.post_type = '$type'
+						AND posts.post_status = 'publish' ";
+
+		return $sql;
+	}
+
+	public function get_link( $type, $filter, $term, $count ) {
+		$url = esc_url( admin_url( "edit.php?post_type={$type}&term_filter={$filter}&term_id={$term->term_id}&term_name={$term->name}" ) );
+		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+		return $link;
+	}
 
 }

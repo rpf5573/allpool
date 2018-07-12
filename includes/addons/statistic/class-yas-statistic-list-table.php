@@ -23,7 +23,11 @@ if(!class_exists('AP_List_Table')){
 // YaS => Year and Session
 class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
+	private $prefix = 'wp_';
+
 	private $term_id = '';
+
+	private $term_family = '';
 
 	private $callback_args;
 
@@ -32,12 +36,17 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
   private $session = 0;
 
 	public function __construct( $args = array() ) {
+		global $wpdb;
+		$this->prefix = $wpdb->prefix;
+
 		if ( isset( $args['term_id'] ) ) {
 			$this->term_id = $args['term_id'];
+			$this->term_family = ap_get_term_family( $this->term_id );
 			$this->years = ap_opt('year_filter_range');
 			$this->session = count( ap_opt('session_filter_range') );
+
 			parent::__construct( array(
-				'plural' => 'year_and_session',
+				'plural' => 'yas',
 				'singular' => 'tag',
 				'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
 				'ajax'  => false,
@@ -141,18 +150,12 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_questions( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 
-		$sql = "SELECT count(*)
-						FROM {$prefix}posts
-						WHERE {$prefix}posts.post_type = 'question'
-						AND {$prefix}posts.post_status = 'publish'";
+		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&yas_filter=year_and_session&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'question', 'default', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -160,18 +163,12 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_answers( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 
-		$sql = "SELECT count(*)
-						FROM {$prefix}posts
-						WHERE {$prefix}posts.post_type = 'answer'
-						AND {$prefix}posts.post_status = 'publish'";
+		$sql = $this->get_sql( 'answer', $item['year'], $item['session'] );
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=answer&yas_filter=year_and_session&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'answer', 'default', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -179,20 +176,13 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_did_select_answer( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 
-		$sql = "SELECT count(*)
-						FROM {$prefix}posts
-						LEFT JOIN {$prefix}ap_qameta qameta
-						ON (qameta.post_id = {$prefix}posts.ID)
-						WHERE {$prefix}posts.post_type = 'question'
-						AND {$prefix}posts.post_status = 'publish'
-						AND qameta.selected_id IS NOT NULL";
+		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		$sql .= 'AND qameta.selected_id IS NOT NULL';
+
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&yas_filter=did_select_answer&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'question', 'did_select_answer', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -200,21 +190,13 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_vote_to_question( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 		
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'question'
-						AND (qameta.votes_up - qameta.votes_down) > 0";
+		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		$sql .=	"AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&yas_filter=vote&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'question', 'vote', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -222,21 +204,13 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_vote_to_answer( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 		
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'answer'
-						AND (qameta.votes_up - qameta.votes_down) > 0";
+		$sql = $this->get_sql( 'answer', $item['year'], $item['session'] );
+		$sql .=	"AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=answer&yas_filter=vote&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'answer', 'vote', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -245,21 +219,13 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	// moderate means inspection check
 	public function column_moderate_question( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'question'
-						AND qameta.inspection_check = 0";
+		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		$sql .=	"AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=question&yas_filter=inspection_check&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'question', 'inspection_check', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -267,21 +233,13 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_moderate_answer( $item ) {
 		global $wpdb;
-		$prefix = $wpdb->prefix;
 
-		$sql = "SELECT count(*)
-						FROM {$prefix}ap_qameta AS qameta
-						LEFT JOIN {$prefix}posts AS posts
-						ON posts.ID = qameta.post_id
-						WHERE posts.post_status = 'publish'
-						AND posts.post_type = 'answer'
-						AND qameta.inspection_check = 0";
+		$sql = $this->get_sql( 'answer', $item['year'], $item['session'] );
+		$sql .=	"AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			$url = esc_url( admin_url( "edit.php?post_type=answer&yas_filter=inspection_check&year={$item['year']}&session={$item['session']}" ) );
-			$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-			return $link;
+			return $this->get_link( 'answer', 'inspection_check', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -318,6 +276,33 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function no_items() {
 		echo 'no item';
+	}
+
+	public function get_sql( $type, $year, $session ) {
+		$prefix = $this->prefix;
+		$sql = "SELECT count(*)
+						FROM {$prefix}posts as posts
+						LEFT JOIN {$prefix}term_relationships as term_relationships";
+		if ( $type == 'question' ) {
+			$sql .= " ON (posts.ID = term_relationships.object_id)";
+		} else {
+			$sql .= " ON (posts.post_parent = term_relationships.object_id)";
+		}
+		$sql .= " LEFT JOIN {$prefix}ap_qameta as qameta
+						ON posts.ID = qameta.post_id
+						WHERE ( term_relationships.term_taxonomy_id IN ({$this->term_family}) )
+						AND posts.post_type = '$type'
+						AND posts.post_status = 'publish'
+						AND qameta.year = {$year}
+						AND qameta.session = {$session} ";
+
+		return $sql;
+	}
+
+	public function get_link( $type, $filter, $year, $session, $count ) {
+		$url = esc_url( admin_url( "edit.php?post_type={$type}&yas_filter={$filter}&ap_year={$year}&ap_session={$session}&term_id={$this->term_id}" ) );
+		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+		return $link;
 	}
 
 }

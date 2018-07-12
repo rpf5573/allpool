@@ -33,7 +33,7 @@ class AP_Post_Table_Hooks {
 		anspress()->add_action( 'edit_form_after_title', __CLASS__, 'edit_form_after_title' );
 		anspress()->add_filter( 'post_updated_messages', __CLASS__, 'post_custom_message' );
 
-		// statistic
+		// statistic - terms
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question_with_did_select_answer', 100, 2 );
@@ -41,6 +41,15 @@ class AP_Post_Table_Hooks {
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer_with_vote', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question_with_inspection_check', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer_with_inspection_check', 100, 2 );
+
+		// statistic - yas
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question_with_did_select_answer', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question_with_vote', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer_with_vote', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question_with_inspection_check', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer_with_inspection_check', 100, 2 );
 
 	}
 

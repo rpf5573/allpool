@@ -222,8 +222,9 @@ class AP_Admin_Ajax {
 		if ( $term_id ) {
 			if ( ap_verify_nonce( 'statistic_' . $term_id ) ) {
 				$args = array(
-					'term_id'	=>	$term_id,
-					'screen'	=> 'ap_statistic'
+					'term_id'		=>	$term_id,
+					'screen'		=> 'ap_statistic',
+					'term_name' => ap_isset_post_value( 'term_name' )
 				);
 				AP_Statistic::display_yas_statistic_page( $args );
 			}

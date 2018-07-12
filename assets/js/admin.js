@@ -229,23 +229,87 @@ APjs.admin = function () {};
 			$(elm).closest('li').find('strong').text(data);
 		},
 		statistic: function() {
+			// top : sticky_header_bar_offset
+			// init sticky header
+			// position: 'absolute',
+    	// 	scrollContainer: function($table){
+			// 		var the = $table.closest('.wrapper');
+			// 		console.dir( the );
+			// 		return the;
+			// 	}
+			var sticky_header_bar_offset = $('#wpadminbar')[0].clientHeight;
+			$(".ap-list-table.terms").floatThead({
+				position: 'absolute',
+    		scrollContainer: function($table){
+					return $table.closest('.wrapper');
+				}
+			});
+
 			var btns = $('.yas-table-open-btn');
 			if ( btns.length > 0 ) {
 				btns.on('click', function(e){
 					var self = $(this);
 					var query = JSON.parse(self.attr('apquery'));
-					// query.page = 'ap_statistic';
+					
+					var loading = new Loading({
+						discription:	query.term_name,
+						defaultApply: true,
+					});
+
+					function scrollFromLeft( position ) {
+						$('#wpbody').animate({
+							scrollLeft : position
+						}, 1000);
+					}
+
 					$.ajax({
 						type: "POST",
 						url: ajaxurl,
 						data: query,
 						success: function (response) {
+
+							// remove existing yas table first
+							var table_container = $('.statistic-table-container');
+							if ( table_container.length == 2 ) {
+								$(table_container[1]).remove();
+							}
+
+							// append yas table to right
 							var body_content = $('#wpbody-content');
 							body_content.css({
 								'width' 	: '200%',
 								'display'	: 'flex',
 							});
-							$('#wpbody-content').append( response );
+							body_content.append( response );
+
+							var yas_form = $('.list-table-form.yas');
+
+							// ready for navigation
+							var btn_go_to_yas = $('.go-to-yas');
+							btn_go_to_yas.css( 'display', 'block' );
+							btn_go_to_yas.on( 'click', function(){
+								scrollFromLeft(yas_form.offset().left);
+							} );
+
+							var btn_back_to_terms = $('.back-to-terms');
+							btn_back_to_terms.css( 'display', 'block' );
+							btn_back_to_terms.on( 'click', function(){
+								scrollFromLeft(0);
+							} );
+
+							// scroll to right automatically
+							setTimeout( function(){
+								loading.out();
+								scrollFromLeft(yas_form.offset().left);
+							}, 2000 );
+
+							$(".ap-list-table.yas").floatThead({
+								position: 'absolute',
+								scrollContainer: function($table){
+									return $table.closest('.wrapper');
+								}
+							});
+							
 						}
 					});
 				});

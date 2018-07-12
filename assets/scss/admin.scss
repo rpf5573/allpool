@@ -1,5 +1,7 @@
 // I had no time to rewrite admin.css so, just copied and pasted
 
+@import "vendors/fontawesome/fontawesome";
+
 #anspress {
   .ap-user-posts h3 {
     border-bottom: 2px solid #eee;
@@ -1531,6 +1533,13 @@ span.recount-msg {
 // statistic table
 .list-table-form {
   width: 98%;
+  .wrapper {
+    overflow: auto;
+    height: 700px;
+  }
+  .tablenav {
+    display: none;
+  }
 
   .ap-list-table {
     .toggle-row {
@@ -1546,6 +1555,7 @@ span.recount-msg {
       background: 0 0;
     }
     th {
+      background-color: white;
       text-align: center;
       &.column-primary {
         width: 20%;
@@ -1558,6 +1568,9 @@ span.recount-msg {
     td {
       text-align: center;
       vertical-align: middle;
+      &:not(.column-primary) a {
+        font-size: 18px;
+      }
     }
     .sortable a {
       display: flex;
@@ -1579,12 +1592,44 @@ span.recount-msg {
         text-align: left;
       }
     }
-    &.year_and_session {
+    &.yas {
       td.column-primary {
         font-size: 20px;
         border-bottom: 4px solid white;
       }
     }
 
+  }
+}
+
+#wpbody {
+  overflow-x: scroll;
+}
+
+.statistic-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  .go-to-yas {
+    color: blue;
+    display: none;
+  }
+  .back-to-terms {
+    color: red;
+    display: none;
+  }
+  .fas {
+    transition: 0.25s all;
+    transform: scale(1, 1);
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
+  }
+}
+.anspress_page_ap_statistic {
+  #wpadminbar {
+    // display: none;
   }
 }
