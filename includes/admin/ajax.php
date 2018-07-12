@@ -221,8 +221,10 @@ class AP_Admin_Ajax {
 		$term_id = ap_isset_post_value( 'term_id' );
 		if ( $term_id ) {
 			if ( ap_verify_nonce( 'statistic_' . $term_id ) ) {
+				$term_name = ap_isset_post_value( 'term_name' );
 				$args = array(
 					'term_id'		=>	$term_id,
+					'term_name' => $term_name,
 					'screen'		=> 'ap_statistic',
 					'term_name' => ap_isset_post_value( 'term_name' )
 				);

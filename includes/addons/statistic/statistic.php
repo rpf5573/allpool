@@ -5,6 +5,20 @@ require_once 'class-yas-statistic-list-table.php';
 
 class AP_Statistic {
 
+	public static $slug_label = array(
+		'term_name'					=> '카테고리',
+		'year'           		=> '년도',
+		'session'        		=> '회차',
+		'questions'					=> '질문',
+		'answers'						=> '답변',
+		'did_select_answer' => '답변채택',
+		'vote_to_question'	=> '추천(질문)',
+		'vote_to_answer'		=> '추천(답변)',
+		'moderate_question'	=> '검수미완료(질문)',
+		'moderate_answer'		=> '검수미완료(답변)',
+		'income_of_answer'	=> '추천수익'
+	);
+
   public static function add_statistic_submenu() {
 		//add_submenu_page( 'anspress', __( 'Questions Category', 'anspress-question-answer' ), __( 'Category', 'anspress-question-answer' ), 'manage_options', 'edit-tags.php?taxonomy=question_category' );
     add_submenu_page( 'anspress', __( 'Statistic', 'anspress-question-answer' ), __( 'Statistic', 'anspress-question-answer' ), 'delete_pages', 'ap_statistic', array( __CLASS__, 'display_term_statistic_page' ) );
@@ -64,7 +78,7 @@ class AP_Statistic {
 	/* --------------------------------------------------- */
 	public static function term_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
-		if ( $filter == 'default' ) {
+		if ( $filter == 'ap_category' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
 			$vars = $instance->query_vars;
@@ -83,7 +97,7 @@ class AP_Statistic {
 
 	public static function term_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
-		if ( $filter == 'default' ) {
+		if ( $filter == 'ap_category' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
 			$vars = $instance->query_vars;
@@ -206,7 +220,7 @@ class AP_Statistic {
 	/* --------------------------------------------------- */
 	public static function yas_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
-		if ( $filter == 'default' ) {
+		if ( $filter == 'ap_category' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
 			$session = ap_isset_post_value( 'ap_session' );
@@ -229,7 +243,7 @@ class AP_Statistic {
 
 	public static function yas_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
-		if ( $filter == 'default' ) {
+		if ( $filter == 'ap_category' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
 			$session = ap_isset_post_value( 'ap_session' );
@@ -373,9 +387,87 @@ class AP_Statistic {
 		return $sql;
 	}
 	
-	public static function admin_title( $admin_title, $title ) {
-		\PC::debug( ['admin_title' => $admin_title], __FUNCTION__ );
-		\PC::debug( ['title' => $title], __FUNCTION__ );
-		return $admin_title;
+	/*  Uncategorized
+	/* --------------------------------------------------- */
+
+	public static function show_statistic_term_filter_result() {
+		global $pagenow;
+		$filter = ap_isset_post_value( 'term_filter' );
+		if ( ( $filter ) && $pagenow == 'edit.php' ) { 
+			$output = '';
+			$term_name = ap_isset_post_value( 'term_name' );
+
+			if ( $term_name ) {
+				$output .= ('카테고리 : ' . $term_name);
+			}
+
+			$output .= '<br>';
+
+			if ( $filter != 'term_name' ) {
+				$output .= '추가필터 : ';
+
+				switch( $filter ) {
+					case 'did_select_answer' :
+						$output .= '답변채택';
+						break;
+
+					case 'vote' :
+						$output .= '추천';
+						break;
+
+					case 'inspection_check' :
+						$output .= '검수미완료';
+						break;
+				} 
+			} ?>
+			<div class="notice notice-warning">
+				<p> <?php
+					echo $output; ?>
+				</p>
+			</div> <?php
+		}
+	}
+
+	public static function show_statistic_yas_filter_result() {
+		global $pagenow;
+		$filter = ap_isset_post_value( 'yas_filter' );
+		if ( ( $filter ) && $pagenow == 'edit.php' ) { 
+			$output = '';
+			$term_name = ap_isset_post_value( 'term_name' );
+
+			if ( $term_name ) {
+				$output .= ('카테고리 : ' . $term_name);
+			}
+
+			$year = ap_isset_post_value( 'ap_year' );
+			$session = ap_isset_post_value( 'ap_session' );
+			if ( $year && $session ) {
+				$output .= '(' . $year . '년도 ' . $session . '회차' . ')';
+			}
+
+			$output .= '<br>';
+
+			if ( $filter != 'term_name' ) {
+				$output .= '추가필터';
+				switch( $filter ) {
+					case 'did_select_answer' :
+						$output .= '답변채택';
+						break;
+
+					case 'vote' :
+						$output .= '추천';
+						break;
+
+					case 'inspection_check' :
+						$output .= '검수미완료';
+						break;
+				} 
+			} ?>
+			<div class="notice notice-warning">
+				<p> <?php
+					echo $output; ?>
+				</p>
+			</div> <?php
+		}
 	}
 }

@@ -27,6 +27,8 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	private $term_id = '';
 
+	private $term_name = '';
+
 	private $term_family = '';
 
 	private $callback_args;
@@ -41,6 +43,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 		if ( isset( $args['term_id'] ) ) {
 			$this->term_id = $args['term_id'];
+			$this->term_name = $args['term_name'];
 			$this->term_family = ap_get_term_family( $this->term_id );
 			$this->years = ap_opt('year_filter_range');
 			$this->session = count( ap_opt('session_filter_range') );
@@ -68,33 +71,17 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	}
 
 	public function get_columns() {
-		$columns = array(
-      'year'              => '년도',
-      'session'           => '회차',
-			'questions'					=> '질문',
-			'answers'						=> '답변',
-			'did_select_answer' => '답변채택',
-			'vote_to_question'	=> '추천(질문)',
-			'vote_to_answer'		=> '추천(답변)',
-			'moderate_question'	=> '검수미완료(질문)',
-			'moderate_answer'		=> '검수미완료(답변)',
-			'income_of_answer'	=> '추천수익'
-		);
-
+		$columns = AP_Statistic::$slug_label;
+		unset( $columns['term_name'] );
 		return $columns;
 	}
 
 	protected function get_sortable_columns() {
-		$columns = array(
-			'questions'					=> '질문',
-			'answers'						=> '답변',
-			'did_select_answer' => '답변채택',
-			'vote_to_question'	=> '추천(질문)',
-			'vote_to_answer'		=> '답변추천',
-			'moderate_question' => '검수미완료(질문)',
-			'moderate_answer'   => '검수미완료(답변)',
-			'income_of_answer'  => '추천수익'
-		);
+		$columns = AP_Statistic::$slug_label;
+		unset( $columns['term_name'] );
+		unset( $columns['year'] );
+		unset( $columns['session'] );
+		return $columns;
 
 		return $columns;
 	}
@@ -155,7 +142,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			return $this->get_link( 'question', 'default', $item['year'], $item['session'], $count );
+			return $this->get_link( 'question', 'term_name', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -168,7 +155,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			return $this->get_link( 'answer', 'default', $item['year'], $item['session'], $count );
+			return $this->get_link( 'answer', 'term_name', $item['year'], $item['session'], $count );
 		}
 
 		return $count;
@@ -249,7 +236,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 		return 20;
 	}
 
-	protected function get_default_primary_column_name() {
+	protected function get_term_name_primary_column_name() {
 		return 'year';
 	}
 
@@ -300,7 +287,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	}
 
 	public function get_link( $type, $filter, $year, $session, $count ) {
-		$url = esc_url( admin_url( "edit.php?post_type={$type}&yas_filter={$filter}&ap_year={$year}&ap_session={$session}&term_id={$this->term_id}" ) );
+		$url = esc_url( admin_url( "edit.php?post_type={$type}&yas_filter={$filter}&ap_year={$year}&ap_session={$session}&term_id={$this->term_id}&term_name={$this->term_name}" ) );
 		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
 		return $link;
 	}

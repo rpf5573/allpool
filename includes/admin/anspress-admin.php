@@ -90,7 +90,8 @@ class AP_Admin {
 
 		// statistic
 		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
-		anspress()->add_action( 'admin_title', 'AP_Statistic', 'admin_title', 100, 2 );
+		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_term_filter_result' );
+		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_yas_filter_result' );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );

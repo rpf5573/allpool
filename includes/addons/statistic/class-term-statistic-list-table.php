@@ -43,7 +43,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see WP_List_Table::__construct() for more information on term_name arguments.
 	 *
 	 * @global string $post_type
 	 * @global string $taxonomy
@@ -120,17 +120,9 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
-		$columns = array(
-			'name'        			=> '이름',
-			'questions'					=> '질문',
-			'answers'						=> '답변',
-			'did_select_answer' => '답변채택',
-			'vote_to_question'	=> '추천(질문)',
-			'vote_to_answer'		=> '추천(답변)',
-			'moderate_question'	=> '검수미완료(질문)',
-			'moderate_answer'		=> '검수미완료(답변)',
-			'income_of_answer'	=> '추천수익'
-		);
+		$columns = AP_Statistic::$slug_label;
+		unset( $columns['year'] );
+		unset( $columns['session'] );
 
 		return $columns;
 	}
@@ -140,17 +132,10 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	 * @return array
 	 */
 	protected function get_sortable_columns() {
-		$columns = array(
-			'name'        			=> '이름',
-			'questions'					=> '질문',
-			'answers'						=> '답변',
-			'did_select_answer' => '답변채택',
-			'vote_to_question'	=> '추천(질문)',
-			'vote_to_answer'		=> '답변추천',
-			'moderate_question' => '검수미완료(질문)',
-			'moderate_answer'   => '검수미완료(답변)',
-			'income_of_answer'  => '추천수익'
-		);
+		$columns = AP_Statistic::$slug_label;
+		unset( $columns['term_name'] );
+		unset( $columns['year'] );
+		unset( $columns['session'] );
 
 		return $columns;
 	}
@@ -283,7 +268,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_name( $tag ) {
+	public function column_term_name( $tag ) {
 		$taxonomy = $this->taxonomy;
 
 		$pad = str_repeat( '&#8212; ', max( 0, $this->level ) );
@@ -318,7 +303,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			return $this->get_link( $type, 'default', $term, $count );
+			return $this->get_link( $type, 'term_name', $term, $count );
 		}
 
 		return $count;
@@ -332,7 +317,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
-			return $this->get_link( $type, 'default', $term, $count );
+			return $this->get_link( $type, 'term_name', $term, $count );
 		}
 
 		return $count;
@@ -418,14 +403,14 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	}
 
 	/**
-	 * Gets the name of the default primary column.
+	 * Gets the name of the term_name primary column.
 	 *
 	 * @since 4.3.0
 	 *
-	 * @return string Name of the default primary column, in this case, 'name'.
+	 * @return string Name of the term_name primary column, in this case, 'name'.
 	 */
-	protected function get_default_primary_column_name() {
-		return 'name';
+	protected function get_term_name_primary_column_name() {
+		return 'term_name';
 	}
 
 	/**
