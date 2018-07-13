@@ -19,7 +19,7 @@ function ap_default_options() {
 		'question_order_by'             => 'active',
 		'answers_sort'                  => 'active',
 		'answers_per_page'              => '5',
-		'max_upload_size'               => 1000000,
+		'max_upload_size'               => 3000000,
 		'read_question_per'             => 'anyone',
 		'read_answer_per'               => 'logged_in',
 		'post_question_per'             => 'logged_in',

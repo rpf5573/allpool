@@ -87,6 +87,10 @@
 								do_action( 'ap_before_question_content' );
 								?>
 
+								<h2 class="question-title">
+									<?php the_title(); ?>
+								</h2>
+
 								<div class="question-content ap-q-content" itemprop="text">
 									<?php the_content(); ?>
 								</div>

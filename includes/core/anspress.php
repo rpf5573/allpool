@@ -211,6 +211,7 @@ class AnsPress {
     // Tools
     require_once ANSPRESS_DIR . 'includes/tools/singleton.php';
 		require_once ANSPRESS_DIR . 'includes/tools/session.php';
+		require_once ANSPRESS_DIR . 'includes/tools/wp-all-import.php';
     
     // Addons
     require_once ANSPRESS_DIR . 'includes/addons/avatar/avatar.php';

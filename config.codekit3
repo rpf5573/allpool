@@ -23,6 +23,14 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
+	"\/.vscode\/settings.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/.vscode\/settings-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/404.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -39,6 +47,13 @@
 		"oAP": "\/admin-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"\/alpool_dumydata_maker\/maker.py": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/alpool_dumydata_maker\/maker.py",
+		"oF": 0
 		},
 	"\/archive.php": {
 		"cB": 0,
@@ -2580,6 +2595,13 @@
 		"oAP": "\/includes\/tools\/ajax.php",
 		"oF": 0
 		},
+	"\/includes\/tools\/rapid-addon.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/tools\/rapid-addon.php",
+		"oF": 0
+		},
 	"\/includes\/tools\/session.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2592,6 +2614,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/tools\/singleton.php",
+		"oF": 0
+		},
+	"\/includes\/tools\/wp-all-import.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/tools\/wp-all-import.php",
 		"oF": 0
 		},
 	"\/index.php": {

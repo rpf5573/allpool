@@ -138,7 +138,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	public function column_questions( $item ) {
 		global $wpdb;
 
-		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		$sql = $this->get_question_sql( $item['year'], $item['session'] );
 
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
@@ -150,12 +150,16 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_answers( $item ) {
 		global $wpdb;
+		$count = 0;
+		
+		$ids = ap_get_question_ids( $item['year'], $item['session'], $this->term_family );
+		if ( ! empty($ids) ) {
+			$sql = $this->get_answer_sql( $ids );
 
-		$sql = $this->get_sql( 'answer', $item['year'], $item['session'] );
-
-		$count = $wpdb->get_var( $sql );
-		if ( $count > 0 ) {
-			return $this->get_link( 'answer', 'term_name', $item['year'], $item['session'], $count );
+			$count = $wpdb->get_var( $sql );
+			if ( $count > 0 ) {
+				return $this->get_link( 'answer', 'term_name', $item['year'], $item['session'], $count );
+			}
 		}
 
 		return $count;
@@ -163,11 +167,12 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_did_select_answer( $item ) {
 		global $wpdb;
-
-		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		
+		$sql = $this->get_question_sql( $item['year'], $item['session'] );
 		$sql .= 'AND qameta.selected_id IS NOT NULL';
 
 		$count = $wpdb->get_var( $sql );
+
 		if ( $count > 0 ) {
 			return $this->get_link( 'question', 'did_select_answer', $item['year'], $item['session'], $count );
 		}
@@ -178,7 +183,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	public function column_vote_to_question( $item ) {
 		global $wpdb;
 		
-		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		$sql = $this->get_question_sql( $item['year'], $item['session'] );
 		$sql .=	"AND (qameta.votes_up - qameta.votes_down) > 0";
 		
 		$count = $wpdb->get_var( $sql );
@@ -191,13 +196,17 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_vote_to_answer( $item ) {
 		global $wpdb;
-		
-		$sql = $this->get_sql( 'answer', $item['year'], $item['session'] );
-		$sql .=	"AND (qameta.votes_up - qameta.votes_down) > 0";
-		
-		$count = $wpdb->get_var( $sql );
-		if ( $count > 0 ) {
-			return $this->get_link( 'answer', 'vote', $item['year'], $item['session'], $count );
+		$count = 0;
+
+		$ids = ap_get_question_ids( $item['year'], $item['session'], $this->term_family );
+		if ( ! empty( $ids ) ) {
+			$sql = $this->get_answer_sql( $ids );
+			$sql .=	"AND (qameta.votes_up - qameta.votes_down) > 0";
+			
+			$count = $wpdb->get_var( $sql );
+			if ( $count > 0 ) {
+				return $this->get_link( 'answer', 'vote', $item['year'], $item['session'], $count );
+			}
 		}
 
 		return $count;
@@ -207,7 +216,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	public function column_moderate_question( $item ) {
 		global $wpdb;
 
-		$sql = $this->get_sql( 'question', $item['year'], $item['session'] );
+		$sql = $this->get_question_sql( $item['year'], $item['session'] );
 		$sql .=	"AND qameta.inspection_check = 0";
 
 		$count = $wpdb->get_var( $sql );
@@ -220,13 +229,17 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function column_moderate_answer( $item ) {
 		global $wpdb;
+		$count = 0;
 
-		$sql = $this->get_sql( 'answer', $item['year'], $item['session'] );
-		$sql .=	"AND qameta.inspection_check = 0";
+		$ids = ap_get_question_ids( $item['year'], $item['session'], $this->term_family );
+		if ( ! empty( $ids ) ) {
+			$sql = $this->get_answer_sql( $ids );
+			$sql .=	"AND qameta.inspection_check = 0";
 
-		$count = $wpdb->get_var( $sql );
-		if ( $count > 0 ) {
-			return $this->get_link( 'answer', 'inspection_check', $item['year'], $item['session'], $count );
+			$count = $wpdb->get_var( $sql );
+			if ( $count > 0 ) {
+				return $this->get_link( 'answer', 'inspection_check', $item['year'], $item['session'], $count );
+			}
 		}
 
 		return $count;
@@ -265,23 +278,37 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 		echo 'no item';
 	}
 
-	public function get_sql( $type, $year, $session ) {
+	public function get_question_sql( $year, $session ) {
 		$prefix = $this->prefix;
 		$sql = "SELECT count(*)
 						FROM {$prefix}posts as posts
-						LEFT JOIN {$prefix}term_relationships as term_relationships";
-		if ( $type == 'question' ) {
-			$sql .= " ON (posts.ID = term_relationships.object_id)";
-		} else {
-			$sql .= " ON (posts.post_parent = term_relationships.object_id)";
-		}
-		$sql .= " LEFT JOIN {$prefix}ap_qameta as qameta
+						LEFT JOIN {$prefix}term_relationships as term_relationships
+						ON (posts.ID = term_relationships.object_id)
+						LEFT JOIN {$prefix}ap_qameta as qameta
 						ON posts.ID = qameta.post_id
 						WHERE ( term_relationships.term_taxonomy_id IN ({$this->term_family}) )
-						AND posts.post_type = '$type'
+						AND posts.post_type = 'question'
 						AND posts.post_status = 'publish'
-						AND qameta.year = {$year}
+						AND qameta.year = {$year} 
 						AND qameta.session = {$session} ";
+
+		return $sql;
+	}	
+
+	public function get_answer_sql( $q_ids ) {
+		$prefix = $this->prefix;
+
+		$ids = implode( ',', $q_ids );
+		$sql = "SELECT count(*)
+						FROM {$prefix}posts as posts
+						LEFT JOIN {$prefix}term_relationships as term_relationships
+						ON (posts.post_parent = term_relationships.object_id)
+						LEFT JOIN {$prefix}ap_qameta as qameta
+						ON posts.ID = qameta.post_id
+						WHERE ( term_relationships.term_taxonomy_id IN ({$this->term_family}) )
+						AND posts.post_type = 'answer'
+						AND posts.post_status = 'publish'
+						AND posts.post_parent IN ($ids) ";
 
 		return $sql;
 	}

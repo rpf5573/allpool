@@ -554,3 +554,30 @@ function ap_latest_post_activity_html( $post_id = false, $answer_activities = fa
 
 	return false;
 }
+
+// the reason why we should use this is that wp_ap_qameta -> answer has no year & session
+function ap_get_question_ids( $year, $session, $term_family ) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+
+	// 또 조인하는게 빠를지, 그냥 가져오는게 빠를지 잘 모르겠다...
+	$sql = "SELECT `ID` 
+					FROM {$prefix}posts as posts
+					LEFT JOIN {$prefix}term_relationships as term_relationships
+					ON ( posts.ID = term_relationships.object_id )
+					LEFT JOIN {$prefix}ap_qameta as qameta
+					ON posts.ID = qameta.post_id						
+					WHERE ( term_relationships.term_taxonomy_id IN ({$term_family}) )
+					AND posts.post_type = 'question'
+					AND `year` = {$year}
+					AND `session` = {$session}
+					AND posts.post_status = 'publish' ";
+
+	$ids = array();
+	$results = $wpdb->get_results( $sql );
+	foreach( $results as $result ) {
+		$ids[] = $result->ID;
+	}
+
+	return $ids;
+}

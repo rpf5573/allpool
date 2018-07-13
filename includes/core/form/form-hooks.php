@@ -182,8 +182,6 @@ class AP_Form_Hooks {
 
 		$values = $form->get_values();
 
-		
-
 		// Store current values in session. // 이거 타이밍이 별로인데;;
 		$form->save_values_session();
 
@@ -406,7 +404,7 @@ class AP_Form_Hooks {
 				$answer_args, array(
 					'post_author'    => get_current_user_id(),
 					'post_name'      => '',
-					'comment_status' => 'open',
+					'comment_status' => 'close',
 				)
 			);
 		}

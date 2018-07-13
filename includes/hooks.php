@@ -129,9 +129,9 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
 
-		// Inspection Check hooks.
-		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
-		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
+		// sync year and session of answer with question
+		// anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Statistic', 'sync_yas_with_question', 100, 3 );
+		// anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Statistic', 'sync_yas_with_question', 100, 3 );
 
 
     // Ajax hooks

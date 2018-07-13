@@ -78,7 +78,7 @@ class AP_Statistic {
 	/* --------------------------------------------------- */
 	public static function term_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
-		if ( $filter == 'ap_category' ) {
+		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
 			$vars = $instance->query_vars;
@@ -97,7 +97,7 @@ class AP_Statistic {
 
 	public static function term_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
-		if ( $filter == 'ap_category' ) {
+		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
 			$vars = $instance->query_vars;
@@ -220,7 +220,7 @@ class AP_Statistic {
 	/* --------------------------------------------------- */
 	public static function yas_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
-		if ( $filter == 'ap_category' ) {
+		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
 			$session = ap_isset_post_value( 'ap_session' );
@@ -231,6 +231,7 @@ class AP_Statistic {
 			}
 
 			$terms = ap_get_term_family( $term_id );
+
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
@@ -243,7 +244,7 @@ class AP_Statistic {
 
 	public static function yas_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
-		if ( $filter == 'ap_category' ) {
+		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
 			$session = ap_isset_post_value( 'ap_session' );
@@ -255,11 +256,14 @@ class AP_Statistic {
 			}
 
 			$terms = ap_get_term_family( $term_id );
-			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
-													ON term_relationships.object_id={$wpdb->posts}.post_parent";
-			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
-												AND qameta.year = {$year}
-												AND qameta.session = {$session}";
+			$q_ids = ap_get_question_ids( $year, $session, $terms );
+			if ( ! empty( $q_ids ) ) {
+				$ids = implode( ',', $q_ids );
+				$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
+														ON term_relationships.object_id={$wpdb->posts}.post_parent";
+				$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
+													AND {$wpdb->posts}.post_parent IN ($ids)";
+			}
 		}
 
 		return $sql;
@@ -328,12 +332,15 @@ class AP_Statistic {
 			}
 
 			$terms = ap_get_term_family( $term_id );
-			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
-													ON term_relationships.object_id={$wpdb->posts}.post_parent";
-			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
-												AND (qameta.votes_up - qameta.votes_down) > 0
-												AND qameta.year = {$year}
-												AND qameta.session = {$session}";
+			$q_ids = ap_get_question_ids( $year, $session, $terms );
+			if ( ! empty( $q_ids ) ) {
+				$ids = implode( ',', $q_ids );
+				$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
+														ON term_relationships.object_id={$wpdb->posts}.post_parent";
+				$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
+													AND (qameta.votes_up - qameta.votes_down) > 0
+													AND {$wpdb->posts}.post_parent IN ($ids)";
+			}
 		}
 
 		return $sql;
@@ -376,12 +383,15 @@ class AP_Statistic {
 			}
 
 			$terms = ap_get_term_family( $term_id );
-			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
-													ON term_relationships.object_id={$wpdb->posts}.post_parent";
-			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
-												AND (qameta.inspection_check = 0)
-												AND qameta.year = {$year}
-												AND qameta.session = {$session}";
+			$q_ids = ap_get_question_ids( $year, $session, $terms );
+			if ( ! empty( $q_ids ) ) {
+				$ids = implode( ',', $q_ids );
+				$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
+														ON term_relationships.object_id={$wpdb->posts}.post_parent";
+				$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
+													AND (qameta.inspection_check = 0)
+													AND {$wpdb->posts}.post_parent IN ($ids)";
+			}
 		}
 
 		return $sql;
@@ -448,7 +458,7 @@ class AP_Statistic {
 			$output .= '<br>';
 
 			if ( $filter != 'term_name' ) {
-				$output .= '추가필터';
+				$output .= '추가필터 : ';
 				switch( $filter ) {
 					case 'did_select_answer' :
 						$output .= '답변채택';
@@ -469,5 +479,30 @@ class AP_Statistic {
 				</p>
 			</div> <?php
 		}
+	}
+
+	public static function sync_yas_with_question( $qameta, $post, $updated ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+		\PC::debug( ['qameta' => $qameta], __FUNCTION__ );
+		
+		if ( $post->post_type == 'question' ) {
+			$year = (int)$qameta['year'];
+			$session = (int)$qameta['session'];
+
+			if ( $updated && isset( $qameta['answers'] ) && (int)$qameta['answers'] > 0 ) {
+				$sql = "UPDATE {$prefix}ap_qameta AS qameta 
+								LEFT JOIN {$prefix}posts AS posts
+								ON qameta.post_id = posts.ID
+								SET `year` = {$year}, `session` = {$session}
+								WHERE qameta.post_id = ";
+			}
+		} else if ( $post->post_type == 'answer' ) {
+			if ( ! $updated ) {
+
+			}
+		}
+
+		return $qameta;
 	}
 }

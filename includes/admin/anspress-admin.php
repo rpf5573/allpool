@@ -92,6 +92,10 @@ class AP_Admin {
 		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_term_filter_result' );
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_yas_filter_result' );
+
+		// Inspection Check hooks.
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
+		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );
