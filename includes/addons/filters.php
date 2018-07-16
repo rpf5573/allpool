@@ -57,26 +57,13 @@ class AP_Filters {
       'label'   => '카테고리',
       'type'    => 'select',
       'desc'    => '',
-      'options' => $filters['category']['choices']
-    );
-
-    // add question meta fields
-    $form['fields'][$filters['year']['name']] = array(
-      'label'    => '년도',
-      'type'     => 'select',
-      'options'  => $filters['year']['choices']
-    );
-    $form['fields'][$filters['session']['name']] = array(
-      'label'    => '회차',
-      'type'     => 'select',
-      'options'  => $filters['session']['choices']
+      'options' => $filters['category']['choices'],
+      'validate' => 'required,not_zero',
     );
 
     // set field orders
     $form['fields']['post_title']['order'] = 1;
     $form['fields']['category']['order'] = 2;
-    $form['fields'][$filters['year']['name']]['order'] = 3;
-    $form['fields'][$filters['session']['name']]['order'] = 4;
     $form['fields']['post_content']['order'] = 5;
 
     // set value
@@ -100,6 +87,39 @@ class AP_Filters {
     // remove tag fields
     if ( isset( $form['fields']['tag'] ) ) {
       unset($form['fields']['tag']);
+    }
+
+    return $form;
+  }
+
+  // Notice! this has been temporarily not used
+  // And If you chose to use this function later, you should use in `form_fields` function.
+  public static function add_meta_form_field( $form ) {
+    // add question meta fields
+    $form['fields'][$filters['year']['name']] = array(
+      'label'    => '년도',
+      'type'     => 'select',
+      'options'  => $filters['year']['choices']
+    );
+    $form['fields'][$filters['session']['name']] = array(
+      'label'    => '회차',
+      'type'     => 'select',
+      'options'  => $filters['session']['choices']
+    );
+
+    $form['fields'][$filters['year']['name']]['order'] = 3;
+    $form['fields'][$filters['session']['name']]['order'] = 4;
+
+    // set value
+    $editing_id = ap_sanitize_unslash( 'id', 'r' );
+    if ( ! empty( $editing_id ) ) {
+      $qameta = ap_get_qameta( $editing_id );
+      if ( $qameta->year > 0 ) {
+        $form['fields'][$filters['year']['name']]['value'] = $qameta->year;
+      }
+      if ( $qameta->session > 0 ) {
+        $form['fields'][$filters['session']['name']]['value'] = $qameta->session;
+      }
     }
 
     return $form;
@@ -156,8 +176,7 @@ class AP_Filters {
 		}
   }
 
-  public static function save_meta( $qameta, $post, $updated ) {
-    // insert question meta at admin
+  public static function save_meta_from_admin( $qameta, $post, $updated ) {
     $acf = ap_isset_post_value( 'acf', false );
     if ( $acf ) {
       if ( isset( $acf['year'] ) ) {
@@ -167,8 +186,10 @@ class AP_Filters {
         $qameta['session'] = (int) $acf['session'];
       }
     }
+    return $qameta;
+  }
 
-    // insert question meta at front
+  public static function save_meta_from_front( $qameta, $post, $updated ) {
     $name_list = ap_opt( 'filter_name_list' );
     $values = anspress()->get_form( 'question' )->get_values();
     if ( isset( $values[$name_list['year']] ) && $values[$name_list['year']]['value'] ) {

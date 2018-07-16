@@ -64,8 +64,11 @@ class AP_Question_Meta_Box {
 				</div>
 				<div class="ap-ansm-content">{{{content}}}</div>
 				<div class="answer-actions">
-					<span><a href="{{{editLink}}}"><?php esc_attr_e( 'Edit', 'anspress-question-answer' ); ?></a></span>
-					<span class="delete vim-d vim-destructive"> | <a href="{{{trashLink}}}"><?php esc_attr_e( 'Trash', 'anspress-question-answer' ); ?></a></span>
+					<span><a href="{{{editLink}}}"><?php esc_attr_e( 'Edit', 'anspress-question-answer' ); ?></a></span> <?php
+					// hide to experts
+					if ( ! ap_is_expert() ) { ?>
+						<span class="delete vim-d vim-destructive"> | <a href="{{{trashLink}}}"><?php esc_attr_e( 'Trash', 'anspress-question-answer' ); ?></a></span> <?php
+					} ?>
 				</div>
 			</div>
 		</script>

@@ -242,11 +242,11 @@ function ap_delete_term_children( &$term_familly, $level ) {
   switch($level) {
     case 4:
       foreach( $term_familly as $term ) { // Level 1
-        if ( !is_empty($term->children) ) {
+        if ( !empty($term->children) ) {
           foreach( $term->children as $term_level_2 ) { // Level 2
-            if ( !is_empty($term_level_2->children) ) {
+            if ( !empty($term_level_2->children) ) {
               foreach( $term_level_2->children as $term_level_3 ) { // Level 3
-                if ( !is_empty($term_level_3->children) ) {
+                if ( !empty($term_level_3->children) ) {
                   $term_level_3->children = false; // Delete Level 4
                 }
               }
@@ -267,11 +267,11 @@ function ap_delete_term_children( &$term_familly, $level ) {
  */
 function ap_check_term_has_grandchild( &$term ) {
   $has_grandchild = true;
-  if ( is_empty($term->children) ) { 
+  if ( empty($term->children) ) { 
     $has_grandchild = false; 
   }
   foreach( $term->children as $child_term ) {
-    if ( is_empty($child_term->children) ) { 
+    if ( empty($child_term->children) ) { 
       $has_grandchild = false;
     }
   }
@@ -286,7 +286,7 @@ function ap_check_term_has_grandchild( &$term ) {
  */
 function ap_check_term_has_child( &$term ) {
   $has_children = true;
-  if ( is_empty($term->children) ) {
+  if ( empty($term->children) ) {
     $has_children = false;
   }
   return $has_children;

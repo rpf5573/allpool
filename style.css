@@ -4556,6 +4556,7 @@ ul li.anspress-page-link {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  vertical-align: middle;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -6342,8 +6343,8 @@ ul.ap-actions {
     padding-left: 10px;
     border-left: solid 1px #ddd; }
   .ap-post-footer .ap-btn {
-    font-size: 11px;
-    height: 24px;
+    font-size: 16px;
+    height: 32px;
     padding: 4px 6px;
     border: none;
     border-right: solid 1px #ddd;

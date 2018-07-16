@@ -76,6 +76,10 @@ class AP_Admin {
 		anspress()->add_action( 'admin_footer', __CLASS__, 'admin_footer' );
 		anspress()->add_filter( 'wp_terms_checklist_args', __CLASS__, 'disable_selected_category_ontop', 100, 1 );
 
+		// additional menu
+		anspress()->add_action( 'ap_admin_menu', 'AP_Category', 'admin_category_menu' );
+		anspress()->add_action( 'ap_admin_menu', 'AP_Analysis_Keyword', 'admin_analysis_keyword_menu' );
+
 		// add setting field
 		anspress()->add_action( 'admin_init', 'AP_Admin_Custom_Settings', 'giveup_copyright' );
 
@@ -96,6 +100,9 @@ class AP_Admin {
 		// Inspection Check hooks.
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
 		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
+
+		// Question Filter
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_admin', 10, 3 );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );

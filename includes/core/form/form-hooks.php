@@ -182,6 +182,8 @@ class AP_Form_Hooks {
 
 		$values = $form->get_values();
 
+		\PC::debug( ['values' => $values], __FUNCTION__ );
+
 		// Store current values in session. // 이거 타이밍이 별로인데;;
 		$form->save_values_session();
 

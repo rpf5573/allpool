@@ -191,10 +191,12 @@ class Validate {
 			$new_value = preg_replace_callback( '/<code.*?>(.*?)<\/code>/imsu', [ __CLASS__, 'code_content' ], $new_value );
 
 			// Remove multiple new lines.
-			$new_value           = preg_replace( '/[\r\n]\s*[\r\n]/', "\n", $new_value );
+			// $new_value           = preg_replace( '/[\r\n]\s*[\r\n]/', "\n", $new_value );
 
 			// Remove single white single space in line.
-			$new_value           = preg_replace( '/&nbsp;/', "\n", $new_value );
+			// $new_value           = preg_replace( '/&nbsp;/', "\n", $new_value );
+
+			\PC::debug( ['value' => $value], __FUNCTION__ );
 
 			return $new_value;
 		}
@@ -629,6 +631,8 @@ class Validate {
 		$value      = $field->value();
 		$have_error = false;
 		$is_numeric = wp_is_numeric_array( $value );
+
+		
 
 		if ( true === $args['multiple'] && $is_numeric ) {
 			foreach ( $value as $key => $file ) {

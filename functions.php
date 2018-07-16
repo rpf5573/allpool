@@ -27,6 +27,8 @@ ap_append_table_names(); // we should call this
 function ap_opt( $key = false, $value = null ) {
 	$settings = wp_cache_get( 'anspress_opt', 'ap' );
 
+	
+
 	if ( false === $settings ) {
 		$settings = get_option( 'anspress_opt' );
 
@@ -148,6 +150,15 @@ function ap_main_pages() {
 	 * @since 4.1.5
 	 */
 	return apply_filters( 'ap_main_pages', $pages );
+}
+
+function ap_has_base_page() {
+	$base_page = ap_opt( 'base_page' );
+	\PC::debug( ['base_page' => $base_page], __FUNCTION__ );
+	if ( $base_page ) {
+		return true;
+	}
+	return false;
 }
 
 /**

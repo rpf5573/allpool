@@ -18,15 +18,10 @@ if ( ! defined( 'WPINC' ) ) {
 	<?php do_action( 'ap_before_admin_page_title' ); ?>
 
 	<h2><?php esc_attr_e( 'Select a question for new answer', 'anspress-question-answer' ); ?></h2>
-	<p><?php esc_attr_e( 'Slowly type for question suggestion and then click select button right to question title.', 'anspress-question-answer' ); ?></p>
 
 	<?php do_action( 'ap_after_admin_page_title' ); ?>
 
 	<div class="ap-admin-container">
-		<form class="question-selection">
-			<input type="text" name="question_id" class="ap-select-question" id="select-question-for-answer" />
-			<input type="hidden" name="is_admin" value="true" />
-		</form>
 		<div id="similar_suggestions">
 			<?php
 				$questions = new Question_Query(
@@ -34,8 +29,6 @@ if ( ! defined( 'WPINC' ) ) {
 						'post_status' => [ 'publish' ],
 					)
         );
-        
-         
 			?>
 			<?php if ( $questions->have_questions() ) : ?>
 				<h3><?php esc_attr_e( 'Recently active questions', 'anspress-question-answer' ); ?></h3>

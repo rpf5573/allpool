@@ -11,8 +11,8 @@ class AP_Hooks {
     anspress()->add_action( 'untrash_post', __CLASS__, 'untrash_posts' );
     anspress()->add_action( 'wp_loaded', __CLASS__, 'flush_rules' );
     anspress()->add_action( 'save_post', __CLASS__, 'base_page_update', 10, 2 );
-    // anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
-		// anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
+    anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
+		anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
 		
 		// Register acf fields
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_filter' );
@@ -67,7 +67,7 @@ class AP_Hooks {
     anspress()->add_action( 'ap_qa_sql', 'AP_Filters', 'meta_filter', 12, 1 );
     anspress()->add_action( 'ap_processed_new_question', 'AP_Filters', 'save_category', 0, 2 );
     anspress()->add_action( 'ap_processed_update_question', 'AP_Filters', 'save_category', 0, 2 );
-    anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta', 10, 3 );
+    // anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_front', 10, 3 );
 
     // Form hooks
     anspress()->add_action( 'ap_form_question', 'AP_Form_Hooks', 'question_form', 11 );
@@ -130,10 +130,6 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
 
-		// sync year and session of answer with question
-		// anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Statistic', 'sync_yas_with_question', 100, 3 );
-		// anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Statistic', 'sync_yas_with_question', 100, 3 );
-
 
     // Ajax hooks
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -143,8 +139,6 @@ class AP_Hooks {
     /*  Admin
     /* --------------------------------------------------- */
     if ( is_admin() ) {
-			anspress()->add_action( 'ap_admin_menu', 'AP_Category', 'admin_category_menu' );
-			anspress()->add_action( 'ap_admin_menu', 'AP_Analysis_Keyword', 'admin_analysis_keyword_menu' );
       AP_Admin::init();
       AP_Post_Table_Hooks::init();
       // Ajax hooks
