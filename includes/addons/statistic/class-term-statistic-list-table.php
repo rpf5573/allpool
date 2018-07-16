@@ -137,7 +137,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 		unset( $columns['year'] );
 		unset( $columns['session'] );
 
-		return $columns;
+		return array();
 	}
 
 	/**

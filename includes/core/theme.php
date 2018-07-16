@@ -421,7 +421,7 @@ class AP_Theme {
 
 	public static function question_choices_answer() {
 		$group = get_field( 'question_choices_answer' );
-		\PC::debug( ['group' => $group], __FUNCTION__ );
+		
 		if ( isset( $group['choices'] ) && $group['choices'] ) { ?>
 			<div class="question-choices"> 
 				<h2> 보기 </h2><?php 

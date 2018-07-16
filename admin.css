@@ -4830,12 +4830,14 @@ span.recount-msg {
     background: 0 0; }
   .list-table-form .ap-list-table th {
     background-color: white;
-    text-align: center; }
+    text-align: center;
+    min-width: 10%;
+    word-break: keep-all;
+    word-wrap: normal; }
+    .list-table-form .ap-list-table th#answers {
+      width: 10%; }
     .list-table-form .ap-list-table th.column-primary {
-      width: 20%; }
-    .list-table-form .ap-list-table th a {
-      word-wrap: normal;
-      word-break: keep-all; }
+      width: 18%; }
   .list-table-form .ap-list-table td {
     text-align: center;
     vertical-align: middle; }

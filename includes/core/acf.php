@@ -183,21 +183,22 @@ class AP_ACF {
           array(
             'param' => 'user_role',
             'operator' => '==',
-            'value' => 'administrator',
+            'value' => 'ap_expert',
           ),
-        ),
-        array(
           array(
             'param' => 'user_form',
             'operator' => '==',
             'value' => 'edit',
           ),
-        ),
-        array(
           array(
             'param' => 'current_user_role',
             'operator' => '==',
-            'value' => 'ap_expert',
+            'value' => 'administrator',
+          ),
+          array(
+            'param' => 'current_user',
+            'operator' => '==',
+            'value' => 'viewing_back',
           ),
         ),
       ),

@@ -268,6 +268,7 @@ function ap_count_published_answers( $question_id ) {
 	}
 
 	$count = $wpdb->get_var( $query );
+
 	wp_cache_set( $key, $count, 'ap_count' );
 	return $count;
 }

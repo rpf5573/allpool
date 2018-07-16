@@ -289,7 +289,7 @@ class AP_Statistic {
 												AND qameta.year = {$year}
 												AND qameta.session = {$session}";
 
-			\PC::debug( ['sql' => $sql], __FUNCTION__ );
+			
 		}
 
 		return $sql;
@@ -484,7 +484,7 @@ class AP_Statistic {
 	public static function sync_yas_with_question( $qameta, $post, $updated ) {
 		global $wpdb;
 		$prefix = $wpdb->prefix;
-		\PC::debug( ['qameta' => $qameta], __FUNCTION__ );
+		
 		
 		if ( $post->post_type == 'question' ) {
 			$year = (int)$qameta['year'];

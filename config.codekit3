@@ -48,6 +48,13 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/alpool_dumydata_maker\/data.csv": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/alpool_dumydata_maker\/data.csv",
+		"oF": 0
+		},
 	"\/alpool_dumydata_maker\/maker.py": {
 		"cB": 0,
 		"ft": 8192,
@@ -2145,6 +2152,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/header.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/analysis-keyword.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/analysis-keyword.php",
 		"oF": 0
 		},
 	"\/includes\/addons\/avatar\/avatar.php": {

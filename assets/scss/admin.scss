@@ -1557,12 +1557,14 @@ span.recount-msg {
     th {
       background-color: white;
       text-align: center;
-      &.column-primary {
-        width: 20%;
+      min-width: 10%;
+      word-break: keep-all;
+      word-wrap: normal;
+      &#answers {
+        width: 10%;
       }
-      a {
-        word-wrap: normal;
-        word-break: keep-all;
+      &.column-primary {
+        width: 18%;
       }
     }
     td {

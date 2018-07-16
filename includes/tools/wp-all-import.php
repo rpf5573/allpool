@@ -3,7 +3,7 @@ include "rapid-addon.php";
 
 $ap_addon = new RapidAddon('Alpool Addon', 'ap_addon');
 
-$GLOBALS['meta_fields'] = array( "answers" ,"votes_up", "votes_down", "year", "session", "inspection_check", "views", "roles" );
+$GLOBALS['meta_fields'] = array( "answers", "selected", "votes_up", "votes_down", "year", "session", "inspection_check", "views", "roles" );
 foreach( $GLOBALS['meta_fields'] as $field ) {
   $ap_addon->add_field( $field, strtoupper( $field ), 'text' );
 }
@@ -14,8 +14,7 @@ function ap_addon_import_function( $question_id, $data, $import_options, $articl
 
   ap_insert_qameta( $question_id, $data );
 
-
-  for( $i = 0; $i < $data['answers']; $i++ ) {
+  for( $i = 0; $i < (int)$data['answers']; $i++ ) {
     $users = array( 13, 11, 10, 12 );
     $answer_args = array(
       'post_author'    => $users[rand(0, count($users) - 1)],
@@ -26,8 +25,14 @@ function ap_addon_import_function( $question_id, $data, $import_options, $articl
       'post_title'     => $question_id,
       'post_type'      => 'answer'
     );
+    $qameta = array(
+      'last_updated' => current_time( 'mysql' ),
+      'votes_up'  => rand(0, 20),
+      'votes_down'  => rand(0, 10),
+      'inspection_check' => rand(0, 1)
+		);
     $answer_id = wp_insert_post( $answer_args, false );
-    ap_insert_qameta( $answer_id );
+    ap_insert_qameta( $answer_id, $qameta );
   }
 }
 

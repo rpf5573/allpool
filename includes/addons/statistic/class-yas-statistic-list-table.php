@@ -81,9 +81,8 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 		unset( $columns['term_name'] );
 		unset( $columns['year'] );
 		unset( $columns['session'] );
-		return $columns;
 
-		return $columns;
+		return array();
 	}
 
 	public function display_rows_or_placeholder() {

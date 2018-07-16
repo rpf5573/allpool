@@ -11,8 +11,8 @@ class AP_Hooks {
     anspress()->add_action( 'untrash_post', __CLASS__, 'untrash_posts' );
     anspress()->add_action( 'wp_loaded', __CLASS__, 'flush_rules' );
     anspress()->add_action( 'save_post', __CLASS__, 'base_page_update', 10, 2 );
-    anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
-		anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
+    // anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
+		// anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
 		
 		// Register acf fields
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_filter' );
@@ -31,7 +31,8 @@ class AP_Hooks {
     // Register custom post types & custom taxonomy
     anspress()->add_action( 'init', 'AP_PostTypes', 'register_question_cpt', 0 );
     anspress()->add_action( 'init', 'AP_PostTypes', 'register_answer_cpt', 0 );
-    anspress()->add_action( 'init', 'AP_Category', 'register_question_taxonomy', 0 );
+		anspress()->add_action( 'init', 'AP_Category', 'register_question_taxonomy', 0 );
+		anspress()->add_action( 'init', 'AP_Analysis_Keyword', 'register_question_analysis_keyword_taxonomy', 0 );
 
     // Register shortcode
     anspress()->add_action( 'init', 'AP_Theme', 'add_shortcode' );
@@ -142,7 +143,8 @@ class AP_Hooks {
     /*  Admin
     /* --------------------------------------------------- */
     if ( is_admin() ) {
-      anspress()->add_action( 'ap_admin_menu', 'AP_Category', 'admin_category_menu' );
+			anspress()->add_action( 'ap_admin_menu', 'AP_Category', 'admin_category_menu' );
+			anspress()->add_action( 'ap_admin_menu', 'AP_Analysis_Keyword', 'admin_analysis_keyword_menu' );
       AP_Admin::init();
       AP_Post_Table_Hooks::init();
       // Ajax hooks
