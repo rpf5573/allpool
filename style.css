@@ -6633,7 +6633,9 @@ ul.ap-actions {
     #ap-responsive .question-list-item__summery {
       margin-left: 0; }
     #ap-responsive .question-list-item__list-counts {
-      display: none; } }
+      display: none; }
+    #ap-responsive #wrs_modal_iframe_id #container {
+      width: 100%; } }
   @media (max-width: 35.99em) {
     #ap-responsive .front-page .q-icon img,
     #ap-responsive .front-page .a-icon img {

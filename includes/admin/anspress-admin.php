@@ -78,6 +78,7 @@ class AP_Admin {
 
 		// additional menu
 		anspress()->add_action( 'ap_admin_menu', 'AP_Category', 'admin_category_menu' );
+		anspress()->add_action( 'ap_admin_menu', 'AP_Tag', 'admin_tag_menu' );
 		anspress()->add_action( 'ap_admin_menu', 'AP_Analysis_Keyword', 'admin_analysis_keyword_menu' );
 
 		// add setting field
@@ -96,6 +97,7 @@ class AP_Admin {
 		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_term_filter_result' );
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_yas_filter_result' );
+		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_tag_filter_result' );
 
 		// Inspection Check hooks.
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );

@@ -2224,6 +2224,13 @@
 		"oAP": "\/includes\/addons\/statistic\/class-ap-list-table.php",
 		"oF": 0
 		},
+	"\/includes\/addons\/statistic\/class-tag-statistic-list-table.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/statistic\/class-tag-statistic-list-table.php",
+		"oF": 0
+		},
 	"\/includes\/addons\/statistic\/class-term-statistic-list-table.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2243,6 +2250,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/addons\/statistic\/statistic.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/tag.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/tag.php",
 		"oF": 0
 		},
 	"\/includes\/addons\/views.php": {

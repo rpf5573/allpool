@@ -2,6 +2,7 @@
 
 require_once 'class-term-statistic-list-table.php';
 require_once 'class-yas-statistic-list-table.php';
+require_once 'class-tag-statistic-list-table.php';
 
 class AP_Statistic {
 
@@ -21,7 +22,15 @@ class AP_Statistic {
 
   public static function add_statistic_submenu() {
 		//add_submenu_page( 'anspress', __( 'Questions Category', 'anspress-question-answer' ), __( 'Category', 'anspress-question-answer' ), 'manage_options', 'edit-tags.php?taxonomy=question_category' );
-    add_submenu_page( 'anspress', __( 'Statistic', 'anspress-question-answer' ), __( 'Statistic', 'anspress-question-answer' ), 'delete_pages', 'ap_statistic', array( __CLASS__, 'display_term_statistic_page' ) );
+    add_submenu_page( 'anspress', __( 'Statistic', 'anspress-question-answer' ), __( 'Statistic', 'anspress-question-answer' ), 'delete_pages', 'ap_statistic', array( __CLASS__, 'statistic_page' ) );
+	}
+
+	public static function statistic_page() { ?>
+		<div class="statistic-group-table-container"> <?php
+			// group for term and yas( yas will be added by js )
+			self::display_term_statistic_table(); ?>
+		</div> <?php
+		self::display_tag_statistic_table();
 	}
 	
   /**
@@ -30,12 +39,12 @@ class AP_Statistic {
 	 * @return void
 	 * @since 2.0.0
 	 */
-	public static function display_term_statistic_page() {
+	public static function display_term_statistic_table() {
 		//Create an instance of our package class...
     $statistic_list_table = new AP_Term_Statistic_List_Table();
     //Fetch, prepare, sort, and filter our data...
 		$statistic_list_table->prepare_items();	?>
-    <div class="statistic-table-container">
+    <div class="statistic-table-container --term">
 			<div class="statistic-title">
 				<h1> 카테고리별 통계 </h1>
 				<i class="fas fa-4x fa-angle-double-right go-to-yas"></i>
@@ -53,12 +62,12 @@ class AP_Statistic {
 		<?php
 	}
 
-	public static function display_yas_statistic_page( $args ) {	
+	public static function display_yas_statistic_table( $args ) {	
 		//Create an instance of our package class...
     $statistic_list_table = new AP_YaS_Statistic_List_Table( $args );
     //Fetch, prepare, sort, and filter our data...
 		$statistic_list_table->prepare_items(); ?>
-    <div class="statistic-table-container">
+    <div class="statistic-table-container --yas">
 			<div class="statistic-title">
 				<i class="fas fa-4x fa-angle-double-left back-to-terms"></i>
 				<h1> <span class="term_name"> <?php echo $args['term_name']; ?></span> - 년도/회차별 통계 페이지 </h1>
@@ -72,6 +81,28 @@ class AP_Statistic {
 				</div>
 			</form>
 		</div> <?php
+	}
+
+	public static function display_tag_statistic_table() {
+		//Create an instance of our package class...
+    $statistic_list_table = new AP_Tag_Statistic_List_Table();
+    //Fetch, prepare, sort, and filter our data...
+		$statistic_list_table->prepare_items();	?>
+    <div class="statistic-table-container --tag">
+			<div class="statistic-title">
+				<h1> 태그별 통계 </h1>
+			</div>
+			<!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
+			<form class="list-table-form terms" method="get">
+				<!-- For plugins, we also need to ensure that the form posts back to our current page -->
+				<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+				<!-- Now we can render the completed list table -->
+				<div class="wrapper">
+				<?php $statistic_list_table->display(); ?>
+				</div>
+			</form>
+    </div>
+		<?php
 	}
 
 	/*  Term Filters
@@ -396,6 +427,132 @@ class AP_Statistic {
 
 		return $sql;
 	}
+
+	/*  Tag filter
+	/* --------------------------------------------------- */
+	public static function tag_filter_question( $sql, $instance ) {
+		$filter = ap_isset_post_value( 'tag_filter' );
+		if ( $filter == 'tag_name' ) {
+			$tag_id = ap_isset_post_value( 'tag_id' );
+			global $pagenow, $wpdb;
+			$vars = $instance->query_vars;
+			if ( isset( $vars['post_type'] ) && $vars['post_type'] != 'question' ) {
+				return $sql;
+			}
+			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
+													ON term_relationships.object_id={$wpdb->posts}.ID";
+			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id = {$tag_id} ) ";
+		}
+
+		return $sql;
+	}
+
+	public static function tag_filter_answer( $sql, $instance ) {
+		$filter = ap_isset_post_value( 'tag_filter' );
+		if ( $filter == 'tag_name' ) {
+			$tag_id = ap_isset_post_value( 'tag_id' );
+			global $pagenow, $wpdb;
+			$vars = $instance->query_vars;
+			if ( isset( $vars['post_type'] ) && $vars['post_type'] != 'answer' ) {
+				return $sql;
+			}
+			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
+													ON term_relationships.object_id={$wpdb->posts}.ID";
+			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id = {$tag_id} ) ";
+		}
+
+		return $sql;
+	}
+
+	/*  Users
+	/* --------------------------------------------------- */
+	public static function add_user_columns( $column ) {
+		$column['questions'] = 'Questions';
+		$column['answers'] = 'Answers';
+		if ( isset( $column['posts'] ) ) {
+			unset( $column['posts'] );
+		}
+		return $column;
+	}
+	public static function user_column( $val, $column_name, $user_id ) {
+		switch( $column_name ) {
+			case 'questions' :
+				$val = self::user_questions_column( $user_id );
+
+			case 'answers' :
+				$val = self::user_answers_column( $user_id );
+		}
+		
+		return $val;
+	}
+	public static function user_questions_column( $user_id ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+		$type = 'question';
+		$sql = self::user_get_sql( $type, $user_id );
+		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			return self::user_get_link( $type, $user_id, $count );
+		}
+
+		return $count;
+	}
+	public static function user_answers_column( $user_id ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+		$type = 'answer';
+		$sql = self::user_get_sql( $type, $user_id );
+		$count = $wpdb->get_var( $sql );
+		if ( $count > 0 ) {
+			return self::user_get_link( $type, $user_id, $count );
+		}
+
+		return $count;
+	}
+	public static function user_get_sql( $type, $user_id ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+		$sql = " SELECT COUNT(*) 
+						FROM {$prefix}posts as posts
+						WHERE posts.post_author = {$user_id}
+						AND posts.post_type = '$type'
+						AND posts.post_status = 'publish' ";
+
+		return $sql;
+	}
+	public static function user_get_link( $type, $user_id, $count ) {
+		$url = esc_url( admin_url( "edit.php?post_type={$type}&user_filter=user_id&user_id={$user_id}" ) );
+		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+		return $link;
+	}
+	public static function user_filter_question( $sql, $instance ) {
+		$filter = ap_isset_post_value( 'user_filter' );
+		if ( $filter == 'user_id' ) {
+			$user_id = ap_isset_post_value( 'user_id' );
+			global $pagenow, $wpdb;
+			$vars = $instance->query_vars;
+			if ( isset( $vars['post_type'] ) && $vars['post_type'] != 'question' ) {
+				return $sql;
+			}
+			$sql['where'] .= " AND {$wpdb->posts}.post_author = {$user_id} ";
+		}
+
+		return $sql;
+	}
+	public static function user_filter_answer( $sql, $instance ) {
+		$filter = ap_isset_post_value( 'user_filter' );
+		if ( $filter == 'user_id' ) {
+			$user_id = ap_isset_post_value( 'user_id' );
+			global $pagenow, $wpdb;
+			$vars = $instance->query_vars;
+			if ( isset( $vars['post_type'] ) && $vars['post_type'] != 'answer' ) {
+				return $sql;
+			}
+			$sql['where'] .= " AND {$wpdb->posts}.post_author = {$user_id} ";
+		}
+
+		return $sql;
+	}
 	
 	/*  Uncategorized
 	/* --------------------------------------------------- */
@@ -472,6 +629,24 @@ class AP_Statistic {
 						$output .= '검수미완료';
 						break;
 				} 
+			} ?>
+			<div class="notice notice-warning">
+				<p> <?php
+					echo $output; ?>
+				</p>
+			</div> <?php
+		}
+	}
+
+	public static function show_statistic_tag_filter_result() {
+		global $pagenow;
+		$filter = ap_isset_post_value( 'tag_filter' );
+		if ( ( $filter ) && $pagenow == 'edit.php' ) { 
+			$output = '';
+			$tag_name = ap_isset_post_value( 'tag_name' );
+
+			if ( $tag_name ) {
+				$output .= ('태그 : ' . $tag_name);
 			} ?>
 			<div class="notice notice-warning">
 				<p> <?php

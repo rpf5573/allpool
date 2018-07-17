@@ -217,6 +217,7 @@ class AnsPress {
     require_once ANSPRESS_DIR . 'includes/addons/avatar/avatar.php';
 		require_once ANSPRESS_DIR . 'includes/addons/reputation/reputation.php';
 		require_once ANSPRESS_DIR . 'includes/addons/category.php';
+		require_once ANSPRESS_DIR . 'includes/addons/tag.php';
 		require_once ANSPRESS_DIR . 'includes/addons/filters.php';
 		require_once ANSPRESS_DIR . 'includes/addons/votes.php';
 		require_once ANSPRESS_DIR . 'includes/addons/views.php';

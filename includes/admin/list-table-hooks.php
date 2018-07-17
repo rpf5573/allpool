@@ -51,6 +51,16 @@ class AP_Post_Table_Hooks {
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question_with_inspection_check', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer_with_inspection_check', 100, 2 );
 
+		// statistic - tag
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'tag_filter_question', 100, 2 );
+		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'tag_filter_answer', 100, 2 );
+
+		// statistic - user page
+		anspress()->add_filter( 'manage_users_columns', 'AP_Statistic', 'add_user_columns' );
+		anspress()->add_filter( 'manage_users_custom_column', 'AP_Statistic', 'user_column', 999, 3 );
+		anspress()->add_filter( 'posts_clauses', 'AP_Statistic', 'user_filter_question', 100, 2 );
+		anspress()->add_filter( 'posts_clauses', 'AP_Statistic', 'user_filter_answer', 100, 2 );
+
 	}
 
 	/**
@@ -384,4 +394,5 @@ class AP_Post_Table_Hooks {
 			'value_field'     => 'slug',
 		) );
 	}
+	
 }

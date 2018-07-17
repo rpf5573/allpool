@@ -1608,6 +1608,12 @@ span.recount-msg {
   overflow-x: scroll;
 }
 
+.statistic-group-table-container {
+  overflow-x: scroll;
+  display: flex;
+  margin-bottom: 40px;
+}
+
 .statistic-title {
   display: flex;
   justify-content: space-between;
@@ -1628,6 +1634,14 @@ span.recount-msg {
     &:hover {
       transform: scale(1.1, 1.1);
     }
+  }
+}
+
+.statistic-table-container.--tag {
+  width: 40%;
+  min-width: 300px;
+  .list-table-form .ap-list-table th#answers {
+    width: 30%;
   }
 }
 .anspress_page_ap_statistic {

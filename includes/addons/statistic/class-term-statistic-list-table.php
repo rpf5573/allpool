@@ -20,8 +20,6 @@ if(!class_exists('AP_List_Table')){
   require_once( 'class-ap-list-table.php' );
 }
 
-
-
 class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 	private $prefix = 'wp_';

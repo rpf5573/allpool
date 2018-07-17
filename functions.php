@@ -154,7 +154,7 @@ function ap_main_pages() {
 
 function ap_has_base_page() {
 	$base_page = ap_opt( 'base_page' );
-	\PC::debug( ['base_page' => $base_page], __FUNCTION__ );
+	
 	if ( $base_page ) {
 		return true;
 	}

@@ -1146,18 +1146,17 @@ APjs.admin = function () {};
 						success: function (response) {
 
 							// remove existing yas table first
-							var table_container = $('.statistic-table-container');
+							var group_table_container = $('.statistic-group-table-container');
+							var table_container = group_table_container.children( '.statistic-table-container' );
 							if ( table_container.length == 2 ) {
 								$(table_container[1]).remove();
 							}
 
 							// append yas table to right
-							var body_content = $('#wpbody-content');
-							body_content.css({
+							group_table_container.css({
 								'width' 	: '200%',
-								'display'	: 'flex',
 							});
-							body_content.append( response );
+							group_table_container.append( response );
 
 							var yas_form = $('.list-table-form.yas');
 
@@ -1178,7 +1177,7 @@ APjs.admin = function () {};
 							setTimeout( function(){
 								loading.out();
 								scrollFromLeft(yas_form.offset().left);
-							}, 2000 );
+							}, 1000 );
 
 							$(".ap-list-table.yas").floatThead({
 								position: 'absolute',

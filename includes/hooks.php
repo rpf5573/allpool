@@ -13,6 +13,7 @@ class AP_Hooks {
     anspress()->add_action( 'save_post', __CLASS__, 'base_page_update', 10, 2 );
     anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
 		anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
+		// anspress()->add_filter( 'tiny_mce_before_init', __CLASS__, 'change_mce_options' );
 		
 		// Register acf fields
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_filter' );
@@ -32,6 +33,7 @@ class AP_Hooks {
     anspress()->add_action( 'init', 'AP_PostTypes', 'register_question_cpt', 0 );
     anspress()->add_action( 'init', 'AP_PostTypes', 'register_answer_cpt', 0 );
 		anspress()->add_action( 'init', 'AP_Category', 'register_question_taxonomy', 0 );
+		anspress()->add_action( 'init', 'AP_Tag', 'register_question_tag', 0 );
 		anspress()->add_action( 'init', 'AP_Analysis_Keyword', 'register_question_analysis_keyword_taxonomy', 0 );
 
     // Register shortcode
@@ -129,7 +131,6 @@ class AP_Hooks {
 		anspress()->add_action( 'the_post', 'AP_Profile', 'filter_page_title' );
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
-
 
     // Ajax hooks
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -561,4 +562,16 @@ class AP_Hooks {
 			$post->post_title = ap_page_title();
 		}
 	}
+
+	public static function change_mce_options($init){
+    $init["forced_root_block"] = false;
+    $init["force_br_newlines"] = true;
+    $init["force_p_newlines"] = false;
+		$init["convert_newlines_to_brs"] = true;
+		
+		\PC::debug( ['init' => $init], __FUNCTION__ );
+
+    return $init;
+	}
+
 }

@@ -196,7 +196,7 @@ class Validate {
 			// Remove single white single space in line.
 			// $new_value           = preg_replace( '/&nbsp;/', "\n", $new_value );
 
-			\PC::debug( ['value' => $value], __FUNCTION__ );
+			
 
 			return $new_value;
 		}

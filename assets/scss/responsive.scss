@@ -173,6 +173,10 @@
         display: none;
       }
     }
+
+    #wrs_modal_iframe_id #container {
+      width: 100%;
+    }
   }
   
   /*  Small
@@ -385,5 +389,5 @@
       }
     }
   }
-  
+
 }

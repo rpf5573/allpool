@@ -228,7 +228,7 @@ class AP_Admin_Ajax {
 					'screen'		=> 'ap_statistic',
 					'term_name' => ap_isset_post_value( 'term_name' )
 				);
-				AP_Statistic::display_yas_statistic_page( $args );
+				AP_Statistic::display_yas_statistic_table( $args );
 			}
 		}
 
