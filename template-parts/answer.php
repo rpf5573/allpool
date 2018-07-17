@@ -34,11 +34,6 @@ if ( ap_user_can_read_answer() ) :
 								?>
 						</time>
 					</a>
-					<span class="ap-comments-count">
-						<?php $comment_count = get_comments_number(); ?>
-						<span itemprop="commentCount"><?php echo (int) $comment_count; ?></span>
-						<?php printf( _n( 'Comment', 'Comments', $comment_count, 'anspress-question-answer' ) ); ?>
-					</span>
 				</div>
 
 				<div class="ap-q-inner">

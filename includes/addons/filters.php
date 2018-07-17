@@ -74,14 +74,6 @@ class AP_Filters {
 			if ( $categories ) {
 				$form['fields']['category']['value'] = $categories[0]->term_id;
 			}
-
-      $qameta = ap_get_qameta( $editing_id );
-      if ( $qameta->year > 0 ) {
-        $form['fields'][$filters['year']['name']]['value'] = $qameta->year;
-      }
-      if ( $qameta->session > 0 ) {
-        $form['fields'][$filters['session']['name']]['value'] = $qameta->session;
-      }
     }
 
     // remove tag fields

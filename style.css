@@ -4556,10 +4556,12 @@ ul li.anspress-page-link {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  vertical-align: middle;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.ap-actions-handle:before {
+  vertical-align: middle; }
 
 .apicon-bell-slash:before {
   content: ""; }
