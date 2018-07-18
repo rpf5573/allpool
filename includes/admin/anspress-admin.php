@@ -340,7 +340,7 @@ class AP_Admin {
 	public static function change_post_menu_label() {
 		global $menu;
 		global $submenu;
-		$submenu['anspress'][0][0] = 'AnsPress';
+		$submenu['anspress'][0][0] = '데쉬보드';
 	}
 
 	/**
@@ -437,7 +437,7 @@ class AP_Admin {
 	 * @since unknown
 	 */
 	public static function ap_menu_metaboxes() {
-		add_meta_box( 'anspress-menu-mb', 'AnsPress', [ __CLASS__, 'render_menu' ], 'nav-menus', 'side', 'high' );
+		add_meta_box( 'anspress-menu-mb', '알풀', [ __CLASS__, 'render_menu' ], 'nav-menus', 'side', 'high' );
 	}
 
 	/**

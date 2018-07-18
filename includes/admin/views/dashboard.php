@@ -199,7 +199,7 @@ if ( $columns ) {
 ?>
 
 <div id="anspress-metaboxes" class="wrap">
-	<h1>AnsPress</h1>
+	<h1>알풀 데쉬보드</h1>
 	<div class="welcome-panel" id="welcome-panel">
 		<div class="welcome-panel-content">
 			<h2><?php _e( 'Welcome to AnsPress!', 'anspress-question-answer' ); ?></h2>

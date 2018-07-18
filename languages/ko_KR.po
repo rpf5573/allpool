@@ -1,0 +1,2040 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-07-18 15:23+0900\n"
+"PO-Revision-Date: 2018-07-18 15:34+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.9\n"
+"X-Poedit-Basepath: ../../../Applications/MAMP/htdocs/site/wp-content/themes/"
+"alpool_v2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: functions.php:120
+msgid "Archives page"
+msgstr "질문 리스트 페이지"
+
+#: functions.php:121
+msgid ""
+"Page used to display question archive (list). Sometimes this page is used "
+"for displaying other subpages of AnsPress.<br/>This page is also referred as "
+"<b>Base Page</b> in AnsPress documentations and support forum."
+msgstr "질문 리스트를 확인하는 페이지 입니다."
+
+#: functions.php:122 includes/addons/profile.php:48
+#: includes/addons/profile.php:121 includes/admin/views/dashboard.php:26
+#: includes/core/post-types.php:53
+msgid "Questions"
+msgstr "질문들"
+
+#: functions.php:126
+msgid "Ask page"
+msgstr "질문 올리는 페이지"
+
+#: functions.php:127
+msgid "Page used to display ask form."
+msgstr "질문을 올리는 페이지 입니다."
+
+#: functions.php:128
+msgid "Ask a question"
+msgstr "질문하기"
+
+#: functions.php:132
+msgid "User page"
+msgstr "유저 페이지"
+
+#: functions.php:133
+msgid "Page used to display user profile."
+msgstr "유저의 마이페이지 입니다."
+
+#: functions.php:134
+msgid "Profile"
+msgstr "프로필"
+
+#: functions.php:138
+msgid "Categories page"
+msgstr "카테고리 페이지"
+
+#: functions.php:139
+msgid ""
+"Page used to display question categories. NOTE: Categories addon must be "
+"enabled to render this page."
+msgstr "질문 카테고리를 보여주는데 사용되는 페이지입니다."
+
+#: functions.php:140 includes/addons/category.php:6
+#: includes/addons/category.php:128 includes/core/common-pages.php:26
+msgid "Categories"
+msgstr "카테고리"
+
+#: functions.php:744
+msgid "[Solved] "
+msgstr "[해결] "
+
+#: functions.php:823 includes/admin/list-table-hooks.php:267
+#: includes/admin/list-table-hooks.php:341
+#: includes/admin/views/select_question.php:46 includes/core/ajax-hooks.php:145
+#, php-format
+msgid "%d Answer"
+msgid_plural "%d Answers"
+msgstr[0] "%d 개의 답변"
+
+#: functions.php:832
+msgid "Answer submitted successfully"
+msgstr "답변 완료"
+
+#: functions.php:1032
+msgid "You cannot edit this question."
+msgstr "당신은 이 질문을 수정할 수 없습니다."
+
+#: functions.php:1037 template-parts/ask.php:17
+msgid "You do not have permission to ask a question."
+msgstr "당신은 질문을 올릴 수 있는 권한이 없습니다."
+
+#: functions.php:1059 includes/core/form/form-hooks.php:95
+msgid "Update Question"
+msgstr "질문을 새로 업데이트 합니다"
+
+#: functions.php:1092
+msgid "Success"
+msgstr "성공"
+
+#: functions.php:1097
+msgid "Something went wrong, last action failed."
+msgstr "알수없는 에러가 발생했습니다."
+
+#: functions.php:1102
+msgid "Comment updated successfully."
+msgstr "댓글이 성공적으로 업데이트 되었습니다."
+
+#: functions.php:1106
+msgid "You cannot vote on your own question or answer."
+msgstr "자신의 답변에는 좋아요를 누를 수 없습니다."
+
+#: functions.php:1110
+msgid "You do not have permission to view private posts."
+msgstr "개인 포스트를 볼 권한이 없습니다."
+
+#: functions.php:1114
+msgid "Please check captcha field and resubmit it again."
+msgstr "Captcha 필드를 체크하고 다시 생성해주세요."
+
+#: functions.php:1118
+msgid "Image uploaded successfully"
+msgstr "이미지가 성공적으로 업로드되었습니다"
+
+#: functions.php:1122
+msgid "Answer has been deleted permanently"
+msgstr "답변이 영구적으로 삭제되었습니다"
+
+#: functions.php:1126
+msgid "You have already attached maximum numbers of allowed uploads."
+msgstr "더이상 이미지를 업로드 할 수 없습니다."
+
+#: functions.php:1130
+msgid "Your profile has been updated successfully."
+msgstr "당신의 프로필이 성공적으로 업데이트되었습니다."
+
+#: functions.php:1134
+msgid "Voting down is disabled."
+msgstr "싫어요 기능은 허용되지 않습니다."
+
+#: functions.php:1138
+msgid "You cannot vote on restricted posts"
+msgstr "제한된 포스트에 투표할 수 없습니다"
+
+#: functions.php:1241
+#, php-format
+msgid "%s ago"
+msgstr "%s 전"
+
+#: functions.php:1288
+msgid "You cannot edit this answer."
+msgstr "당신은 이 답변을 수정할 수 없습니다."
+
+#: functions.php:1293
+msgid "You do not have permission to answer this question."
+msgstr "당신은 이 질문에 답변을 달 권한이 없습니다."
+
+#: functions.php:1319 includes/core/form/form-hooks.php:150
+msgid "Update Answer"
+msgstr "답변을 업데이트 해주세요"
+
+#: functions.php:1397
+msgid "asked"
+msgstr "질문됨"
+
+#: functions.php:1398 functions.php:1399
+msgid "approved"
+msgstr "승인됨"
+
+#: functions.php:1400
+msgid "answered"
+msgstr "답변됨"
+
+#: functions.php:1401
+msgid "deleted answer"
+msgstr "답변이 삭제됨"
+
+#: functions.php:1402
+msgid "restored question"
+msgstr "질문 복원"
+
+#: functions.php:1403
+msgid "restored answer"
+msgstr "답변 복원"
+
+#: functions.php:1404 includes/core/theme.php:69
+msgid "commented"
+msgstr "댓글 달음"
+
+#: functions.php:1405
+msgid "deleted comment"
+msgstr "댓글 지움"
+
+#: functions.php:1406
+msgid "commented on answer"
+msgstr "답변에 코멘트를 담"
+
+#: functions.php:1407
+msgid "edited question"
+msgstr "질문이 수정됨"
+
+#: functions.php:1408
+msgid "edited answer"
+msgstr "답변이 수정됨"
+
+#: functions.php:1409
+msgid "edited comment"
+msgstr "코멘트가 수정됨"
+
+#: functions.php:1410
+msgid "edited comment on answer"
+msgstr "답변의 코멘트가 수정됨"
+
+#: functions.php:1411
+msgid "selected answer"
+msgstr "베스트 답변으로 선택"
+
+#: functions.php:1412
+msgid "unselected answer"
+msgstr "베스트 답변 선택 취소"
+
+#: functions.php:1413
+msgid "updated status"
+msgstr "상태가 수정됨"
+
+#: functions.php:1414
+msgid "selected as best answer"
+msgstr "베스트 답변으로 선택됨"
+
+#: functions.php:1415
+msgid "unselected as best answer"
+msgstr "베스트 답변 선택 최소"
+
+#: functions.php:1416
+msgid "changed status"
+msgstr "상태가 변화됨"
+
+#: includes/addons/analysis-keyword.php:13
+msgid "Question Analysis Keyword"
+msgstr "문제 분석용 키워드"
+
+#: includes/addons/analysis-keyword.php:14
+msgid "Analysis"
+msgstr "분석"
+
+#: includes/addons/analysis-keyword.php:15
+msgid "All analysis Keywords"
+msgstr "모든 키워드"
+
+#: includes/addons/analysis-keyword.php:16
+msgid "Add New Analysis Keyword"
+msgstr "새로운 키워드 추가"
+
+#: includes/addons/analysis-keyword.php:17
+msgid "Edit Analysis Keyword"
+msgstr "키워드 수정"
+
+#: includes/addons/analysis-keyword.php:18
+msgid "New Analysis Keyword"
+msgstr "새로운 키워드 추가"
+
+#: includes/addons/analysis-keyword.php:19
+msgid "View Analysis Keyword"
+msgstr "키워드 보기"
+
+#: includes/addons/analysis-keyword.php:20
+msgid "Search Analysis Keywords"
+msgstr "키워드 검색"
+
+#: includes/addons/analysis-keyword.php:21 includes/addons/category.php:28
+#: includes/addons/tag.php:15
+msgid "Nothing Found"
+msgstr "결과 없음"
+
+#: includes/addons/analysis-keyword.php:22 includes/addons/category.php:29
+#: includes/addons/tag.php:16
+msgid "Nothing found in Trash"
+msgstr "결과 없음"
+
+#: includes/addons/analysis-keyword.php:46
+msgid "Questions Analysis Keywords"
+msgstr "문제 분석용 키워드"
+
+#: includes/addons/analysis-keyword.php:46
+msgid "Analysis Keyword"
+msgstr "키워드"
+
+#: includes/addons/category.php:20
+msgid "Question Categories"
+msgstr "질문 카테고리"
+
+#: includes/addons/category.php:21 includes/addons/category.php:66
+#: includes/admin/list-table-hooks.php:169
+msgid "Category"
+msgstr "카테고리"
+
+#: includes/addons/category.php:22
+msgid "All Categories"
+msgstr "모든 카테고리"
+
+#: includes/addons/category.php:23
+msgid "Add New Category"
+msgstr "새로운 카테고리 추가"
+
+#: includes/addons/category.php:24
+msgid "Edit Category"
+msgstr "카테고리 수정"
+
+#: includes/addons/category.php:25
+msgid "New Category"
+msgstr "새로운 카테고리 추가"
+
+#: includes/addons/category.php:26
+msgid "View Category"
+msgstr "카테고리 보기"
+
+#: includes/addons/category.php:27
+msgid "Search Category"
+msgstr "카테고리 검색"
+
+#: includes/addons/category.php:66
+msgid "Questions Category"
+msgstr "질문 카테고리"
+
+#: includes/addons/filters.php:218 includes/addons/filters.php:232
+msgid "카테고리"
+msgstr "카테고리"
+
+#: includes/addons/filters.php:252
+msgid "년도"
+msgstr "년도"
+
+#: includes/addons/filters.php:271
+msgid "회차"
+msgstr "회차"
+
+#: includes/addons/filters.php:285
+msgid "채택여부"
+msgstr "채택여부"
+
+#: includes/addons/filters.php:298
+msgid "답변여부"
+msgstr "답변여부"
+
+#: includes/addons/profile.php:49 includes/addons/profile.php:128
+#: includes/core/post-types.php:126
+msgid "Answers"
+msgstr "답변들"
+
+#: includes/addons/profile.php:55
+msgid "User profile"
+msgstr "유저 프로필"
+
+#: includes/addons/profile.php:251
+msgid "Callback function not found for rendering this page"
+msgstr "이 페이지를 표시하는데 필요한 함수를 찾을 수 없습니다"
+
+#: includes/addons/reputation/mycred-hooks.php:43
+#: includes/addons/reputation/mycred-hooks.php:128
+#: includes/addons/reputation/mycred-hooks.php:150
+#: includes/addons/reputation/mycred-hooks.php:225
+#: includes/addons/reputation/mycred-hooks.php:247
+#: includes/addons/reputation/mycred-hooks.php:319
+#: includes/addons/reputation/mycred-hooks.php:341
+#: includes/addons/reputation/mycred-hooks.php:402
+#: includes/addons/reputation/mycred-hooks.php:424
+#: includes/addons/reputation/mycred-hooks.php:493
+#: includes/addons/reputation/mycred-hooks.php:515
+#: includes/addons/reputation/mycred-hooks.php:584
+#: includes/addons/reputation/mycred-hooks.php:606
+msgid "Log template"
+msgstr "로그 탬플릿"
+
+#: includes/addons/reputation/mycred-hooks.php:116
+#: includes/core/common-pages.php:23
+msgid "Ask a Question"
+msgstr "질문하기"
+
+#: includes/addons/reputation/mycred-hooks.php:138
+msgid "Delete a Question"
+msgstr "질문 삭제"
+
+#: includes/addons/reputation/mycred-hooks.php:213
+msgid "Give an answer"
+msgstr "답변하기"
+
+#: includes/addons/reputation/mycred-hooks.php:235
+msgid "Delete an answer"
+msgstr "답변 지우기"
+
+#: includes/addons/reputation/mycred-hooks.php:307
+msgid "Select best answer"
+msgstr "베스트 답변으로 선택"
+
+#: includes/addons/reputation/mycred-hooks.php:329
+msgid "Unselect best answer"
+msgstr "베스트 답변 취소"
+
+#: includes/addons/reputation/mycred-hooks.php:390
+msgid "Selected Best Answer"
+msgstr "베스트 답변으로 선택됨"
+
+#: includes/addons/reputation/mycred-hooks.php:412
+msgid "Cancelled Best Answer"
+msgstr "베스트 답변 선택 취소"
+
+#: includes/addons/reputation/mycred-hooks.php:481
+#: includes/addons/reputation/reputation.php:72
+msgid "Vote up"
+msgstr "좋아요"
+
+#: includes/addons/reputation/mycred-hooks.php:503
+msgid "Undo vote up"
+msgstr "좋아요 철회"
+
+#: includes/addons/reputation/mycred-hooks.php:572
+#: includes/addons/reputation/reputation.php:77
+msgid "Vote down"
+msgstr "싫어요"
+
+#: includes/addons/reputation/mycred-hooks.php:594
+msgid "Undo vote down"
+msgstr "싫어요 철회"
+
+#: includes/addons/reputation/reputation.php:29
+#: includes/addons/reputation/reputation.php:137
+msgid "Reputations"
+msgstr "전문가지수"
+
+#: includes/addons/reputation/reputation.php:47
+#: template-parts/login-modal.php:26 template-parts/login-signup.php:18
+msgid "Register"
+msgstr "회원가입"
+
+#: includes/addons/reputation/reputation.php:48
+msgid "Points awarded when user account is created"
+msgstr "새로운 유저가 회원가입했을때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:52
+msgid "Ask"
+msgstr "질문하기"
+
+#: includes/addons/reputation/reputation.php:53
+msgid "Points awarded when user asks or delete a question"
+msgstr "유저가 질문을 올리거나 삭제했을때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:57
+#: includes/admin/views/dashboard.php:30 includes/core/ajax-hooks.php:65
+#: includes/core/post-types.php:149 includes/core/theme.php:1010
+#: template-parts/answers.php:20
+msgid "Answer"
+msgid_plural "Answers"
+msgstr[0] "답변"
+
+#: includes/addons/reputation/reputation.php:58
+msgid "Points awarded when user asnwer to a question"
+msgstr "유저가 질문에 답변을 달았을때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:62
+msgid "Select answer"
+msgstr "답변 선택"
+
+#: includes/addons/reputation/reputation.php:63
+msgid "Points awarded when user select or unselect best answer"
+msgstr "유저가 베스트 답변을 선택하거나 철회했을때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:67
+msgid "Best answer"
+msgstr "최고의 답변"
+
+#: includes/addons/reputation/reputation.php:68
+msgid "Points awarded when answer is selected or cancelled as best"
+msgstr "유저가 단 답변이 베스트 답변으로 선택되거나 철회되었을때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:73
+msgid "Points awarded when question or answer get vote up from other user"
+msgstr "유저가 올린 질문이 좋아요를 받을 때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:78
+msgid "Points awarded when question or answer get vote down from other user"
+msgstr "유저가 올린 질문이 싫어요를 받을 때 얻는 포인트"
+
+#: includes/addons/reputation/reputation.php:108
+msgid "Successfully updated reputation points!"
+msgstr "성공적으로 전문가지수를 업데이트 했습니다!"
+
+#: includes/addons/reputation/reputation.php:124
+msgid "Reputation"
+msgstr "전문가지수"
+
+#: includes/addons/statistic/class-ap-list-table.php:151
+msgid "List View"
+msgstr "리스트 뷰"
+
+#: includes/addons/statistic/class-ap-list-table.php:152
+msgid "Excerpt View"
+msgstr ""
+
+#: includes/addons/statistic/class-ap-list-table.php:312
+msgid "No items found."
+msgstr "어떤 아이템도 찾을 수 없습니다."
+
+#: includes/addons/statistic/class-ap-list-table.php:434
+msgid "Select bulk action"
+msgstr ""
+
+#: includes/addons/statistic/class-ap-list-table.php:436
+msgid "Bulk Actions"
+msgstr ""
+
+#: includes/addons/statistic/class-ap-list-table.php:446
+msgid "Apply"
+msgstr "적용하기"
+
+#: includes/addons/statistic/class-ap-list-table.php:494
+#: includes/addons/statistic/class-ap-list-table.php:1275
+msgid "Show more details"
+msgstr "디테일한 내용 보기"
+
+#: includes/addons/statistic/class-ap-list-table.php:556
+msgid "Filter by date"
+msgstr "날짜로 필터링"
+
+#: includes/addons/statistic/class-ap-list-table.php:558
+msgid "All dates"
+msgstr "모든 날짜"
+
+#: includes/addons/statistic/class-ap-list-table.php:571
+#, php-format
+msgid "%1$s %2$d"
+msgstr ""
+
+#: includes/addons/statistic/class-ap-list-table.php:621
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+
+#: includes/addons/statistic/class-ap-list-table.php:622
+#, php-format
+msgid "%s approved comment"
+msgid_plural "%s approved comments"
+msgstr[0] ""
+
+#: includes/addons/statistic/class-ap-list-table.php:623
+#, php-format
+msgid "%s pending comment"
+msgid_plural "%s pending comments"
+msgstr[0] ""
+
+#: includes/addons/statistic/class-ap-list-table.php:628
+#: includes/addons/statistic/class-ap-list-table.php:640
+#: includes/addons/statistic/class-ap-list-table.php:653
+msgid "No comments"
+msgstr "댓글이 없음"
+
+#: includes/addons/statistic/class-ap-list-table.php:640
+msgid "No approved comments"
+msgstr "승인 된 댓글이 없음"
+
+#: includes/addons/statistic/class-ap-list-table.php:653
+msgid "No pending comments"
+msgstr "승인을 기다리는 댓글이 없음"
+
+#: includes/addons/statistic/class-ap-list-table.php:727
+#: includes/addons/statistic/class-ap-list-table.php:1299
+#, php-format
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] "%s 는 삭제되었습니다"
+
+#: includes/addons/statistic/class-ap-list-table.php:763
+msgid "First page"
+msgstr "첫 페이지"
+
+#: includes/addons/statistic/class-ap-list-table.php:773
+msgid "Previous page"
+msgstr "이전 페이지"
+
+#: includes/addons/statistic/class-ap-list-table.php:780
+#: includes/addons/statistic/class-ap-list-table.php:783
+msgid "Current Page"
+msgstr "현재 페이지"
+
+#: includes/addons/statistic/class-ap-list-table.php:789
+#, php-format
+msgctxt "paging"
+msgid "%1$s of %2$s"
+msgstr ""
+
+#: includes/addons/statistic/class-ap-list-table.php:796
+msgid "Next page"
+msgstr "다음 페이지"
+
+#: includes/addons/statistic/class-ap-list-table.php:806
+msgid "Last page"
+msgstr "마지막 페이지"
+
+#: includes/addons/statistic/class-ap-list-table.php:1027
+#: includes/admin/anspress-admin.php:486
+msgid "Select All"
+msgstr "모두 선택"
+
+#: includes/addons/statistic/class-term-statistic-list-table.php:72
+msgid "Invalid taxonomy."
+msgstr "유효하지 않은 카테고리."
+
+#: includes/addons/statistic/statistic.php:25
+msgid "Statistic"
+msgstr "통계"
+
+#: includes/addons/tag.php:7 includes/addons/tag.php:32
+msgid "Tags"
+msgstr "태그"
+
+#: includes/addons/tag.php:8
+msgctxt "anspress-question-answer"
+msgid "Tag"
+msgstr "태그"
+
+#: includes/addons/tag.php:9
+msgid "All Tags"
+msgstr "모든 태그"
+
+#: includes/addons/tag.php:10
+msgctxt "anspress-question-answer"
+msgid "Add New Tag"
+msgstr "태그 생성"
+
+#: includes/addons/tag.php:11
+msgid "Edit Tag"
+msgstr "태그 수정"
+
+#: includes/addons/tag.php:12
+msgid "New Tag"
+msgstr "태그 생성"
+
+#: includes/addons/tag.php:13
+msgid "View Tag"
+msgstr "태그 보기"
+
+#: includes/addons/tag.php:14
+msgid "Search Tag"
+msgstr "태그 검색"
+
+#: includes/addons/tag.php:32
+msgid "Question Tags"
+msgstr "질문 테그"
+
+#: includes/addons/votes.php:62
+msgid "Your vote has been removed."
+msgstr "당신의 투표가 철회되었습니다."
+
+#: includes/addons/votes.php:78
+msgid "Undo your vote first."
+msgstr "우선 당신의 투표를 먼저 철회하세요."
+
+#: includes/addons/votes.php:96
+msgid "Thank you for voting."
+msgstr "투표해주셔서 감사합니다."
+
+#: includes/addons/votes.php:608 includes/addons/votes.php:610
+msgid "You have already voted"
+msgstr "당신은 이미 투표했습니다"
+
+#: includes/addons/votes.php:608 includes/addons/votes.php:610
+msgid "Withdraw your vote"
+msgstr "당신의 투표를 철회하세요"
+
+#: includes/addons/votes.php:608
+msgid "Up vote this post"
+msgstr "이 포스트에 좋아요를 준다"
+
+#: includes/addons/votes.php:610
+msgid "Down vote this post"
+msgstr "이 포스트에 싫어요를 준다"
+
+#: includes/addons/wishlist.php:43
+msgid "You must be logged in to subscribe to a question"
+msgstr "이 질문을 구독하기 위해서는 우선, 로그인을 먼저 해야합니다"
+
+#: includes/addons/wishlist.php:53
+msgid "You can not add your own question into wishlist"
+msgstr "당신자신의 질문을 위시리스트에 담을 수 없습니다"
+
+#: includes/addons/wishlist.php:61
+msgid "Sorry, unable to add this question into wishlist"
+msgstr "죄송합니다, 이 질문을 위시리스트에 담을 수 없습니다"
+
+#: includes/addons/wishlist.php:71
+msgid "Successfully deleted this question from wishlist"
+msgstr "성공적으로 이 질문을 위시리스에서 삭제하였습니다"
+
+#: includes/addons/wishlist.php:72 includes/addons/wishlist.php:194
+msgid "Add to wishlist"
+msgstr "위시리스트에 추가"
+
+#: includes/addons/wishlist.php:80
+msgid "Successfully add this question into wishlist"
+msgstr "성공적으로 이 질문을 위시리스트에 추가하였습니다"
+
+#: includes/addons/wishlist.php:81 includes/addons/wishlist.php:194
+msgid "Remove from wishlist"
+msgstr "위시리스트에서 삭제"
+
+#: includes/addons/wishlist.php:104
+msgid "Wishlist"
+msgstr "위시리스트"
+
+#: includes/admin/anspress-admin.php:176
+msgid "All Questions"
+msgstr "모든 질문"
+
+#: includes/admin/anspress-admin.php:178
+msgid "New Question"
+msgstr "새로운 질문 생성"
+
+#: includes/admin/anspress-admin.php:180
+msgid "All Answers"
+msgstr "모든 답변"
+
+#: includes/admin/anspress-admin.php:182
+msgid "New Answer"
+msgstr "새로운 답변"
+
+#: includes/admin/anspress-admin.php:191 includes/admin/views/dashboard.php:213
+#: includes/admin/views/options.php:92
+msgid "AnsPress Options"
+msgstr "알풀 옵션"
+
+#: includes/admin/anspress-admin.php:191
+msgid "Options"
+msgstr "옵션"
+
+#: includes/admin/anspress-admin.php:193
+msgid "About AnsPress"
+msgstr "알풀에 대하여"
+
+#: includes/admin/anspress-admin.php:295
+msgid "Settings"
+msgstr "설정"
+
+#: includes/admin/anspress-admin.php:296
+msgid "About"
+msgstr "About"
+
+#: includes/admin/anspress-admin.php:490
+msgid "Add to Menu"
+msgstr ""
+
+#: includes/admin/anspress-admin.php:556
+msgid "One or more AnsPress page(s) does not exists."
+msgstr "알풀 페이지가 존재하지 않습니다."
+
+#: includes/admin/anspress-admin.php:557
+msgid "Set automatically"
+msgstr "자동으로 생성"
+
+#: includes/admin/anspress-admin.php:557
+msgid "Or"
+msgstr "또는"
+
+#: includes/admin/anspress-admin.php:557
+msgid "Set set by yourself"
+msgstr "직접 생성"
+
+#: includes/admin/anspress-admin.php:648
+msgid "Save Pages"
+msgstr "페이지 저장"
+
+#: includes/admin/anspress-admin.php:651
+msgid ""
+"If you have created main pages manually then make sure to have [anspress] "
+"shortcode in all pages."
+msgstr ""
+"만약 메인 페이지를 직접 생성한다면, [anspress]라는 쇼트코드를 해당 페이지에 "
+"꼭 넣어야 합니다."
+
+#: includes/admin/anspress-admin.php:691
+msgid "Questions per page"
+msgstr "페이지당 보여질 질문의 개수"
+
+#: includes/admin/anspress-admin.php:692
+msgid "Questions to show per page."
+msgstr "질문리스트에 보여질 한페이지당 질문의 개수를 설정해 주세요."
+
+#: includes/admin/anspress-admin.php:697
+msgid "Answers per page"
+msgstr "페이지당 보여질 답변의 개수"
+
+#: includes/admin/anspress-admin.php:698
+msgid "Answers to show per page."
+msgstr "질문 상세페이지에 보여지는 답변들의 페이지당 개수를 설정해 주세요."
+
+#: includes/admin/anspress-admin.php:726
+msgid "Max uploads per post"
+msgstr "업로드 가능한 최대 이미지의 개수"
+
+#: includes/admin/anspress-admin.php:727
+msgid "Set numbers of media user can upload for each post."
+msgstr ""
+"유저가 질문 혹은 답변을 올릴때 업로드 가능한 이미지들의 최대 개수를 설정해 주"
+"세요."
+
+#: includes/admin/anspress-admin.php:731
+msgid "Max upload size"
+msgstr "최대 업로드 크기"
+
+#: includes/admin/anspress-admin.php:732
+msgid "Set maximum upload size."
+msgstr "최대 업로드 가능한 이미지 파일의 사이즈를 설정해 주세요."
+
+#: includes/admin/anspress-admin.php:755
+msgid "View page"
+msgstr "보기"
+
+#: includes/admin/anspress-admin.php:756
+msgid "Edit page"
+msgstr "수정"
+
+#: includes/admin/anspress-admin.php:785 includes/admin/anspress-admin.php:800
+msgid ""
+"You can not edit this post, because you are not expert in this category. "
+"Plese contact super administrator"
+msgstr ""
+"이 포스트를 설정할 수 없습니다. 왜냐하면, 당신은 이 카테고리의 전문가가 아니"
+"기 때문입니다. 추가적인 문의사항은 관리자에게 연락해주시기 바랍니다"
+
+#: includes/admin/list-table-hooks.php:126
+msgid "Restore this item from the Trash"
+msgstr "쓰레기통에서 이 아이템을 복구"
+
+#: includes/admin/list-table-hooks.php:126
+msgid "Restore"
+msgstr "복구"
+
+#: includes/admin/list-table-hooks.php:129
+msgid "Move this item to the Trash"
+msgstr "이 아이템을 쓰레기통으로 이동"
+
+#: includes/admin/list-table-hooks.php:129 includes/admin/meta-box.php:70
+msgid "Trash"
+msgstr "휴지통"
+
+#: includes/admin/list-table-hooks.php:133
+msgid "Delete this item permanently"
+msgstr "이 아이템을 영구적으로 삭제"
+
+#: includes/admin/list-table-hooks.php:133 includes/core/theme.php:671
+msgid "Delete Permanently"
+msgstr "영구적으로 삭제"
+
+#: includes/admin/list-table-hooks.php:138
+#, php-format
+msgid "Edit &#8220;%s&#8221;"
+msgstr "수정 &#8220;%s&#8221;"
+
+#: includes/admin/list-table-hooks.php:138 includes/admin/meta-box.php:67
+#: includes/core/theme.php:625
+msgid "Edit"
+msgstr "편집"
+
+#: includes/admin/list-table-hooks.php:144
+#, php-format
+msgid "Preview &#8220;%s&#8221;"
+msgstr "미리보기 &#8220;%s&#8221;"
+
+#: includes/admin/list-table-hooks.php:144
+msgid "Preview"
+msgstr "미리보기"
+
+#: includes/admin/list-table-hooks.php:147
+#, php-format
+msgid "View &#8220;%s&#8221; question"
+msgstr "확인 &#8220;%s&#8221; 질문"
+
+#: includes/admin/list-table-hooks.php:147
+msgid "View"
+msgstr "보기"
+
+#: includes/admin/list-table-hooks.php:165
+#: includes/admin/list-table-hooks.php:293
+msgid "Author"
+msgstr "작가"
+
+#: includes/admin/list-table-hooks.php:166 includes/core/form/form-hooks.php:43
+msgid "Title"
+msgstr "제목"
+
+#: includes/admin/list-table-hooks.php:173
+msgid "Tag"
+msgstr "태그"
+
+#: includes/admin/list-table-hooks.php:176
+#: includes/admin/list-table-hooks.php:295 includes/core/theme.php:634
+msgid "Status"
+msgstr "상태"
+
+#: includes/admin/list-table-hooks.php:177
+#: template-parts/question-list-item.php:37
+msgid "Ans"
+msgstr "Ans"
+
+#: includes/admin/list-table-hooks.php:178
+#: includes/admin/list-table-hooks.php:296
+#: template-parts/question-list-item.php:30
+msgid "Votes"
+msgstr "투표"
+
+#: includes/admin/list-table-hooks.php:179
+#: includes/admin/list-table-hooks.php:297
+msgid "Date"
+msgstr "날짜"
+
+#: includes/admin/list-table-hooks.php:234
+#: includes/admin/list-table-hooks.php:257
+msgid "--"
+msgstr ""
+
+#: includes/admin/list-table-hooks.php:294
+msgid "Content"
+msgstr "내용"
+
+#: includes/admin/list-table-hooks.php:330
+msgid "This question is orphan, no question is selected for this answer"
+msgstr ""
+
+#: includes/admin/list-table-hooks.php:345 includes/core/post-types.php:59
+msgid "Edit question"
+msgstr "질문 수정"
+
+#: includes/admin/list-table-hooks.php:378
+msgid "Please fill parent question field, Answer was not saved!"
+msgstr ""
+
+#: includes/admin/list-table-hooks.php:385
+#, php-format
+msgid "All %s"
+msgstr "모든 %s"
+
+#: includes/admin/meta-box.php:37
+#, php-format
+msgid " %d Answers"
+msgstr " %d 답변"
+
+#: includes/admin/meta-box.php:41 includes/core/ajax-hooks.php:65
+#: includes/core/common-pages.php:22 includes/core/post-types.php:76
+#: includes/core/theme.php:1010
+msgid "Question"
+msgstr "질문"
+
+#: includes/admin/meta-box.php:53 includes/admin/meta-box.php:93
+msgid "Add an answer"
+msgstr "새로운 답변 추가"
+
+#: includes/admin/meta-box.php:92
+#, php-format
+msgid "<strong>%d</strong> Answer"
+msgid_plural "<strong>%d</strong> Answers"
+msgstr[0] "<strong>%d</strong>개의 답변"
+
+#: includes/admin/meta-box.php:100
+#, php-format
+msgid "<strong>%d</strong> Vote"
+msgid_plural "<strong>%d</strong> Votes"
+msgstr[0] "<strong>%d</strong> 개의 투표"
+
+#: includes/admin/meta-box.php:103
+msgid "-"
+msgstr ""
+
+#: includes/admin/meta-box.php:107
+msgid "+"
+msgstr ""
+
+#: includes/admin/views/dashboard.php:28
+msgid "Latest Questions"
+msgstr "최근 올라온 질문"
+
+#: includes/admin/views/dashboard.php:32
+msgid "Latest Answers"
+msgstr "최근 올라온 답변"
+
+#: includes/admin/views/dashboard.php:63 includes/admin/views/dashboard.php:177
+#, php-format
+msgid "%d Published"
+msgstr "%d 생성됨"
+
+#: includes/admin/views/dashboard.php:205
+msgid "Welcome to AnsPress!"
+msgstr "알풀에 오신걸 환영합니다!"
+
+#: includes/admin/views/dashboard.php:207
+msgid "We’ve assembled some links to get you started:"
+msgstr ""
+
+#: includes/admin/views/dashboard.php:211
+msgid "Get Started"
+msgstr "시작하죠"
+
+#: includes/admin/views/dashboard.php:218
+msgid "Next Steps"
+msgstr "다음 단계"
+
+#: includes/admin/views/dashboard.php:220
+msgid "Write your first question"
+msgstr "첫번째 질문을 작성해 주세요"
+
+#: includes/admin/views/dashboard.php:221
+msgid "Post an answer"
+msgstr "답변 올리기"
+
+#: includes/admin/views/dashboard.php:222
+msgid "View questions"
+msgstr "답변 보기"
+
+#: includes/admin/views/dashboard.php:226
+msgid "More actions"
+msgstr "더 많은 액션"
+
+#: includes/admin/views/dashboard.php:228
+msgid "Help and Support!"
+msgstr "도움을 요청하세요!"
+
+#: includes/admin/views/dashboard.php:229
+msgid "Documents and FAQ"
+msgstr "도큐멘트와 FAQ"
+
+#: includes/admin/views/options.php:19
+msgid "Trying to cheat, huh!"
+msgstr "지금 무슨짓을 하려는 겁니까?!"
+
+#: includes/admin/views/options.php:31
+msgid "General"
+msgstr "일반적"
+
+#: includes/admin/views/options.php:34
+msgid "Pages"
+msgstr "페이지"
+
+#: includes/admin/views/options.php:37
+msgid "Layout"
+msgstr "레이아웃"
+
+#: includes/admin/views/options.php:40
+msgid "Upload Options"
+msgstr "업로드 옵션"
+
+#: includes/admin/views/options.php:45
+msgid "Tools"
+msgstr "도구"
+
+#: includes/admin/views/options.php:48
+msgid "Uninstall"
+msgstr "Uninstall"
+
+#: includes/admin/views/options.php:146
+msgid "AnsPress option updated successfully!"
+msgstr "옵션 설정이 성공적으로 업데이트 되었습니다!"
+
+#: includes/admin/views/reputation-events.php:34
+msgid "Save Events Points"
+msgstr ""
+
+#: includes/admin/views/select_question.php:20
+msgid "Select a question for new answer"
+msgstr "답변을 달 질문을 선택해 주세요"
+
+#: includes/admin/views/select_question.php:34
+msgid "Recently active questions"
+msgstr "질문들"
+
+#: includes/admin/views/select_question.php:45 includes/core/theme.php:975
+#: includes/core/toggle-best-answer.php:67
+msgid "Select"
+msgstr "선택"
+
+#: includes/admin/views/uninstall.php:20
+msgid ""
+"If you are unsure about this section please do not use any of these options "
+"below."
+msgstr ""
+
+#: includes/admin/views/uninstall.php:27
+msgid "Permanently delete all questions and answers?"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:33
+#, php-format
+msgid "Delete %d Q&A"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:34
+msgid ""
+"Clicking this button will delete all questions and answers data from database"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:39
+msgid "Permanently delete all answers?"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:45
+#, php-format
+msgid "Delete %d answers"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:46
+msgid ""
+"Clicking this button will delete all answers and its related data from "
+"database"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:51
+msgid "Permanently delete all AnsPress user data?"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:54
+msgid "Delete all user data"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:55
+msgid "Clicking this button will delete all user data added by AnsPress"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:60
+msgid "Permanently delete all AnsPress options?"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:63
+msgid "Delete all options"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:64
+msgid "Clicking this button will delete all AnsPress options"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:69
+msgid "Permanently delete all AnsPress terms?"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:72
+msgid "Delete all terms"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:73
+msgid "Clicking this button will delete all AnsPress terms data"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:78
+msgid "Permanently delete all AnsPress tables?"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:81
+msgid "Delete all database tables"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:82
+msgid "Clicking this button will remove all AnsPress DB tables"
+msgstr ""
+
+#: includes/admin/views/uninstall.php:114
+msgid "Do you wish to proceed? This cannot be undone."
+msgstr ""
+
+#: includes/core/ajax-hooks.php:56
+msgid "Unable to trash this post"
+msgstr "이 포스트를 지울 수 없습니다"
+
+#: includes/core/ajax-hooks.php:72 includes/core/form/fields/class-group.php:83
+#: includes/core/theme.php:648
+msgid "Delete"
+msgstr "삭제"
+
+#: includes/core/ajax-hooks.php:72 includes/core/theme.php:649
+msgid "Delete this post (can be restored again)"
+msgstr "이 포스트 삭제( 다시 복구 가능 )"
+
+#: includes/core/ajax-hooks.php:73
+#, php-format
+msgid "%s is restored"
+msgstr "%s 이 복구되었습니다"
+
+#: includes/core/ajax-hooks.php:88
+#, php-format
+msgid "This post was created %s, hence you cannot trash it"
+msgstr "This post was created %s, hence you cannot trash it"
+
+#: includes/core/ajax-hooks.php:96 includes/core/theme.php:645
+msgid "Undelete"
+msgstr "삭제 취소(복구)"
+
+#: includes/core/ajax-hooks.php:96 includes/core/theme.php:646
+msgid "Restore this post"
+msgstr "이 포스트 복구"
+
+#: includes/core/ajax-hooks.php:97
+#, php-format
+msgid "%s is trashed"
+msgstr "%s 는 삭제되었습니다"
+
+#: includes/core/ajax-hooks.php:112
+msgid "Sorry, unable to delete post"
+msgstr "죄송합니다, 해당 포스트는 삭제할 수 없습니다"
+
+#: includes/core/ajax-hooks.php:140
+msgid "Question is deleted permanently"
+msgstr "질문은 영구적으로 삭제됩니다"
+
+#: includes/core/ajax-hooks.php:149
+msgid "Answer is deleted permanently"
+msgstr "답변은 영구적으로 삭제됩니다"
+
+#: includes/core/ajax-hooks.php:168
+msgid "You cannot close a question"
+msgstr "당신은 이 질문을 close할 수 없습니다"
+
+#: includes/core/ajax-hooks.php:174 includes/core/theme.php:606
+msgid "Close"
+msgstr "닫기"
+
+#: includes/core/ajax-hooks.php:174 includes/core/theme.php:606
+msgid "Open"
+msgstr "열기"
+
+#: includes/core/ajax-hooks.php:175 includes/core/theme.php:607
+msgid "Close this question for new answer."
+msgstr "Close this question for new answer."
+
+#: includes/core/ajax-hooks.php:175 includes/core/theme.php:607
+msgid "Open this question for new answers"
+msgstr "Open this question for new answers"
+
+#: includes/core/ajax-hooks.php:177
+msgid "Question closed"
+msgstr "Question closed"
+
+#: includes/core/ajax-hooks.php:177
+msgid "Question is opened"
+msgstr "Question is opened"
+
+#: includes/core/common-pages.php:24 includes/core/theme.php:76
+msgid "Search"
+msgstr "검색"
+
+#: includes/core/common-pages.php:25
+msgid "Edit Answer"
+msgstr "답변 수정"
+
+#: includes/core/common-pages.php:78
+msgid ""
+"This question is awaiting moderation and cannot be viewed. Please check back "
+"later."
+msgstr ""
+"This question is awaiting moderation and cannot be viewed. Please check back "
+"later."
+
+#: includes/core/common-pages.php:80
+msgid "Sorry! you are not allowed to read this question."
+msgstr "죄송합니다! 당신은 이 질문을 볼 권한이 없습니다."
+
+#: includes/core/common-pages.php:87
+#, php-format
+msgid "Question will be published in %s"
+msgstr "질문은 %s 에 게시될 예정입니다"
+
+#: includes/core/common-pages.php:91
+msgid ""
+"This question is not published yet and is not accessible to anyone until it "
+"get published."
+msgstr ""
+
+#: includes/core/common-pages.php:148
+msgid "Something went wrong, please try again"
+msgstr "알수없는 에러가 발생했습니다. 다시 시도해 주세요"
+
+#: includes/core/common-pages.php:177
+msgid "Sorry, you cannot edit this answer."
+msgstr "죄송합니다! 당신은 이 질문을 수정할 수 없습니다."
+
+#: includes/core/form/class-form.php:96
+msgid "Submit"
+msgstr "제출"
+
+#: includes/core/form/class-form.php:189
+#, php-format
+msgid "No fields found for form: %s"
+msgstr ""
+
+#: includes/core/form/class-form.php:412
+#: includes/core/form/fields/class-field.php:393
+msgid "Error found in fields, please check and re-submit"
+msgstr "에러를 확인해주시고, 수정해서 다시 제출해 주세요"
+
+#: includes/core/form/class-validate.php:339
+#: includes/core/form/class-validate.php:357
+#, php-format
+msgid "%s field is required."
+msgstr "%s 필드는 필수적입니다."
+
+#: includes/core/form/class-validate.php:375
+#, php-format
+msgid "Value provided in field %s is not a valid email."
+msgstr "%s 필드에 입력된 값은 유효한 이메일이 아닙니다."
+
+#: includes/core/form/class-validate.php:393
+#, php-format
+msgid "Value provided in field %s is not a valid URL."
+msgstr "%s 필드에 입력된 값은 유효한 URL이 아닙니다."
+
+#: includes/core/form/class-validate.php:411
+#, php-format
+msgid "Value provided in field %s is not numeric."
+msgstr "%s 필드에 입력된 값은 숫자형식이 아닙니다."
+
+#: includes/core/form/class-validate.php:436
+#, php-format
+msgid "Value provided in field %1$s must be at least %2$d characters long."
+msgstr "%1$s 필드에 입력된 값들은 최소한 %2$d 길이의 글자를 가져야 합니다."
+
+#: includes/core/form/class-validate.php:462
+#, php-format
+msgid "Value provided in field %1$s must not exceeds %2$d characters."
+msgstr "%1$s 필드에 입력된 값의 글자 길이는 %2$d 을 초과해서는 안됩니다."
+
+#: includes/core/form/class-validate.php:483
+#, php-format
+msgid "Value provided in field %s is not an array."
+msgstr "%s 필드에 입력된 값은 배열이 아닙니다."
+
+#: includes/core/form/class-validate.php:504
+#, php-format
+msgid "Minimum %1$d values are required in field %2$s."
+msgstr "최소한의 %1$d 값들이 %2$s 필드에 입력되야합니다."
+
+#: includes/core/form/class-validate.php:525
+#, php-format
+msgid "Maximum values allowed in field %2$s is %1$d."
+msgstr "%2$s 필드에 허용된 최대 값은 %1$d 입니다."
+
+#: includes/core/form/class-validate.php:578
+#, php-format
+msgid "Found bad words in field %s. Remove them and try again."
+msgstr "Found bad words in field %s. Remove them and try again."
+
+#: includes/core/form/class-validate.php:596
+msgid "There is no error, the file uploaded with success"
+msgstr "성공적으로 업로드 되었습니다"
+
+#: includes/core/form/class-validate.php:597
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
+msgstr "업로드된 파일이 허용된 최대 크기를 넘었습니다"
+
+#: includes/core/form/class-validate.php:598
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form"
+msgstr "업로드된 파일이 허용된 최대 크기를 넘었습니다"
+
+#: includes/core/form/class-validate.php:599
+msgid "The uploaded file was only partially uploaded"
+msgstr "업로드된 파일이 부분적으로만 업로드 되었습니다"
+
+#: includes/core/form/class-validate.php:600
+msgid "No file was uploaded"
+msgstr "어떤 파일도 업로드되지 않았습니다"
+
+#: includes/core/form/class-validate.php:601
+msgid "Missing a temporary folder"
+msgstr "업로드를 위한 임시 폴더를 찾을 수 없습니다"
+
+#: includes/core/form/class-validate.php:602
+#: includes/core/form/fields/class-upload.php:398
+msgid "Failed to write file to disk."
+msgstr "디스크에 파일작성하지 못했습니다."
+
+#: includes/core/form/class-validate.php:603
+msgid "A PHP extension stopped the file upload."
+msgstr "서버에서 파일 업로드를 멈추었습니다."
+
+#: includes/core/form/class-validate.php:695
+msgid "You are not allowed to upload file(s)"
+msgstr "당신은 파일 업로드가 허용되지 않습니다"
+
+#: includes/core/form/class-validate.php:705
+#, php-format
+msgid "You cannot upload more than %1$d file in field %2$s"
+msgstr "당신은 %1$d 이상의 파일을 %2$s 필드에 업로드 할 수 없다"
+
+#: includes/core/form/class-validate.php:713
+msgid "File type is not allowed to upload."
+msgstr ""
+"해당 파일의 타입은 업로드 될 수 없습니다. 일반적인 이미지 파일을 업로드 해주"
+"세요."
+
+#: includes/core/form/class-validate.php:728
+#, php-format
+msgid "File(s) size is bigger than %s MB"
+msgstr "파일 사이즈가 %s MB을 초과했습니다"
+
+#: includes/core/form/fields/class-checkbox.php:43
+msgid "AnsPress Checkbox Field"
+msgstr "알풀 체크박스 필드"
+
+#: includes/core/form/fields/class-editor.php:53
+msgid "AnsPress Editor Field"
+msgstr "알풀 에디터 필드"
+
+#: includes/core/form/fields/class-editor.php:80
+msgid "Insert image"
+msgstr "이미지 첨부"
+
+#: includes/core/form/fields/class-editor.php:234
+#: includes/core/form/fields/class-editor.php:246
+msgid ""
+"Sorry an error occured while processing your image, please remove it and "
+"insert again"
+msgstr "업로드에 실패하였습니다. 해당 이미지를 삭제해 주시고, 다시 넣어주세요"
+
+#: includes/core/form/fields/class-group.php:51
+msgid "AnsPress Group Field"
+msgstr "Alpool Group Field"
+
+#: includes/core/form/fields/class-input.php:54
+msgid "AnsPress Input Field"
+msgstr "Alpool Input Field"
+
+#: includes/core/form/fields/class-radio.php:43
+msgid "AnsPress Radio Field"
+msgstr "Alpool Radio Field"
+
+#: includes/core/form/fields/class-repeatable.php:58
+msgid "AnsPress Repeatable Field"
+msgstr "Alpool Repeatable Field"
+
+#: includes/core/form/fields/class-repeatable.php:168
+#, php-format
+msgid "Add More %s"
+msgstr "더 많은 %s 추가"
+
+#: includes/core/form/fields/class-select.php:43
+msgid "AnsPress Select Field"
+msgstr "Alpool Select Field"
+
+#: includes/core/form/fields/class-select.php:91
+msgid "Select an option"
+msgstr "옵션 선택"
+
+#: includes/core/form/fields/class-tags.php:43
+msgid "AnsPress Tags Field"
+msgstr "Alpool Tags Field"
+
+#: includes/core/form/fields/class-textarea.php:43
+msgid "AnsPress Textarea Field"
+msgstr "Alpool Textarea Field"
+
+#: includes/core/form/fields/class-upload.php:98
+msgid "AnsPress Upload Field"
+msgstr "Alpool Upload Field"
+
+#: includes/core/form/fields/class-upload.php:100
+msgid "Select file(s) to upload"
+msgstr "파일 선택"
+
+#: includes/core/form/fields/class-upload.php:109
+msgid "This file type is not allowed to upload."
+msgstr "해당 이미지의 타입은 업로드 될 수 없습니다."
+
+#: includes/core/form/fields/class-upload.php:117
+#, php-format
+msgid "You cannot add more then %d files"
+msgstr "당신은 %d 이상의  파일을 업로드 할 수 없습니다"
+
+#: includes/core/form/fields/class-upload.php:392
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "업로드 가능한 파일 사이즈를 초과하였습니다."
+
+#: includes/core/form/fields/class-upload.php:393
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr "업로드 가능한 파일 사이즈를 초과하였습니다."
+
+#: includes/core/form/fields/class-upload.php:394
+msgid "The uploaded file was only partially uploaded."
+msgstr "업로드된 파일은 부분적으로만 업로드 되었습니다."
+
+#: includes/core/form/fields/class-upload.php:395
+msgid "No file was uploaded."
+msgstr "어떤 파일도 업로드되지 않았습니다."
+
+#: includes/core/form/fields/class-upload.php:397
+msgid "Missing a temporary folder."
+msgstr "업로드를 위한 임시 폴더를 찾을 수 없습니다."
+
+#: includes/core/form/fields/class-upload.php:399
+msgid "File upload stopped by extension."
+msgstr "이미지 파일 형식으로 인해 업로드 되지 않았습니다."
+
+#: includes/core/form/fields/class-upload.php:411
+msgid "File is empty. Please upload something more substantial."
+msgstr "파일이 비어있습니다."
+
+#: includes/core/form/fields/class-upload.php:416
+msgid "File is bigger then the allowed limit."
+msgstr "파일 용량이 너무 큽니다."
+
+#: includes/core/form/fields/class-upload.php:421
+msgid "Specified file failed upload test."
+msgstr "특정 파일이 업로드에 실패하였습니다."
+
+#: includes/core/form/fields/class-upload.php:439
+msgid "Sorry, this file type is not permitted for security reasons."
+msgstr "죄송합니다, 해당 파일의 타입은 허용되지 않습니다."
+
+#: includes/core/form/fields/class-upload.php:471
+msgid "The uploaded file could not be moved"
+msgstr "업로드된 파일은 이동될 수 없습니다"
+
+#: includes/core/form/form-hooks.php:39
+msgid "Submit Question"
+msgstr "질문 올리기"
+
+#: includes/core/form/form-hooks.php:44
+msgid "Question in one sentence"
+msgstr "질문을 한문장으로 표현해주세요"
+
+#: includes/core/form/form-hooks.php:47
+msgid "Question title"
+msgstr "타이틀"
+
+#: includes/core/form/form-hooks.php:57 includes/core/form/form-hooks.php:129
+#, fuzzy
+msgid "Description"
+msgstr "설명"
+
+#: includes/core/form/form-hooks.php:125
+msgid "Post Answer"
+msgstr "답변 올리기"
+
+#: includes/core/form/form-hooks.php:195 includes/core/form/form-hooks.php:380
+#: includes/tools/ajax.php:131
+msgid "Trying to cheat?!"
+msgstr "지금 무슨짓을 하려는 겁니까?!"
+
+#: includes/core/form/form-hooks.php:232
+msgid "Unable to post question."
+msgstr "질문을 올리수 없습니다."
+
+#: includes/core/form/form-hooks.php:238
+msgid "Failed to insert question"
+msgstr "질문을 올릴 수 없습니다"
+
+#: includes/core/form/form-hooks.php:295
+#, php-format
+msgid "Unable to post question. Error: %s"
+msgstr "질문을 올릴 수 없습니다. 에러 : %s"
+
+#: includes/core/form/form-hooks.php:328
+msgid "Question updated successfully, you'll be redirected in a moment."
+msgstr "질문이 성공적으로 생성되었습니다, 잠시후에 페이지가 이동됩니다."
+
+#: includes/core/form/form-hooks.php:330
+msgid "Your question is posted successfully, you'll be redirected in a moment."
+msgstr "Question updated successfully, you’ll be redirected in a moment."
+
+#: includes/core/form/form-hooks.php:422
+msgid "Unable to post answer."
+msgstr "답변을 업로드 할 수 없습니다."
+
+#: includes/core/form/form-hooks.php:428
+msgid "Please check field"
+msgstr "입력란을 다시 확인해주세요"
+
+#: includes/core/form/form-hooks.php:481
+#, php-format
+msgid "Unable to post answer. Error: %s"
+msgstr "답변을 달 수 없습니다. Error : %s"
+
+#: includes/core/form/form-hooks.php:523
+msgid "Answer updated successfully. Redirecting you to question page."
+msgstr "답변이 성공적으로 수정되었습니다. 잠시후 질문 페이지로 이동됩니다."
+
+#: includes/core/form/form-hooks.php:525
+msgid "Your answer is posted successfully."
+msgstr "당신의 답변은 성공적으로 생성되었습니다."
+
+#: includes/core/form/form-hooks.php:576
+msgid "Upload & insert"
+msgstr "업로드 & 첨부"
+
+#: includes/core/form/form-hooks.php:579
+msgid "Image"
+msgstr "이미지"
+
+#: includes/core/form/form-hooks.php:580
+msgid "Select image(s) to upload. Only .jpg, .png and .gif files allowed."
+msgstr "업로드할 이미지를 선택해주세요. jpg/png/gif만 허용됩니다."
+
+#: includes/core/form/uploader.php:44
+msgid "Unable to delete attachment"
+msgstr "첨부파일을 삭제할 수 없습니다"
+
+#: includes/core/form/uploader.php:133 includes/core/form/uploader.php:173
+msgid "Sorry! you do not have permission to upload image."
+msgstr "죄송합니다! 당신은 이미지를 업로드할 권한이 없습니다."
+
+#: includes/core/form/uploader.php:153
+msgid "Select image file to upload"
+msgstr "업로드할 이미지를 선택해 주세요"
+
+#: includes/core/form/uploader.php:190
+msgid "Unable to upload image(s). Please check errors."
+msgstr "이미지를 업로드할 수 없습니다. 에러 메세지를 확인해 주세요."
+
+#: includes/core/form/uploader.php:205
+msgid "Successfully uploaded image"
+msgstr "성공적으로 이미지를 업로드했습니다"
+
+#: includes/core/form/uploader.php:253
+#, php-format
+msgid "File cannot be uploaded, size is bigger than %s MB"
+msgstr "%s MB을 넘는 파일은 업로드될 수 없습니다"
+
+#: includes/core/post-types.php:51
+msgctxt "Post Type General Name"
+msgid "Questions"
+msgstr "질문들"
+
+#: includes/core/post-types.php:52
+msgctxt "Post Type Singular Name"
+msgid "Question"
+msgstr "질문"
+
+#: includes/core/post-types.php:54
+msgid "Parent question:"
+msgstr "부모 질문 :"
+
+#: includes/core/post-types.php:55
+msgid "All questions"
+msgstr "모든 질문"
+
+#: includes/core/post-types.php:56
+msgid "View question"
+msgstr "질문 보기"
+
+#: includes/core/post-types.php:57
+msgid "Add new question"
+msgstr "새로운 질문 추가"
+
+#: includes/core/post-types.php:58
+msgid "New question"
+msgstr "새로운 질문 추가"
+
+#: includes/core/post-types.php:60
+msgid "Update question"
+msgstr "질문 업데이트"
+
+#: includes/core/post-types.php:61
+msgid "Search questions"
+msgstr "질문 검색"
+
+#: includes/core/post-types.php:62
+msgid "No question found"
+msgstr "어떤 질문도 찾을 수 없습니다"
+
+#: includes/core/post-types.php:63
+msgid "No questions found in trash"
+msgstr "쓰레기통에 어떤 질문도 없습니다"
+
+#: includes/core/post-types.php:75
+msgid "question"
+msgstr "질문"
+
+#: includes/core/post-types.php:124
+msgctxt "Post Type General Name"
+msgid "Answers"
+msgstr "답변들"
+
+#: includes/core/post-types.php:125
+msgctxt "Post Type Singular Name"
+msgid "Answer"
+msgstr "답변"
+
+#: includes/core/post-types.php:127
+msgid "Parent answer:"
+msgstr "부모 답변 :"
+
+#: includes/core/post-types.php:128
+msgid "All answers"
+msgstr "모든 질문"
+
+#: includes/core/post-types.php:129
+msgid "View answer"
+msgstr "답변 보기"
+
+#: includes/core/post-types.php:130
+msgid "Add new answer"
+msgstr "새로운 답변 추가"
+
+#: includes/core/post-types.php:131
+msgid "New answer"
+msgstr "새로운 답변 추가"
+
+#: includes/core/post-types.php:132
+msgid "Edit answer"
+msgstr "답변 수정"
+
+#: includes/core/post-types.php:133
+msgid "Update answer"
+msgstr "답변 업데이트"
+
+#: includes/core/post-types.php:134
+msgid "Search answers"
+msgstr "답변 검색"
+
+#: includes/core/post-types.php:135
+msgid "No answer found"
+msgstr "어떠한 답변도 찾을 수 없습니다"
+
+#: includes/core/post-types.php:136
+msgid "No answer found in trash"
+msgstr "쓰레기통에서 어떠한 답변도 찾을 수 없습니다"
+
+#: includes/core/post-types.php:148
+msgid "answer"
+msgstr "답변"
+
+#: includes/core/query/qaquery-hooks.php:178
+msgid "No permission"
+msgstr "권한이 없음"
+
+#: includes/core/query/qaquery-hooks.php:179
+msgid "You do not have permission to read this question."
+msgstr "당신은 이 질문을 볼 권한이 없습니다."
+
+#: includes/core/query/qaquery.php:76
+msgid "Solved"
+msgstr "해결됨"
+
+#: includes/core/query/qaquery.php:80
+#, php-format
+msgid "%s views"
+msgstr "%s views"
+
+#: includes/core/query/qaquery.php:288
+#, php-format
+msgid "You are viewing 1 out of %d answers, click here to view all answers."
+msgstr "이곳을 클릭해서 %d 개의 답변을 더 확인하세요."
+
+#: includes/core/roles-cap.php:63
+msgid "AnsPress Moderator"
+msgstr "중관관리자"
+
+#: includes/core/roles-cap.php:65
+msgid "AnsPress Expert"
+msgstr "전문가"
+
+#: includes/core/roles-cap.php:67
+msgid "AnsPress Participants"
+msgstr "일반 유저"
+
+#: includes/core/roles-cap.php:707
+msgid "Voting on own post is not allowed"
+msgstr "자신의 포스트에 투표할 수 없습니다"
+
+#: includes/core/roles-cap.php:717
+msgid "You do not have permission to vote."
+msgstr "당신은 투표할 권한이 없습니다."
+
+#: includes/core/shortcode.php:69
+msgid "AnsPress shortcode cannot be nested."
+msgstr "AnsPress shortcode cannot be nested."
+
+#: includes/core/shortcode.php:94
+msgid "Question and answer is powered by"
+msgstr "에의해서 이 테마가 만들어졌습니다"
+
+#: includes/core/theme.php:65
+msgid "Loading.."
+msgstr "로딩중..."
+
+#: includes/core/theme.php:66
+msgid "Sending request"
+msgstr "요구사항 보내는중"
+
+#: includes/core/theme.php:67
+#, php-format
+msgid "File size is bigger than %s MB"
+msgstr "파일 사이즈가 %s MB보다 큽니다"
+
+#: includes/core/theme.php:68
+msgid "You have already attached maximum numbers of allowed attachments"
+msgstr "당신은 이미 최대 첨부 가능한 이미지 파일의 개수를 충족하였습니다"
+
+#: includes/core/theme.php:70
+msgid "Comment"
+msgstr "댓글"
+
+#: includes/core/theme.php:71
+msgid "Cancel"
+msgstr "취소"
+
+#: includes/core/theme.php:72
+msgid "Update"
+msgstr "업데이트"
+
+#: includes/core/theme.php:73
+msgid "Write your comment..."
+msgstr "댓글을 달아주세요..."
+
+#: includes/core/theme.php:74
+msgid "Notifications"
+msgstr "알림"
+
+#: includes/core/theme.php:75
+msgid "Mark all as seen"
+msgstr "모두 ‘이미 확인’ 으로 표시"
+
+#: includes/core/theme.php:77
+msgid "Sorry, you don't have permission to read comments."
+msgstr "죄송합니다, 해당 댓글을 볼 권한이 없습니다."
+
+#: includes/core/theme.php:345
+msgid "minute"
+msgstr "분"
+
+#: includes/core/theme.php:346
+msgid "minutes"
+msgstr "분"
+
+#: includes/core/theme.php:347
+msgid "hour"
+msgstr "시"
+
+#: includes/core/theme.php:348
+msgid "hours"
+msgstr "시"
+
+#: includes/core/theme.php:349
+msgid "day"
+msgstr "일"
+
+#: includes/core/theme.php:350
+msgid "days"
+msgstr "일"
+
+#: includes/core/theme.php:351
+msgid "week"
+msgstr "주"
+
+#: includes/core/theme.php:352
+msgid "weeks"
+msgstr "주"
+
+#: includes/core/theme.php:353
+msgid "year"
+msgstr "년"
+
+#: includes/core/theme.php:354
+msgid "years"
+msgstr "년"
+
+#: includes/core/theme.php:573
+msgid "Order By"
+msgstr "Order by"
+
+#: includes/core/theme.php:672
+msgid "Delete post permanently (cannot be restored again)"
+msgstr "포스트를 영구적으로 삭제합니다"
+
+#: includes/core/theme.php:815
+msgid "AnsPress links"
+msgstr ""
+
+#: includes/core/theme.php:870
+msgid "Active"
+msgstr "활성"
+
+#: includes/core/theme.php:876
+msgid "Voted"
+msgstr "투표순"
+
+#: includes/core/theme.php:881
+msgid "Newest"
+msgstr "최신순"
+
+#: includes/core/theme.php:885
+msgid "Oldest"
+msgstr "오래된순"
+
+#: includes/core/theme.php:974
+msgid "Select this answer as best"
+msgstr "베스트 답변으로 선택"
+
+#: includes/core/theme.php:982
+msgid "Unselect this answer"
+msgstr "베스트 답변 선택 철회"
+
+#: includes/core/theme.php:983 includes/core/toggle-best-answer.php:86
+msgid "Unselect"
+msgstr "선택 철회"
+
+#: includes/core/theme.php:1015
+msgid "Question is closed for new answers."
+msgstr ""
+
+#: includes/core/theme.php:1017
+#, php-format
+msgid "This %s has been trashed, you can delete it permanently from wp-admin."
+msgstr ""
+"이 %s 는 쓰레기통으로 이동되었습니다. 관리자페이지에서 영구적으로 삭제할 수 "
+"있습니다."
+
+#: includes/core/toggle-best-answer.php:68
+msgid "Best answer is unselected for your question."
+msgstr "당신의 질문의 베스트 답변이 선택 철회되었습니다."
+
+#: includes/core/toggle-best-answer.php:76
+msgid ""
+"This answer cannot be selected as best, update status to select as best "
+"answer."
+msgstr "베스트 답변으로 선택될 수 없습니다, 답변의 상태를 수정해 주세요."
+
+#: includes/core/toggle-best-answer.php:87
+msgid "Best answer is selected for your question."
+msgstr "당신의 질문의 베스트 답변으로 선택되었습니다."
+
+#: includes/tools/ajax.php:146
+msgid "You don't have enough permissions to do this action."
+msgstr "더 높은 권한이 필요합니다."
+
+#: includes/tools/ajax.php:210
+msgid "Something went wrong."
+msgstr "무언가 잘못되었습니다."
+
+#: includes/tools/singleton.php:34 includes/tools/singleton.php:43
+msgid "Cheatin&#8217; huh?"
+msgstr "누굴 속이시려고?"
+
+#: template-parts/answer-form.php:30
+msgid "Write your answer."
+msgstr "답변을 작성해 주세요."
+
+#: template-parts/answer.php:31 template-parts/profile/answer-item.php:39
+#, php-format
+msgid "Posted %s"
+msgstr "%s 가 게시되었습니다"
+
+#: template-parts/content-none.php:14
+msgid "Sorry! No question found."
+msgstr "죄송합니다! 어떤 질문도 찾지 못했습니다."
+
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Showing results with pagination active, you are currently on page %d. Click "
+"here to return to the initial page"
+msgstr ""
+
+#: template-parts/content-none.php:28
+msgid "go to page 1"
+msgstr ""
+
+#: template-parts/login-modal.php:12
+msgid "Log in using"
+msgstr ""
+
+#: template-parts/login-modal.php:25
+msgid "Forgot password"
+msgstr "비밀번호 찾기"
+
+#: template-parts/login-signup.php:19
+msgid "or"
+msgstr "또는"
+
+#: template-parts/login-signup.php:20
+msgid "Login"
+msgstr ""
+
+#: template-parts/profile/answer-item.php:47
+msgid "View Question"
+msgstr "질문 보기"
+
+#: template-parts/profile/answer-item.php:52
+#, php-format
+msgid "%d Vote"
+msgid_plural "%d Votes"
+msgstr[0] "%d 개의 투표"
+
+#: template-parts/profile/answer-item.php:54
+msgid "This answer is selected as best"
+msgstr "해당 답변은 베스트 답변으로 선택되었습니다"
+
+#: template-parts/profile/answer-item.php:54
+msgid "Selected"
+msgstr "베스트 답변"
+
+#: template-parts/profile/answers.php:38
+msgid "Load more answers"
+msgstr "더 많은 질문을 읽어들입니다"
+
+#: template-parts/profile/answers.php:44
+msgid "No answer posted by this user."
+msgstr "어떤 답변도 올리지 않았습니다."
+
+#: template-parts/profile/index.php:23
+msgid "Please login to view your profile"
+msgstr "프로필을 보기 위해서는, 로그인을 하셔야 합니다"
+
+#: template-parts/question-filter.php:16
+msgid "Search questions..."
+msgstr "질문 검색..."
+
+#: template-parts/question-list.php:32
+msgid ""
+"There are no questions matching your query or you do not have permission to "
+"read them."
+msgstr ""
+
+#: template-parts/reputation.php:33
+msgid "No reputation"
+msgstr "전문가지수 없음"
+
+#: template-parts/single-question.php:66
+msgid "Scheduled for"
+msgstr ""
+
+#: template-parts/single-question.php:66
+msgid "Published"
+msgstr "발행됨"
+
+#: template-parts/site-nav.php:1
+msgid "Site Navigation"
+msgstr ""
