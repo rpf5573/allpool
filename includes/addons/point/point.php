@@ -26,7 +26,7 @@ class AP_Point extends \AnsPress\Singleton {
 	protected function __construct() {
 		ap_add_default_options(
 			[
-				'user_page_title_points' => __( 'Points', 'anspress-question-answer' ),
+				'user_page_title_point' => __( 'Point', 'anspress-question-answer' ),
 				'user_page_slug_point'  => 'point',
 			]
 		);
@@ -83,34 +83,6 @@ class AP_Point extends \AnsPress\Singleton {
 	}
 
 	/**
-	 * Save reputation events.
-	 */
-	public static function ap_save_events() {
-		check_ajax_referer( 'ap-save-events', '__nonce' );
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die();
-		}
-
-		$events_point = ap_isset_post_value( 'events', 'r' );
-		$points       = [];
-
-		foreach ( ap_get_reputation_events() as $slug => $event ) {
-			if ( isset( $events_point[ $slug ] ) ) {
-				$points[ sanitize_text_field( $slug ) ] = (int) $events_point[ $slug ];
-			}
-		}
-
-		if ( ! empty( $points ) ) {
-			update_option( 'anspress_reputation_events', $points );
-		}
-
-		echo '<div class="notice notice-success is-dismissible"><p>' . esc_attr__( 'Successfully updated reputation points!', 'anspress-question-answer' ) . '</p></div>';
-
-		wp_die();
-	}
-
-	/**
 	 * Append user reputations in display name.
 	 *
 	 * @param string $name User display name.
@@ -120,8 +92,8 @@ class AP_Point extends \AnsPress\Singleton {
 	public static function display_name( $name, $args ) {
 		if ( $args['user_id'] > 0 ) {
 			if ( $args['html'] ) {
-				$reputation = mycred_get_users_balance( $args['user_id'] );
-				return $name . '<a href="' . ap_user_link( $args['user_id'] ) . 'reputations" class="ap-user-reputation" title="' . __( 'Reputation', 'anspress-question-answer' ) . '">' . $reputation . '</a>';
+				$point = mycred_get_users_balance( $args['user_id'] );
+				return $name . '<a href="' . ap_user_link( $args['user_id'] ) . 'point" class="ap-user-point" title="' . __( 'Point', 'anspress-question-answer' ) . '">' . $point . '</a>';
 			}
 		}
 
@@ -133,11 +105,11 @@ class AP_Point extends \AnsPress\Singleton {
 	 */
 	public static function ap_user_pages() {
 		anspress()->user_pages[] = array(
-			'slug'  => 'reputations',
-			'label' => __( 'Reputations', 'anspress-question-answer' ),
-			'icon'  => 'apicon-reputation',
-			'cb'    => [ __CLASS__, 'reputation_page' ],
-			'order' => 5,
+			'slug'  => 'point',
+			'label' => __( 'Point', 'anspress-question-answer' ),
+			'icon'  => 'apicon-point',
+			'cb'    => [ __CLASS__, 'point_page' ],
+			'order' => 6,
 		);
 	}
 
@@ -146,15 +118,14 @@ class AP_Point extends \AnsPress\Singleton {
 	 */
 	public static function reputation_page() {
 		$user_id = get_queried_object_id();
-		ap_template_part( 'reputation', null, array( 'user_id' => $user_id ) );
+		ap_template_part( 'point', null, array( 'user_id' => $user_id ) );
 	}
 }
 
 // Initialize addon.
-AP_Reputation::init();
+AP_Point::init();
 
-
-function ap_get_reputation_icon_class( $log_entry ) {
+function ap_get_point_icon_class( $log_entry ) {
 	
 	$icon_class = 'apicon-';
 	switch( $log_entry->ref ) {
@@ -188,7 +159,7 @@ function ap_get_reputation_icon_class( $log_entry ) {
 	return $icon_class;
 }
 
-function ap_reputation_ref_content( $log_entry ) {
+function ap_point_ref_content( $log_entry ) {
 	if ( ! empty( $log_entry->ref_id ) ) {
 		$post = get_post( $log_entry->ref_id );
 		

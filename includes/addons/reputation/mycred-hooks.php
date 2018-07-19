@@ -573,7 +573,7 @@ class Vote_Down extends \myCRED_Hook {
     <ol>
       <li>
         <label for="<?php echo $this->field_id( array('do', 'creds') )?>" class="subheader"><?php echo $this->core->plural(); ?></label>
-        <input 
+        <input
           type="text" 
           name="<?php echo $this->field_name( array( 'do', 'creds' ) ); ?>" 
           id="<?php echo $this->field_id( array( 'do', 'creds' ) ); ?>"

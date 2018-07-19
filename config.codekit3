@@ -2365,13 +2365,6 @@
 		"oAP": "\/includes\/admin\/views\/options.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/reputation-events.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/reputation-events.php",
-		"oF": 0
-		},
 	"\/includes\/admin\/views\/select_question.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -83,34 +83,6 @@ class AP_Reputation extends \AnsPress\Singleton {
 	}
 
 	/**
-	 * Save reputation events.
-	 */
-	public static function ap_save_events() {
-		check_ajax_referer( 'ap-save-events', '__nonce' );
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die();
-		}
-
-		$events_point = ap_isset_post_value( 'events', 'r' );
-		$points       = [];
-
-		foreach ( ap_get_reputation_events() as $slug => $event ) {
-			if ( isset( $events_point[ $slug ] ) ) {
-				$points[ sanitize_text_field( $slug ) ] = (int) $events_point[ $slug ];
-			}
-		}
-
-		if ( ! empty( $points ) ) {
-			update_option( 'anspress_reputation_events', $points );
-		}
-
-		echo '<div class="notice notice-success is-dismissible"><p>' . esc_attr__( 'Successfully updated reputation points!', 'anspress-question-answer' ) . '</p></div>';
-
-		wp_die();
-	}
-
-	/**
 	 * Append user reputations in display name.
 	 *
 	 * @param string $name User display name.
@@ -148,6 +120,7 @@ class AP_Reputation extends \AnsPress\Singleton {
 		$user_id = get_queried_object_id();
 		ap_template_part( 'reputation', null, array( 'user_id' => $user_id ) );
 	}
+	
 }
 
 // Initialize addon.
