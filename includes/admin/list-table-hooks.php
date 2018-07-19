@@ -32,6 +32,8 @@ class AP_Post_Table_Hooks {
 		anspress()->add_filter( 'manage_edit-answer_sortable_columns', __CLASS__, 'admin_column_sort_flag' );
 		anspress()->add_action( 'edit_form_after_title', __CLASS__, 'edit_form_after_title' );
 		anspress()->add_filter( 'post_updated_messages', __CLASS__, 'post_custom_message' );
+		anspress()->add_filter( 'list_table_primary_column', __CLASS__, 'cpt_answer_primary_column', 100, 2 );
+		anspress()->add_filter( 'post_row_actions', __CLASS__, 'hide_quick_edit_btn', 10, 2 );
 
 		// statistic - terms
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question', 100, 2 );
@@ -112,44 +114,6 @@ class AP_Post_Table_Hooks {
 
 		// Pregmatch will return an array and the first 80 chars will be in the first element.
 		echo '<a href="' . esc_url( get_permalink( $post->post_parent ) ) . '" class="row-title">' . $content . '</a>'; // xss okay.
-
-		// First set up some variables.
-		$actions          = array();
-		$post_type_object = get_post_type_object( $post->post_type ); // override ok.
-		$can_edit_post    = current_user_can( $post_type_object->cap->edit_post, $post->ID );
-
-		// Actions to delete/trash.
-		if ( current_user_can( $post_type_object->cap->delete_post, $post->ID ) ) {
-			if ( 'trash' === $post->post_status ) {
-				$_wpnonce           = wp_create_nonce( 'untrash-post_' . $post_id );
-				$url                = admin_url( 'post.php?post=' . $post_id . '&action=untrash&_wpnonce=' . $_wpnonce );
-				$actions['untrash'] = "<a title='" . esc_attr( __( 'Restore this item from the Trash', 'anspress-question-answer' ) ) . "' href='" . $url . "'>" . __( 'Restore', 'anspress-question-answer' ) . '</a>';
-
-			} elseif ( EMPTY_TRASH_DAYS ) {
-				$actions['trash'] = "<a class='submitdelete' title='" . esc_attr( __( 'Move this item to the Trash', 'anspress-question-answer' ) ) . "' href='" . get_delete_post_link( $post->ID ) . "'>" . __( 'Trash', 'anspress-question-answer' ) . '</a>';
-			}
-
-			if ( 'trash' === $post->post_status || ! EMPTY_TRASH_DAYS ) {
-				$actions['delete'] = "<a class='submitdelete' title='" . esc_attr( __( 'Delete this item permanently', 'anspress-question-answer' ) ) . "' href='" . get_delete_post_link( $post->ID, '', true ) . "'>" . __( 'Delete Permanently', 'anspress-question-answer' ) . '</a>';
-			}
-		}
-
-		if ( $can_edit_post ) {
-			$actions['edit'] = '<a href="' . get_edit_post_link( $post->ID, '', true ) . '" title="' . esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;', 'anspress-question-answer' ), $post->title ) ) . '" rel="permalink">' . __( 'Edit', 'anspress-question-answer' ) . '</a>';
-		}
-
-		// Actions to view/preview.
-		if ( in_array( $post->post_status, [ 'pending', 'draft', 'future' ], true ) && $can_edit_post ) {
-
-			$actions['view'] = '<a href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) . '" title="' . esc_attr( sprintf( __( 'Preview &#8220;%s&#8221;', 'anspress-question-answer' ), $post->title ) ) . '" rel="permalink">' . __( 'Preview', 'anspress-question-answer' ) . '</a>';
-
-		} elseif ( 'trash' !== $post->post_status ) {
-			$actions['view'] = '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( __( 'View &#8220;%s&#8221; question', 'anspress-question-answer' ) ) . '" rel="permalink">' . __( 'View', 'anspress-question-answer' ) . '</a>';
-		}
-
-		// Echo the 'actions' HTML, let WP_List_Table do the hard work.
-		$WP_List_Table = new WP_List_Table(); // @codingStandardsIgnoreLine
-		echo $WP_List_Table->row_actions( $actions );
 	}
 
 	/**
@@ -162,8 +126,8 @@ class AP_Post_Table_Hooks {
 	public static function cpt_question_columns( $columns ) {
 		$columns              = array();
 		$columns['cb']        = '<input type="checkbox" />';
-		$columns['ap_author'] = __( 'Author', 'anspress-question-answer' );
 		$columns['title']     = __( 'Title', 'anspress-question-answer' );
+		$columns['ap_author'] = __( 'Author', 'anspress-question-answer' );
 
 		if ( taxonomy_exists( 'question_category' ) ) {
 			$columns['question_category'] = __( 'Category', 'anspress-question-answer' );
@@ -188,8 +152,6 @@ class AP_Post_Table_Hooks {
 	 */
 	public static function custom_columns_value( $column ) {
     global $post;
-    
-     
 
 		if ( ! in_array( $post->post_type, [ 'question', 'answer' ], true ) ) {
 			return $column;
@@ -290,8 +252,8 @@ class AP_Post_Table_Hooks {
 	public static function cpt_answer_columns( $columns ) {
 		$columns = array(
 			'cb'             => '<input type="checkbox" />',
-			'ap_author'      => __( 'Author', 'anspress-question-answer' ),
 			'answer_content' => __( 'Content', 'anspress-question-answer' ),
+			'ap_author'      => __( 'Author', 'anspress-question-answer' ),
 			'status'         => __( 'Status', 'anspress-question-answer' ),
 			'votes'          => __( 'Votes', 'anspress-question-answer' ),
 			'date'           => __( 'Date', 'anspress-question-answer' ),
@@ -393,6 +355,20 @@ class AP_Post_Table_Hooks {
 			'taxonomy'        => $taxonomy->name,
 			'value_field'     => 'slug',
 		) );
+	}
+
+	public static function cpt_answer_primary_column( $default, $screen_id ) {
+		if ( $screen_id == 'edit-answer' ) {
+			return 'answer_content';
+		}
+		return $default;		
+	}
+
+	public static function hide_quick_edit_btn( $actions = array(), $post = null ) {
+		if ( isset( $actions['inline hide-if-no-js'] ) ) {
+			unset( $actions['inline hide-if-no-js'] );
+		}
+		return $actions;
 	}
 	
 }

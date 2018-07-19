@@ -569,7 +569,7 @@ class AP_Hooks {
     $init["force_p_newlines"] = false;
 		$init["convert_newlines_to_brs"] = true;
 		
-		\PC::debug( ['init' => $init], __FUNCTION__ );
+		
 
     return $init;
 	}

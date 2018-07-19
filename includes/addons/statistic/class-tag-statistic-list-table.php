@@ -121,7 +121,7 @@ class AP_Tag_Statistic_List_Table extends AP_List_Table {
 		global $wpdb;
     
 		$sql = $this->get_answer_sql( $tag );
-		\PC::debug( ['sql' => $sql], __FUNCTION__ );
+		
     $count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
 			return $this->get_link( 'answer', 'tag_name', $tag, $count );

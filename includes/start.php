@@ -20,7 +20,7 @@ show_admin_bar(false);
 
 function ap_load_textdomain() {
   $directory = get_template_directory();
-  \PC::debug( ['director' => $directory], __FUNCTION__ );
+  
   load_theme_textdomain( 'anspress-question-answer', get_template_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'ap_load_textdomain' );

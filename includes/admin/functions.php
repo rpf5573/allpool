@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 function ap_load_admin_assets() {
 	$page = get_current_screen();
 
-	\PC::debug( ['page' => $page], __FUNCTION__ );
+	
 
 	$load = 'question' === $page->post_type || 'answer' === $page->post_type || strpos( $page->base, 'anspress' ) !== false || 'nav-menus' === $page->base || 'admin_page_ap_select_question' === $page->base || 'admin_page_anspress_update' === $page->base;
 

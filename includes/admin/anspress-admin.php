@@ -91,7 +91,6 @@ class AP_Admin {
 		// expert category
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_question_by_expert_categories', -999, 2 );
 		anspress()->add_filter( 'admin_init', __CLASS__, 'prevent_access_answer_edit_page_by_expert_categories' );
-		anspress()->add_filter( 'post_row_actions', __CLASS__, 'hide_quick_edit_btn', 10, 2 );
 
 		// statistic
 		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
@@ -785,13 +784,6 @@ class AP_Admin {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
 			}
 		}
-	}
-
-	public static function hide_quick_edit_btn( $actions = array(), $post = null ) {
-		if ( ap_is_expert() && isset( $actions['inline hide-if-no-js'] ) ) {
-			unset( $actions['inline hide-if-no-js'] );
-		}
-		return $actions;
 	}
 
 	public static function prevent_access_answer_edit_page_by_expert_categories() {
