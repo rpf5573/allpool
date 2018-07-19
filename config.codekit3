@@ -407,6 +407,17 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/assets\/images\/money.png": {
+		"ft": 32768,
+		"iS": 4422,
+		"oA": 0,
+		"oAP": "\/assets\/images\/money.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/assets\/images\/more_functions.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -2184,6 +2195,20 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/addons\/inspection-check.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/mycred-hooks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/mycred-hooks.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/point.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/point.php",
 		"oF": 0
 		},
 	"\/includes\/addons\/profile.php": {
