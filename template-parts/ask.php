@@ -9,7 +9,7 @@
  */
 ?>
 
-<div class="ask-form-container"> <?php 
+<div class="ask-form-container"> <?php
 	if ( ap_user_can_ask() ) {
 		ap_ask_form();
 	} else if ( is_user_logged_in() ) { ?>

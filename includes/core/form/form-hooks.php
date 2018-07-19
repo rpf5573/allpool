@@ -182,9 +182,8 @@ class AP_Form_Hooks {
 
 		$values = $form->get_values();
 
-		
-
-		// Store current values in session. // 이거 타이밍이 별로인데;;
+		// Store current values in session.
+		// submit => error => refresh => value is stored
 		$form->save_values_session();
 
 		// Check nonce and is valid form. Do not check if `$manual` is true.

@@ -42,7 +42,6 @@ class AP_Theme {
 	}
 
 	public static function enqueue_scripts() {
-		wp_enqueue_script( 'ap-math', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', array(), true );
 		wp_enqueue_script( 'selectize', ANSPRESS_URL . 'assets/lib/selectize.min.js', array('jquery'), true );
 
 		// Semantic-ui

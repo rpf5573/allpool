@@ -142,7 +142,6 @@ class AP_Admin {
 		
 		wp_enqueue_script( 'ap-sticky-header', ANSPRESS_URL . 'assets/lib/jquery.floatThead.js', array( 'jquery' ), true );
 		wp_enqueue_script( 'ap-loading-indicator', ANSPRESS_URL . 'assets/lib/loading-indicator/js/modal-loading.js', array( 'jquery' ), true );
-		wp_enqueue_script( 'ap-math', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', array(), true );
 		wp_enqueue_script( 'ap-admin-js', ANSPRESS_URL . 'assets/js/admin-min.js', array( 'jquery', 'jquery-form', 'backbone', 'underscore' ), $ver, true );
 		?>
 			<script type="text/javascript">

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-07-18 15:23+0900\n"
-"PO-Revision-Date: 2018-07-18 15:34+0900\n"
+"PO-Revision-Date: 2018-07-19 12:22+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -1301,7 +1301,7 @@ msgstr "에러를 확인해주시고, 수정해서 다시 제출해 주세요"
 #: includes/core/form/class-validate.php:357
 #, php-format
 msgid "%s field is required."
-msgstr "%s 필드는 필수적입니다."
+msgstr "%s 필드는 필수로 입력해주셔야 합니다"
 
 #: includes/core/form/class-validate.php:375
 #, php-format
@@ -1532,12 +1532,11 @@ msgstr "질문을 한문장으로 표현해주세요"
 
 #: includes/core/form/form-hooks.php:47
 msgid "Question title"
-msgstr "타이틀"
+msgstr "질문 타이틀"
 
 #: includes/core/form/form-hooks.php:57 includes/core/form/form-hooks.php:129
-#, fuzzy
 msgid "Description"
-msgstr "설명"
+msgstr "질문 내용"
 
 #: includes/core/form/form-hooks.php:125
 msgid "Post Answer"
@@ -1981,7 +1980,7 @@ msgstr "또는"
 
 #: template-parts/login-signup.php:20
 msgid "Login"
-msgstr ""
+msgstr "로그인"
 
 #: template-parts/profile/answer-item.php:47
 msgid "View Question"
