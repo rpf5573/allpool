@@ -1048,10 +1048,9 @@ function ap_ask_form( $deprecated = null ) {
 	);
 
 	$values         = [];
-	$session_values = anspress()->session->get( 'form_question' );
-
+	// $session_values = anspress()->session->get( 'form_question' );
+	$session_values = false;
 	
-
 	// Add value when editing post.
 	if ( $editing ) {
 		$question = ap_get_post( $editing_id );
@@ -1310,7 +1309,8 @@ function ap_answer_form( $question_id, $editing = false ) {
 	);
 
 	$values         = [];
-	$session_values = anspress()->session->get( 'form_answer_' . $question_id );
+	// $session_values = anspress()->session->get( 'form_answer_' . $question_id );
+	$session_values = false;
 
 	// Add value when editing post.
 	if ( $editing ) {

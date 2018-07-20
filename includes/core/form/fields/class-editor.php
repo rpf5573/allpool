@@ -202,6 +202,8 @@ class Editor extends Field {
 	 * @return string Updated `img` tag.
 	 */
 	public function image_process( $matches ) {
+		
+
 		if ( false === strpos( $matches[1], 'anspress-temp/' ) ) {
 			return $matches[0];
 		}
@@ -209,12 +211,16 @@ class Editor extends Field {
 		$img = array();
 
 		// get image url
-		preg_match('/\\\"([^\\\"]*)/i', $matches[1], $url);
+		preg_match('/\"(.*?)\"/i', $matches[1], $url);
+
 		if ( count($url) > 1 ) {
 			$img['url'] = $url[1];
 
 			// get image width
-			preg_match('/width=\\\"([^\\\\"]*)/i', $matches[1], $width);
+			preg_match('/width.*?\"([0-9]*?)\"/i', $matches[1], $width);
+
+			
+
 			if ( count($width) > 1 && (int)$width[1] > 0 ) {
 				$img['width'] = (int) $width[1];
 			} else {
@@ -222,12 +228,16 @@ class Editor extends Field {
 			}
 
 			// get image height
-			preg_match('/height=\\\"([^\\\\"]*)/i', $matches[1], $height);
+			preg_match('/height.*?\"([0-9]*?)\"/i', $matches[1], $height);
+
+			
+
 			if ( count($height) > 1 && (int)$height[1] > 0 ) {
 				$img['height'] = (int) $height[1];
 			} else {
 				$img['height'] = false;
 			}
+
 		} else {
 			$this->add_error( 'fields-error', __( 'Sorry an error occured while processing your image, please remove it and insert again', 'anspress-question-answer' ) );
 			return false;
@@ -285,10 +295,11 @@ class Editor extends Field {
 	public function pre_get() {
 		$value = $this->value();
 
-		\PC::debug( ['value' => $value], __FUNCTION__ );
-
-		if ( $this->have_errors() ) {
-			return;
+		$form = anspress()->get_form('question');
+		foreach( $form->fields as $field ) {
+			if ( $field->have_errors() ) {
+				return;
+			}
 		}
 
 		$this->value = preg_replace_callback( "/<img[^<]*src=([^<>]+)\/>/i", [ $this, 'image_process' ], $value );

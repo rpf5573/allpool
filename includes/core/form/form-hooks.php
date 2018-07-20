@@ -186,7 +186,7 @@ class AP_Form_Hooks {
 
 		// Store current values in session.
 		// submit => error => refresh => value is stored
-		$form->save_values_session();
+		// $form->save_values_session();
 
 		// Check nonce and is valid form. Do not check if `$manual` is true.
 		if ( ! $form->is_submitted() && false === $manual ) {
@@ -371,7 +371,7 @@ class AP_Form_Hooks {
 
 		$values = $form->get_values();
 		// Store current values in session.
-		$form->save_values_session( $question_id );
+		// $form->save_values_session( $question_id );
 
 		// Check nonce and is valid form.
 		if ( false === $manual && ( ! $form->is_submitted() || ! ap_user_can_answer( $question_id ) ) ) {

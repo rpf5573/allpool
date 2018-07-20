@@ -547,16 +547,11 @@ class Field {
 
 		if ( ! empty( $this->sanitize_cb ) ) {
 			$unsafe_value     = $this->unsafe_value();
-
-			
-
 			$sanitize_applied = false;
 
 			foreach ( (array) $this->sanitize_cb as $sanitize ) {
 				// Callback for sanitizing field type.
 				$cb = 'sanitize_' . trim( $sanitize );
-
-				
 
 				if ( method_exists( 'AnsPress\Form\Validate', $cb ) ) {
 					$sanitized_val = call_user_func_array( 'AnsPress\Form\Validate::' . $cb, $this->sanitize_cb_args( $unsafe_value ) );
