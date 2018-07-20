@@ -1050,6 +1050,8 @@ function ap_ask_form( $deprecated = null ) {
 	$values         = [];
 	$session_values = anspress()->session->get( 'form_question' );
 
+	
+
 	// Add value when editing post.
 	if ( $editing ) {
 		$question = ap_get_post( $editing_id );

@@ -106,6 +106,8 @@ class AP_Form_Hooks {
 		 */
 		$form = apply_filters( 'ap_question_form_fields', $form, $editing );
 
+		
+
 		return $form;
 	}
 

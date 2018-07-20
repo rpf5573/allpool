@@ -25,7 +25,7 @@ function ap_default_options() {
 		'post_question_per'             => 'logged_in',
 		'post_answer_per'               => 'logged_in',
 		'close_selected'                => true,
-		'disallow_op_to_answer'         => true,
+		'allow_op_to_answer'         		=> false,
 		'multiple_answers'              => false,
 		'uploads_per_post'              => 4,
 		'minimum_qtitle_length'					=> 1,

@@ -206,8 +206,6 @@ class Editor extends Field {
 			return $matches[0];
 		}
 
-		
-
 		$img = array();
 
 		// get image url
@@ -286,6 +284,8 @@ class Editor extends Field {
 	 */
 	public function pre_get() {
 		$value = $this->value();
+
+		\PC::debug( ['value' => $value], __FUNCTION__ );
 
 		if ( $this->have_errors() ) {
 			return;

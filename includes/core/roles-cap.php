@@ -212,6 +212,7 @@ function ap_user_can_ask( $user_id = false ) {
  * @since  4.1.0 Check if `$question_id` argument is a valid question CPT ID. Updated to use new option post_answer_per. Also removed checking of option only_admin_can_answer. Fixed: anonymous cannot answer if allow op to answer option is unchecked.
  */
 function ap_user_can_answer( $question_id, $user_id = false ) {
+
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
 	}
@@ -245,12 +246,12 @@ function ap_user_can_answer( $question_id, $user_id = false ) {
 	}
 
 	// Check if user is original poster and dont allow them to answer their own question.
-	if ( ! ap_opt( 'disallow_op_to_answer' ) && ! empty( $question->post_author ) && $question->post_author == $user_id ) { // loose comparison ok.
+	if ( is_user_logged_in() && ! ap_opt( 'allow_op_to_answer' ) && ! empty( $question->post_author ) && $question->post_author == $user_id ) { // loose comparison ok.
 		return false;
 	}
 
 	// Check if user already answered and if multiple answer disabled then don't allow them to answer.
-	if ( ! ap_opt( 'multiple_answers' ) && ap_is_user_answered( $question->ID, $user_id ) ) {
+	if ( is_user_logged_in() && ! ap_opt( 'multiple_answers' ) && ap_is_user_answered( $question->ID, $user_id ) ) {
 		return false;
 	}
 
@@ -276,7 +277,8 @@ function ap_user_can_select_answer( $_post = null, $user_id = false ) {
 		$user_id = get_current_user_id();
 	}
 
-	if ( is_super_admin( $user_id ) ) {
+	// Allow moderators to toggle best answer.
+	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
 		return true;
 	}
 
@@ -289,12 +291,7 @@ function ap_user_can_select_answer( $_post = null, $user_id = false ) {
 
 	$question = ap_get_post( $answer->post_parent );
 
-	if ( ( ! empty( $question->post_author ) ) && ( $user_id == $question->post_author ) ) {
-		return true;
-	}
-
-	// Allow moderators to toggle best answer.
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
+	if ( is_user_logged_in() && ( ! empty( $question->post_author ) ) && ( $user_id == $question->post_author ) ) {
 		return true;
 	}
 

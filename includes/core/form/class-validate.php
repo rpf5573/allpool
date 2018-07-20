@@ -190,13 +190,17 @@ class Validate {
 			$new_value = preg_replace_callback( '/<pre(.*?)>(.*?)<\/pre>/imsu', [ __CLASS__, 'pre_content' ], $new_value );
 			$new_value = preg_replace_callback( '/<code.*?>(.*?)<\/code>/imsu', [ __CLASS__, 'code_content' ], $new_value );
 
+			\PC::debug( ['before_value' => $new_value], __FUNCTION__ );
+
+			$new_value = stripslashes( $new_value );
+
+			\PC::debug( ['new_vlaue' => $new_value], __FUNCTION__ );
+
 			// Remove multiple new lines.
 			// $new_value           = preg_replace( '/[\r\n]\s*[\r\n]/', "\n", $new_value );
 
 			// Remove single white single space in line.
 			// $new_value           = preg_replace( '/&nbsp;/', "\n", $new_value );
-
-			
 
 			return $new_value;
 		}

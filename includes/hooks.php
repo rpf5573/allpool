@@ -13,7 +13,7 @@ class AP_Hooks {
     anspress()->add_action( 'save_post', __CLASS__, 'base_page_update', 10, 2 );
     anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
 		anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
-		anspress()->add_action( 'gettext', __CLASS__, 'filter_gettext', 10, 3 );
+		// anspress()->add_action( 'gettext', __CLASS__, 'filter_gettext', 10, 3 );
 		// anspress()->add_filter( 'tiny_mce_before_init', __CLASS__, 'change_mce_options' );
 		
 		// Register acf fields
@@ -577,7 +577,7 @@ class AP_Hooks {
 
   public static function filter_gettext( $translated, $original, $domain ) {
 		if ( $translated == "username" ) {
-			\PC::debug( 'called', __FUNCTION__ );
+			
 			$translated = "아이디";
 		}
 		return $translated;
