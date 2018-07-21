@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-07-18 15:23+0900\n"
-"PO-Revision-Date: 2018-07-19 12:22+0900\n"
+"PO-Revision-Date: 2018-07-20 17:27+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -31,7 +31,7 @@ msgstr "질문 리스트를 확인하는 페이지 입니다."
 #: includes/addons/profile.php:121 includes/admin/views/dashboard.php:26
 #: includes/core/post-types.php:53
 msgid "Questions"
-msgstr "질문들"
+msgstr "질문 리스트"
 
 #: functions.php:126
 msgid "Ask page"
@@ -70,7 +70,7 @@ msgstr "질문 카테고리를 보여주는데 사용되는 페이지입니다."
 #: functions.php:140 includes/addons/category.php:6
 #: includes/addons/category.php:128 includes/core/common-pages.php:26
 msgid "Categories"
-msgstr "카테고리"
+msgstr "카테고리 관리"
 
 #: functions.php:744
 msgid "[Solved] "
@@ -289,7 +289,7 @@ msgstr "문제 분석용 키워드"
 
 #: includes/addons/analysis-keyword.php:46
 msgid "Analysis Keyword"
-msgstr "키워드"
+msgstr "분석키워드"
 
 #: includes/addons/category.php:20
 msgid "Question Categories"
@@ -298,7 +298,7 @@ msgstr "질문 카테고리"
 #: includes/addons/category.php:21 includes/addons/category.php:66
 #: includes/admin/list-table-hooks.php:169
 msgid "Category"
-msgstr "카테고리"
+msgstr "카테고리 관리"
 
 #: includes/addons/category.php:22
 msgid "All Categories"
@@ -351,7 +351,7 @@ msgstr "답변여부"
 #: includes/addons/profile.php:49 includes/addons/profile.php:128
 #: includes/core/post-types.php:126
 msgid "Answers"
-msgstr "답변들"
+msgstr "답변 리스트"
 
 #: includes/addons/profile.php:55
 msgid "User profile"
@@ -613,11 +613,11 @@ msgstr "유효하지 않은 카테고리."
 
 #: includes/addons/statistic/statistic.php:25
 msgid "Statistic"
-msgstr "통계"
+msgstr "통계관리"
 
 #: includes/addons/tag.php:7 includes/addons/tag.php:32
 msgid "Tags"
-msgstr "태그"
+msgstr "태그키워드 관리"
 
 #: includes/addons/tag.php:8
 msgctxt "anspress-question-answer"
@@ -715,19 +715,19 @@ msgstr "위시리스트"
 
 #: includes/admin/anspress-admin.php:176
 msgid "All Questions"
-msgstr "모든 질문"
+msgstr "질문 리스트"
 
 #: includes/admin/anspress-admin.php:178
 msgid "New Question"
-msgstr "새로운 질문 생성"
+msgstr "질문 작성"
 
 #: includes/admin/anspress-admin.php:180
 msgid "All Answers"
-msgstr "모든 답변"
+msgstr "답변 리스트"
 
 #: includes/admin/anspress-admin.php:182
 msgid "New Answer"
-msgstr "새로운 답변"
+msgstr "답변 작성"
 
 #: includes/admin/anspress-admin.php:191 includes/admin/views/dashboard.php:213
 #: includes/admin/views/options.php:92
@@ -905,7 +905,7 @@ msgstr "상태"
 #: includes/admin/list-table-hooks.php:177
 #: template-parts/question-list-item.php:37
 msgid "Ans"
-msgstr "Ans"
+msgstr "답변"
 
 #: includes/admin/list-table-hooks.php:178
 #: includes/admin/list-table-hooks.php:296
@@ -1629,7 +1629,7 @@ msgstr "%s MB을 넘는 파일은 업로드될 수 없습니다"
 #: includes/core/post-types.php:51
 msgctxt "Post Type General Name"
 msgid "Questions"
-msgstr "질문들"
+msgstr "질문 리스트"
 
 #: includes/core/post-types.php:52
 msgctxt "Post Type Singular Name"
@@ -1679,7 +1679,7 @@ msgstr "질문"
 #: includes/core/post-types.php:124
 msgctxt "Post Type General Name"
 msgid "Answers"
-msgstr "답변들"
+msgstr "답변 리스트"
 
 #: includes/core/post-types.php:125
 msgctxt "Post Type Singular Name"
@@ -2020,7 +2020,7 @@ msgstr "질문 검색..."
 msgid ""
 "There are no questions matching your query or you do not have permission to "
 "read them."
-msgstr ""
+msgstr "매칭되는 검색 결과가 없거나 읽을 권한이 없습니다."
 
 #: template-parts/reputation.php:33
 msgid "No reputation"

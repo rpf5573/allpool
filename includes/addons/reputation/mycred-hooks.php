@@ -46,7 +46,7 @@ class Register extends \myCRED_Hook {
         <div class="h2">
           <input
             type="text"
-            name="<?php $this->field_name('log'); ?>"
+            name="<?php echo $this->field_name('log'); ?>"
             id="<?php echo $this->field_id('log'); ?>" 
             value="<?php echo esc_attr($prefs['log']); ?>"
             class="long">
@@ -56,7 +56,7 @@ class Register extends \myCRED_Hook {
   }
 
   public function sanitise_preferences( $data ) {
-		$new_data = $data;
+    $new_data = $data;
 
 		// Apply defaults if any field is left empty
 		$new_data['creds'] = ( !empty( $data['creds'] ) ) ? $data['creds'] : $this->defaults['creds'];
@@ -128,7 +128,7 @@ class Ask extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'do', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'do', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'do', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['do']['log'] ); ?>"
           class="long">
@@ -150,7 +150,7 @@ class Ask extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'undo', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
           class="long">
@@ -225,7 +225,7 @@ class Answer extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'do', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'do', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'do', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['do']['log'] ); ?>"
           class="long">
@@ -247,7 +247,7 @@ class Answer extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'undo', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
           class="long">
@@ -319,7 +319,7 @@ class Select_Answer extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'do', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'do', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'do', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['do']['log'] ); ?>"
           class="long">
@@ -341,7 +341,7 @@ class Select_Answer extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'undo', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
           class="long">
@@ -402,7 +402,7 @@ class Best_Answer extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'do', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'do', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'do', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['do']['log'] ); ?>"
           class="long">
@@ -424,7 +424,7 @@ class Best_Answer extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'undo', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
           class="long">
@@ -493,7 +493,7 @@ class Vote_Up extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'do', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'do', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'do', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['do']['log'] ); ?>"
           class="long">
@@ -515,7 +515,7 @@ class Vote_Up extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'undo', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
           class="long">
@@ -584,7 +584,7 @@ class Vote_Down extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'do', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'do', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'do', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['do']['log'] ); ?>"
           class="long">
@@ -606,7 +606,7 @@ class Vote_Down extends \myCRED_Hook {
         <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
         <input
           type="text"
-          name="<?php $this->field_name( array( 'undo', 'log' ) ); ?>"
+          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
           id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
           value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
           class="long">

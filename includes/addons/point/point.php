@@ -26,7 +26,7 @@ class AP_Point extends \AnsPress\Singleton {
 	protected function __construct() {
 		ap_add_default_options(
 			[
-				'user_page_title_point' => __( 'Point', 'anspress-question-answer' ),
+				'user_page_title_point' => __( '포인트', 'anspress-question-answer' ),
 				'user_page_slug_point'  => 'point',
 			]
 		);

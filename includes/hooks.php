@@ -13,6 +13,9 @@ class AP_Hooks {
     anspress()->add_action( 'save_post', __CLASS__, 'base_page_update', 10, 2 );
     anspress()->add_action( 'save_post_question', __CLASS__, 'save_question_hooks', 1, 3 );
 		anspress()->add_action( 'save_post_answer', __CLASS__, 'save_answer_hooks', 1, 3 );
+		anspress()->add_filter( 'acf_the_content', __CLASS__, 'filter_ptags_on_images', 9999 );
+		anspress()->add_filter( 'the_content', __CLASS__, 'filter_ptags_on_images', 9999 );
+		
 		// anspress()->add_action( 'gettext', __CLASS__, 'filter_gettext', 10, 3 );
 		// anspress()->add_filter( 'tiny_mce_before_init', __CLASS__, 'change_mce_options' );
 		
@@ -581,6 +584,12 @@ class AP_Hooks {
 			$translated = "아이디";
 		}
 		return $translated;
+	}
+
+	public static function filter_ptags_on_images($content) {
+		\PC::debug( ['content' => $content], __FUNCTION__ );
+    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+    return $content;
 	}
 
 }

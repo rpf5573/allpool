@@ -45,8 +45,8 @@ class AP_Profile extends \AnsPress\Singleton {
 			[
 				'user_page_slug_questions'  => 'questions',
 				'user_page_slug_answers'    => 'answers',
-				'user_page_title_questions' => __( 'Questions', 'anspress-question-answer' ),
-				'user_page_title_answers'   => __( 'Answers', 'anspress-question-answer' ),
+				'user_page_title_questions' => __( '질문 리스트', 'anspress-question-answer' ),
+				'user_page_title_answers'   => __( '답변 리스트', 'anspress-question-answer' ),
 			]
 		);
   }
@@ -118,14 +118,14 @@ class AP_Profile extends \AnsPress\Singleton {
 		anspress()->user_pages = array(
 			array(
 				'slug'  => 'questions',
-				'label' => __( 'Questions', 'anspress-question-answer' ),
+				'label' => __( '질문 리스트', 'anspress-question-answer' ),
 				'icon'  => 'apicon-question',
 				'cb'    => [ __CLASS__, 'question_page' ],
 				'order' => 2,
 			),
 			array(
 				'slug'  => 'answers',
-				'label' => __( 'Answers', 'anspress-question-answer' ),
+				'label' => __( '답변 리스트', 'anspress-question-answer' ),
 				'icon'  => 'apicon-answer',
 				'cb'    => [ __CLASS__, 'answer_page' ],
 				'order' => 2,
@@ -136,7 +136,6 @@ class AP_Profile extends \AnsPress\Singleton {
 
 		foreach ( (array) anspress()->user_pages as $key => $args ) {
 			$rewrite = ap_opt( 'user_page_slug_' . $args['slug'] );
-			$title   = ap_opt( 'user_page_title_' . $args['slug'] );
 
 			// Override user page slug.
 			if ( empty( $args['rewrite'] ) ) {

@@ -409,9 +409,31 @@
 		},
 	"\/assets\/images\/money.png": {
 		"ft": 32768,
-		"iS": 4422,
+		"iS": 4114,
 		"oA": 0,
 		"oAP": "\/assets\/images\/money.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/money2.png": {
+		"ft": 32768,
+		"iS": 4422,
+		"oA": 0,
+		"oAP": "\/assets\/images\/money2.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/money3.png": {
+		"ft": 32768,
+		"iS": 5699,
+		"oA": 0,
+		"oAP": "\/assets\/images\/money3.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,

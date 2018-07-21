@@ -1649,3 +1649,8 @@ span.recount-msg {
     // display: none;
   }
 }
+
+p + span.MathJax,
+span.MathJax + p {
+  display: inline-block;
+}

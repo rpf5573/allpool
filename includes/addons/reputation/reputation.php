@@ -26,7 +26,7 @@ class AP_Reputation extends \AnsPress\Singleton {
 	protected function __construct() {
 		ap_add_default_options(
 			[
-				'user_page_title_reputations' => __( 'Reputations', 'anspress-question-answer' ),
+				'user_page_title_reputations' => __( '전문가지수', 'anspress-question-answer' ),
 				'user_page_slug_reputations'  => 'reputations',
 			]
 		);
@@ -45,7 +45,7 @@ class AP_Reputation extends \AnsPress\Singleton {
 	public static function register_default_hooks( $installed ) {
 		$installed['register'] = array(
 			'title'       => __( 'Register', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user account is created', 'anspress-question-answer' ),
+			'description' => __( '회원가입 했을때 얻는 포인트 입니다', 'anspress-question-answer' ),
 			'callback'    => array( 'Anspress\Reputation\Register' )
 		);
 		$installed['ask'] = array(
@@ -106,7 +106,7 @@ class AP_Reputation extends \AnsPress\Singleton {
 	public static function ap_user_pages() {
 		anspress()->user_pages[] = array(
 			'slug'  => 'reputations',
-			'label' => __( 'Reputations', 'anspress-question-answer' ),
+			'label' => __( '전문가지수', 'anspress-question-answer' ),
 			'icon'  => 'apicon-reputation',
 			'cb'    => [ __CLASS__, 'reputation_page' ],
 			'order' => 5,

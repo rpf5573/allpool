@@ -8,7 +8,7 @@ get_header(); ?>
   }
 </style>
 
-<div class="content-area" style="display:none;">
+<div class="content-area">
   <main id="main" class="site-main" role="main">
     <div class="m-center-box"> <?php
       ap_template_part( 'front', 'message' );
@@ -17,6 +17,8 @@ get_header(); ?>
   </main> <!-- #main -->
 </div> <!-- content-area -->
 
+
+<div style="display: none;"> 
 <button type="button" id="imp_card"> 신용카드 결제 </button>
 <button type="button" id="imp_phone"> 핸드폰 결제 </button>
 <button type="button" id="imp_vbank"> 가상계좌 </button>
@@ -110,6 +112,8 @@ get_header(); ?>
     });
   } );
 </script>
+
+</div>
 
 <?php 
 get_footer(); ?>
