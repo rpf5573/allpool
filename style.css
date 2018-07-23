@@ -4871,6 +4871,11 @@ a.no-style {
 .d-none {
   display: none; }
 
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 /* ------------------------------------------------------------------------- *
  *  Semantic-ui
 /* ------------------------------------------------------------------------- */

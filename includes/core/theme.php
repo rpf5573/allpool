@@ -838,7 +838,13 @@ function ap_menu_obejct() {
  * @since   2.0
  */
 function ap_post_actions_buttons() {
+	global $post;
 	if ( ! is_user_logged_in() ) {
+		return;
+	}
+
+	$user_id = get_current_user_id();
+	if ( ! ( $post && $user_id == (int)$post->post_author ) && ! is_super_admin( $user_id ) ) {
 		return;
 	}
 

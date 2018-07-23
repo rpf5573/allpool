@@ -441,7 +441,6 @@ class AP_Form_Hooks {
 
     $answer_args['post_name'] = $answer_args['post_title'];
     
-     
 
 		if ( $editing ) {
 			/**

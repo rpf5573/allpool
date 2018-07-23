@@ -86,3 +86,15 @@ function change_question_inspection_check( $post_id, $post ) {
 	}
 	
 }
+
+function filter_ptags_on_images($content) {
+  
+  $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+  return $content;
+}
+
+function tinymce_remove_root_block_tag( $init ) {
+  $init['forced_root_block'] = false; 
+  return $init;
+}
+add_filter( 'tiny_mce_before_init', 'tinymce_remove_root_block_tag' );
