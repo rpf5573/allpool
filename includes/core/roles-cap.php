@@ -562,25 +562,6 @@ function ap_user_can_change_status( $post_id, $user_id = false ) {
 }
 
 /**
- * Check if user can change post status to closed.
- *
- * @param integer $user_id User ID.
- * @return boolean
- */
-function ap_user_can_close_question( $user_id = false ) {
-
-	if ( false === $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	return false;
-}
-
-/**
  * Check if a user can read post.
  *
  * @param  integer|object  $_post   Post ID.

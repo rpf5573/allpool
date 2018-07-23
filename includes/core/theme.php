@@ -599,24 +599,6 @@ function ap_post_actions( $_post = null ) {
 		return $actions;
 	}
 
-	// Question close action.
-	if ( ap_user_can_close_question() && 'question' === $_post->post_type ) {
-		$nonce       = wp_create_nonce( 'close_' . $_post->ID );
-		$close_label = $_post->closed ? __( 'Open', 'anspress-question-answer' ) : __( 'Close', 'anspress-question-answer' );
-		$close_title = $_post->closed ? __( 'Open this question for new answers', 'anspress-question-answer' ) : __( 'Close this question for new answer.', 'anspress-question-answer' );
-
-		$actions[] = array(
-			'cb'    => 'close',
-			'icon'  => 'apicon-check',
-			'query' => [
-				'nonce'   => $nonce,
-				'post_id' => $_post->ID,
-			],
-			'label' => $close_label,
-			'title' => $close_title,
-		);
-	}
-
 	// Edit link.
 	if ( ap_user_can_edit_post( $_post->ID ) ) {
 		$actions[] = array(
