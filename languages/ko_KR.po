@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-07-18 15:23+0900\n"
-"PO-Revision-Date: 2018-07-23 17:37+0900\n"
+"PO-Revision-Date: 2018-07-24 13:25+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -163,7 +163,7 @@ msgstr "권한이 없거나, 이미 답변을 작성하셨습니다."
 
 #: functions.php:1319 includes/core/form/form-hooks.php:150
 msgid "Update Answer"
-msgstr "답변을 업데이트 해주세요"
+msgstr "업데이트"
 
 #: functions.php:1397
 msgid "asked"
