@@ -611,18 +611,6 @@ function ap_post_actions( $_post = null ) {
 		'label' => __( 'Edit', 'anspress-question-answer' ),
 	);
 
-	$status_args = ap_post_status_btn_args( $_post );
-
-	if ( ! empty( $status_args ) ) {
-		$actions[] = array(
-			'label'  => __( 'Status', 'anspress-question-answer' ),
-			'header' => true,
-		);
-
-		$actions   = array_merge( $actions, $status_args );
-		$actions[] = array( 'header' => true );
-	}
-
 	if ( ap_user_can_delete_post( $_post->ID ) ) {
 
 		if ( 'trash' === $_post->post_status ) {
