@@ -307,7 +307,7 @@ function ap_user_can_select_answer( $_post = null, $user_id = false ) {
  * @return boolean
  * @since  4.0.0
  */
-function ap_user_can_edit_post( $post = null, $user_id = false ) {
+function ap_user_can_edit_post( $post = null, $user_id = false, $wp_error = false ) {
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
 	}
@@ -315,16 +315,31 @@ function ap_user_can_edit_post( $post = null, $user_id = false ) {
 	$_post = ap_get_post( $post );
 	$type = $_post->post_type;
 
-	if ( ! in_array( $_post->post_type, [ 'question', 'answer' ], true ) ) {
-		return false;
-	}
-
 	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
 		return true;
 	}
 
-	if ( ap_user_can_control_mine( $_post, $user_id ) ) {
+	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
+		// select best answer or got votes
+		if ( $type == 'question' && ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 질문을 수정할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+		// selected as best answer or got votes
+		if ( $type == 'answer' && ( $_post->selected || $_post->votes_net > 0 ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 선택되었거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+
 		return true;
+	}	
+
+	if ( $wp_error ) {
+		return new WP_Error( 'no_permission', __( 'You do not have permission to edit question.', 'anspress-question-answer' ) );
 	}
 
 	return false;
@@ -349,8 +364,20 @@ function ap_user_can_edit_answer( $post_id, $user_id = false ) {
 
 	$answer = ap_get_post( $post_id );
 
-	if ( ap_user_can_control_mine( $answer, $user_id ) ) {
+	if ( ( ! empty( $answer->post_author ) ) && ( $user_id == $answer->post_author ) ) { // loose comparison ok.
+		// select best answer or got votes
+		if ( $answer->selected_id > 0 || $answer->votes_net > 0 ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+
 		return true;
+	}
+
+	if ( $wp_error ) {
+		return new WP_Error( 'no_permission', __( 'You do not have permission to edit question.', 'anspress-question-answer' ) );
 	}
 
 	return false;
@@ -367,7 +394,8 @@ function ap_user_can_edit_answer( $post_id, $user_id = false ) {
  * @since  4.1.5 Check if valid post type.
  * @since  4.1.8 Fixed: user is not able to edit their own question.
  */
-function ap_user_can_edit_question( $post_id = false, $user_id = false ) {
+function ap_user_can_edit_question( $post_id = false, $user_id = false, $wp_error = false ) {
+
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
 	}
@@ -383,13 +411,20 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false ) {
 		$question = $post;
 	}
 
-	// Check post_type.
-	if ( ! $question || 'question' !== $question->post_type ) {
-		return false;
+	if ( ( ! empty( $question->post_author ) ) && ( $user_id == $question->post_author ) ) { // loose comparison ok.
+		// select best answer or got votes
+		if ( $question->selected_id > 0 || $question->votes_net > 0 ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 질문을 수정할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+
+		return true;
 	}
 
-	if ( ap_user_can_control_mine( $question, $user_id ) ) {
-		return true;
+	if ( $wp_error ) {
+		return new WP_Error( 'no_permission', __( 'You do not have permission to edit question.', 'anspress-question-answer' ) );
 	}
 
 	return false;
@@ -455,7 +490,7 @@ function ap_user_can_delete_answer( $answer, $user_id = false ) {
  *
  * @return boolean
  */
-function ap_user_can_permanent_delete( $post = null, $user_id = false ) {
+function ap_user_can_permanent_delete( $post = null, $user_id = false, $wp_error = false ) {
 
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
@@ -464,17 +499,31 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false ) {
 	$_post = ap_get_post( $post );
 	$type = $_post->post_type;
 
-	// Return false if not question or answer.
-	if ( ! in_array( $_post->post_type, [ 'question', 'answer' ], true ) ) {
-		return false;
-	}
-
 	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
 		return true;
 	}
 
-	if ( ap_user_can_control_mine( $_post, $user_id ) ) {
+	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
+		// select best answer or got votes
+		if ( $type == 'question' && ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 질문을 삭제할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+		// selected as best answer or got votes
+		if ( $type == 'answer' && ( $_post->selected || $_post->votes_net > 0 ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 좋아요를 받은 경우 답변을 삭제할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+
 		return true;
+	}	
+
+	if ( $wp_error ) {
+		return new WP_Error( 'no_permission', __( 'You do not have permission to delete post.', 'anspress-question-answer' ) );
 	}
 
 	return false;

@@ -602,13 +602,14 @@ function ap_post_actions( $_post = null ) {
 	}
 
 	// Edit link.
-	if ( ap_user_can_edit_post( $_post->ID ) ) {
-		$actions[] = array(
-			'cb'    => 'edit',
-			'label' => __( 'Edit', 'anspress-question-answer' ),
-			'href'  => ap_post_edit_link( $_post ),
-		);
-	}
+	$actions[] = array(
+		'cb'    => 'edit_post',
+		'query' => [
+			'post_id' => $_post->ID,
+			'__nonce' => wp_create_nonce( 'edit_post_' . $_post->ID ),
+		],
+		'label' => __( 'Edit', 'anspress-question-answer' ),
+	);
 
 	$status_args = ap_post_status_btn_args( $_post );
 
@@ -644,17 +645,15 @@ function ap_post_actions( $_post = null ) {
 	}
 
 	// Permanent delete link.
-	if ( ap_user_can_permanent_delete( $_post->ID ) ) {
-		$actions[] = array(
-			'cb'    => 'delete_permanently',
-			'query' => [
-				'post_id' => $_post->ID,
-				'__nonce' => wp_create_nonce( 'delete_post_' . $_post->ID ),
-			],
-			'label' => __( 'Delete Permanently', 'anspress-question-answer' ),
-			'title' => __( 'Delete post permanently (cannot be restored again)', 'anspress-question-answer' ),
-		);
-	}
+	$actions[] = array(
+		'cb'    => 'delete_permanently',
+		'query' => [
+			'post_id' => $_post->ID,
+			'__nonce' => wp_create_nonce( 'delete_post_' . $_post->ID ),
+		],
+		'label' => __( 'Delete Permanently', 'anspress-question-answer' ),
+		'title' => __( 'Delete post permanently (cannot be restored again)', 'anspress-question-answer' ),
+	);
 
 	/**
 	 * For filtering post actions buttons

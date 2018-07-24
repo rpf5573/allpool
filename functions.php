@@ -1082,12 +1082,10 @@ function ap_responce_message( $id, $only_message = false ) {
 			'type'    => 'success',
 			'message' => __( 'Success', 'anspress-question-answer' ),
 		),
-
 		'something_wrong'               => array(
 			'type'    => 'error',
 			'message' => __( 'Something went wrong, last action failed.', 'anspress-question-answer' ),
 		),
-
 		'comment_edit_success'          => array(
 			'type'    => 'success',
 			'message' => __( 'Comment updated successfully.', 'anspress-question-answer' ),
@@ -1127,6 +1125,10 @@ function ap_responce_message( $id, $only_message = false ) {
 		'you_cannot_vote_on_restricted' => array(
 			'type'    => 'warning',
 			'message' => __( 'You cannot vote on restricted posts', 'anspress-question-answer' ),
+		),
+		'you_cannot_edit_question'	=>	array(
+			'type'		=> 'warning',
+			'message' => __( 'You cannot edit question', 'anspress-question-answer' ),
 		),
 	);
 

@@ -31,6 +31,7 @@ class AP_Ajax_Hooks {
 		// Post actions.
 		anspress()->add_action( 'ap_ajax_post_actions', 'AP_Theme', 'post_actions' );
 		anspress()->add_action( 'ap_ajax_action_close', __CLASS__, 'close_question' );
+		anspress()->add_action( 'ap_ajax_action_edit_post', __CLASS__, 'edit_post' );
 		anspress()->add_action( 'ap_ajax_action_toggle_delete_post', __CLASS__, 'toggle_delete_post' );
 		anspress()->add_action( 'ap_ajax_action_delete_permanently', __CLASS__, 'permanent_delete_post' );
 
@@ -43,6 +44,41 @@ class AP_Ajax_Hooks {
     anspress()->add_action( 'ap_ajax_load_tinymce', __CLASS__, 'load_tinymce' );
     anspress()->add_action( 'ap_ajax_vote', 'AP_Vote', 'vote' );
 		anspress()->add_action( 'wp_ajax_ap_toggle_best_answer', 'AP_Toggle_Best_Answer', 'init' );
+	}
+
+	public static function edit_post() {
+		$post_id = (int) ap_sanitize_unslash( 'post_id', 'request' );
+		$post = ap_get_post( $post_id );
+
+		$failed_response = array(
+			'success'  => false,
+			'snackbar' => [ 'message' => __( 'Unable edit this question', 'anspress-question-answer' ) ],
+		);
+
+		if ( ! ap_verify_nonce( 'edit_post_' . $post_id ) ) {
+			ap_ajax_json( $failed_response );
+		}
+
+		$error = ap_user_can_edit_post( $post, false, true );
+
+		// Check if WP_Error object and send error message code.
+		if ( is_wp_error( $error ) ) {
+			ap_ajax_json(
+				[
+					'success'  => false,
+					'snackbar' => [
+						'message' => $error->get_error_message(),
+					],
+				]
+			);
+		}
+
+		ap_ajax_json( array(
+			'success'  => true,
+			'redirect' => ap_post_edit_link( $post ),
+			'snackbar' => [ 'message' => __( '잠시후 수정 페이지로 이동됩니다', 'anspress-question-answer' ) ],
+		) );
+
 	}
 
 	/**
@@ -106,7 +142,7 @@ class AP_Ajax_Hooks {
 	public static function permanent_delete_post() {
 		$post_id = (int) ap_sanitize_unslash( 'post_id', 'request' );
 
-		if ( ! ap_verify_nonce( 'delete_post_' . $post_id ) || ! ap_user_can_permanent_delete( $post_id ) ) {
+		if ( ! ap_verify_nonce( 'delete_post_' . $post_id ) ) {
 			ap_ajax_json( array(
 				'success' => false,
 				'snackbar' => [ 'message' => __( 'Sorry, unable to delete post', 'anspress-question-answer' ) ],
@@ -114,6 +150,19 @@ class AP_Ajax_Hooks {
 		}
 
 		$post = ap_get_post( $post_id );
+
+		$error = ap_user_can_permanent_delete( $post, false, true );
+
+		if ( is_wp_error( $error ) ) {
+			ap_ajax_json(
+				[
+					'success'  => false,
+					'snackbar' => [
+						'message' => $error->get_error_message(),
+					],
+				]
+			);
+		}
 
 		if ( 'question' === $post->post_type ) {
 			/**
