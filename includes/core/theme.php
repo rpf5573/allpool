@@ -207,10 +207,12 @@ class AP_Theme {
 			ap_ajax_json( 'something_wrong' );
 		}
 
+		$actions = ap_post_actions( $post_id );
+
 		ap_ajax_json(
 			[
 				'success' => true,
-				'actions' => ap_post_actions( $post_id ),
+				'actions' => $actions,
 			]
 		);
 	}

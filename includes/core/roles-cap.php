@@ -313,6 +313,7 @@ function ap_user_can_edit_post( $post = null, $user_id = false ) {
 	}
 
 	$_post = ap_get_post( $post );
+	$type = $_post->post_type;
 
 	if ( ! in_array( $_post->post_type, [ 'question', 'answer' ], true ) ) {
 		return false;
@@ -322,7 +323,7 @@ function ap_user_can_edit_post( $post = null, $user_id = false ) {
 		return true;
 	}
 
-	if ( ( ! empty($_post->post_author) ) && ($user_id == $_post->post_author) ) { // loose comparison ok.
+	if ( ap_user_can_control_mine( $_post, $user_id ) ) {
 		return true;
 	}
 
@@ -348,7 +349,7 @@ function ap_user_can_edit_answer( $post_id, $user_id = false ) {
 
 	$answer = ap_get_post( $post_id );
 
-	if ( ( ! empty($answer->post_author) ) && ($user_id == $answer->post_author) ) { // loose comparison ok.
+	if ( ap_user_can_control_mine( $answer, $user_id ) ) {
 		return true;
 	}
 
@@ -387,7 +388,7 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false ) {
 		return false;
 	}
 
-	if ( ( ! empty( $question->post_author ) ) && ( $user_id == $question->post_author ) ) { // loose comparison ok.
+	if ( ap_user_can_control_mine( $question, $user_id ) ) {
 		return true;
 	}
 
@@ -416,12 +417,8 @@ function ap_user_can_delete_post( $post_id, $user_id = false ) {
 	$type   = $post_o->post_type;
 
 	// Return if not question or answer post type.
-	if ( ! in_array( $post_o->post_type, [ 'question', 'answer' ], true ) ) {
+	if ( ! in_array( $type, [ 'question', 'answer' ], true ) ) {
 		return false;
-	}
-
-	if ( ( ! empty( $post_o->post_author ) ) && ( $user_id == $post_o->post_author ) ) { // loose comparison ok.
-		return true;
 	}
 
 	return false;
@@ -465,6 +462,7 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false ) {
 	}
 
 	$_post = ap_get_post( $post );
+	$type = $_post->post_type;
 
 	// Return false if not question or answer.
 	if ( ! in_array( $_post->post_type, [ 'question', 'answer' ], true ) ) {
@@ -472,6 +470,10 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false ) {
 	}
 
 	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
+		return true;
+	}
+
+	if ( ap_user_can_control_mine( $_post, $user_id ) ) {
 		return true;
 	}
 
@@ -490,14 +492,8 @@ function ap_user_can_restore( $_post = null, $user_id = false ) {
 		$user_id = get_current_user_id();
 	}
 
-	// Bail if super.
+	// only admin
 	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	$_post = is_object( $_post ) ? $_post : ap_get_post( $_post );
-
-	if ( ( ! empty( $_post->post_author ) ) && ( $_post->post_author == $user_id ) ) {
 		return true;
 	}
 
@@ -535,10 +531,6 @@ function ap_user_can_view_post( $post_id = false, $user_id = false ) {
  * @param  integer|object  $post_id    Question or Answer id.
  * @param  integer|boolean $user_id    User id.
  * @return boolean
- * @since  2.1
- * @since  2.4.7 Added new filter `ap_user_can_change_status`.
- * @since  2.4.7 Added new argument `$user_id`.
- * @since  4.1.0 Do not allow post author to change their own post status regardless of moderator role.
  **/
 function ap_user_can_change_status( $post_id, $user_id = false ) {
 	if ( false === $user_id ) {
@@ -550,12 +542,13 @@ function ap_user_can_change_status( $post_id, $user_id = false ) {
 	}
 
 	$post_o = ap_get_post( $post_id );
+	$type = $post_o->post_type;
 
 	if ( ! in_array( $post_o->post_type, [ 'question', 'answer' ], true ) ) {
 		return false;
 	}
 
-	if ( ( ! empty( $post_o->post_author ) ) && ($post_o->post_author == $user_id) ) { // loose comparison ok.
+	if ( ap_user_can_control_mine( $post_o, $user_id ) ) {
 		return true;
 	}
 
@@ -869,4 +862,20 @@ function ap_get_expert_categories( $user_id ) {
 	}
 
 	return $all;
+}
+
+function ap_user_can_control_mine( $post, $user_id ) {
+	$type = $post->post_type;
+	if ( ( ! empty( $post->post_author ) ) && ( $user_id == $post->post_author ) ) { // loose comparison ok.
+		// select best answer or got votes
+		if ( $type == 'question' && ( $post->selected_id > 0 || $post->votes_net > 0 ) ) {
+			return false;
+		}
+		// selected as best answer or got votes
+		if ( $type == 'answer' && ( $post->selected || $post->votes_net > 0 ) ) {
+			return false;
+		}
+
+		return true;
+	}	
 }
