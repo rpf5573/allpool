@@ -157,6 +157,7 @@ function ap_reset_question_query() {
  */
 function ap_get_answers_count( $_post = null ) {
 	$_post = ap_get_post( $_post );
+	
 	return $_post->answers;
 }
 
@@ -198,6 +199,8 @@ function ap_answers() {
 	global $answers;
 	$answers = ap_get_answers();
 
+	
+
 	ap_template_part( 'answers' );
 	ap_reset_question_query();
 }
@@ -228,7 +231,9 @@ function ap_get_answers( $args = array() ) {
 		$args['ap_order_by'] = isset( $_GET['order_by'] ) ? ap_sanitize_unslash( 'order_by', 'g' ) : ap_opt( 'answers_sort' );
 	}
 
-	return new Answers_Query( $args );
+	$answer_query = new Answers_Query( $args );
+
+	return $answer_query;
 }
 
 /**
@@ -260,21 +265,13 @@ function ap_the_answer() {
 function ap_count_published_answers( $question_id ) {
 	global $wpdb;
 	$query = $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->posts where post_parent = %d AND post_status = %s AND post_type = %s", $question_id, 'publish', 'answer' );
-	$key   = md5( $query );
-
-	$cache = wp_cache_get( $key, 'ap_count' );
-	if ( false !== $cache ) {
-		return $cache;
-	}
-
 	$count = $wpdb->get_var( $query );
-
-	wp_cache_set( $key, $count, 'ap_count' );
 	return $count;
 }
 
 function ap_total_answers_found() {
 	global $answers;
+	
 	return $answers->found_posts;
 }
 
@@ -324,21 +321,20 @@ function ap_get_votes_net( $_post = null ) {
  * @return object
  */
 function ap_get_post( $post = null ) {
+
 	if ( empty( $post ) && isset( $GLOBALS['post'] ) ) {
 		$post = $GLOBALS['post']; // override ok.
+		
 	}
 
 	if ( $post instanceof WP_Post || is_object( $post ) ) {
 		$_post = $post;
-	} elseif ( false !== $post_o = wp_cache_get( $post, 'posts' ) ) {
-		$_post = $post_o;
 	} else {
 		$_post = WP_Post::get_instance( $post );
 	}
 
 	if ( $_post && ! isset( $_post->ap_qameta_wrapped ) ) {
 		$_post = ap_append_qameta( $_post );
-		wp_cache_set( $_post->ID, $_post, 'posts' );
 	}
 
 	return $_post;

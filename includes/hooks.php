@@ -256,11 +256,9 @@ class AP_Hooks {
 
 			// Delete qameta.
 			ap_delete_qameta( $post->ID );
-			wp_cache_delete( 'ap_is_answered_' . $post->post_author . '_' . $post->ID, 'counts' );
 
 		} elseif ( 'answer' === $post->post_type ) {
 				self::delete_answer( $post_id, $post );
-				wp_cache_delete( 'ap_is_answered_' . $post->post_author . '_' . $post->post_parent, 'counts' );
 		}
 	}
 
@@ -282,6 +280,7 @@ class AP_Hooks {
 		// Delete qameta.
 		ap_delete_qameta( $post->ID );
 	}
+	
 	/**
 	 * If a question is sent to trash, then move its answers to trash as well
 	 *
@@ -316,8 +315,6 @@ class AP_Hooks {
 
 				wp_trash_post( $p->ID );
 			}
-
-			wp_cache_delete( 'ap_is_answered_' . $post->post_author . '_' . $post->ID, 'counts' );
 		}
 
 		if ( 'answer' === $post->post_type ) {
@@ -334,7 +331,6 @@ class AP_Hooks {
 			update_post_meta( $post->ID, '_ap_last_post_status', $post->post_status );
 
 			ap_update_answers_count( $post->post_parent );
-			wp_cache_delete( 'ap_is_answered_' . $post->post_author . '_' . $post->post_parent, 'counts' );
 		}
 	}
 

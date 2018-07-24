@@ -3013,6 +3013,13 @@
 		"oA": 0,
 		"oAP": "\/warning.php",
 		"oF": 0
+		},
+	"\/wp_core.po": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp_core.po",
+		"oF": 0
 		}
 	},
 "hooks": [

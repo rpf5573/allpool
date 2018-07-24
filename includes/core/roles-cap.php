@@ -149,6 +149,7 @@ function ap_role_caps( $role ) {
 			'ap_change_status'   => true,
 			'unfiltered_html'		 => true,
 			'unfiltered_upload'	 => true,
+			'view_query_monitor' => true,
 		),
 		'expert'	=> array(
 			'delete_posts' 							=> true,

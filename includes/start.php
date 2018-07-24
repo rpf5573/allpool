@@ -1,5 +1,7 @@
 <?php
 
+
+
 /**
  * Include warning page template.
  *

@@ -652,17 +652,7 @@ function ap_ajax_responce( $results ) {
  */
 function ap_is_user_answered( $question_id, $user_id ) {
 	global $wpdb;
-	$key   = 'ap_is_answered_' . $user_id . '_' . $question_id;
-	$cache = wp_cache_get( $key, 'counts' );
-
-	if ( false !== $cache ) {
-		return $cache > 0 ? true : false;
-	}
-
-	$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->posts where post_parent = %d AND ( post_author = %d AND post_type = 'answer')", $question_id, $user_id ) ); // db call ok.
-
-	wp_cache_set( $key, $count, 'counts' );
-
+	$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->posts where post_parent = %d AND ( post_author = %d AND post_type = 'answer') AND ( post_status = 'publish' )", $question_id, $user_id ) ); // db call ok.
 	return $count > 0 ? true : false;
 }
 

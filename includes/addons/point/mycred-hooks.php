@@ -78,7 +78,7 @@ class Ask extends \myCRED_Hook {
 			'id'       => $this->hook_id,
 			'defaults' => array(
         'do'     => array( 'creds'   => 10, 'log' => $this->log['do'] ), 
-        'undo'   => array( 'creds'   => -10, 'log' => $this->log['undo'] ), 
+        'undo'   => array( 'creds'   => -10, 'log' => $this->log['undo'] ),
 			)
 		), $hook_prefs, $type );
   }

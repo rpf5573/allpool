@@ -70,8 +70,9 @@ class AP_QA_Query_Hooks {
 				// Replace post_status query.
 				if ( is_user_logged_in() && false !== ( $pos = strpos( $sql['where'], $post_status ) ) ) {
 					$pos          = $pos + strlen( $post_status );
-					$author_query = $wpdb->prepare( " OR ( {$wpdb->posts}.post_author = %d AND {$wpdb->posts}.post_status IN ('publish', 'trash') ) ", get_current_user_id() );
-					$sql['where'] = substr_replace( $sql['where'], $author_query, $pos, 0 );
+					// $author_query = $wpdb->prepare( " OR ( {$wpdb->posts}.post_author = %d AND {$wpdb->posts}.post_status IN ('publish', 'trash') ) ", get_current_user_id() );
+					// \PC::debug( ['author_query' => $author_query], __FUNCTION__ );
+					// $sql['where'] = substr_replace( $sql['where'], $author_query, $pos, 0 );
 				}
       }
 
@@ -120,7 +121,7 @@ class AP_QA_Query_Hooks {
 	 * @since 4.1.0 Fixed: qameta fields are not appending properly.
 	 */
 	public static function posts_results( $posts, $instance ) {
-    global $question_rendered;
+		global $question_rendered;
 
 		foreach ( (array) $posts as $k => $p ) {
 			if ( in_array( $p->post_type, [ 'question', 'answer' ], true ) ) {

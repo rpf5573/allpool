@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-07-18 15:23+0900\n"
-"PO-Revision-Date: 2018-07-23 12:56+0900\n"
+"PO-Revision-Date: 2018-07-23 17:37+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -159,7 +159,7 @@ msgstr "당신은 이 답변을 수정할 수 없습니다."
 
 #: functions.php:1293
 msgid "You do not have permission to answer this question."
-msgstr "당신은 이 질문에 답변을 달 권한이 없습니다."
+msgstr "권한이 없거나, 이미 답변을 작성하셨습니다."
 
 #: functions.php:1319 includes/core/form/form-hooks.php:150
 msgid "Update Answer"
@@ -1566,7 +1566,7 @@ msgstr "질문이 성공적으로 생성되었습니다, 잠시후에 페이지�
 
 #: includes/core/form/form-hooks.php:330
 msgid "Your question is posted successfully, you'll be redirected in a moment."
-msgstr "Question updated successfully, you’ll be redirected in a moment."
+msgstr "성공적으로 질문이 업로드 되었습니다. 잠시후에 페이지가 이동됩니다."
 
 #: includes/core/form/form-hooks.php:422
 msgid "Unable to post answer."
@@ -1766,7 +1766,7 @@ msgstr "일반 유저"
 
 #: includes/core/roles-cap.php:707
 msgid "Voting on own post is not allowed"
-msgstr "자신의 포스트에 투표할 수 없습니다"
+msgstr "자신의 질문/답변에 투표할 수 없습니다"
 
 #: includes/core/roles-cap.php:717
 msgid "You do not have permission to vote."
@@ -1949,7 +1949,7 @@ msgstr "답변을 작성해 주세요."
 #: template-parts/answer.php:31 template-parts/profile/answer-item.php:39
 #, php-format
 msgid "Posted %s"
-msgstr "%s 가 게시되었습니다"
+msgstr "%s 에 게시되었습니다"
 
 #: template-parts/content-none.php:14
 msgid "Sorry! No question found."
