@@ -290,9 +290,9 @@ function ap_user_can_select_answer( $_post = null, $user_id = false ) {
 	}
 
 	// admin can not select answer in front page
-	if ( ap_is_admin( $user_id ) ) {
-		return false;
-	}
+	// if ( ap_is_admin( $user_id ) ) {
+	// 	return false;
+	// }
 
 	$answer = ap_get_post( $_post );
 

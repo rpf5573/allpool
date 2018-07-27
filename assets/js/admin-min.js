@@ -891,7 +891,8 @@ window.AnsPress.Helper = {
       activity : '',
       author: '',
       editLink: '',
-      trashLink: '',
+			trashLink: '',
+			selectLink: '',
       status: '',
       selected: '',
       avatar: ''

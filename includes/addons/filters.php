@@ -43,7 +43,7 @@ class AP_Filters {
           $sql['where'] .= " AND qameta.selected_id > 0";
         } 
         else if ( $did_select[0] == 'no' ) {
-          $sql['where'] .= " AND qameta.selected_id IS NULL OR qameta.selected_id = 0";
+          $sql['where'] .= "AND (qameta.selected_id IS NULL OR qameta.selected_id = 0)";
         }
       }
     }

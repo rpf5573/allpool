@@ -76,7 +76,8 @@ class AP_Admin_Ajax {
         'avatar'    => ap_get_author_avatar( 30 ),
         'author'    => ap_user_display_name( $post->post_author ),
         'editLink'  => esc_url_raw( get_edit_post_link() ),
-        'trashLink' => esc_url_raw( get_delete_post_link() ),
+				'trashLink' => esc_url_raw( get_delete_post_link() ),
+				'selectLink' => esc_url_raw( ap_get_select_post_link( $post ) ),
         'status'    => esc_attr( $wp_post_statuses[ $post->post_status ]->label ),
         'selected'  => ap_get_post_field( 'selected' ),
       );

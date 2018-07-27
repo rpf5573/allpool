@@ -34,7 +34,7 @@ if ( ap_user_can_read_answer() ) :
 								?>
 						</time>
 					</a>
-					<?php the_ID(); ?>
+					<?php // the_ID(); ?>
 				</div>
 
 				<div class="ap-q-inner">

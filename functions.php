@@ -851,20 +851,21 @@ function ap_user_link( $user_id = false, $sub = false ) {
 	}
 
 	$user = get_user_by( 'id', $user_id );
+	if ( $user ) {
+		$slug = get_option( 'ap_user_path' );
+		$link = home_url( $slug ) . '/' . $user->user_nicename . '/';
 
-	$slug = get_option( 'ap_user_path' );
-	$link = home_url( $slug ) . '/' . $user->user_nicename . '/';
-
-	// Append sub.
-	if ( ! empty( $sub ) ) {
-		if ( is_array( $sub ) ) {
-			$link = rtrim( $link, '/' ) . implode( '/', $sub ) . '/';
-		} else {
-			$link = $link . rtrim( $sub, '/' ) . '/';
+		// Append sub.
+		if ( ! empty( $sub ) ) {
+			if ( is_array( $sub ) ) {
+				$link = rtrim( $link, '/' ) . implode( '/', $sub ) . '/';
+			} else {
+				$link = $link . rtrim( $sub, '/' ) . '/';
+			}
 		}
+		return apply_filters( 'ap_user_link', $link, $user_id, $sub );
 	}
-
-	return apply_filters( 'ap_user_link', $link, $user_id, $sub );
+	return '';
 }
 
 /**

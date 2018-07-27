@@ -14,7 +14,8 @@
       activity : '',
       author: '',
       editLink: '',
-      trashLink: '',
+			trashLink: '',
+			selectLink: '',
       status: '',
       selected: '',
       avatar: ''
