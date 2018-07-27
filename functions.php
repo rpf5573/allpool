@@ -1282,9 +1282,38 @@ function ap_answer_form( $question_id, $editing = false ) {
 		return;
 	}
 
-	if ( ! $editing && ! ap_user_can_answer( $question_id ) ) {
-		echo '<p>' . esc_attr__( 'You do not have permission to answer this question.', 'anspress-question-answer' ) . '</p>';
-		return;
+	if ( ! $editing ) {
+		$thing = ap_user_can_answer( $question_id, false, true );
+		if ( is_wp_error( $thing ) ) {
+			if ( $thing->get_error_code() == 'admin_cannot_answer_in_front' ) {
+				ap_template_part( 'message', null, array(
+					'type' => 'error', 
+					'header' => '잠시만요!',
+					'body' => $thing->get_error_message(),
+				) );
+				return;
+			}
+			if ( $thing->get_error_code() == 'you_cannot_answer_your_question' ) {
+				ap_template_part( 'message', null, array(
+					'type' => 'error', 
+					'header' => '잠시만요!',
+					'body' => $thing->get_error_message(),
+				) );
+				return;
+			}
+			if ( $thing->get_error_code() == 'you_cannot_multiple_answer' ) {
+				ap_template_part( 'message', null, array(
+					'type' => 'error', 
+					'header' => '잠시만요!',
+					'body' => $thing->get_error_message(),
+				) );
+				return;
+			}
+		}
+		if ( ! $thing ) {
+			echo '<p>' . esc_attr__( 'You do not have permission to answer this question.', 'anspress-question-answer' ) . '</p>';
+			return;
+		}
 	}
 
 	$args = array(

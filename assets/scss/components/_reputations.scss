@@ -59,6 +59,15 @@
           &.given_vote_up{
             background: #EC407A;
           }
+          &.manual {
+            background-color: skyblue;
+            @include fa-icon;
+            @extend .fas;
+            font-size: 22px;
+            &:before {
+              content: fa-content($fa-var-balance-scale);
+            }
+          }
         }
       }
       &.col-points{

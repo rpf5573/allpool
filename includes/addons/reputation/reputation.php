@@ -155,6 +155,8 @@ function ap_get_reputation_icon_class( $log_entry ) {
 		break;
 		case 'best_answer':
 			$icon_class .= 'check best_answer';
+		case 'manual':
+			$icon_class = 'manual';
 		break;
 	}
 	

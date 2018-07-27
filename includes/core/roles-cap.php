@@ -191,12 +191,20 @@ function ap_role_caps( $role ) {
  * @since  2.4.6 Added new argument `$user_id`.
  * @since  4.1.0 Updated to use new option post_question_per.
  */
-function ap_user_can_ask( $user_id = false ) {
+function ap_user_can_ask( $user_id = false, $wp_error = false ) {
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
 	}
 
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) || ap_is_participant( $user_id ) || ap_is_expert( $user_id ) ) {
+	// admin can not ask in front page
+	if ( ap_is_admin( $user_id ) ) {
+		if ( $wp_error ) {
+			return new WP_Error( 'admin_cannot_ask_in_front', __( '관리자 페이지에서 질문을 작성해 주시기 바랍니다', 'anspress-question-answer' ) );
+		}
+		return false;
+	}
+
+	if ( $user_id ) {
 		return true;
 	}
 
@@ -212,27 +220,24 @@ function ap_user_can_ask( $user_id = false ) {
  * @since  2.4.6 Added new argument `$user_id`.
  * @since  4.1.0 Check if `$question_id` argument is a valid question CPT ID. Updated to use new option post_answer_per. Also removed checking of option only_admin_can_answer. Fixed: anonymous cannot answer if allow op to answer option is unchecked.
  */
-function ap_user_can_answer( $question_id, $user_id = false ) {
+function ap_user_can_answer( $question_id, $user_id = false, $wp_error = false ) {
 
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
+	}
+
+	// admin can not answer in front page
+	if ( ap_is_admin( $user_id ) ) {
+		if ( $wp_error ) {
+			return new WP_Error( 'admin_cannot_answer_in_front', __( '관리자 페이지에서 답변을 작성해 주시기 바랍니다', 'anspress-question-answer' ) );
+		}
+		return false;
 	}
 
 	$question = ap_get_post( $question_id );
 
 	// Return false if not a question.
 	if ( ! $question || 'question' !== $question->post_type ) {
-		return false;
-	}
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	if ( ap_is_expert( $user_id ) ) {
-		if ( ap_is_in_expert_categories( $question, $user_id ) ) {
-			return true;
-		}
 		return false;
 	}
 
@@ -248,11 +253,17 @@ function ap_user_can_answer( $question_id, $user_id = false ) {
 
 	// Check if user is original poster and dont allow them to answer their own question.
 	if ( is_user_logged_in() && ! ap_opt( 'allow_op_to_answer' ) && ! empty( $question->post_author ) && $question->post_author == $user_id ) { // loose comparison ok.
+		if ( $wp_error ) {
+			return new WP_Error( 'you_cannot_answer_your_question', "자신의 질문에는 답변을 작성할 수 없습니다" );
+		}
 		return false;
 	}
 
 	// Check if user already answered and if multiple answer disabled then don't allow them to answer.
 	if ( is_user_logged_in() && ! ap_opt( 'multiple_answers' ) && ap_is_user_answered( $question->ID, $user_id ) ) {
+		if ( $wp_error ) {
+			return new WP_Error( 'you_cannot_multiple_answer', "한 질문에 여러 답변을 작성할 수 없습니다" );
+		}
 		return false;
 	}
 
@@ -278,9 +289,9 @@ function ap_user_can_select_answer( $_post = null, $user_id = false ) {
 		$user_id = get_current_user_id();
 	}
 
-	// Allow moderators to toggle best answer.
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
+	// admin can not select answer in front page
+	if ( ap_is_admin( $user_id ) ) {
+		return false;
 	}
 
 	$answer = ap_get_post( $_post );
@@ -312,20 +323,13 @@ function ap_user_can_edit_post( $post = null, $user_id = false, $wp_error = fals
 		$user_id = get_current_user_id();
 	}
 
+	// admin can not edit in front page
+	if ( ap_is_admin( $user_id ) ) {
+		return false;
+	}
+
 	$_post = ap_get_post( $post );
 	$type = $_post->post_type;
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	if ( ap_is_expert( $user_id ) ) {
-		if ( ap_is_in_expert_categories( $question, $user_id ) ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
 		// select best answer or got votes
@@ -370,8 +374,9 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false, $wp_erro
 		$user_id = get_current_user_id();
 	}
 
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
+	// admin can not edit question in front page
+	if ( ap_is_admin( $user_id ) ) {
+		return false;
 	}
 
 	if ( false !== $post_id ) {
@@ -379,14 +384,6 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false, $wp_erro
 	} else {
 		global $post;
 		$question = $post;
-	}
-
-	if ( ap_is_expert( $user_id ) ) {
-		if ( ap_is_in_expert_categories( $question, $user_id ) ) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	if ( ( ! empty( $question->post_author ) ) && ( $user_id == $question->post_author ) ) { // loose comparison ok.
@@ -421,19 +418,12 @@ function ap_user_can_edit_answer( $post_id, $user_id = false, $wp_error = false 
 		$user_id = get_current_user_id();
 	}
 
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
+	// admin can not edit question in front page
+	if ( ap_is_admin( $user_id ) ) {
+		return false;
 	}
 
 	$answer = ap_get_post( $post_id );
-
-	if ( ap_is_expert( $user_id ) ) {
-		if ( ap_is_in_expert_categories( $answer, $user_id ) ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 	if ( ( ! empty( $answer->post_author ) ) && ( $user_id == $answer->post_author ) ) { // loose comparison ok.
 		// select best answer or got votes
@@ -454,61 +444,6 @@ function ap_user_can_edit_answer( $post_id, $user_id = false, $wp_error = false 
 }
 
 /**
- * Check if user can delete AnsPress posts.
- *
- * @param  mixed         $post_id    Question or answer ID.
- * @param  integer|false $user_id    User ID.
- * @return boolean
- * @since  2.4.7 Renamed function name from `ap_user_can_delete`.
- * @since  2.4.7 Added filter `ap_user_can_delete_post`.
- */
-function ap_user_can_delete_post( $post_id, $user_id = false ) {
-	if ( false === $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	$post_o = ap_get_post( $post_id );
-	$type   = $post_o->post_type;
-
-	// Return if not question or answer post type.
-	if ( ! in_array( $type, [ 'question', 'answer' ], true ) ) {
-		return false;
-	}
-
-	return false;
-}
-
-/**
- * Check if user can delete a question.
- *
- * @param  object|integer $question   Question ID or object.
- * @param  boolean        $user_id    User ID.
- * @return boolean
- * @since  2.4.7
- * @uses   ap_user_can_delete_post
- */
-function ap_user_can_delete_question( $question, $user_id = false ) {
-	return ap_user_can_delete_post( $question, $user_id );
-}
-
-/**
- * Check if user can delete a answer.
- *
- * @param  object|integer $answer   Answer ID or object.
- * @param  boolean        $user_id  User ID.
- * @return boolean
- * @since  2.4.7
- * @uses   ap_user_can_delete_post
- */
-function ap_user_can_delete_answer( $answer, $user_id = false ) {
-	return ap_user_can_delete_post( $answer, $user_id );
-}
-
-/**
  * Check if user can permanently delete a AnsPress posts
  *
  * @return boolean
@@ -519,19 +454,13 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false, $wp_error
 		$user_id = get_current_user_id();
 	}
 
-	$_post = ap_get_post( $post );
-	$type = $_post->post_type;
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	if ( ap_is_expert( $user_id ) ) {
-		if ( ap_is_in_expert_categories( $_post, $user_id ) ) {
-			return true;
-		}
+	// admin can not delete post
+	if ( ap_is_admin( $user_id ) ) {
 		return false;
 	}
+
+	$_post = ap_get_post( $post );
+	$type = $_post->post_type;
 
 	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
 		// select best answer or got votes
@@ -560,26 +489,6 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false, $wp_error
 }
 
 /**
- * Check if user can restore question or answer.
- *
- * @param  boolean|integer $user_id  User ID.
- * @return boolean
- * @since  3.0.0
- */
-function ap_user_can_restore( $_post = null, $user_id = false ) {
-	if ( false === $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	// only admin
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	return false;
-}
-
-/**
  * Check if user can view post
  *
  * @param  integer|false $post_id Question or answer ID.
@@ -591,43 +500,9 @@ function ap_user_can_view_post( $post_id = false, $user_id = false ) {
 		$user_id = get_current_user_id();
 	}
 
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
 	$post_o = is_object( $post_id ) ? $post_id : ap_get_post( $post_id );
 
 	if ( 'publish' === $post_o->post_status ) {
-		return true;
-	}
-
-	return false;
-}
-
-/**
- * Check if current user can change post status i.e. private_post, moderate, closed.
- *
- * @param  integer|object  $post_id    Question or Answer id.
- * @param  integer|boolean $user_id    User id.
- * @return boolean
- **/
-function ap_user_can_change_status( $post_id, $user_id = false ) {
-	if ( false === $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	$post_o = ap_get_post( $post_id );
-	$type = $post_o->post_type;
-
-	if ( ! in_array( $post_o->post_type, [ 'question', 'answer' ], true ) ) {
-		return false;
-	}
-
-	if ( ap_user_can_control_mine( $post_o, $user_id ) ) {
 		return true;
 	}
 
@@ -744,11 +619,6 @@ function ap_user_can_vote_on_post( $post_id, $type, $user_id = false, $wp_error 
 		$user_id = get_current_user_id();
 	}
 
-	// Return true if super admin.
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
 	$type   = 'vote_up' === $type ? 'vote_up' : 'vote_down';
 	$post_o = ap_get_post( $post_id );
 
@@ -784,10 +654,6 @@ function ap_user_can_delete_attachment( $attacment_id, $user_id = false ) {
 		$user_id = get_current_user_id();
 	}
 
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
 	$attachment = ap_get_post( $attacment_id );
 
 	if ( ! $attachment ) {
@@ -810,10 +676,6 @@ function ap_user_can_delete_attachment( $attacment_id, $user_id = false ) {
 function ap_user_can_upload() {
 	if ( ! is_user_logged_in() ) {
 		return false;
-	}
-
-	if ( is_super_admin() ) {
-		return true;
 	}
 
 	if ( ap_opt( 'allow_upload' ) ) {
@@ -943,18 +805,16 @@ function ap_get_expert_categories( $user_id ) {
 	return $all;
 }
 
-function ap_user_can_control_mine( $post, $user_id ) {
-	$type = $post->post_type;
-	if ( ( ! empty( $post->post_author ) ) && ( $user_id == $post->post_author ) ) { // loose comparison ok.
-		// select best answer or got votes
-		if ( $type == 'question' && ( $post->selected_id > 0 || $post->votes_net > 0 ) ) {
-			return false;
-		}
-		// selected as best answer or got votes
-		if ( $type == 'answer' && ( $post->selected || $post->votes_net > 0 ) ) {
-			return false;
-		}
-
+function ap_is_admin( $user_id = false ) {
+	if ( ! $user_id ) {
+		$user_id = get_current_user_id();
+	}
+	if ( ! $user_id ) {
+		return false;
+	}
+	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) || ap_is_expert( $user_id ) ) {
 		return true;
-	}	
+	}
+
+	return false;
 }

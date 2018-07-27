@@ -611,27 +611,6 @@ function ap_post_actions( $_post = null ) {
 		'label' => __( 'Edit', 'anspress-question-answer' ),
 	);
 
-	if ( ap_user_can_delete_post( $_post->ID ) ) {
-
-		if ( 'trash' === $_post->post_status ) {
-			$label = __( 'Undelete', 'anspress-question-answer' );
-			$title = __( 'Restore this post', 'anspress-question-answer' );
-		} else {
-			$label = __( 'Delete', 'anspress-question-answer' );
-			$title = __( 'Delete this post (can be restored again)', 'anspress-question-answer' );
-		}
-
-		$actions[] = array(
-			'cb'    => 'toggle_delete_post',
-			'query' => [
-				'post_id' => $_post->ID,
-				'__nonce' => wp_create_nonce( 'trash_post_' . $_post->ID ),
-			],
-			'label' => $label,
-			'title' => $title,
-		);
-	}
-
 	// Permanent delete link.
 	$actions[] = array(
 		'cb'    => 'delete_permanently',
@@ -651,49 +630,6 @@ function ap_post_actions( $_post = null ) {
 	 */
 	$actions = apply_filters( 'ap_post_actions', array_filter( $actions ) );
 	return array_values( $actions );
-}
-
-/**
- * Output chnage post status button.
- *
- * @param   mixed $_post Post.
- * @return  null|string
- * @since   4.0.0
- */
-function ap_post_status_btn_args( $_post = null ) {
-	$_post = ap_get_post( $_post );
-	$args  = [];
-
-	if ( ap_user_can_change_status( $_post->ID ) ) {
-		global $wp_post_statuses;
-		$allowed_status = [ 'publish' ];
-		$status_labels  = [];
-
-		foreach ( (array) $allowed_status as $s ) {
-			if ( isset( $wp_post_statuses[ $s ] ) ) {
-				$status_labels[ $s ] = esc_attr( $wp_post_statuses[ $s ]->label );
-			}
-		}
-
-		foreach ( (array) $status_labels as $slug => $label ) {
-			$can = true;
-
-			if ( $can ) {
-				$args[] = array(
-					'cb'     => 'status',
-					'active' => ( $slug === $_post->post_status ),
-					'query'  => [
-						'status'  => $slug,
-						'__nonce' => wp_create_nonce( 'change-status-' . $slug . '-' . $_post->ID ),
-						'post_id' => $_post->ID,
-					],
-					'label'  => esc_attr( $label ),
-				);
-			}
-		}
-
-		return $args;
-	}
 }
 
 /**
@@ -810,34 +746,23 @@ function ap_menu_obejct() {
  */
 function ap_post_actions_buttons() {
 	global $post;
-	if ( ! is_user_logged_in() ) {
+	$user_id = get_current_user_id();
+	if ( ! $user_id ) {
+		return;
+	}
+	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) || ap_is_expert( $user_id ) ) {
+		return;
+	}
+	if ( $user_id != (int)$post->post_author ) {
 		return;
 	}
 
-	$show = false;
+	$args = wp_json_encode( [
+		'post_id' => get_the_ID(),
+		'nonce'   => wp_create_nonce( 'post-actions-' . get_the_ID() ),
+	] );
 
-	$user_id = get_current_user_id();
-
-	if ( $user_id == (int)$post->post_author ) {
-		$show = true;
-	}
-
-	if ( ap_is_expert( $user_id ) && ap_is_in_expert_categories( $post, $user_id ) ) {
-		$show = true;
-	}
-
-	if ( ap_is_moderator( $user_id ) || is_super_admin( $user_id ) ) {
-		$show = true;
-	}
-
-	if ( $show ) {
-		$args = wp_json_encode( [
-			'post_id' => get_the_ID(),
-			'nonce'   => wp_create_nonce( 'post-actions-' . get_the_ID() ),
-		] );
-
-		echo '<postActions class="ap-dropdown"><button class="ap-btn apicon-gear ap-actions-handle ap-dropdown-toggle" ap="actiontoggle" apquery="' . esc_js( $args ) . '"></button><ul class="ap-actions ap-dropdown-menu"></ul></postActions>';
-	}
+	echo '<postActions class="ap-dropdown"><button class="ap-btn apicon-gear ap-actions-handle ap-dropdown-toggle" ap="actiontoggle" apquery="' . esc_js( $args ) . '"></button><ul class="ap-actions ap-dropdown-menu"></ul></postActions>';
 }
 
 /**

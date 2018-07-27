@@ -32,7 +32,6 @@ class AP_Ajax_Hooks {
 		anspress()->add_action( 'ap_ajax_post_actions', 'AP_Theme', 'post_actions' );
 		anspress()->add_action( 'ap_ajax_action_close', __CLASS__, 'close_question' );
 		anspress()->add_action( 'ap_ajax_action_edit_post', __CLASS__, 'edit_post' );
-		anspress()->add_action( 'ap_ajax_action_toggle_delete_post', __CLASS__, 'toggle_delete_post' );
 		anspress()->add_action( 'ap_ajax_action_delete_permanently', __CLASS__, 'permanent_delete_post' );
 
 		// Uploader hooks.
@@ -79,61 +78,6 @@ class AP_Ajax_Hooks {
 			'snackbar' => [ 'message' => __( '잠시후 수정 페이지로 이동됩니다', 'anspress-question-answer' ) ],
 		) );
 
-	}
-
-	/**
-	 * Process ajax trash posts callback.
-	 */
-	public static function toggle_delete_post() {
-		$post_id = (int) ap_sanitize_unslash( 'post_id', 'request' );
-
-		$failed_response = array(
-			'success'  => false,
-			'snackbar' => [ 'message' => __( 'Unable to trash this post', 'anspress-question-answer' ) ],
-		);
-
-		if ( ! ap_verify_nonce( 'trash_post_' . $post_id ) ) {
-			ap_ajax_json( $failed_response );
-		}
-
-		$post = ap_get_post( $post_id );
-
-		$post_type = 'question' === $post->post_type ? __( 'Question', 'anspress-question-answer' ) : __( 'Answer', 'anspress-question-answer' );
-
-		if ( 'trash' === $post->post_status ) {
-			wp_untrash_post( $post->ID );
-
-			ap_ajax_json( array(
-				'success'      => true,
-				'action' 		   => [ 'active' => false, 'label' => __( 'Delete', 'anspress-question-answer' ), 'title' => __( 'Delete this post (can be restored again)', 'anspress-question-answer' ) ],
-				'snackbar' 		 => [ 'message' => sprintf( __( '%s is restored', 'anspress-question-answer' ), $post_type ) ],
-				'newStatus'    => 'publish',
-				'postmessage' => ap_get_post_status_message( $post_id ),
-			) );
-		}
-
-		if ( ! ap_user_can_delete_post( $post_id ) ) {
-			ap_ajax_json( $failed_response );
-		}
-
-		// Delete lock feature.
-		// Do not allow post to be trashed if defined time elapsed.
-		if ( (time() > (get_the_time( 'U', $post->ID ) + (int) ap_opt( 'disable_delete_after' ))) && ! is_super_admin() ) {
-			ap_ajax_json( array(
-				'success'  => false,
-				'snackbar' => [ 'message' => sprintf( __( 'This post was created %s, hence you cannot trash it','anspress-question-answer' ), ap_human_time( get_the_time( 'U', $post->ID ) ) ) ],
-			) );
-		}
-
-		wp_trash_post( $post_id );
-
-		ap_ajax_json( array(
-			'success'      => true,
-			'action' 		   => [ 'active' => true, 'label' => __( 'Undelete', 'anspress-question-answer' ), 'title' => __( 'Restore this post', 'anspress-question-answer' ) ],
-			'snackbar' 		 => [ 'message' => sprintf( __( '%s is trashed', 'anspress-question-answer' ), $post_type ) ],
-			'newStatus'    => 'trash',
-			'postmessage' => ap_get_post_status_message( $post_id ),
-		) );
 	}
 
 	/**

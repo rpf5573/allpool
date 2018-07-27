@@ -20,6 +20,7 @@ Text Domain: alpool
 .fa,
 .fas,
 .ap-reputations td.col-icon i.register,
+.ap-reputations td.col-icon i.manual,
 .far,
 .fal,
 .fab {
@@ -104,6 +105,7 @@ Text Domain: alpool
 .fa.fa-pull-left,
 .fas.fa-pull-left,
 .ap-reputations td.col-icon i.fa-pull-left.register,
+.ap-reputations td.col-icon i.fa-pull-left.manual,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -112,6 +114,7 @@ Text Domain: alpool
 .fa.fa-pull-right,
 .fas.fa-pull-right,
 .ap-reputations td.col-icon i.fa-pull-right.register,
+.ap-reputations td.col-icon i.fa-pull-right.manual,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -3546,7 +3549,8 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas,
-.ap-reputations td.col-icon i.register {
+.ap-reputations td.col-icon i.register,
+.ap-reputations td.col-icon i.manual {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
@@ -5748,6 +5752,19 @@ form[apform] {
           background: #8D6E63; }
         .ap-reputations td.col-icon i.given_vote_up {
           background: #EC407A; }
+        .ap-reputations td.col-icon i.manual {
+          background-color: skyblue;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: normal;
+          line-height: 1;
+          vertical-align: -.125em;
+          font-size: 22px; }
+          .ap-reputations td.col-icon i.manual:before {
+            content: "\f24e"; }
     .ap-reputations td.col-points {
       text-align: right;
       width: 55px; }

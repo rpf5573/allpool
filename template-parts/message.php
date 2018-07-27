@@ -1,7 +1,7 @@
 <?php
 $class = 'info';
 if ( $template_args['type'] == 'error' || $template_args['type'] == 'fatal' ) {
-  $class = 'nagative';
+  $class = 'negative';
 }
 ?>
 <div class="ui message <?php echo $class; ?>">
