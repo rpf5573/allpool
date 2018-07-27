@@ -71,7 +71,7 @@ class AP_QA_Query_Hooks {
 				if ( is_user_logged_in() && false !== ( $pos = strpos( $sql['where'], $post_status ) ) ) {
 					$pos          = $pos + strlen( $post_status );
 					// $author_query = $wpdb->prepare( " OR ( {$wpdb->posts}.post_author = %d AND {$wpdb->posts}.post_status IN ('publish', 'trash') ) ", get_current_user_id() );
-					// \PC::debug( ['author_query' => $author_query], __FUNCTION__ );
+					// 
 					// $sql['where'] = substr_replace( $sql['where'], $author_query, $pos, 0 );
 				}
       }

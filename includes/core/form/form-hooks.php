@@ -374,7 +374,7 @@ class AP_Form_Hooks {
 		// $form->save_values_session( $question_id );
 
 		// Check nonce and is valid form.
-		if ( false === $manual && ( ! $form->is_submitted() || ! ap_user_can_answer( $question_id ) ) ) {
+		if ( false === $manual && ( ! $form->is_submitted() ) ) {
 			ap_ajax_json(
 				[
 					'success'  => false,
@@ -382,6 +382,8 @@ class AP_Form_Hooks {
 				]
 			);
 		}
+
+		
 
 		$answer_args = array(
 			'post_title'   => $question_id,
@@ -410,6 +412,15 @@ class AP_Form_Hooks {
 					'comment_status' => 'close',
 				)
 			);
+
+			if ( ! ap_user_can_answer( $question_id ) ) {
+				ap_ajax_json(
+					[
+						'success'  => false,
+						'snackbar' => [ 'message' => __( 'Trying to cheat?!', 'anspress-question-answer' ) ],
+					]
+				);
+			}
 		}
 
 		// Post status.

@@ -198,9 +198,7 @@ function ap_selected_answer( $_post = null ) {
 function ap_answers() {
 	global $answers;
 	$answers = ap_get_answers();
-
 	
-
 	ap_template_part( 'answers' );
 	ap_reset_question_query();
 }
@@ -299,7 +297,6 @@ function ap_answer_status( $_post = null ) {
 	ap_question_status( $_post );
 }
 
-
 /*  Uncategorized
 /* --------------------------------------------------- */
 
@@ -324,7 +321,6 @@ function ap_get_post( $post = null ) {
 
 	if ( empty( $post ) && isset( $GLOBALS['post'] ) ) {
 		$post = $GLOBALS['post']; // override ok.
-		
 	}
 
 	if ( $post instanceof WP_Post || is_object( $post ) ) {

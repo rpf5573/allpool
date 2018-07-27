@@ -212,6 +212,7 @@ class AP_Hooks {
 	 * @since 4.1.8 Delete uploaded images and `anspress-images` meta.
 	 */
 	public static function before_delete( $post_id ) {
+
 		$post = ap_get_post( $post_id );
 
 		if ( ! ap_is_cpt( $post ) ) {
@@ -234,7 +235,6 @@ class AP_Hooks {
 		}
 
 		if ( 'question' === $post->post_type ) {
-
 			/**
 			 * Action triggered before deleting a question form database.
 			 *
@@ -247,7 +247,7 @@ class AP_Hooks {
 			 */
 			do_action( 'ap_before_delete_question', $post->ID, $post );
 
-			$answers = get_posts( [ 'post_parent' => $post->ID, 'post_type' => 'answer' ] ); // @codingStandardsIgnoreLine
+			$answers = get_posts( [ 'post_parent' => $post->ID, 'post_type' => 'answer', 'post_status' => array( 'publish', 'trash' ), 'numberposts' => -1 ] ); // @codingStandardsIgnoreLine
 
 			foreach ( (array) $answers as $a ) {
 				self::delete_answer( $a->ID, $a );
@@ -258,7 +258,7 @@ class AP_Hooks {
 			ap_delete_qameta( $post->ID );
 
 		} elseif ( 'answer' === $post->post_type ) {
-				self::delete_answer( $post_id, $post );
+			self::delete_answer( $post_id, $post );
 		}
 	}
 
@@ -276,6 +276,10 @@ class AP_Hooks {
 		if ( ap_is_selected( $post ) ) {
 			ap_unset_selected_answer( $post->post_parent );
 		}
+
+		// for direct delete by user
+		wp_update_post( array( 'ID' =>  $post->ID, 'post_status' => 'trash' ) );
+		ap_update_answers_count( $post->post_parent );
 
 		// Delete qameta.
 		ap_delete_qameta( $post->ID );

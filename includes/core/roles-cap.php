@@ -319,6 +319,14 @@ function ap_user_can_edit_post( $post = null, $user_id = false, $wp_error = fals
 		return true;
 	}
 
+	if ( ap_is_expert( $user_id ) ) {
+		if ( ap_is_in_expert_categories( $question, $user_id ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
 		// select best answer or got votes
 		if ( $type == 'question' && ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
@@ -329,44 +337,6 @@ function ap_user_can_edit_post( $post = null, $user_id = false, $wp_error = fals
 		}
 		// selected as best answer or got votes
 		if ( $type == 'answer' && ( $_post->selected || $_post->votes_net > 0 ) ) {
-			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 선택되었거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
-			}
-			return false;
-		}
-
-		return true;
-	}	
-
-	if ( $wp_error ) {
-		return new WP_Error( 'no_permission', __( 'You do not have permission to edit question.', 'anspress-question-answer' ) );
-	}
-
-	return false;
-}
-
-/**
- * Check if a user can edit answer on a question.
- *
- * @param  integer         $post_id Answer id.
- * @param  boolean|integer $user_id User id.
- * @return boolean
- * @since  2.4.7 Renamed function from `ap_user_can_edit_ans` to `ap_user_can_edit_answer`.
- */
-function ap_user_can_edit_answer( $post_id, $user_id = false ) {
-	if ( false === $user_id ) {
-		$user_id = get_current_user_id();
-	}
-
-	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
-		return true;
-	}
-
-	$answer = ap_get_post( $post_id );
-
-	if ( ( ! empty( $answer->post_author ) ) && ( $user_id == $answer->post_author ) ) { // loose comparison ok.
-		// select best answer or got votes
-		if ( $answer->selected_id > 0 || $answer->votes_net > 0 ) {
 			if ( $wp_error ) {
 				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
 			}
@@ -411,6 +381,14 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false, $wp_erro
 		$question = $post;
 	}
 
+	if ( ap_is_expert( $user_id ) ) {
+		if ( ap_is_in_expert_categories( $question, $user_id ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	if ( ( ! empty( $question->post_author ) ) && ( $user_id == $question->post_author ) ) { // loose comparison ok.
 		// select best answer or got votes
 		if ( $question->selected_id > 0 || $question->votes_net > 0 ) {
@@ -420,6 +398,51 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false, $wp_erro
 			return false;
 		}
 
+		return true;
+	}
+
+	if ( $wp_error ) {
+		return new WP_Error( 'no_permission', __( 'You do not have permission to edit question.', 'anspress-question-answer' ) );
+	}
+
+	return false;
+}
+
+/**
+ * Check if a user can edit answer on a question.
+ *
+ * @param  integer         $post_id Answer id.
+ * @param  boolean|integer $user_id User id.
+ * @return boolean
+ * @since  2.4.7 Renamed function from `ap_user_can_edit_ans` to `ap_user_can_edit_answer`.
+ */
+function ap_user_can_edit_answer( $post_id, $user_id = false, $wp_error = false ) {
+	if ( false === $user_id ) {
+		$user_id = get_current_user_id();
+	}
+
+	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
+		return true;
+	}
+
+	$answer = ap_get_post( $post_id );
+
+	if ( ap_is_expert( $user_id ) ) {
+		if ( ap_is_in_expert_categories( $answer, $user_id ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	if ( ( ! empty( $answer->post_author ) ) && ( $user_id == $answer->post_author ) ) { // loose comparison ok.
+		// select best answer or got votes
+		if ( $answer->selected > 0 || $answer->votes_net > 0 ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
 		return true;
 	}
 
@@ -501,6 +524,13 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false, $wp_error
 
 	if ( is_super_admin( $user_id ) || ap_is_moderator( $user_id ) ) {
 		return true;
+	}
+
+	if ( ap_is_expert( $user_id ) ) {
+		if ( ap_is_in_expert_categories( $_post, $user_id ) ) {
+			return true;
+		}
+		return false;
 	}
 
 	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.

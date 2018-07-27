@@ -1935,7 +1935,7 @@ jQuery(document).ready(function () {
   if ( front_category_search.length > 0 ) {
     front_category_search.dropdown({
       maxSelections : 3,
-      onAdd: function(value, text, $selected) {
+      onAdd: function(value, text, $did_select) {
         // console.dir( $('.ui.label.transition.visible') );
       },
       onLabelCreate : function(value, text) {
@@ -1967,39 +1967,43 @@ jQuery(document).ready(function () {
     category : $('.question-filter__category select'),
     year : $('.question-filter__year select'),
     session : $('.question-filter__session select'),
-    selected : $('.question-filter__did_select'),
-    answered : $('.question-filter__has_answer')
+    did_select : $('.question-filter__did_select select'),
+    has_answer : $('.question-filter__has_answer select')
   };
   
   if ( main_filter.category.length > 0 ) {
     main_filter.category.SumoSelect({ 
       placeholder : '카테고리 리스트',
       search: true,
-      selectAll : true,
-      searchText: '여기에 입력하세요'
+      selectAll : false,
     });
   }
   if ( main_filter.year.length > 0 ) {
     main_filter.year.SumoSelect({
       placeholder : '년도',
       search : false,
-      selectAll : true,
-      searchText : '검색'
+      selectAll : false,
     });
   }
   if ( main_filter.session.length > 0 ) {
     main_filter.session.SumoSelect({
       placeholder : '회차',
-      selectAll : true,
+      selectAll : false,
       search : false
     });
   }
-  if ( main_filter.selected.length > 0 ) {
-    main_filter.selected.checkbox();
+  if ( main_filter.did_select.length > 0 ) {
+    main_filter.did_select.SumoSelect({
+      placeholder : '채택여부'
+    });
   }
-  if ( main_filter.answered.length > 0 ) {
-    main_filter.answered.checkbox();
-  } })(jQuery);
+  if ( main_filter.has_answer.length > 0 ) {
+    main_filter.has_answer.SumoSelect({
+      placeholder : '답변여부'
+    });
+  } 
+
+})(jQuery);
   
   
   /* ------------------------------------------------------------------------- *

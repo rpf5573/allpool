@@ -955,12 +955,12 @@
 		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.woff2",
 		"oF": 0
 		},
-	"\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js": {
+	"\/assets\/lib\/sumoselect\/jquery.sumoselect.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-min.js",
+		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -2205,6 +2205,13 @@
 		"oAP": "\/includes\/addons\/category.php",
 		"oF": 0
 		},
+	"\/includes\/addons\/dummy.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/dummy.php",
+		"oF": 0
+		},
 	"\/includes\/addons\/filters.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2415,6 +2422,13 @@
 		"oAP": "\/includes\/core\/activate.php",
 		"oF": 0
 		},
+	"\/includes\/core\/ajax-hooks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/core\/ajax-hooks.php",
+		"oF": 0
+		},
 	"\/includes\/core\/anspress.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2569,6 +2583,13 @@
 		"oAP": "\/includes\/core\/query\/answer-query.php",
 		"oF": 0
 		},
+	"\/includes\/core\/query\/qaquery-hooks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/core\/query\/qaquery-hooks.php",
+		"oF": 0
+		},
 	"\/includes\/core\/query\/qaquery.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2590,11 +2611,25 @@
 		"oAP": "\/includes\/core\/rewrite.php",
 		"oF": 0
 		},
+	"\/includes\/core\/roles-cap.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/core\/roles-cap.php",
+		"oF": 0
+		},
 	"\/includes\/core\/shortcode.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/core\/shortcode.php",
+		"oF": 0
+		},
+	"\/includes\/core\/theme.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/core\/theme.php",
 		"oF": 0
 		},
 	"\/includes\/core\/toggle-best-answer.php": {

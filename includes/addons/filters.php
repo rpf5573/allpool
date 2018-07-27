@@ -36,14 +36,29 @@ class AP_Filters {
       $sql['where'] .= " AND qameta.session IN ({$session})";
     }
 
-    $did_select = ap_isset_post_value( $name_list['did_select'], false );
-    if ( $did_select ) {
-      $sql['where'] .= " AND qameta.selected_id IS NOT NULL";
+    $did_select = ap_isset_post_value( $name_list['did_select'], array() );
+    if ( ! empty( $did_select ) ) {
+      if ( count( $did_select ) == 1 ) {
+        if ( $did_select[0] == 'yes' ) {
+          $sql['where'] .= " AND qameta.selected_id > 0";
+        } 
+        else if ( $did_select[0] == 'no' ) {
+          $sql['where'] .= " AND qameta.selected_id IS NULL OR qameta.selected_id = 0";
+        }
+      }
     }
 
-    $has_answer = ap_isset_post_value( $name_list['has_answer'], false );
-    if ( $has_answer ) {
-      $sql['where'] .= " AND qameta.answers > 0";
+    $has_answer = ap_isset_post_value( $name_list['has_answer'], array() );
+    
+    if ( ! empty( $has_answer ) ) {
+      if ( count( $has_answer ) == 1 ) {
+        if ( $has_answer[0] == 'yes' ) {
+          $sql['where'] .= " AND qameta.answers > 0";
+        } 
+        else if ( $has_answer[0] == 'no' ) {
+          $sql['where'] .= " AND qameta.answers = 0";
+        }
+      }
     }
 
     return $sql;
@@ -279,12 +294,21 @@ function ap_get_session_filter( $name = null ) {
 function ap_get_did_select_filter( $name = null ) {
   if ( is_null( $name ) ) {
     $name_list = ap_opt( 'filter_name_list' );
-    $name = $name_list['did_select'];
+    $name = $name_list['session'];
+  }
+  $range = array( 
+    'yes' => '채택',
+    'no'  => '미채택'
+  );
+  $choices = array();
+  foreach( $range as $key => $value ) {
+    $choices[ "{$key}" ] = $value;
   }
   $filter = array(
-    'label'     => __('채택여부', 'anspress-question-answer'),
-    'type'      => 'checkbox',
-    'name'      => $name,
+    'title'           => __('채택여부', 'anspress-question-answer'),
+    'type'            => 'select',
+    'name'            => $name,
+    'choices'         => $choices,
   );
   return $filter;
 }
@@ -292,12 +316,21 @@ function ap_get_did_select_filter( $name = null ) {
 function ap_get_has_answer_filter( $name = null ) {
   if ( is_null( $name ) ) {
     $name_list = ap_opt( 'filter_name_list' );
-    $name = $name_list['has_answer'];
+    $name = $name_list['session'];
+  }
+  $range = array(
+    'yes' => '답변있음',
+    'no'  => '답변없음'
+  );
+  $choices = array();
+  foreach( $range as $key => $value ) {
+    $choices[ "{$key}" ] = $value;
   }
   $filter = array(
-    'label' => __('답변여부', 'anspress-question-answer'),
-    'type'  => 'checkbox',
-    'name'  => $name,
+    'title'           => __('답변여부', 'anspress-question-answer'),
+    'type'            => 'select',
+    'name'            => $name,
+    'choices'         => $choices,
   );
   return $filter;
 }

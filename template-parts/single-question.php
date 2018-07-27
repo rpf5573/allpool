@@ -75,6 +75,7 @@
 									printf( '<time itemprop="datePublished" datetime="%1$s">%2$s</time>', ap_get_time( get_the_ID(), 'c' ), $time );
 									?>
 								</a>
+								<?php the_ID(); ?>
 							</div>
 
 							<!-- Start ap-content-inner -->

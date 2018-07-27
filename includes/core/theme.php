@@ -49,7 +49,7 @@ class AP_Theme {
     wp_enqueue_style( 'semantic-ui',  ANSPRESS_URL . 'assets/lib/semantic-ui/semantic.min.css' );
   
     // SumoSelect
-    wp_enqueue_script( 'sumoselect', ANSPRESS_URL . 'assets/lib/sumoselect/jquery.sumoselect-min.js', array('jquery'), '1.0', true );
+    wp_enqueue_script( 'sumoselect', ANSPRESS_URL . 'assets/lib/sumoselect/jquery.sumoselect.js', array('jquery'), '1.0', true );
     wp_enqueue_style( 'sumoselect', ANSPRESS_URL . 'assets/lib/sumoselect/sumoselect-min.css' );
   
     // mmenu
@@ -814,17 +814,30 @@ function ap_post_actions_buttons() {
 		return;
 	}
 
+	$show = false;
+
 	$user_id = get_current_user_id();
-	if ( ! ( $post && $user_id == (int)$post->post_author ) && ! is_super_admin( $user_id ) ) {
-		return;
+
+	if ( $user_id == (int)$post->post_author ) {
+		$show = true;
 	}
 
-	$args = wp_json_encode( [
-		'post_id' => get_the_ID(),
-		'nonce'   => wp_create_nonce( 'post-actions-' . get_the_ID() ),
-	] );
+	if ( ap_is_expert( $user_id ) && ap_is_in_expert_categories( $post, $user_id ) ) {
+		$show = true;
+	}
 
-	echo '<postActions class="ap-dropdown"><button class="ap-btn apicon-gear ap-actions-handle ap-dropdown-toggle" ap="actiontoggle" apquery="' . esc_js( $args ) . '"></button><ul class="ap-actions ap-dropdown-menu"></ul></postActions>';
+	if ( ap_is_moderator( $user_id ) || is_super_admin( $user_id ) ) {
+		$show = true;
+	}
+
+	if ( $show ) {
+		$args = wp_json_encode( [
+			'post_id' => get_the_ID(),
+			'nonce'   => wp_create_nonce( 'post-actions-' . get_the_ID() ),
+		] );
+
+		echo '<postActions class="ap-dropdown"><button class="ap-btn apicon-gear ap-actions-handle ap-dropdown-toggle" ap="actiontoggle" apquery="' . esc_js( $args ) . '"></button><ul class="ap-actions ap-dropdown-menu"></ul></postActions>';
+	}
 }
 
 /**

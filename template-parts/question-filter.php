@@ -46,17 +46,24 @@ $archive_url = ap_get_questions_page_url();
           </select>
         </div> <?php
 
-        $checked = ap_isset_post_value( $filters['did_select']['name'], false ); ?>
-        <div class="ui checkbox question-filter__did_select">
-          <input type="checkbox" name="<?php echo $filters['did_select']['name']; ?>" class="hidden" <?php if ( $checked ) { echo 'checked'; } ?>>
-          <label> <?php echo $filters['did_select']['label']; ?> </label>
+        $selected_list = ap_isset_post_value( $filters['did_select']['name'], array() ); ?>
+        <div class="question-filter__did_select">
+          <select name="<?php echo $filters['did_select']['name'] . '[]'; ?>" multiple="multiple" > <?php
+            foreach( $filters['did_select']['choices'] as $key => $value ) { ?>
+              <option value="<?php echo $key; ?>" <?php if ( in_array($key, $selected_list) ) { echo 'selected'; } ?>> <?php echo $value; ?> </option> <?php
+            } ?>
+          </select>
         </div> <?php
         
-        $checked = ap_isset_post_value( $filters['has_answer']['name'], false ); ?>
-        <div class="ui checkbox question-filter__has_answer">
-          <input type="checkbox" name="<?php echo $filters['has_answer']['name']; ?>" class="hidden" <?php if ( $checked ) { echo 'checked'; } ?>>
-          <label> <?php echo $filters['has_answer']['label']; ?> </label>
+        $selected_list = ap_isset_post_value( $filters['has_answer']['name'], array() ); ?>
+        <div class="question-filter__has_answer">
+          <select name="<?php echo $filters['has_answer']['name']. '[]'; ?>" multiple="multiple"> <?php
+            foreach( $filters['has_answer']['choices'] as $key => $value ) { ?>
+              <option value="<?php echo $key; ?>" <?php if ( in_array($key, $selected_list) ) { echo 'selected'; } ?>> <?php echo $value; ?> </option> <?php
+            } ?>
+          </select>
         </div>
+        
       </div>
 
     </div>

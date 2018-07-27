@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-07-18 15:23+0900\n"
-"PO-Revision-Date: 2018-07-24 13:25+0900\n"
+"PO-Revision-Date: 2018-07-26 17:17+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -219,11 +219,11 @@ msgstr "답변의 코멘트가 수정됨"
 
 #: functions.php:1411
 msgid "selected answer"
-msgstr "베스트 답변으로 선택"
+msgstr "베스트 답변으로 채택"
 
 #: functions.php:1412
 msgid "unselected answer"
-msgstr "베스트 답변 선택 취소"
+msgstr "베스트 답변 채택 취소"
 
 #: functions.php:1413
 msgid "updated status"
@@ -231,11 +231,11 @@ msgstr "상태가 수정됨"
 
 #: functions.php:1414
 msgid "selected as best answer"
-msgstr "베스트 답변으로 선택됨"
+msgstr "베스트 답변으로 채택됨"
 
 #: functions.php:1415
 msgid "unselected as best answer"
-msgstr "베스트 답변 선택 최소"
+msgstr "베스트 답변 채택 최소"
 
 #: functions.php:1416
 msgid "changed status"
@@ -396,7 +396,7 @@ msgstr "답변 지우기"
 
 #: includes/addons/reputation/mycred-hooks.php:307
 msgid "Select best answer"
-msgstr "베스트 답변으로 선택"
+msgstr "베스트 답변으로 채택"
 
 #: includes/addons/reputation/mycred-hooks.php:329
 msgid "Unselect best answer"
@@ -404,11 +404,11 @@ msgstr "베스트 답변 취소"
 
 #: includes/addons/reputation/mycred-hooks.php:390
 msgid "Selected Best Answer"
-msgstr "베스트 답변으로 선택됨"
+msgstr "베스트 답변으로 채택됨"
 
 #: includes/addons/reputation/mycred-hooks.php:412
 msgid "Cancelled Best Answer"
-msgstr "베스트 답변 선택 취소"
+msgstr "베스트 답변 채택 취소"
 
 #: includes/addons/reputation/mycred-hooks.php:481
 #: includes/addons/reputation/reputation.php:72
@@ -464,11 +464,11 @@ msgstr "유저가 질문에 답변을 달았을때 얻는 포인트"
 
 #: includes/addons/reputation/reputation.php:62
 msgid "Select answer"
-msgstr "답변 선택"
+msgstr "답변 채택"
 
 #: includes/addons/reputation/reputation.php:63
 msgid "Points awarded when user select or unselect best answer"
-msgstr "유저가 베스트 답변을 선택하거나 철회했을때 얻는 포인트"
+msgstr "유저가 베스트 답변을 채택하거나 철회했을때 얻는 포인트"
 
 #: includes/addons/reputation/reputation.php:67
 msgid "Best answer"
@@ -476,7 +476,7 @@ msgstr "최고의 답변"
 
 #: includes/addons/reputation/reputation.php:68
 msgid "Points awarded when answer is selected or cancelled as best"
-msgstr "유저가 단 답변이 베스트 답변으로 선택되거나 철회되었을때 얻는 포인트"
+msgstr "유저가 단 답변이 베스트 답변으로 채택되거나 철회되었을때 얻는 포인트"
 
 #: includes/addons/reputation/reputation.php:73
 msgid "Points awarded when question or answer get vote up from other user"
@@ -605,7 +605,7 @@ msgstr "마지막 페이지"
 #: includes/addons/statistic/class-ap-list-table.php:1027
 #: includes/admin/anspress-admin.php:486
 msgid "Select All"
-msgstr "모두 선택"
+msgstr "모두 채택"
 
 #: includes/addons/statistic/class-term-statistic-list-table.php:72
 msgid "Invalid taxonomy."
@@ -675,11 +675,11 @@ msgstr "당신의 투표를 철회하세요"
 
 #: includes/addons/votes.php:608
 msgid "Up vote this post"
-msgstr "이 포스트에 좋아요를 준다"
+msgstr "추천"
 
 #: includes/addons/votes.php:610
 msgid "Down vote this post"
-msgstr "이 포스트에 싫어요를 준다"
+msgstr "비추천"
 
 #: includes/addons/wishlist.php:43
 msgid "You must be logged in to subscribe to a question"
@@ -1070,7 +1070,7 @@ msgstr ""
 
 #: includes/admin/views/select_question.php:20
 msgid "Select a question for new answer"
-msgstr "답변을 달 질문을 선택해 주세요"
+msgstr "답변을 달 질문을 채택해 주세요"
 
 #: includes/admin/views/select_question.php:34
 msgid "Recently active questions"
@@ -1079,7 +1079,7 @@ msgstr "질문들"
 #: includes/admin/views/select_question.php:45 includes/core/theme.php:975
 #: includes/core/toggle-best-answer.php:67
 msgid "Select"
-msgstr "선택"
+msgstr "채택"
 
 #: includes/admin/views/uninstall.php:20
 msgid ""
@@ -1210,11 +1210,11 @@ msgstr "죄송합니다, 해당 포스트는 삭제할 수 없습니다"
 
 #: includes/core/ajax-hooks.php:140
 msgid "Question is deleted permanently"
-msgstr "질문은 영구적으로 삭제됩니다"
+msgstr "질문이 영구적으로 삭제되었습니다"
 
 #: includes/core/ajax-hooks.php:149
 msgid "Answer is deleted permanently"
-msgstr "답변은 영구적으로 삭제됩니다"
+msgstr "답변이 영구적으로 삭제되었습니다"
 
 #: includes/core/ajax-hooks.php:168
 msgid "You cannot close a question"
@@ -1449,7 +1449,7 @@ msgstr "Alpool Select Field"
 
 #: includes/core/form/fields/class-select.php:91
 msgid "Select an option"
-msgstr "옵션 선택"
+msgstr "옵션 채택"
 
 #: includes/core/form/fields/class-tags.php:43
 msgid "AnsPress Tags Field"
@@ -1465,7 +1465,7 @@ msgstr "Alpool Upload Field"
 
 #: includes/core/form/fields/class-upload.php:100
 msgid "Select file(s) to upload"
-msgstr "파일 선택"
+msgstr "파일 채택"
 
 #: includes/core/form/fields/class-upload.php:109
 msgid "This file type is not allowed to upload."
@@ -1599,7 +1599,7 @@ msgstr "이미지"
 
 #: includes/core/form/form-hooks.php:580
 msgid "Select image(s) to upload. Only .jpg, .png and .gif files allowed."
-msgstr "업로드할 이미지를 선택해주세요. jpg/png/gif만 허용됩니다."
+msgstr "업로드할 이미지를 채택해주세요. jpg/png/gif만 허용됩니다."
 
 #: includes/core/form/uploader.php:44
 msgid "Unable to delete attachment"
@@ -1611,7 +1611,7 @@ msgstr "죄송합니다! 당신은 이미지를 업로드할 권한이 없습니
 
 #: includes/core/form/uploader.php:153
 msgid "Select image file to upload"
-msgstr "업로드할 이미지를 선택해 주세요"
+msgstr "업로드할 이미지를 채택해 주세요"
 
 #: includes/core/form/uploader.php:190
 msgid "Unable to upload image(s). Please check errors."
@@ -1745,7 +1745,7 @@ msgstr "해결됨"
 #: includes/core/query/qaquery.php:80
 #, php-format
 msgid "%s views"
-msgstr "%s views"
+msgstr "%s명 읽음"
 
 #: includes/core/query/qaquery.php:288
 #, php-format
@@ -1895,15 +1895,15 @@ msgstr "오래된순"
 
 #: includes/core/theme.php:974
 msgid "Select this answer as best"
-msgstr "베스트 답변으로 선택"
+msgstr "베스트 답변으로 채택"
 
 #: includes/core/theme.php:982
 msgid "Unselect this answer"
-msgstr "베스트 답변 선택 철회"
+msgstr "베스트 답변 채택 철회"
 
 #: includes/core/theme.php:983 includes/core/toggle-best-answer.php:86
 msgid "Unselect"
-msgstr "선택 철회"
+msgstr "채택 철회"
 
 #: includes/core/theme.php:1015
 msgid "Question is closed for new answers."
@@ -1918,17 +1918,17 @@ msgstr ""
 
 #: includes/core/toggle-best-answer.php:68
 msgid "Best answer is unselected for your question."
-msgstr "당신의 질문의 베스트 답변이 선택 철회되었습니다."
+msgstr "당신의 질문의 베스트 답변이 채택 철회되었습니다."
 
 #: includes/core/toggle-best-answer.php:76
 msgid ""
 "This answer cannot be selected as best, update status to select as best "
 "answer."
-msgstr "베스트 답변으로 선택될 수 없습니다, 답변의 상태를 수정해 주세요."
+msgstr "베스트 답변으로 채택될 수 없습니다, 답변의 상태를 수정해 주세요."
 
 #: includes/core/toggle-best-answer.php:87
 msgid "Best answer is selected for your question."
-msgstr "당신의 질문의 베스트 답변으로 선택되었습니다."
+msgstr "당신의 질문의 베스트 답변으로 채택되었습니다."
 
 #: includes/tools/ajax.php:146
 msgid "You don't have enough permissions to do this action."
@@ -1994,7 +1994,7 @@ msgstr[0] "%d 개의 투표"
 
 #: template-parts/profile/answer-item.php:54
 msgid "This answer is selected as best"
-msgstr "해당 답변은 베스트 답변으로 선택되었습니다"
+msgstr "해당 답변은 베스트 답변으로 채택되었습니다"
 
 #: template-parts/profile/answer-item.php:54
 msgid "Selected"
