@@ -63,10 +63,16 @@ function ap_update_caps_for_role( $role_slug, $caps = array() ) {
 	return true;
 }
 
-function ap_get_select_post_link( $post ) {
-	$action = 'select';
+function ap_is_admin_question_update() {
+	if ( is_admin() && isset( $_REQUEST['original_post_status'] ) && $_REQUEST['original_post_status'] == 'publish' ) { 
+		return true;
+	}
+	return false;
+}
+
+function ap_get_untrash_post_link( $post ) {
 	$post_type_object = get_post_type_object( $post->post_type );
+	$action = 'untrash';
 	$link = add_query_arg( 'action', $action, admin_url( sprintf( $post_type_object->_edit_link, $post->ID ) ) );
-	\PC::debug( ['link' => $link], __FUNCTION__ );
-	return $link;
+	return wp_nonce_url( $link, "$action-post_{$post->ID}" );
 }

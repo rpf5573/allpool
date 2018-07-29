@@ -59,16 +59,19 @@ class AP_Question_Meta_Box {
 			</div>
 			<div class="ap-ansm-inner">
 				<div class="ap-ansm-meta">
-					<span class="post-status">{{status}}</span>
+					<span class="post-status --{{status}}">{{status_label}}</span>
 					{{{activity}}}
 				</div>
 				<div class="ap-ansm-content">{{{content}}}</div>
 				<div class="answer-actions">
-					<span><a href="{{{editLink}}}"><?php esc_attr_e( 'Edit', 'anspress-question-answer' ); ?></a></span> <?php
-					// hide to experts
-					if ( ! ap_is_expert() ) { ?>
-						<span class="delete vim-d vim-destructive"> | <a href="{{{trashLink}}}"><?php esc_attr_e( 'Trash', 'anspress-question-answer' ); ?></a></span> <?php
-					} ?>
+					<span class="edit"><a href="{{{editLink}}}"><?php esc_attr_e( 'Edit', 'anspress-question-answer' ); ?></a> | </span>
+					<span class="trash vim-d vim-destructive"><a href="{{{trashLink}}}"><?php esc_attr_e( 'Trash', 'anspress-question-answer' ); ?></a></span>
+					<span class="untrash"><a href="{{{untrashLink}}}"><?php esc_attr_e( '복구', 'anspress-question-answer' ); ?></a></span>
+					<span class="delete"> | <a href="{{{deleteLink}}}"><?php esc_attr_e( '영구적으로 삭제', 'anspress-question-answer' ); ?></a></span>
+					<div class="select_answer">
+						<label for="select_answer_checkbox_{{{ID}}}"> 채택 </label>
+						<input type="checkbox" class="select_answer_checkbox" id="select_answer_checkbox_{{{ID}}}" name="selected_answer_id" value="{{{ID}}}" {{{selected}}} onClick="select_answer(this);" />
+					</div>
 				</div>
 			</div>
 		</script>

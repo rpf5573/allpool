@@ -70,16 +70,19 @@ class AP_Admin_Ajax {
 		while ( ap_have_answers() ) :
 			ap_the_answer();
 			global $post, $wp_post_statuses;
+			
       $answers_arr[] = array(
-        'ID'        => get_the_ID(),
-        'content'   => get_the_content(),
-        'avatar'    => ap_get_author_avatar( 30 ),
-        'author'    => ap_user_display_name( $post->post_author ),
-        'editLink'  => esc_url_raw( get_edit_post_link() ),
-				'trashLink' => esc_url_raw( get_delete_post_link() ),
-				'selectLink' => esc_url_raw( ap_get_select_post_link( $post ) ),
-        'status'    => esc_attr( $wp_post_statuses[ $post->post_status ]->label ),
-        'selected'  => ap_get_post_field( 'selected' ),
+        'ID'        		=> get_the_ID(),
+        'content'   		=> get_the_content(),
+        'avatar'    		=> ap_get_author_avatar( 30 ),
+        'author'    		=> ap_user_display_name( $post->post_author ),
+        'editLink'  		=> esc_url_raw( get_edit_post_link() ),
+				'trashLink' 		=> esc_url_raw( get_delete_post_link() ),
+				'untrashLink'		=> esc_url_raw( ap_get_untrash_post_link( $post ) ),
+				'deleteLink'		=> esc_url_raw( get_delete_post_link( $post->ID, '', true ) ),
+				'status'    		=> esc_attr( $post->post_status ),
+				'status_label'	=> esc_attr( $wp_post_statuses[ $post->post_status ]->label ),
+        'selected'  		=> ap_get_post_field( 'selected' ),
       );
 		endwhile;
 

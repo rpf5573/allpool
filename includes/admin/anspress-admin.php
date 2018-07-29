@@ -104,6 +104,9 @@ class AP_Admin {
 
 		// Question Filter
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_admin', 10, 3 );
+
+		// select answer
+		anspress()->add_action( 'ap_insert_question_qameta', __CLASS__, 'save_best_answer_selection', 10, 3 );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );
@@ -778,7 +781,7 @@ class AP_Admin {
 	}
 
 	public static function prevent_edit_question_by_expert_categories( $post_id, $data ) {
-		if ( is_admin() && isset( $_REQUEST['original_post_status'] ) && $_REQUEST['original_post_status'] == 'publish' ) {
+		if ( ap_is_admin_question_update() ) {
 			if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
 			}
@@ -790,6 +793,27 @@ class AP_Admin {
 			if ( ! ap_user_can_edit_other_category_qa( (int)$_GET['post_parent'] ) ) {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
 			}	
+		}
+	}
+
+	public static function save_best_answer_selection($qameta, $question, $updated) {
+		if ( ap_is_admin_question_update() ) {
+			
+			// Unselect best answer if already selected.
+			if ( ap_have_answer_selected( $question->ID ) ) {
+				ap_unset_selected_answer( $question->ID );
+			}
+
+			$selected_id = ap_isset_post_value( 'selected_answer_id' );			
+			if ( $selected_id ) {
+				$answer = get_post( $selected_id );
+				// Do not allow answer to be selected as best if status is moderate.
+				if ( in_array( $answer->post_status, ['trash'], true ) ) {
+					return;
+				}
+
+				ap_set_selected_answer( $answer->post_parent, $answer->ID );
+			}
 		}
 	}
 

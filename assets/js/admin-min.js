@@ -892,10 +892,9 @@ window.AnsPress.Helper = {
       author: '',
       editLink: '',
 			trashLink: '',
-			selectLink: '',
       status: '',
       selected: '',
-      avatar: ''
+			avatar: '',
     }
   });
 
@@ -918,8 +917,26 @@ window.AnsPress.Helper = {
     },
     render: function(){
       if(this.model){
-        var t = _.template(this.template());
-        this.$el.html(t(this.model.toJSON()));
+				console.dir( this.model );
+				// console.dir( this.$el );
+				var t = _.template(this.template());
+				this.$el.html(t(this.model.toJSON()));
+				if ( this.model.attributes.status == 'trash' ) {
+					//console.dir( this.$el.find('.answer-actions').remove() );
+					this.$el.find('.answer-actions > .edit').remove();
+					this.$el.find('.answer-actions > .trash').remove();
+					this.$el.find('.answer-actions > .select_answer').remove();
+				} else {
+					this.$el.find('.answer-actions > .delete').remove();
+					this.$el.find('.answer-actions > .untrash').remove();
+				}
+
+				if ( this.model.attributes.selected ) {
+					this.$el.addClass('selected');
+					// var checkbox = this.$el.find('.answer-actions .select_answer_checkbox')
+					this.$el.find('.answer-actions .select_answer_checkbox').prop('checked', true);
+
+				}
       }
       return this;
     }
@@ -1286,4 +1303,14 @@ APjs.admin = function () {};
 		}
 	}
 })(jQuery);
+
+function select_answer(checkbox) {
+	var checkboxes = $('.answer-actions .select_answer_checkbox');
+	if ( checkbox.checked ) {
+		jQuery.each( checkboxes, function(key, el){
+			el.checked = false;
+		} );
+		checkbox.checked = true;
+	}
+}
 
