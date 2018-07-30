@@ -98,3 +98,11 @@ function tinymce_remove_root_block_tag( $init ) {
   return $init;
 }
 add_filter( 'tiny_mce_before_init', 'tinymce_remove_root_block_tag' );
+
+public static function prevent_access_answer_edit_page_by_expert_categories() {
+	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'answer' && isset( $_GET['post_parent'] ) ) {
+		if ( ! ap_user_can_edit_other_category_qa( (int)$_GET['post_parent'] ) ) {
+			wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
+		}	
+	}
+}

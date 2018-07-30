@@ -219,22 +219,8 @@ class AP_Hooks {
 			return;
 		}
 
-		// Get anspress uploads.
-		$images = get_post_meta( $post_id, 'anspress-image' );
-		if ( ! empty( $images ) ) {
-
-			// Delete all uploaded images.
-			foreach ( $images as $img ) {
-				$uploads = wp_upload_dir();
-				$file    = $uploads['basedir'] . "/anspress-uploads/$img";
-
-				if ( file_exists( $file ) ) {
-					unlink( $file );
-				}
-			}
-		}
-
 		if ( 'question' === $post->post_type ) {
+
 			/**
 			 * Action triggered before deleting a question form database.
 			 *
@@ -246,6 +232,8 @@ class AP_Hooks {
 			 * @since unknown
 			 */
 			do_action( 'ap_before_delete_question', $post->ID, $post );
+
+			ap_delete_uploaded_images( $post->ID );
 
 			$answers = get_posts( [ 'post_parent' => $post->ID, 'post_type' => 'answer', 'post_status' => array( 'publish', 'trash' ), 'numberposts' => -1 ] ); // @codingStandardsIgnoreLine
 
@@ -272,6 +260,8 @@ class AP_Hooks {
 	 */
 	public static function delete_answer( $post_id, $post ) {
 		do_action( 'ap_before_delete_answer', $post->ID, $post );
+
+		ap_delete_uploaded_images( $post->ID );
 
 		if ( ap_is_selected( $post ) ) {
 			ap_unset_selected_answer( $post->post_parent );

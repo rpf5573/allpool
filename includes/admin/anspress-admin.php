@@ -90,7 +90,13 @@ class AP_Admin {
 
 		// expert category
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_question_by_expert_categories', -999, 2 );
-		anspress()->add_filter( 'admin_init', __CLASS__, 'prevent_access_answer_edit_page_by_expert_categories' );
+		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_answer_by_expert_categories', -998, 2 );
+		anspress()->add_filter( 'ap_trash_question', __CLASS__, 'prevent_trash_question_by_expert_categories', -999, 2 );
+		anspress()->add_filter( 'ap_trash_answer', __CLASS__, 'prevent_trash_answer_by_expert_categories', -999, 2 );
+		anspress()->add_filter( 'ap_untrash_question', __CLASS__, 'prevent_untrash_question_by_expert_categories', -999, 2 );
+		anspress()->add_filter( 'ap_untrash_answer', __CLASS__, 'prevent_untrash_answer_by_expert_categories', -999, 2 );
+		anspress()->add_filter( 'ap_before_delete_question', __CLASS__, 'prevent_delete_question_by_expert_categories', -999, 2 );
+		anspress()->add_filter( 'ap_before_delete_answer', __CLASS__, 'prevent_delete_answer_by_expert_categories', -999, 2 );
 
 		// statistic
 		anspress()->add_action( 'ap_admin_menu', 'AP_Statistic', 'add_statistic_submenu' );
@@ -781,23 +787,25 @@ class AP_Admin {
 	}
 
 	public static function prevent_edit_question_by_expert_categories( $post_id, $data ) {
-		if ( ap_is_admin_question_update() ) {
+		if ( ap_is_admin_update( 'question' ) ) {
 			if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
 			}
 		}
 	}
 
-	public static function prevent_access_answer_edit_page_by_expert_categories() {
-		if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'answer' && isset( $_GET['post_parent'] ) ) {
-			if ( ! ap_user_can_edit_other_category_qa( (int)$_GET['post_parent'] ) ) {
+	public static function prevent_edit_answer_by_expert_categories() {
+		\PC::debug( ['REQUEST' => $_REQUEST], __FUNCTION__ );
+		if ( ap_is_admin_update( 'answer' ) ) {
+			\PC::debug( 'called', __FUNCTION__ );
+			if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
-			}	
+			}
 		}
 	}
 
 	public static function save_best_answer_selection($qameta, $question, $updated) {
-		if ( ap_is_admin_question_update() ) {
+		if ( ap_is_admin_update( 'question' ) ) {
 			
 			// Unselect best answer if already selected.
 			if ( ap_have_answer_selected( $question->ID ) ) {
@@ -814,6 +822,42 @@ class AP_Admin {
 
 				ap_set_selected_answer( $answer->post_parent, $answer->ID );
 			}
+		}
+	}
+
+	public static function prevent_trash_question_by_expert_categories( $post_id, $post ) {
+		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+			wp_die( "해당 질문의 전문가만 삭제할 수 있습니다", "ERROR" );
+		}
+	}
+
+	public static function prevent_trash_answer_by_expert_categories( $post_id, $post ) {
+		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+			wp_die( "해당 답변의 전문가만 삭제할 수 있습니다", "ERROR" );
+		}
+	}
+
+	public static function prevent_untrash_question_by_expert_categories( $post_id, $post ) {
+		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+			wp_die( "해당 질문의 전문가만 복구할 수 있습니다", "ERROR" );
+		}
+	}
+
+	public static function prevent_untrash_answer_by_expert_categories( $post_id, $post ) {
+		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+			wp_die( "해당 답변의 전문가만 복구할 수 있습니다", "ERROR" );
+		}
+	}
+
+	public static function prevent_delete_question_by_expert_categories( $post_id, $post ) {
+		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+			wp_die( "해당 질문의 전문가만 삭제할 수 있습니다", "ERROR" );
+		}
+	}
+
+	public static function prevent_delete_answer_by_expert_categories( $post_id, $post ) {
+		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+			wp_die( "해당 답변의 전문가만 삭제할 수 있습니다", "ERROR" );
 		}
 	}
 

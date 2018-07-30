@@ -478,3 +478,20 @@ function ap_delete_images_not_in_content( $post_id ) {
 		}
 	}
 }
+
+function ap_delete_uploaded_images( $post_id ) {
+	// Get anspress uploads.
+	$images = get_post_meta( $post_id, 'anspress-image' );
+	if ( ! empty( $images ) ) {
+
+		// Delete all uploaded images.
+		foreach ( $images as $img ) {
+			$uploads = wp_upload_dir();
+			$file    = $uploads['basedir'] . "/anspress-uploads/$img";
+
+			if ( file_exists( $file ) ) {
+				unlink( $file );
+			}
+		}
+	}
+}

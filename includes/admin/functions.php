@@ -63,8 +63,8 @@ function ap_update_caps_for_role( $role_slug, $caps = array() ) {
 	return true;
 }
 
-function ap_is_admin_question_update() {
-	if ( is_admin() && isset( $_REQUEST['original_post_status'] ) && $_REQUEST['original_post_status'] == 'publish' ) { 
+function ap_is_admin_update( $post_type ) {
+	if ( is_admin() && isset( $_REQUEST['original_post_status'] ) && $_REQUEST['original_post_status'] == 'publish' && isset( $_REQUEST['post_type'] ) && $_REQUEST['post_type'] == $post_type ) {
 		return true;
 	}
 	return false;

@@ -60,11 +60,11 @@ class AP_Roles {
 	 * @since 2.0.1
 	 */
 	public function add_roles() {
-		add_role( 'ap_moderator', __( 'AnsPress Moderator', 'anspress-question-answer' ), array( 'read' => true ) );
+		add_role( 'ap_moderator', __( '중간관리자', 'anspress-question-answer' ), array( 'read' => true ) );
 
-		add_role( 'ap_expert', __( 'AnsPress Expert', 'anspress-question-answer' ), array( 'read' => true ) );
+		add_role( 'ap_expert', __( '전문가', 'anspress-question-answer' ), array( 'read' => true ) );
 
-		add_role( 'ap_participant', __( 'AnsPress Participants', 'anspress-question-answer' ), array( 'read' => true ) );
+		add_role( 'ap_participant', __( '참여자', 'anspress-question-answer' ), array( 'read' => true ) );
 
 		// set ap_participant to default role after registration
 		update_option('default_role', 'ap_participant');
@@ -158,6 +158,12 @@ function ap_role_caps( $role ) {
 			'edit_published_posts'			=> true,
 			'publish_posts'							=> true,
 			'edit_others_posts'					=> true,
+			'delete_others_posts'				=> true,
+			'ap_edit_others_question'   => true,
+			'ap_edit_others_answer'     => true,
+			'ap_delete_others_question' => true,
+			'ap_delete_others_answer'   => true,
+			'ap_delete_post_permanent'  => true,
 		),
 		'moderator'   => array(
 			'ap_edit_others_question'   => true,
@@ -243,6 +249,9 @@ function ap_user_can_answer( $question_id, $user_id = false, $wp_error = false )
 
 	// Do not allow to answer if best answer is selected.
 	if ( ap_opt( 'close_selected' ) && ap_have_answer_selected( $question->ID ) ) {
+		if ( $wp_error ) {
+			return new WP_Error( 'you_cannot_answer_on_solved_question', "해결된 질문에는 더이상 답변을 달 수 없습니다" );
+		}
 		return false;
 	}
 
