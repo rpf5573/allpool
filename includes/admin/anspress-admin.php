@@ -795,9 +795,9 @@ class AP_Admin {
 	}
 
 	public static function prevent_edit_answer_by_expert_categories() {
-		\PC::debug( ['REQUEST' => $_REQUEST], __FUNCTION__ );
+		
 		if ( ap_is_admin_update( 'answer' ) ) {
-			\PC::debug( 'called', __FUNCTION__ );
+			
 			if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
 			}

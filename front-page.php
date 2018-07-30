@@ -8,7 +8,7 @@ get_header(); ?>
   }
 </style>
 
-<div class="content-area">
+<div class="content-area" style="display:none;">
   <main id="main" class="site-main" role="main">
     <div class="m-center-box"> <?php
       ap_template_part( 'front', 'message' );
@@ -18,11 +18,10 @@ get_header(); ?>
 </div> <!-- content-area -->
 
 
-<div style="display: none;"> 
+<div> 
 <button type="button" id="imp_card"> 신용카드 결제 </button>
 <button type="button" id="imp_phone"> 핸드폰 결제 </button>
 <button type="button" id="imp_vbank"> 가상계좌 </button>
-<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 
 <script>
   jQuery('#imp_card').on( 'click', function(){

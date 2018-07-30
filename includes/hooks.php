@@ -284,6 +284,7 @@ class AP_Hooks {
 	 * @since 4.1.6 Delete cache for `ap_is_answered`.
 	 */
 	public static function trash_post_action( $post_id ) {
+
 		$post = ap_get_post( $post_id );
 
 		if ( 'question' === $post->post_type ) {
@@ -302,8 +303,8 @@ class AP_Hooks {
 			//@codingStandardsIgnoreEnd
 
 			foreach ( (array) $ans as $p ) {
-				$selcted_answer = ap_selected_answer();
-				if ( $selcted_answer === $p->ID ) {
+				$selected_answer = ap_selected_answer();
+				if ( $selected_answer === $p->ID ) {
 					ap_unset_selected_answer( $p->post_parent );
 				}
 
@@ -320,6 +321,11 @@ class AP_Hooks {
 			 * @param object $post Post object.
 			 */
 			do_action( 'ap_trash_answer', $post->ID, $post );
+
+			// 지금 지우려는 답변이 채택된 답변이라면, question의 qameta 수정 + answer의 qameta수정
+			if ( $post->selected ) {
+				ap_unset_selected_answer( $post->post_parent );
+			}
 
 			// Save current post status so that it can be restored.
 			update_post_meta( $post->ID, '_ap_last_post_status', $post->post_status );
