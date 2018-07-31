@@ -23,8 +23,7 @@ class AP_Hooks {
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_page_banner' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_expert_categories' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_choices_answer' );
-		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_inspection_check' );
-		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_answer_inspection_check' );
+		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_inspection_check' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_price' );
 
     // Register pages

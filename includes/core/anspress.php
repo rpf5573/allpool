@@ -223,7 +223,6 @@ class AnsPress {
 		require_once ANSPRESS_DIR . 'includes/addons/views.php';
     require_once ANSPRESS_DIR . 'includes/addons/profile.php';
 		require_once ANSPRESS_DIR . 'includes/addons/wishlist.php';
-		require_once ANSPRESS_DIR . 'includes/addons/inspection-check.php';
 		require_once ANSPRESS_DIR . 'includes/addons/analysis-keyword.php';
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {

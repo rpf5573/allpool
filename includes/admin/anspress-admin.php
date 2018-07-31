@@ -88,6 +88,10 @@ class AP_Admin {
 		anspress()->add_filter( 'acf/update_value', 'AP_ACF', 'prevent_update_wp_postmeta', 10, 3 );
 		anspress()->add_filter( 'acf/load_value', 'AP_ACF', 'load_qameta', 10, 3 );
 
+		// filter
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_inspection_check', 10, 3 );
+		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Filters', 'save_inspection_check', 10, 3 );
+
 		// expert category
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_question_by_expert_categories', -999, 2 );
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_answer_by_expert_categories', -998, 2 );
@@ -103,10 +107,6 @@ class AP_Admin {
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_term_filter_result' );
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_yas_filter_result' );
 		anspress()->add_action( 'admin_notices', 'AP_Statistic', 'show_statistic_tag_filter_result' );
-
-		// Inspection Check hooks.
-		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
-		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Inspection_Check', 'save_inspection_check', 10, 3 );
 
 		// Question Filter
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_admin', 10, 3 );

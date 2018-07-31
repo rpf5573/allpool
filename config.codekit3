@@ -955,6 +955,16 @@
 		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.woff2",
 		"oF": 0
 		},
+	"\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/lib\/sumoselect\/jquery.sumoselect.js": {
 		"ft": 64,
 		"ma": 0,
@@ -2217,13 +2227,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/addons\/filters.php",
-		"oF": 0
-		},
-	"\/includes\/addons\/inspection-check.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/inspection-check.php",
 		"oF": 0
 		},
 	"\/includes\/addons\/point\/mycred-hooks.php": {
