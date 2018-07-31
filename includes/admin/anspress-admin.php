@@ -797,10 +797,8 @@ class AP_Admin {
 		}
 	}
 
-	public static function prevent_edit_answer_by_expert_categories() {
-		
+	public static function prevent_edit_answer_by_expert_categories( $post_id, $data ) {
 		if ( ap_is_admin_update( 'answer' ) ) {
-			
 			if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 				wp_die( __( 'You can not edit this post, because you are not expert in this category. Plese contact super administrator', 'anspress-question-answer' ), 'STOP !' );
 			}
@@ -860,6 +858,7 @@ class AP_Admin {
 	}
 
 	public static function prevent_delete_answer_by_expert_categories( $post_id, $post ) {
+		\PC::debug( ['request' => $_REQUEST], __FUNCTION__ );
 		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 			wp_die( "해당 답변의 전문가만 삭제할 수 있습니다", "ERROR" );
 		}

@@ -1,7 +1,7 @@
 <?php
 class AP_ACF {
 
-  public static $fields = array( 'year', 'session', 'inspection_check', 'question_price' );
+  public static $fields = array( 'year', 'session', 'inspection_check', 'price' );
 
   public static function add_question_filter() {
     $year_filter_range = ap_opt('year_filter_range');
@@ -333,7 +333,7 @@ class AP_ACF {
           array(
             'param' => 'post_type',
             'operator' => '==',
-            'value' => 'question',
+            'value' => 'answer',
           )
         ),
       ),
@@ -348,15 +348,15 @@ class AP_ACF {
     ));
   }
 
-  public static function add_question_price() {
+  public static function add_price() {
     acf_add_local_field_group(array(
-      'key' => 'group_question_price',
+      'key' => 'group_price',
       'title' => '가격',
       'fields' => array(
         array(
-          'key' => 'question_price',
+          'key' => 'price',
           'label' => 'price',
-          'name' => 'question_price',
+          'name' => 'price',
           'type' => 'number',
           'instructions' => '이 질문의 답변을 열람하는데 필요한 포인트입니다(= 질문의 가격)',
           'required' => 0,
@@ -421,8 +421,6 @@ class AP_ACF {
         $value = ap_get_post_field( $field['name'], $post_id );
       }
     }
-
-    \PC::debug( ['value' => $value], __FUNCTION__ );
 
     return $value;
   }

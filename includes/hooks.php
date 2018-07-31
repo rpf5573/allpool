@@ -24,7 +24,7 @@ class AP_Hooks {
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_expert_categories' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_choices_answer' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_inspection_check' );
-		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_price' );
+		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_price' );
 
     // Register pages
     anspress()->add_action( 'init', 'AP_Common_Pages', 'register_common_pages', 0 );
@@ -72,8 +72,8 @@ class AP_Hooks {
     anspress()->add_action( 'ap_qa_sql', 'AP_Filters', 'meta_filter', 12, 1 );
     anspress()->add_action( 'ap_processed_new_question', 'AP_Filters', 'save_category', 0, 2 );
     anspress()->add_action( 'ap_processed_update_question', 'AP_Filters', 'save_category', 0, 2 );
-		// anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_front', 10, 3 );
-		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_price', 10, 3 );
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_front', 10, 3 );
+		// anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_price', 10, 3 );
 	
 
     // Form hooks
@@ -138,21 +138,18 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
 
-    // Ajax hooks
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+    // Ajax hooks - ajax == is_admin
+		if ( wp_doing_ajax() ) {
 			AP_Ajax_Hooks::init();
+			AP_Admin_Ajax::init();
     }
     
     /*  Admin
     /* --------------------------------------------------- */
-    if ( is_admin() ) {
-      AP_Admin::init();
-      AP_Post_Table_Hooks::init();
-      // Ajax hooks
-      if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-        AP_Admin_Ajax::init();
-      }
-    }
+    if ( is_admin() && ! wp_doing_ajax() ) {
+			AP_Admin::init();
+			AP_Post_Table_Hooks::init();
+		}
   
   }
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-07-18 15:23+0900\n"
-"PO-Revision-Date: 2018-07-30 13:16+0900\n"
+"PO-Revision-Date: 2018-07-31 12:57+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -1447,7 +1447,7 @@ msgstr "Alpool Select Field"
 
 #: includes/core/form/fields/class-select.php:91
 msgid "Select an option"
-msgstr "옵션 채택"
+msgstr "옵션 선택"
 
 #: includes/core/form/fields/class-tags.php:43
 msgid "AnsPress Tags Field"

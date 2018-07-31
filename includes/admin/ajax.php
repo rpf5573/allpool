@@ -25,11 +25,17 @@ class AP_Admin_Ajax {
 	 * Initialize admin ajax
 	 */
 	public static function init() {
+		self::includes();
+		
 		anspress()->add_action( 'ap_ajax_ap_admin_vote', __CLASS__, 'ap_admin_vote' );
 		anspress()->add_action( 'ap_ajax_get_all_answers', __CLASS__, 'get_all_answers' );
 		anspress()->add_action( 'wp_ajax_ap_uninstall_data', __CLASS__, 'ap_uninstall_data' );
 		anspress()->add_action( 'wp_ajax_open_yas_table_modal', __CLASS__, 'open_yas_table_modal' );
-  }
+	}
+	
+	public static function includes() {
+		require_once 'functions.php';
+	}
   
 	/**
 	 * Handle ajax vote in wp-admin post edit screen.

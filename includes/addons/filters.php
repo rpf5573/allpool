@@ -205,22 +205,18 @@ class AP_Filters {
 		}
   }
 
-  public static function save_price( $qameta, $post, $updated ) {
-    $values = anspress()->get_form( 'question' )->get_values();
-    if ( isset( $values['price'] ) && $values['price'] ) {
-      $qameta['price'] = (int)($values['price']);
-    }
-    return $qameta;
-  }
-
   public static function save_meta_from_admin( $qameta, $post, $updated ) {
     $acf = ap_isset_post_value( 'acf', false );
+    \PC::debug( ['acf' => $acf], __FUNCTION__ );
     if ( $acf ) {
       if ( isset( $acf['year'] ) ) {
         $qameta['year'] = (int) $acf['year'];
       }
       if ( isset( $acf['session'] ) ) {
         $qameta['session'] = (int) $acf['session'];
+      }
+      if ( isset( $acf['price'] ) ) {
+        $qameta['price'] = (int) $acf['price'];
       }
     }
     return $qameta;
@@ -234,6 +230,9 @@ class AP_Filters {
     }
     if ( isset( $values[$name_list['session']] ) && $values[$name_list['session']]['value'] ) {
       $qameta['session'] = $values[$name_list['session']]['value'];
+    }
+    if ( isset( $values['price'] ) && $values['price']['value'] ) {
+      $qameta['price'] = (int) $values['price']['value'];
     }
 
     return $qameta;
