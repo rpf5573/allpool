@@ -25,9 +25,6 @@
 				border: 2px solid rgba(0, 0, 0, .1);
 				border-radius: 3px;
 			}
-			&.status-trash .ap-cell-inner {
-				border-color: #EF9A9A;
-			}
 		}
 	}
 	.question-choices {
@@ -38,7 +35,9 @@
 		font-size: 18px;
 	}
 	.ap-answers {
-
+		.status-trash .ap-cell-inner {
+			border-color: #EF9A9A;
+		}
 	}
 }
 

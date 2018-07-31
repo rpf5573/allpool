@@ -427,7 +427,7 @@ APjs.admin = function () {};
 })(jQuery);
 
 function select_answer(checkbox) {
-	var checkboxes = $('.answer-actions .select_answer_checkbox');
+	var checkboxes = jQuery('.answer-actions .select_answer_checkbox');
 	if ( checkbox.checked ) {
 		jQuery.each( checkboxes, function(key, el){
 			el.checked = false;

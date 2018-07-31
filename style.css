@@ -5417,6 +5417,8 @@ form[apform] {
     border-radius: 2px;
     margin-top: 15px; }
 
+/*  Answer list style
+/* --------------------------------------------------- */
 .login-trigger {
   display: flex;
   text-align: center; }
@@ -6242,8 +6244,6 @@ form[apform] {
     .single-question .ap-q .ap-content .ap-cell-inner {
       border: 2px solid rgba(0, 0, 0, 0.1);
       border-radius: 3px; }
-    .single-question .ap-q .ap-content .ap-cell.status-trash .ap-cell-inner {
-      border-color: #EF9A9A; }
 
 .single-question .ap-q .question-choices {
   margin-top: 20px; }
@@ -6251,6 +6251,9 @@ form[apform] {
 .single-question .ap-q .question-answer {
   text-align: right;
   font-size: 18px; }
+
+.single-question .ap-q .ap-answers .status-trash .ap-cell-inner {
+  border-color: #EF9A9A; }
 
 .ap-q-head {
   margin-bottom: 20px; }

@@ -24,7 +24,9 @@ class AP_Roles {
 	 *
 	 * @var array
 	 */
-	public $base_caps = array();
+	public $participant_caps = array();
+
+	public $expert_caps = array();
 
 	/**
 	 * Moderator level permissions.
@@ -42,7 +44,7 @@ class AP_Roles {
 		 *
 		 * @var array
 		 */
-		$this->base_caps = ap_role_caps( 'participant' );
+		$this->participant_caps = ap_role_caps( 'participant' );
 
 		$this->expert_caps = ap_role_caps( 'expert' );
 
@@ -90,7 +92,7 @@ class AP_Roles {
 
 			foreach ( $roles as $role_name ) {
 				// Add base cpas to all roles.
-				foreach ( $this->base_caps as $k => $grant ) {
+				foreach ( $this->participant_caps as $k => $grant ) {
 					$wp_roles->add_cap( $role_name, $k );
 				}
 
@@ -180,19 +182,15 @@ function ap_role_caps( $role ) {
 			'ap_delete_post_permanent'  => true,
 		),
 		'moderator'   => array(
-			'ap_edit_others_question'   => true,
-			'ap_edit_others_answer'     => true,
-			'ap_delete_others_question' => true,
-			'ap_delete_others_answer'   => true,
-			'ap_delete_post_permanent'  => true,
-			'ap_change_status_other'    => true,
 			'ap_restore_posts'          => true,
-			'ap_toggle_best_answer'     => true,
 			'ap_other_category_qa'			=> true,
 			'manage_categories'					=> true,
-			'delete_others_posts'				=> true,
 		),
 	);
+
+	// Cumulative
+	$roles['expert'] = array_merge( $roles['participant'], $roles['expert'] );
+	$roles['moderator']	= array_merge( $roles['expert'], $roles['moderator'] );
 
 	$roles = apply_filters( 'ap_role_caps', $roles );
 
@@ -310,6 +308,10 @@ function ap_user_can_select_answer( $_post = null, $user_id = false ) {
 
 	if ( false === $user_id ) {
 		$user_id = get_current_user_id();
+	}
+
+	if ( ap_is_admin( $user_id ) ) {
+		return false;
 	}
 
 	// admin can not select answer in front page
