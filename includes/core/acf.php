@@ -17,7 +17,7 @@ class AP_ACF {
 
     acf_add_local_field_group(array(
       'key' => 'question_filter_group',
-      'title' => '질문 필터',
+      'title' => '년도 & 회차',
       'fields' => array(
         array(
           'key' => 'year',
@@ -75,8 +75,8 @@ class AP_ACF {
           ),
         ),
       ),
-      'menu_order' => 0,
-      'position' => 'normal',
+      'menu_order' => 200,
+      'position' => 'side',
       'style' => 'default',
       'label_placement' => 'top',
       'instruction_placement' => 'label',
@@ -296,13 +296,13 @@ class AP_ACF {
 
   public static function add_question_inspection_check() {
     acf_add_local_field_group(array(
-      'key' => 'group_5b44282f17af5',
+      'key' => 'group_inspection_check',
       'title' => '검수 완료 확인',
       'fields' => array(
         array(
-          'key' => 'question_inspection_check',
+          'key' => 'inspection_check',
           'label' => '검수완료',
-          'name' => 'question_inspection_check',
+          'name' => 'inspection_check',
           'type' => 'true_false',
           'instructions' => '이 질문이 검수 완료되었다면, 체크해주세요. 이 질문에 달린 답변이 검수완료되지 않았다면, 이 질문도 검수되지 않은걸로 처리됩니다.',
           'required' => 0,
@@ -341,7 +341,7 @@ class AP_ACF {
 
   public static function add_answer_inspection_check() {
     acf_add_local_field_group(array(
-      'key' => 'group_5b4429d534789',
+      'key' => 'group_answer_inspection_check',
       'title' => '검수 완료 확인',
       'fields' => array(
         array(
@@ -384,6 +384,53 @@ class AP_ACF {
     ));
   }
 
+  public static function add_question_price() {
+    acf_add_local_field_group(array(
+      'key' => 'group_question_price',
+      'title' => '가격',
+      'fields' => array(
+        array(
+          'key' => 'question_price',
+          'label' => 'price',
+          'name' => 'question_price',
+          'type' => 'number',
+          'instructions' => '이 질문의 답변을 열람하는데 필요한 포인트입니다(= 질문의 가격)',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'default_value' => '',
+          'placeholder' => '',
+          'prepend' => '',
+          'append' => '',
+          'min' => 0,
+          'max' => 5000,
+          'step' => 100,
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'question',
+          ),
+        ),
+      ),
+      'menu_order' => 300,
+      'position' => 'side',
+      'style' => 'default',
+      'label_placement' => 'top',
+      'instruction_placement' => 'label',
+      'hide_on_screen' => '',
+      'active' => 1,
+      'description' => '',
+    ));
+  }
+
   /**
    * Prevent ACF updating value of fields to wp_postmeta in admin page.
    *
@@ -393,16 +440,13 @@ class AP_ACF {
    * @return void
    */
   public static function prevent_update_wp_postmeta( $value, $post_id, $field ) {
-    if ( isset( $field['name'] ) && $field['name'] == 'question_inspection_check' ) {
-      return;
-    }
 
-    if ( isset( $field['name'] ) && $field['name'] == 'answer_inspection_check' ) {
-      return;
-    }
+    $custom_acf_fields = array( 'year', 'session', 'question_inspection_check', 'answer_inspection_check', 'question_price' );
 
-    if ( isset( $field['parent'] ) && $field['parent'] == 'question_filter_group' ) {
-      return;
+    if ( isset( $field['name'] ) ) {
+      if ( in_array( $field['name'], $custom_acf_fields ) ) {
+        return;
+      }
     }
 
     return $value;
@@ -417,14 +461,20 @@ class AP_ACF {
       }
     }
 
-    if ( isset( $field['name'] ) && $field['name'] == 'question_inspection_check' ) {
-      $meta = ap_get_qameta( $post_id );
-      $value = $meta->inspection_check;
-    }
-
-    if ( isset( $field['name'] ) && $field['name'] == 'answer_inspection_check' ) {
-      $meta = ap_get_qameta( $post_id );
-      $value = $meta->inspection_check;
+    if ( isset( $field['name'] ) ) {
+      if ( $field['name'] == 'year' ) {
+        $meta = ap_get_qameta( $post_id );
+        $name = $field['name'];
+        $value = $meta->inspection_check;
+      }
+      if ( $field['name'] == 'question_inspection_check' ) {
+        $meta = ap_get_qameta( $post_id );
+        $value = $meta->inspection_check;
+      }
+      if ( $field['name'] == 'answer_inspection_check' ) {
+        $meta = ap_get_qameta( $post_id );
+        $value = $meta->inspection_check;
+      }
     }
 
     return $value;

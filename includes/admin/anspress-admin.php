@@ -826,6 +826,7 @@ class AP_Admin {
 				ap_set_selected_answer( $answer->post_parent, $answer->ID );
 			}
 		}
+		return $qameta;
 	}
 
 	public static function prevent_trash_question_by_expert_categories( $post_id, $post ) {

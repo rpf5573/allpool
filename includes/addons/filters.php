@@ -182,6 +182,10 @@ class AP_Filters {
       $metas['session'] = '<i class="fas fa-list-alt"></i><i>' . $post->session . '회차</i>';
     }
 
+    if ( ! is_null( $post->price ) && $post->price > 0 ) {
+      $metas['price'] = '<i class="fas fa-dollar-sign"></i><i>' . $post->price . '원</i>';
+    }
+
 		return $metas;
   }
 
