@@ -72,13 +72,16 @@ class AP_Hooks {
     anspress()->add_action( 'ap_qa_sql', 'AP_Filters', 'meta_filter', 12, 1 );
     anspress()->add_action( 'ap_processed_new_question', 'AP_Filters', 'save_category', 0, 2 );
     anspress()->add_action( 'ap_processed_update_question', 'AP_Filters', 'save_category', 0, 2 );
-    // anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_front', 10, 3 );
+		// anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_front', 10, 3 );
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_price', 10, 3 );
+	
 
     // Form hooks
     anspress()->add_action( 'ap_form_question', 'AP_Form_Hooks', 'question_form', 11 );
     anspress()->add_action( 'ap_form_answer', 'AP_Form_Hooks', 'answer_form', 11 );
     anspress()->add_action( 'ap_form_image_upload', 'AP_Form_Hooks', 'image_upload_form', 11 );
-    anspress()->add_action( 'ap_form_contents_filter', 'AP_Form_Hooks', 'sanitize_description' );
+		anspress()->add_action( 'ap_form_contents_filter', 'AP_Form_Hooks', 'sanitize_description' );
+		
 
 		// Theme	hooks.
 		anspress()->add_action( 'after_setup_theme', 'AP_Theme', 'add_theme_supports' );

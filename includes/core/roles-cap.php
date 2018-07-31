@@ -118,10 +118,24 @@ class AP_Roles {
 		if ( class_exists( 'WP_Roles' ) && ! isset( $wp_roles ) ) {
 			$wp_roles = new WP_Roles(); // override okay.
 		}
+		
+		$roles_to_remove = array('ap_participant', 'ap_expert', 'ap_moderator');
+		foreach( $roles_to_remove as $role ) {
+			$wp_roles->remove_role( $role );
+		}
+	}
 
-		$wp_roles->remove_role( 'ap_participant' );
-		$wp_roles->remove_role( 'ap_expert' );
-		$wp_roles->remove_role( 'ap_moderator' );
+	public function remove_default_roles() {
+		global $wp_roles;
+
+		if ( class_exists( 'WP_Roles' ) && ! isset( $wp_roles ) ) {
+			$wp_roles = new WP_Roles(); // override okay.
+		}
+		
+		$roles_to_remove = array('subscriber', 'contributor', 'author', 'editor');
+		foreach( $roles_to_remove as $role ) {
+			$wp_roles->remove_role( $role );
+		}
 	}
 }
 

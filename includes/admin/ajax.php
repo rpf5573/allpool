@@ -100,7 +100,7 @@ class AP_Admin_Ajax {
 		check_ajax_referer( 'ap_uninstall_data', '__nonce' );
 
 		$data_type  = ap_sanitize_unslash( 'data_type', 'r' );
-		$valid_data = [ 'qa', 'answers', 'options', 'userdata', 'terms', 'tables' ];
+		$valid_data = [ 'qa', 'answers', 'options', 'userdata', 'terms', 'tables', 'reactivate' ];
 
 		global $wpdb;
 
@@ -212,6 +212,14 @@ class AP_Admin_Ajax {
 					[
 						'done'  => 1,
 						'total' => 0,
+					]
+				);
+			} elseif ( 'reactivate' === $data_type ) {
+				update_option( 'alpool_activate', 'no', true );
+				wp_send_json(
+					[
+						'done'  => 1,
+						'total' => 1,
 					]
 				);
 			}

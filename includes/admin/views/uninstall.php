@@ -82,6 +82,15 @@ global $wpdb;
 					<p class="description"><?php esc_attr_e( 'Clicking this button will remove all AnsPress DB tables', 'anspress-question-answer' ); ?></p>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row" valign="top">
+					<label><?php esc_attr_e( 'Reactivate alpool theme?', 'anspress-question-answer' ); ?></label>
+				</th>
+				<td>
+					<a href="#" class="button ap-uninstall-btn" data-id="reactivate" data-total="1"><?php esc_attr_e( 'Yes', 'anspress-question-answer' ); ?></a>
+					<p class="description"><?php esc_attr_e( 'Clicking this button will reactivate alpool theme. Please refresh after this process.', 'anspress-question-answer' ); ?></p>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

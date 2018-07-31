@@ -76,19 +76,37 @@ class AP_Filters {
       'validate' => 'required,not_zero',
     );
 
+    // add point field
+    $form['fields']['price'] = array(
+      'attr'     => array(
+        'placeholder' => '포인트 입력'
+      ),
+      'label'    => '포인트',
+      'type'     => 'input',
+      'sanitize' => 'absint',
+      'validate' => 'required,not_zero',
+		);
+
     // set field orders
     $form['fields']['post_title']['order'] = 1;
     $form['fields']['category']['order'] = 2;
+    $form['fields']['price']['order'] = 3;
     $form['fields']['post_content']['order'] = 5;
 
     // set value
     $editing_id = ap_sanitize_unslash( 'id', 'r' );
     if ( ! empty( $editing_id ) ) {
+
       $categories = get_the_terms( $editing_id, 'question_category' );
-      
 			if ( $categories ) {
 				$form['fields']['category']['value'] = $categories[0]->term_id;
-			}
+      }
+
+      $price = (int)(ap_get_post_field( 'price', $editing_id ));
+      if ( $price > 0 ) {
+        $form['fields']['price']['value'] = $price;
+      }
+
     }
 
     // remove tag fields
@@ -181,6 +199,14 @@ class AP_Filters {
 		if ( isset( $values['category']['value'] ) ) {
 			wp_set_post_terms( $post_id, $values['category']['value'], 'question_category' );
 		}
+  }
+
+  public static function save_price( $qameta, $post, $updated ) {
+    $values = anspress()->get_form( 'question' )->get_values();
+    if ( isset( $values['price'] ) && $values['price'] ) {
+      $qameta['price'] = (int)($values['price']);
+    }
+    return $qameta;
   }
 
   public static function save_meta_from_admin( $qameta, $post, $updated ) {

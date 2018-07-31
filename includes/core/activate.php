@@ -88,6 +88,7 @@ class AP_Activate {
 			year smallint(20) DEFAULT 0,
 			session tinyint(1) DEFAULT 0,
 			inspection_check tinyint(1) DEFAULT 0,
+			price bigint(20) DEFAULT 0,
 			attach LONGTEXT DEFAULT NULL,
 			activities LONGTEXT DEFAULT NULL,
 			fields LONGTEXT DEFAULT NULL,
@@ -160,6 +161,7 @@ class AP_Activate {
 	public function activate() {
 		// add roles.
 		$ap_roles = new AP_Roles();
+		$ap_roles->remove_default_roles();
 		$ap_roles->add_roles();
 		$ap_roles->add_capabilities();
 

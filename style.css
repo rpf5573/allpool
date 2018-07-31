@@ -4928,7 +4928,7 @@ a.no-style {
 /* ------------------------------------------------------------------------- *
  *  AnsPress
 /* ------------------------------------------------------------------------- */
-.ap-field-type-select {
+.ap-field-type-select, .ap-field-form_question-price {
   display: inline-block;
   margin-right: 15px; }
 

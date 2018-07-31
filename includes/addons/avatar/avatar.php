@@ -72,8 +72,12 @@ class AP_Avatar extends \AnsPress\Singleton {
 
 		$args['default'] = ap_generate_avatar( $id_or_email );
 
+		$opts = ap_opt();
+		
+
 		// Set default avatar url.
 		if ( ap_opt( 'avatar_force' ) ) {
+			
 			$args['url'] = ap_generate_avatar( $id_or_email );
 		}
 

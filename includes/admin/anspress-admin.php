@@ -113,6 +113,9 @@ class AP_Admin {
 
 		// select answer
 		anspress()->add_action( 'ap_insert_question_qameta', __CLASS__, 'save_best_answer_selection', 10, 3 );
+
+		// back to question
+		// anspress()->add_action( 'admin_notices', __CLASS__, 'back_to_question' );
 		
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_questions_by_their_own_category' );
 		// anspress()->add_action( 'pre_get_posts', __CLASS__, 'filter_answers_by_parent_category' );
@@ -858,6 +861,16 @@ class AP_Admin {
 	public static function prevent_delete_answer_by_expert_categories( $post_id, $post ) {
 		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 			wp_die( "해당 답변의 전문가만 삭제할 수 있습니다", "ERROR" );
+		}
+	}
+
+	public static function back_to_question() {
+		global $pagenow;
+		$action = ap_isset_post_value( 'trashed' );
+		if ( $action && isset( $_REQUEST['ids'] ) ) {
+			$ids = preg_replace( '/[^0-9,]/', '', $_REQUEST['ids'] );
+			
+			echo '<div id="message" class="updated notice is-dismissible"><p>' . $message . '</p></div>';
 		}
 	}
 

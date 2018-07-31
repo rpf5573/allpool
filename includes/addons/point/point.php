@@ -120,6 +120,7 @@ class AP_Point extends \AnsPress\Singleton {
 		$user_id = get_queried_object_id();
 		ap_template_part( 'point', null, array( 'user_id' => $user_id ) );
 	}
+
 }
 
 // Initialize addon.

@@ -10,6 +10,10 @@ function ap_default_options() {
 	$cache = wp_cache_get( 'ap_default_options', 'ap' );
 
 	if ( false !== $cache ) {
+		$current_year = (int) date("Y");
+		if ( ! in_array( $current_year, $cache['year_filter_range'] ) ) {
+			$cache['year_filter_range'][] = $current_year;
+		}
 		return $cache;
 	}
 
@@ -54,7 +58,8 @@ function ap_default_options() {
     'year'				  =>	'ap_year',
     'session'			  =>	'ap_session',
     'did_select'		=>	'ap_did_select',
-    'has_answer'		=>	'ap_has_answer'
+		'has_answer'		=>	'ap_has_answer',
+		'price'					=>	'ap_price'
 	);
 	
 	$defaults['filter_name_list'] = $filter_name_list;

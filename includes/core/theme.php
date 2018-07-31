@@ -42,7 +42,7 @@ class AP_Theme {
 	}
 
 	public static function enqueue_scripts() {
-		wp_enqueue_script( 'import', 'https://cdn.iamport.kr/js/iamport.payment-1.1.5.js', array('jquery'), false, false );
+		// wp_enqueue_script( 'import', 'https://cdn.iamport.kr/js/iamport.payment-1.1.5.js', array('jquery'), false, false );
 
 		wp_enqueue_script( 'selectize', ANSPRESS_URL . 'assets/lib/selectize.min.js', array('jquery'), true );
 
