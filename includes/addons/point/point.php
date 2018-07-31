@@ -5,8 +5,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require_once 'mycred-hooks.php';
-
 /**
  * Reputation hooks.
  */
@@ -32,68 +30,29 @@ class AP_Point extends \AnsPress\Singleton {
 		);
 	}
 
-	public static function unset_useless_hooks( $installed ) {
-		$default_hooks = ['affiliate', 'comments', 'deleted_content', 'link_click', 'logging_in', 'publishing_content', 'registration', 'site_visit', 'video_view', 'view_contents'];
-		
-		foreach( $default_hooks as $hook ) {
-			if ( isset( $installed[$hook] ) ) {
-				unset( $installed[$hook] );
+	public static function unset_useless_hooks( $installed, $type ) {
+		if ( $type == 'mycred_point' ) {
+			$default_hooks = ['affiliate', 'comments', 'deleted_content', 'link_click', 'logging_in', 'publishing_content', 'registration', 'site_visit', 'video_view', 'view_contents'];
+			foreach( $default_hooks as $hook ) {
+				if ( isset( $installed[$hook] ) ) {
+					unset( $installed[$hook] );
+				}
 			}
 		}
 	}
 
-	public static function register_default_hooks( $installed ) {
-		$installed['register'] = array(
-			'title'       => __( 'Register', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user account is created', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Register' )
-		);
-		$installed['ask'] = array(
-			'title'       => __( 'Ask', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user asks or delete a question', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Ask' )
-		);
-		$installed['answer'] = array(
-			'title'       => __( 'Answer', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user asnwer to a question', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Answer' )
-		);
-		$installed['select_answer'] = array(
-			'title'       => __( 'Select answer', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user select or unselect best answer', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Select_Answer' )
-		);
-		$installed['best_answer'] = array(
-			'title'       => __( 'Best answer', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when answer is selected or cancelled as best', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Best_Answer' )
-		);
-		$installed['vote_up'] = array(
-			'title'       => __( 'Vote up', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when question or answer get vote up from other user', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Vote_Up' )
-		);
-		$installed['vote_down'] = array(
-			'title'       => __( 'Vote down', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when question or answer get vote down from other user', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Point\Vote_Down' )
-		);
-		
+	public static function register_hooks( $installed, $type ) {
+		if ( $type == 'mycred_point' ) {	
+		}
 		return $installed;
 	}
 
-	/**
-	 * Append user reputations in display name.
-	 *
-	 * @param string $name User display name.
-	 * @param array  $args Arguments.
-	 * @return string
-	 */
 	public static function display_name( $name, $args ) {
+		\PC::debug( ['args' => $args], __FUNCTION__ );
 		if ( $args['user_id'] > 0 ) {
 			if ( $args['html'] ) {
 				$point = mycred_get_users_balance( $args['user_id'] );
-				return $name . '<a href="' . ap_user_link( $args['user_id'] ) . 'point" class="ap-user-point" title="' . __( 'Point', 'anspress-question-answer' ) . '">' . $point . '</a>';
+				return $name . '<a href="' . ap_user_link( $args['user_id'] ) . 'point" class="ap-user-point" title="' . __( '포인트', 'anspress-question-answer' ) . '">' . $point . '</a>';
 			}
 		}
 
@@ -106,8 +65,8 @@ class AP_Point extends \AnsPress\Singleton {
 	public static function ap_user_pages() {
 		anspress()->user_pages[] = array(
 			'slug'  => 'point',
-			'label' => __( 'Point', 'anspress-question-answer' ),
-			'icon'  => 'apicon-point',
+			'label' => __( '포인트', 'anspress-question-answer' ),
+			'icon'  => 'fas fa-dollar-sign',
 			'cb'    => [ __CLASS__, 'point_page' ],
 			'order' => 6,
 		);
@@ -116,15 +75,16 @@ class AP_Point extends \AnsPress\Singleton {
 	/**
 	 * Display reputation tab content in AnsPress author page.
 	 */
-	public static function reputation_page() {
+	public static function point_page() {
 		$user_id = get_queried_object_id();
 		ap_template_part( 'point', null, array( 'user_id' => $user_id ) );
 	}
-
+	
 }
 
 // Initialize addon.
-AP_Point::init();
+AP_Reputation::init();
+
 
 function ap_get_point_icon_class( $log_entry ) {
 	
@@ -154,6 +114,8 @@ function ap_get_point_icon_class( $log_entry ) {
 		break;
 		case 'best_answer':
 			$icon_class .= 'check best_answer';
+		case 'manual':
+			$icon_class = 'manual';
 		break;
 	}
 	

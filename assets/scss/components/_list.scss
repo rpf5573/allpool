@@ -130,6 +130,9 @@
       [class^="apicon-"]::before, [class*=" apicon-"]::before{
         margin-right: 5px;
       }
+      &.price > i:before {
+        margin-right: 1px;
+      }
     }
   }
 }

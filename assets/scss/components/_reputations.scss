@@ -1,4 +1,4 @@
-.ap-reputation{
+.ap-reputation {
   &s{
     border: none;
     border-spacing: 0;
@@ -13,7 +13,6 @@
         color: #b5b5b5;
         i{
           font-size: 18px;
-          background: #9E9E9E;
           width: 35px;
           display: block;
           height: 35px;
@@ -23,44 +22,9 @@
           color: #fff;
           
           &.register{
-            background-color: red;
-            @include fa-icon;
-            @extend .fas;
             font-size: 22px;
-            &:before {
-              content: fa-content($fa-var-user);
-            }
-          }
-          &.answer{
-            background: $color1;
-          }
-          &.ask,
-          &.question{
-            background: #F44336;
-          }
-          &.comment{
-            background: #673AB7;
-          }
-          &.select_answer{
-            background: #00C853;
-          }
-          &.best_answer{
-            background: #00BCD4;
-          }
-          &.received_vote_up{
-            background: #AB47BC;
-          }
-          &.received_vote_down{
-            background: #FF9800;
-          }
-          &.given_vote_down{
-            background: #8D6E63;
-          }
-          &.given_vote_up{
-            background: #EC407A;
           }
           &.manual {
-            background-color: skyblue;
             @include fa-icon;
             @extend .fas;
             font-size: 22px;

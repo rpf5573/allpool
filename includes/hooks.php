@@ -120,10 +120,16 @@ class AP_Hooks {
 		anspress()->add_action( 'wp_ajax_ap_clear_avatar_cache', 'AP_Avatar', 'clear_avatar_cache' );
 
 		// Reputation hooks.
-		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'unset_useless_hooks' );
-		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'register_default_hooks', 999, 1 );
+		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'unset_useless_hooks', 10, 2 );
+		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'register_hooks', 999, 2 );
 		anspress()->add_filter( 'ap_user_display_name', 'AP_Reputation', 'display_name', 10, 2 );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Reputation', 'ap_user_pages' );
+
+		// Point hooks.
+		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Point', 'unset_useless_hooks', 10, 2 );
+		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Point', 'register_hooks', 999, 2 );
+		anspress()->add_filter( 'ap_user_display_name', 'AP_Point', 'display_name', 10, 2 );
+		anspress()->add_filter( 'ap_user_pages', 'AP_Point', 'ap_user_pages' );
 
 		// Wishlist hooks.
 		anspress()->add_action( 'ap_display_question_metas', 'AP_Wishlist', 'display_question_metas', 10, 2 );

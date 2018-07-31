@@ -1180,6 +1180,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/components\/_question-list-meta.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_question-list-meta.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/components\/_question-meta.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -2229,13 +2242,6 @@
 		"oAP": "\/includes\/addons\/filters.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/mycred-hooks.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/mycred-hooks.php",
-		"oF": 0
-		},
 	"\/includes\/addons\/point\/point.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2910,6 +2916,20 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/page-banner.php",
+		"oF": 0
+		},
+	"\/template-parts\/point-item.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/point-item.php",
+		"oF": 0
+		},
+	"\/template-parts\/point.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/point.php",
 		"oF": 0
 		},
 	"\/template-parts\/profile\/answer-item.php": {

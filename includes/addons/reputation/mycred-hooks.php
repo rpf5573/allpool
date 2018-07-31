@@ -262,8 +262,8 @@ class Answer extends \myCRED_Hook {
 class Select_Answer extends \myCRED_Hook {
   private $hook_id = 'select_answer';
   private $log = array(
-    'do'    => 'Selected an answer as best',
-    'undo'  => 'Unselected an answer as best',
+    'do'    => '답변 채택',
+    'undo'  => '답변 채택 취소',
   );
   
 	function __construct( $hook_prefs, $type ) {
@@ -356,8 +356,8 @@ class Select_Answer extends \myCRED_Hook {
 class Best_Answer extends \myCRED_Hook {
   private $hook_id = 'best_answer';
   private $log = array(
-    'do'    => 'Answer selected as best',
-    'undo'  => 'Answer unselected as best',
+    'do'    => '베스트 답변으로 채택됨',
+    'undo'  => '베스트 답변으로 채택되었던것이 취소됨',
   );
   
 	function __construct( $hook_prefs, $type ) {
@@ -387,7 +387,7 @@ class Best_Answer extends \myCRED_Hook {
 
   public function preferences() {
     $prefs = $this->prefs; ?>
-    <h3> <?php _e( 'Selected Best Answer', 'anspress-question-answer' ); ?> </h3>
+    <h3> <?php echo $this->log['do']; ?> </h3>
     <ol>
       <li>
         <label for="<?php echo $this->field_id( array('do', 'creds') )?>" class="subheader"><?php echo $this->core->plural(); ?></label>
@@ -409,7 +409,7 @@ class Best_Answer extends \myCRED_Hook {
       </li>
     </ol>
 
-    <h3> <?php _e( 'Cancelled Best Answer', 'anspress-question-answer' ); ?> </h3>
+    <h3> <?php echo $this->log['undo']; ?> </h3>
     <ol>
       <li>
         <label for="<?php echo $this->field_id( array('undo', 'creds') )?>" class="subheader"><?php echo $this->core->plural(); ?></label>

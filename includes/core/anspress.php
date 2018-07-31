@@ -216,6 +216,7 @@ class AnsPress {
     // Addons
     require_once ANSPRESS_DIR . 'includes/addons/avatar/avatar.php';
 		require_once ANSPRESS_DIR . 'includes/addons/reputation/reputation.php';
+		require_once ANSPRESS_DIR . 'includes/addons/point/point.php';
 		require_once ANSPRESS_DIR . 'includes/addons/category.php';
 		require_once ANSPRESS_DIR . 'includes/addons/tag.php';
 		require_once ANSPRESS_DIR . 'includes/addons/filters.php';
@@ -225,7 +226,7 @@ class AnsPress {
 		require_once ANSPRESS_DIR . 'includes/addons/wishlist.php';
 		require_once ANSPRESS_DIR . 'includes/addons/analysis-keyword.php';
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		if ( wp_doing_ajax() ) {
 			require_once ANSPRESS_DIR . 'includes/tools/ajax.php';
 			require_once ANSPRESS_DIR . 'includes/core/ajax-hooks.php';
 			require_once ANSPRESS_DIR . 'includes/core/toggle-best-answer.php';

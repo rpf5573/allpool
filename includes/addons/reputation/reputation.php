@@ -32,52 +32,55 @@ class AP_Reputation extends \AnsPress\Singleton {
 		);
 	}
 
-	public static function unset_useless_hooks( $installed ) {
-		$default_hooks = ['affiliate', 'comments', 'deleted_content', 'link_click', 'logging_in', 'publishing_content', 'registration', 'site_visit', 'video_view', 'view_contents'];
-		
-		foreach( $default_hooks as $hook ) {
-			if ( isset( $installed[$hook] ) ) {
-				unset( $installed[$hook] );
+	public static function unset_useless_hooks( $installed, $type ) {
+		if ( $type == 'mycred_default' ) {
+			$default_hooks = ['affiliate', 'comments', 'deleted_content', 'link_click', 'logging_in', 'publishing_content', 'registration', 'site_visit', 'video_view', 'view_contents'];
+			foreach( $default_hooks as $hook ) {
+				if ( isset( $installed[$hook] ) ) {
+					unset( $installed[$hook] );
+				}
 			}
 		}
 	}
 
-	public static function register_default_hooks( $installed ) {
-		$installed['register'] = array(
-			'title'       => __( 'Register', 'anspress-question-answer' ),
-			'description' => __( '회원가입 했을때 얻는 포인트 입니다', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Register' )
-		);
-		$installed['ask'] = array(
-			'title'       => __( 'Ask', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user asks or delete a question', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Ask' )
-		);
-		$installed['answer'] = array(
-			'title'       => __( 'Answer', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user asnwer to a question', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Answer' )
-		);
-		$installed['select_answer'] = array(
-			'title'       => __( 'Select answer', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when user select or unselect best answer', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Select_Answer' )
-		);
-		$installed['best_answer'] = array(
-			'title'       => __( 'Best answer', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when answer is selected or cancelled as best', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Best_Answer' )
-		);
-		$installed['vote_up'] = array(
-			'title'       => __( 'Vote up', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when question or answer get vote up from other user', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Vote_Up' )
-		);
-		$installed['vote_down'] = array(
-			'title'       => __( 'Vote down', 'anspress-question-answer' ),
-			'description' => __( 'Points awarded when question or answer get vote down from other user', 'anspress-question-answer' ),
-			'callback'    => array( 'Anspress\Reputation\Vote_Down' )
-		);
+	public static function register_hooks( $installed, $type ) {
+		if ( $type == 'mycred_default' ) {
+			$installed['register'] = array(
+				'title'       => __( 'Register', 'anspress-question-answer' ),
+				'description' => __( '회원가입 했을때 얻는 포인트 입니다', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Register' )
+			);
+			$installed['ask'] = array(
+				'title'       => __( 'Ask', 'anspress-question-answer' ),
+				'description' => __( 'Points awarded when user asks or delete a question', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Ask' )
+			);
+			$installed['answer'] = array(
+				'title'       => __( 'Answer', 'anspress-question-answer' ),
+				'description' => __( 'Points awarded when user asnwer to a question', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Answer' )
+			);
+			$installed['select_answer'] = array(
+				'title'       => __( 'Select answer', 'anspress-question-answer' ),
+				'description' => __( 'Points awarded when user select or unselect best answer', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Select_Answer' )
+			);
+			$installed['best_answer'] = array(
+				'title'       => __( 'Best answer', 'anspress-question-answer' ),
+				'description' => __( 'Points awarded when answer is selected or cancelled as best', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Best_Answer' )
+			);
+			$installed['vote_up'] = array(
+				'title'       => __( 'Vote up', 'anspress-question-answer' ),
+				'description' => __( 'Points awarded when question or answer get vote up from other user', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Vote_Up' )
+			);
+			$installed['vote_down'] = array(
+				'title'       => __( 'Vote down', 'anspress-question-answer' ),
+				'description' => __( 'Points awarded when question or answer get vote down from other user', 'anspress-question-answer' ),
+				'callback'    => array( 'Anspress\Reputation\Vote_Down' )
+			);
+		}
 		
 		return $installed;
 	}
@@ -128,36 +131,48 @@ AP_Reputation::init();
 
 
 function ap_get_reputation_icon_class( $log_entry ) {
+
+	\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
+	// \PC::debug( ['log_entry->ref' => $log_entry->ref], __FUNCTION__ );
 	
-	$icon_class = 'apicon-';
+	// use apicon and fontawesome both
+	$icon_class = '';
 	switch( $log_entry->ref ) {
 		case 'register':
 			// $icon_class .= 'question';
-			$icon_class = 'register';
+			$icon_class = 'fas fa-user-alt register';
 		break;
 		case 'ask':
-			$icon_class .= 'question ask';
+			$icon_class = 'apicon-question ask';
 		break;
 		case 'answer':
-			$icon_class .= 'answer answer';
+			$icon_class = 'apicon-answer answer';
 		break;
 		case 'vote_up':
-			$icon_class .= 'thumb-up';
+			$icon_class = 'apicon-thumb-up thumb-up';
 			if ( isset( $log_entry->data['parent'] ) ) {
 				$icon_class .= (' ' . $log_entry->data['parent']);
 			}
 		break;
 		case 'vote_down':
-			$icon_class .= 'thumb-down';
+			$icon_class = 'apicon-thumb-down thumb-down';
 			if ( isset( $log_entry->data['parent'] ) ) {
 				$icon_class .= (' ' . $log_entry->data['parent']);
 			}
 		break;
 		case 'best_answer':
-			$icon_class .= 'check best_answer';
+			$icon_class = 'fas fa-medal best_answer';
+			break;
 		case 'manual':
-			$icon_class = 'manual';
-		break;
+			$icon_class = 'fas fa-balance-scale manual';
+			break;
+		case 'select_answer':
+			$icon_class = 'apicon-check select_answer';
+			break;
+	}
+
+	if ( $log_entry->data && isset( $log_entry->data['type'] ) && $log_entry->data['type'] == 'undo' ) {
+		$icon_class .= ' undo';
 	}
 	
 	return $icon_class;

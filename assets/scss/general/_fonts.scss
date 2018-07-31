@@ -490,3 +490,46 @@ $apicon-bell: "\e94c";
     content: $apicon-board;
   }
 }
+
+
+i {
+
+  &.register,
+  &.best_answer,
+  &.manual {
+    &:before {
+      vertical-align: middle;
+    }
+  }
+
+  &.register {
+    background-color: #f03e3e;
+  }
+  &.answer {
+    background-color: #a9e34b;
+  }
+  &.ask {
+    background-color: #f03e3e;
+  }
+  &.comment{
+    background: #673AB7;
+  }
+  &.select_answer{
+    background: #0ca678;
+  }
+  &.best_answer{
+    background: #7048e8;
+  }
+  &.thumb-up{
+    background: #4263eb;
+  }
+  &.thumb-down{
+    background: gray;
+  }
+  &.manual {
+    background-color: skyblue;
+  }
+  &.undo {
+    background-color: gray !important;
+  }
+}
