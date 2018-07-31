@@ -39,6 +39,8 @@ function ap_default_options() {
 		'allow_upload'                  => true,
 		'avatar_size_qquestion'         => 50,
 		'author_credits'								=> false,
+		'question_price_min'						=> 0,
+		'question_price_max'						=> 5000,
 	);
 
 	// Set custom options. Because I can't insert by using filter

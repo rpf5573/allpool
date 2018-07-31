@@ -858,7 +858,7 @@ class AP_Admin {
 	}
 
 	public static function prevent_delete_answer_by_expert_categories( $post_id, $post ) {
-		\PC::debug( ['request' => $_REQUEST], __FUNCTION__ );
+		
 		if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
 			wp_die( "해당 답변의 전문가만 삭제할 수 있습니다", "ERROR" );
 		}

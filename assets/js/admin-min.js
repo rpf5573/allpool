@@ -1,4 +1,4 @@
-window.redirect_wait_time = 100;
+window.redirect_wait_time = 10;
 
 /**
  * Common AnsPress functions and constructor.
@@ -931,11 +931,10 @@ window.AnsPress.Helper = {
 					this.$el.find('.answer-actions > .untrash').remove();
 				}
 
-				if ( this.model.attributes.selected ) {
+				if ( this.model.attributes.selected !== "0" ) {
 					this.$el.addClass('selected');
 					// var checkbox = this.$el.find('.answer-actions .select_answer_checkbox')
 					this.$el.find('.answer-actions .select_answer_checkbox').prop('checked', true);
-
 				}
       }
       return this;

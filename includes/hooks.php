@@ -322,6 +322,8 @@ class AP_Hooks {
 			 */
 			do_action( 'ap_trash_answer', $post->ID, $post );
 
+			
+
 			// 지금 지우려는 답변이 채택된 답변이라면, question의 qameta 수정 + answer의 qameta수정
 			if ( $post->selected ) {
 				ap_unset_selected_answer( $post->post_parent );

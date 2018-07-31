@@ -732,5 +732,22 @@ class Validate {
 			}
 		} // End if().
 	}
+
+	public static function validate_price( $field ) {
+		$min = (int)ap_opt( 'question_price_min' );
+		$max = (int)ap_opt( 'question_price_max' );
+		$value = $field->sanitized_value;
+		if ( ! ( $value >= $min && $value <= $max ) ) {
+			$field->add_error(
+				'price', sprintf(
+					// Translators: placeholder contain field label.
+					__( '%s필드에는 %d 에서 %d 사이의 값이 들어가야 합니다', 'anspress-question-answer' ),
+					$field->get( 'label' ),
+					$min,
+					$max
+				)
+			);
+		}
+	}
 	
 }

@@ -41,7 +41,7 @@ class Answers_Query extends WP_Query {
 		$this->args['ap_order_by'] = sanitize_title( $this->args['ap_order_by'] );
 
 		// Show trash posts to super admin.
-		if ( is_super_admin() ) {
+		if ( ap_is_admin() ) {
 			$this->args['post_status'][] = 'trash';
 		}
 

@@ -83,8 +83,8 @@ class AP_Filters {
       ),
       'label'    => '포인트',
       'type'     => 'input',
-      'sanitize' => 'absint',
-      'validate' => 'required,not_zero',
+      'subtype'  => 'number',
+      'validate' => 'price'
 		);
 
     // set field orders
@@ -207,7 +207,7 @@ class AP_Filters {
 
   public static function save_meta_from_admin( $qameta, $post, $updated ) {
     $acf = ap_isset_post_value( 'acf', false );
-    \PC::debug( ['acf' => $acf], __FUNCTION__ );
+    
     if ( $acf ) {
       if ( isset( $acf['year'] ) ) {
         $qameta['year'] = (int) $acf['year'];

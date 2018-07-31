@@ -84,7 +84,7 @@ class AP_Ajax_Hooks {
 	 * Handle Ajax callback for permanent delete of post.
 	 */
 	public static function permanent_delete_post() {
-		\PC::debug( 'called', __FUNCTION__ );
+		
 		$post_id = (int) ap_sanitize_unslash( 'post_id', 'request' );
 
 		if ( ! ap_verify_nonce( 'delete_post_' . $post_id ) ) {

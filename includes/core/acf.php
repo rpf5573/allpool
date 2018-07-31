@@ -349,6 +349,8 @@ class AP_ACF {
   }
 
   public static function add_price() {
+    $min = (int)ap_opt( 'question_price_min' );
+    $max = (int)ap_opt( 'question_price_max' );
     acf_add_local_field_group(array(
       'key' => 'group_price',
       'title' => '가격',
@@ -370,8 +372,8 @@ class AP_ACF {
           'placeholder' => '',
           'prepend' => '',
           'append' => '',
-          'min' => 0,
-          'max' => 5000,
+          'min' => $min,
+          'max' => $max,
           'step' => 100,
         ),
       ),
