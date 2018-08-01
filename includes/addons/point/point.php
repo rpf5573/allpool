@@ -5,6 +5,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// require_once( 'import/importPaymentPlugin.php' );
+
 /**
  * Reputation hooks.
  */
@@ -28,6 +30,10 @@ class AP_Point extends \AnsPress\Singleton {
 				'user_page_slug_point'  => 'point',
 			]
 		);
+	}
+
+	public static function install_import() {
+		// IamportPaymentPlugin::import_activated();
 	}
 
 	public static function unset_useless_hooks( $installed, $type ) {
@@ -84,7 +90,7 @@ class AP_Point extends \AnsPress\Singleton {
 }
 
 // Initialize addon.
-AP_Reputation::init();
+AP_Point::init();
 
 
 function ap_get_point_icon_class( $log_entry ) {

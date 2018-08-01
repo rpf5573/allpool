@@ -63,6 +63,7 @@ class AP_Category {
   }
 
   public static function admin_category_menu() {
+    \PC::debug( 'the category menu', __FUNCTION__ );
     add_submenu_page( 'anspress', __( 'Questions Category', 'anspress-question-answer' ), __( 'Category', 'anspress-question-answer' ), 'manage_options', 'edit-tags.php?taxonomy=question_category' );
   }
   

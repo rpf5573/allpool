@@ -176,6 +176,9 @@ class AP_Admin {
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 */
 	public static function add_plugin_admin_menu() {
+
+		\PC::debug( 'add_plugin_admin_menu start', __FUNCTION__ );
+
 		if ( ! current_user_can( 'delete_pages' ) ) {
 			return;
 		}

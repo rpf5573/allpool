@@ -24,7 +24,7 @@ class AP_Admin_Custom_Settings {
     register_setting('general','giveup_copyright', 'esc_attr');
 	}
 	
-	public static function giveup_copyright_section() { // Section Callback
+  public static function giveup_copyright_section() { // Section Callback
     echo '<p>회원가입시에 보여집니다</p>';
   }
 
