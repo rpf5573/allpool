@@ -6108,7 +6108,8 @@ form[apform] {
   margin-bottom: 15px;
   border-top: solid 1px #ddd;
   padding: 20px 0;
-  min-height: 122px; }
+  min-height: 122px;
+  display: flex; }
 
 #anspress .ap-user-avatar {
   margin-right: 20px; }
@@ -6121,6 +6122,12 @@ form[apform] {
     padding: 3px 7px;
     margin-left: 10px;
     vertical-align: middle; }
+
+#anspress .ap-user .ap-point-charge {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start; }
 
 #anspress .ap-user .ap-tab-nav {
   list-style: none;

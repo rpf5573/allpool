@@ -528,130 +528,130 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/admin-min-min.js",
+		"oAP": "\/assets\/js\/admin-min-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/admin.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/admin-min.js",
+		"oAP": "\/assets\/js\/admin-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/ask.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/ask-min.js",
+		"oAP": "\/assets\/js\/ask-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/common.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/common-min.js",
+		"oAP": "\/assets\/js\/common-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/list.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/list-min.js",
+		"oAP": "\/assets\/js\/list-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/main-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-min-min.js",
+		"oAP": "\/assets\/js\/main-min-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/main.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-min.js",
+		"oAP": "\/assets\/js\/main-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/notifications.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/notifications-min.js",
+		"oAP": "\/assets\/js\/notifications-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/question.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/question-min.js",
+		"oAP": "\/assets\/js\/question-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/tags.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/tags-min.js",
+		"oAP": "\/assets\/js\/tags-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/js\/theme.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/theme-min.js",
+		"oAP": "\/assets\/js\/theme-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/jquery.floatThead.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/jquery.floatThead-min.js",
+		"oAP": "\/assets\/lib\/jquery.floatThead-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/loading-indicator\/.eslintrc.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-min.js",
+		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/loading-indicator\/.gitignore": {
 		"cB": 0,
@@ -675,10 +675,10 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js",
+		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/mmenu\/jquery.mmenu.all.css": {
 		"aP": 1,
@@ -695,20 +695,20 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min.js",
+		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/selectize.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/selectize.min-min.js",
+		"oAP": "\/assets\/lib\/selectize.min-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/semantic-ui\/semantic.min.css": {
 		"aP": 1,
@@ -725,10 +725,10 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min.js",
+		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.eot": {
 		"cB": 0,
@@ -960,20 +960,20 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-min.js",
+		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/sumoselect\/jquery.sumoselect.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js",
+		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-babel.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 0
+		"tS": 1
 		},
 	"\/assets\/lib\/sumoselect\/sumoselect-min.css": {
 		"aP": 1,
@@ -2242,6 +2242,239 @@
 		"oAP": "\/includes\/addons\/filters.php",
 		"oF": 0
 		},
+	"\/includes\/addons\/point\/import\/assets\/css\/iamport-payment-shortcode.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/assets\/css\/iamport-payment-shortcode-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/includes\/addons\/point\/import\/assets\/css\/iamport-payment.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/assets\/css\/iamport-payment-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/includes\/addons\/point\/import\/assets\/css\/iamport-shortcode-page.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/assets\/css\/iamport-shortcode-page-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/includes\/addons\/point\/import\/assets\/css\/order-list.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/assets\/css\/order-list-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/includes\/addons\/point\/import\/assets\/css\/order-view.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/assets\/css\/order-view-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/includes\/addons\/point\/import\/assets\/img\/close-button.png": {
+		"ft": 32768,
+		"iS": 256,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/assets\/img\/close-button.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/includes\/addons\/point\/import\/controller\/custom-fields.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/includes\/addons\/point\/import\/controller\/custom-fields-babel.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/includes\/addons\/point\/import\/dist\/main-babel.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/dist\/main-babel-babel.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/includes\/addons\/point\/import\/dist\/main.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/dist\/main-babel.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/includes\/addons\/point\/import\/importPaymentPlugin.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/importPaymentPlugin.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/model\/custom-fields\/button-fields.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/includes\/addons\/point\/import\/model\/custom-fields\/button-fields-babel.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/includes\/addons\/point\/import\/model\/custom-fields\/custom-types\/select-fields.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/includes\/addons\/point\/import\/model\/custom-fields\/custom-types\/select-fields-babel.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/includes\/addons\/point\/import\/model\/custom-fields\/custom-types\/text-fields.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/includes\/addons\/point\/import\/model\/custom-fields\/custom-types\/text-fields-babel.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/includes\/addons\/point\/import\/model\/iamport-order.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/model\/iamport-order.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/model\/iamport-payment-button.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/model\/iamport-payment-button.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/model\/iamport-payment-info.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/model\/iamport-payment-info.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/model\/iamport-payment-shortcode.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/model\/iamport-payment-shortcode.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/model\/iamport.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/model\/iamport.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/admin\/edit-order.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/admin\/edit-order.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/admin\/setting.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/admin\/setting.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/history\/order-list.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/history\/order-list.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/history\/order-view.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/history\/order-view.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/history\/thankyou-fail.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/history\/thankyou-fail.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/history\/thankyou-success.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/history\/thankyou-success.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/modal\/background.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/modal\/background.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/modal\/login.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/modal\/login.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/modal\/payment.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/modal\/payment.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/import\/view\/modal\/result.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/import\/view\/modal\/result.php",
+		"oF": 0
+		},
 	"\/includes\/addons\/point\/point.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2916,6 +3149,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/page-banner.php",
+		"oF": 0
+		},
+	"\/template-parts\/point-charge.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/point-charge.php",
 		"oF": 0
 		},
 	"\/template-parts\/point-item.php": {
@@ -4869,7 +5109,7 @@
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
-		"autoOutputPathFilenamePattern": "*-min.js",
+		"autoOutputPathFilenamePattern": "*-babel.js",
 		"autoOutputPathRelativePath": "\/min",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
@@ -4877,7 +5117,7 @@
 		"createSourceMap": 0,
 		"minifyOutput": 0,
 		"syntaxCheckerStyle": 0,
-		"transpilerStyle": 0
+		"transpilerStyle": 1
 		},
 	"languageDefaultsJSON": {
 		"autoOutputAction": 1,

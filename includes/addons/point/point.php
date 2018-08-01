@@ -77,6 +77,7 @@ class AP_Point extends \AnsPress\Singleton {
 	 */
 	public static function point_page() {
 		$user_id = get_queried_object_id();
+		ap_template_part( 'point', 'charge', array( 'user_id' => $user_id ) );
 		ap_template_part( 'point', null, array( 'user_id' => $user_id ) );
 	}
 	
