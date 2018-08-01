@@ -5,7 +5,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// require_once( 'import/importPaymentPlugin.php' );
+require_once( 'iamport/iamportPaymentPlugin.php' );
 
 /**
  * Reputation hooks.
@@ -32,8 +32,8 @@ class AP_Point extends \AnsPress\Singleton {
 		);
 	}
 
-	public static function install_import() {
-		// IamportPaymentPlugin::import_activated();
+	public static function install_iamport() {
+		IamportPaymentPlugin::iamport_activated();
 	}
 
 	public static function unset_useless_hooks( $installed, $type ) {
@@ -54,7 +54,7 @@ class AP_Point extends \AnsPress\Singleton {
 	}
 
 	public static function display_name( $name, $args ) {
-		\PC::debug( ['args' => $args], __FUNCTION__ );
+		
 		if ( $args['user_id'] > 0 ) {
 			if ( $args['html'] ) {
 				$point = mycred_get_users_balance( $args['user_id'] );
@@ -91,7 +91,6 @@ class AP_Point extends \AnsPress\Singleton {
 
 // Initialize addon.
 AP_Point::init();
-
 
 function ap_get_point_icon_class( $log_entry ) {
 	

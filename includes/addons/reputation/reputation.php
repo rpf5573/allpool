@@ -132,8 +132,8 @@ AP_Reputation::init();
 
 function ap_get_reputation_icon_class( $log_entry ) {
 
-	\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
-	// \PC::debug( ['log_entry->ref' => $log_entry->ref], __FUNCTION__ );
+	
+	// 
 	
 	// use apicon and fontawesome both
 	$icon_class = '';
