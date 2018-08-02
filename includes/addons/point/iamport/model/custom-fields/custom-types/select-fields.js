@@ -1,6 +1,6 @@
 // @codekit-prepend "../button-fields.js";
 
-export class SelectFields extends ButtonFields  {
+class SelectFields extends ButtonFields  {
 
 	renderHTML() {
 		let html = '<select data-imp-field="' + this.content + '" name="' + this.nameValue + '">';

@@ -1,4 +1,4 @@
-export class ButtonFields {	
+class ButtonFields {	
 	constructor(setting) {
 		this.required = this.isRequired(setting.required);
 		this.content = setting["content"];

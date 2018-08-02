@@ -13,10 +13,10 @@ class IamportPaymentButton {
     'phone' 	=> '휴대폰소액결제',
   );
   public $method_name_to_en = array(
-     '신용카드' 		=> 'card',
-     '실시간계좌이체' 	=> 'trans',
-     '가상계좌' 		=> 'vbank',
-     '휴대폰소액결제' 	=> 'phone',
+    '신용카드' 		=> 'card',
+    '실시간계좌이체' 	=> 'trans',
+    '가상계좌' 		=> 'vbank',
+    '휴대폰소액결제' 	=> 'phone',
   );
 
   private $uuidList = array(); // front 에서 필요한 것 같아 살려둠
@@ -45,10 +45,11 @@ class IamportPaymentButton {
   }
 
   public function enqueue_inline_script() {
-    wp_register_script('daum-postcode-for-https', 'https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js');
-    wp_enqueue_script('daum-postcode-for-https');
+    // wp_register_script('daum-postcode-for-https', 'https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js');
+    // wp_enqueue_script('daum-postcode-for-https');
 
-    wp_register_script('iamport-bundle-js', IamportPaymentPlugin::$URL . 'dist/main-babel.js', array(), '20180419');
+    wp_enqueue_script('iamport-bundle-js', IamportPaymentPlugin::$URL . 'dist/main-babel.js', array('jquery'), '20180419');
+
   }
 
   public function hook_payment_box($atts, $content = null) {
@@ -175,19 +176,15 @@ class IamportPaymentButton {
 
     /* ---------- CONTROLLER ---------- */
     $iamportButtonFields = array(
-      // 'buttonFields' 	=> $this->buttonFields,
       'uuidList'    => $this->uuidList,
       'userCode'		=> $this->user_code,
       'configuration'	=> $this->configuration,
       'isLoggedIn'	=> is_user_logged_in(),
       'adminUrl'		=> admin_url( 'admin-ajax.php' ),
-      // 'orderTitle'	=> $a["name"],
-      // 'payMethods'	=> $payMethods,
-      // 'amountArr'		=> $this->amountArrs,
       'device'		=> $device,
       'payMethodsToEn'=> $this->method_name_to_en,
-      // 'fieldLists'	=> $fieldLists
     );
+
     wp_localize_script('iamport-bundle-js', 'iamportButtonContext_'.$uuid, $this->buttonContext);
     wp_localize_script('iamport-bundle-js', 'iamportButtonFields', $iamportButtonFields); //숏코드 개수만큼 반복호출. 매번 overwrite
     wp_enqueue_script('iamport-bundle-js');

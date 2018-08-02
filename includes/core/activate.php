@@ -164,8 +164,7 @@ class AP_Activate {
 		$ap_roles->remove_default_roles();
 		$ap_roles->add_roles();
 		$ap_roles->add_capabilities();
-		AP_Point::install_iamport();
-
+		
 		$this->insert_tables();
 		update_option( 'anspress_db_version', AP_DB_VERSION );
 		update_option( 'anspress_opt', get_option( 'anspress_opt' ) + ap_default_options() );

@@ -241,7 +241,6 @@ jQuery(($) => {
 
 });
 
-
 /* ---------- payment 모달내부 결제금액 및 결제수단 돔 엘리먼트 그리기 ---------- */
 function renderPaymentHTML(iamportBox, buttonContext) {
 	jQuery(($) => {
@@ -324,7 +323,6 @@ function renderPaymentHTML(iamportBox, buttonContext) {
 	});
 }
 
-
 /* ---------- 결제하기 버튼 상태 정하기 ---------- */
 function setPaymentBtnBusy($button, busy) {
 	if ( busy ) {
@@ -333,7 +331,6 @@ function setPaymentBtnBusy($button, busy) {
 		$button.attr('data-progress', null).text('결제하기');
 	}
 }
-
 
 /* ---------- 모달의 위치 정하기 ---------- */
 function setIamportModalBox($, element, device) {
@@ -381,7 +378,6 @@ function setIamportModalBox($, element, device) {
 		$('body').addClass("modal-open");
 	}
 }
-
 
 /* ---------- 아임포트 일반결제 ---------- */
 function iamportAjaxCall($, iamportBox, fileFields, inputValues, buttonContext) {

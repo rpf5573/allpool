@@ -61,7 +61,7 @@ class IamportPaymentShortcode {
 
     wp_enqueue_style('iamport-payment-shortcode-css', IamportPaymentPlugin::$URL . 'assets/css/iamport-payment-shortcode.css', array(), "20180730");
     
-    wp_enqueue_script('iamport-bundle-js', IamportPaymentPlugin::$URL . 'dist/main-babel.js', array('jquery'), '20171228');
+    // wp_enqueue_script('iamport-bundle-js', IamportPaymentPlugin::$URL . 'dist/main-babel.js', array('jquery'), '20171228');
   }
 
   public function iamport_admin_menu() {
@@ -73,7 +73,7 @@ class IamportPaymentShortcode {
       'iamport-config', 
       array( $this, 'setting_page' )
     );
-    \PC::debug( 'called', __FUNCTION__ );
+    
   }
 
   public function add_query_vars($vars) {
@@ -85,7 +85,6 @@ class IamportPaymentShortcode {
   }
 
   public function setting_page() {
-    \PC::debug( 'called', __FUNCTION__ );
   }
 
   private function create_iamport_post_type() {
@@ -222,11 +221,12 @@ class IamportPaymentShortcode {
       case 'order_paid_amount' : {
         $amount = $iamport_order->get_paid_amount();
 
+        $paidAmount = '';
         if ( isset($amount) ) {
           $paidAmount = '<b>' . number_format($iamport_order->get_paid_amount()) . ' 원</b>';
         }
 
-        echo number_format($iamport_order->get_order_amount()) . ' 원<br>'. $paidAmount .$iamport_order->get_amount_label();
+        echo number_format($iamport_order->get_order_amount()) . ' 원<br>'. $paidAmount ;
         break;
       }
 

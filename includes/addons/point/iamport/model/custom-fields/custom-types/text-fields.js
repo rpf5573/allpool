@@ -1,6 +1,6 @@
 // @codekit-prepend "../button-fields.js";
 
-export class TextFields extends ButtonFields {
+class TextFields extends ButtonFields {
 
 	renderHTML() {
 		let inputField = '<input type="text" data-imp-field="' + this.content + '" data-for="' + this.dataFor + '"';
