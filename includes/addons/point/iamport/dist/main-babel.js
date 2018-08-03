@@ -645,7 +645,6 @@ function iamportAjaxCall($, iamportBox, fileFields, inputValues, buttonContext) 
 		};
 
 		var pgConfig = configuration['pg_for_payment'];
-		var danalConfig = configuration['etc'];
 		if (pgConfig[pay_method] && pgConfig[pay_method] !== 'default') {
 			param.pg = pgConfig[pay_method];
 		}

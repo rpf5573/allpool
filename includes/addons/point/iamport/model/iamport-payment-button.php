@@ -47,9 +47,7 @@ class IamportPaymentButton {
   public function enqueue_inline_script() {
     // wp_register_script('daum-postcode-for-https', 'https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js');
     // wp_enqueue_script('daum-postcode-for-https');
-
-    wp_enqueue_script('iamport-bundle-js', IamportPaymentPlugin::$URL . 'dist/main-babel.js', array('jquery'), '20180419');
-
+    wp_register_script('iamport-bundle-js', IamportPaymentPlugin::$URL . 'dist/main-babel.js', array('jquery'), '20180419');
   }
 
   public function hook_payment_box($atts, $content = null) {
@@ -202,7 +200,6 @@ class IamportPaymentButton {
     extract($iamportPaymentModal);
 
     require(dirname(__FILE__).'/../view/modal/payment.php');
-    require(dirname(__FILE__).'/../view/modal/survey.php');
     require(dirname(__FILE__).'/../view/modal/result.php');
     require(dirname(__FILE__).'/../view/modal/login.php');
     require(dirname(__FILE__).'/../view/modal/background.php');

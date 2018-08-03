@@ -36,7 +36,6 @@ class IamportPaymentShortcode {
       $iamportSetting['rest_secret'] = get_option('iamport_rest_secret');
       $iamportSetting['login_required'] = get_option('iamport_login_required');
       $iamportSetting['pg_for_payment'] = get_option('iamport_pg_for_payment');	
-      $iamportSetting['pg_etc'] = get_option('iamport_pg_etc');
 
       update_option('iamport_setting', $iamportSetting);
     }
@@ -47,12 +46,10 @@ class IamportPaymentShortcode {
     $this->api_secret 		= $iamportSetting['rest_secret'];
     $this->login_required 	= $iamportSetting['login_required'];
     $this->pg_for_payment 	= $iamportSetting['pg_for_payment'];
-    $this->etc 				= $iamportSetting['pg_etc'];
 
     $configuration 					        = new stdClass();
     $configuration->login_required 	= $this->login_required === 'Y';
     $configuration->pg_for_payment 	= $this->pgForPayment();
-    $configuration->etc 			      = $this->etc;
 
     $this->shortcode 	= new IamportPaymentButton($this->user_code, $this->api_key, $this->api_secret, $configuration);
     $this->payment_info = new IamportPaymentInfo($this->user_code, $this->api_key, $this->api_secret, $configuration);
@@ -85,6 +82,7 @@ class IamportPaymentShortcode {
   }
 
   public function setting_page() {
+    echo require_once(dirname(__FILE__).'/../view/admin/setting.php');
   }
 
   private function create_iamport_post_type() {
@@ -145,7 +143,7 @@ class IamportPaymentShortcode {
     $order_data = array(
       'post_status'		=> 'publish',
       'post_type'			=> 'iamport_payment',
-      'post_name'			=> $slug,
+      'post_name'			=> $order_title,
       'post_title'		=> $order_title,
       'post_parent'		=> 0,
       'comment_status'	=> 'closed'
@@ -164,7 +162,7 @@ class IamportPaymentShortcode {
     add_post_meta( $order_id, 'order_status', 'ready', true);
 
     $thankyou_url = '';
-    $thankyou_page = get_page_by_slug('iamport_thankyou');
+    $thankyou_page = IamportPaymentPlugin::get_page_by_slug('iamport_thankyou');
     if ( !empty($thankyou_page) ) {
       $thankyou_url = add_query_arg( array(
         'iamport-order-received' => $order_uid,
@@ -193,7 +191,7 @@ class IamportPaymentShortcode {
     $columns['order_status'] 		= '주문상태';
     $columns['order_paid_amount']	= '요청금액<br>결제금액';
     $columns['pay_method_date'] 	= '결제수단<br>결제시각';
-    $columns['buyer_info'] 			= '이름<br>이메일<br>전화번호<br>배송주소';
+    $columns['buyer_info'] 			= '이름<br>이메일<br>전화번호';
     
     unset($columns['title']);
     unset($columns['date']);

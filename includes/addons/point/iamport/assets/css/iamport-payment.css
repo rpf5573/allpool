@@ -1,0 +1,397 @@
+.modal-open {
+	/*overflow: hidden;*/
+}
+
+.iamport-modal-header .main-title {
+	font-size: 24px;
+	height: 30px;
+}
+
+.iamport-modal-header .sub-title {
+	font-weight: 400;
+	font-size: 14px;
+	height: 30px;
+}
+
+.dp-none {
+	display: none;
+}
+
+.w100 {
+	width: 100%;
+}
+
+.clear {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.iamport-modal p.custom-input {
+	position: relative;
+}
+
+.iamport-modal p.custom-input:after {
+	clear: both;
+	display: block;
+	content: '';
+}
+
+/* ----------------MODAL BOTTOM BUTTON---------------- */
+.iamport-modal .button-holder {
+	background: #fff;
+	padding: 1.5em;
+	margin: 0em;
+	border-top: 1px solid #ddd;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.iamport-modal .button-holder .iamport-modal-button {
+	color: #fff;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 3px;
+	background: #00d38a;
+	display: inline-block;
+	box-sizing: border-box!important;
+}
+
+.iamport-modal .button-holder .iamport-modal-button:hover {
+	color: #fff;
+}
+
+.iamport-modal .button-holder .iamport-modal-button.with-go-back {
+	width: calc(100% - 59px);
+}
+
+/* ----------------MODAL---------------- */
+.iamport-modal {
+	left: 50%;
+	/* z-index: 20;*/
+	background: #fff;
+	z-index: 99999;
+	width: 350px;
+	height: 540px;
+	border-radius: 3px;
+	position: absolute;
+	margin-left: -175px;
+}
+
+.iamport-modal.mobile {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	/*height: 100%;*/
+	height: 540px;
+	margin: 0;
+	padding: 0;
+}
+
+.iamport-modal.result {
+	height: 200px;
+}
+
+.dimmed-background {
+	top: 0;
+	left: 0;
+	z-index: 19;
+	width: 100%;
+	height: 100%;
+	opacity: 0.6;
+	background: #000;
+	position: fixed;
+}
+
+/* ----------------MODAL HEADER---------------- */
+.iamport-modal-header {
+	color: #fff;
+	padding: 10px;
+	padding-bottom: 16px;
+	text-align: center;
+	background: #6d45e2;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+/* ----------------MODAL CONTAINER ----------------*/ 
+.iamport-modal-container {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	max-height: 350px;
+	background: #fff;
+	position: relative;
+}
+
+/* ----------------MODAL CONTENT---------------- */ 
+.iamport-modal-content {
+	padding: 1.5em;
+	background: #fff;
+}
+
+/* MODAL X BUTTON */ 
+.iamport-modal-close:after {
+	clear: both;
+	content: '';
+	display: block;
+} 
+
+.iamport-modal-close img {
+	float: right;
+	cursor: pointer;
+}
+
+/* ----------------LABEL / INPUT / SELECT / CHECKBOX / RADIO---------------- */ 
+.iamport-modal label, .iamport-modal input, .iamport-modal select {
+	width: 100%;
+	display: block;
+	box-sizing: border-box!important;
+	-moz-box-sizing: border-box!important;
+	-webkit-box-sizing: border-box!important;
+	-webkit-appearance: none;
+}
+
+.iamport-modal select {
+	padding-left: 0.7em;
+	background-image: url("../img/select.svg")!important;
+	background-position: 96% 50%!important;
+	background-repeat: no-repeat!important;
+}
+
+.iamport-modal label {
+	font-weight: 600;
+}
+
+.iamport-modal input, .iamport-modal select {
+	color: #888;
+	height: 40px;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+}
+
+.iamport-modal input:focus {
+	color: #888;
+	border: 1px solid #00bfff;
+}
+
+.iamport-modal input::placeholder {
+	color: #888;
+}
+
+/* ----------------CHECKBOX---------------- */
+.iamport-input-checkbox, .iamport-input-radio {
+	outline: 0;
+	width: 100%;
+	position: relative;
+	font-style: normal;
+    display: inline-block;
+    vertical-align: baseline;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.iamport-input-checkbox input, .iamport-input-radio input {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 20;
+    cursor: pointer;
+    position: absolute;
+}
+
+.iamport-input-checkbox label, .iamport-input-radio label {
+	color: #888;
+	display: block;
+	padding-left: 30px;
+}
+
+.iamport-input-checkbox input:checked~label, .iamport-input-radio input:checked~label{
+	color: #00bfff;
+}
+
+.iamport-input-checkbox input:checked~label:after {
+	top: 3px;
+    left: 8px;
+    width: 8px;
+    height: 14px;
+    content: '';
+	color: #00bfff;
+	position: absolute;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	border: 1px solid #00bfff;
+	border-width: 0 3px 3px 0;
+}
+
+.iamport-input-checkbox input:checked~label:before, .iamport-input-radio input:checked~label:before {
+	border: 1px solid #00bfff;
+}
+
+.iamport-input-checkbox label:before {
+	border-radius: 3px;
+}
+
+.iamport-input-checkbox label:before, .iamport-input-radio label:before {
+	top: 0;
+	left: 0;
+	content: '';
+	width: 24px;
+	height: 24px;
+	display: block;
+	cursor: pointer;
+	background: #fff;
+	position: absolute;
+	border: 1px solid #ddd;
+}
+
+/* ----------------RADIO---------------- */
+.iamport-input-radio label:before {
+	border-radius: 12px;
+}
+
+.iamport-input-radio input:checked~label:after {
+	background: #00bfff;
+	color: #00bfff;
+	width: 12px;
+	height: 12px;
+	top: 6px;
+	left: 6px;
+	content: '';
+	position: absolute;
+	border-radius: 12px;
+}
+
+/* ----------------ADDRESS---------------- */ 
+.iamport-modal input.iamport-postcode-button, .iamport-modal .iamport-search-file {
+	color: #333;
+	width: 30%;
+	float: left;
+	margin-left: 2%;
+	padding-left: 0;
+	padding-right: 0;
+	font-weight: 400;
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #333;
+}
+
+.iamport-modal input.iamport-address-detail {
+	font-size: 14px;
+}
+
+.iamport-modal input.iamport-postcode, .iamport-modal input.iamport-address {
+	text-align: left;
+	padding: 0.7em;
+}
+
+.iamport-modal input.iamport-postcode:focus, .iamport-modal input.iamport-address:focus {
+	border: 1px solid #ddd;
+}
+
+.iamport-modal input.iamport-postcode {
+	width: 68%;
+	float: left;
+}
+
+.iamport-modal input.iamport-postcode, .iamport-modal input.iamport-postcode-button, .iamport-modal input.iamport-address {
+	font-weight: 400;
+	margin-bottom: 0.5em;
+}
+
+.iamport-modal input.iamport-postcode:focus, .iamport-modal input.iamport-postcode-button:focus, .iamport-modal input.iamport-address:focus,
+.iamport-modal input.iamport-postcode:hover, .iamport-modal input.iamport-postcode-button:hover, .iamport-modal input.iamport-address:hover {
+	background: white;
+	font-weight: 400;
+}
+
+/* ---------------FILE--------------- */
+.iamport-modal .iamport-file {
+	width: 68%;
+	float: left;
+	padding: 0.7em;
+	cursor: pointer;
+	font-size: 14px;
+	text-align: left!important;
+	-webkit-appearance: none;
+}
+
+.iamport-modal .iamport-file.filename {
+	left: 0;
+	opacity: 0;
+	padding: 0;
+	width: 100%;
+	position: absolute;
+}
+
+
+/* ----------------input alert---------------- */
+.required label span.iamport-checkbox-alert:after {
+	content: '•';
+	color: #f76565;
+	margin-left: 5px;
+	display: inline-block;
+}
+
+.iamport-checkbox-alert-message {
+	color: #f76565;
+	margin-left: 5px;
+}
+
+.iamport-input-alert {
+	bottom: 0;
+	z-index: 21;
+	height: 40px;
+	width: 130px;
+	right: -145px;
+	color: #f76565;
+	padding: 12px 0;
+	line-height: 16px;
+	text-align: center;
+	position: absolute;
+	background: #fffafa;
+	border-radius: 3px;
+	border: 1px solid #f76565;
+}
+
+.iamport-input-alert:before {
+	left: -6px;
+	content: '';
+	width: 10px;
+	height: 10px;
+	top: 13px;
+	position: absolute;
+	background: #fffafa;
+	border-top: 1px solid #f76565;
+	border-left: 1px solid #f76565;
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/* ----------------MODAL GO BACK BUTTON---------------- */ 
+.iamport-go-back {
+	width: 47px;
+	height: 47px;
+	float: left;
+	cursor: pointer;
+	padding-top: 7.5px;
+	margin-right: 10px;
+	padding-bottom: 7.5px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+}
+
+.iamport-payment-link, .iamport-button {
+	width: 80%; 	
+	color: #fff;
+	padding: 6px;
+	background: #24b294;  
+	display: inline-block;
+}

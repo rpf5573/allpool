@@ -17,9 +17,6 @@
 				'vbank' => $_POST['pg_for_vbank'],
 				'phone' => $_POST['pg_for_phone']
 			);
-			$iamportSetting['pg_etc'] = array(
-				'danal.biz_num' => $_POST['danal_biz_num']
-			);
 			$iamportSetting['vbank_day_limit'] = $_POST['vbank_day_limit'];
 
 			update_option('iamport_setting', $iamportSetting);
@@ -39,7 +36,6 @@
 		$iamportSetting['rest_secret'] = get_option('iamport_rest_secret');
 		$iamportSetting['login_required'] = get_option('iamport_login_required');
 		$iamportSetting['pg_for_payment'] = get_option('iamport_pg_for_payment');	
-		$iamportSetting['pg_etc'] = get_option('iamport_pg_etc');
 		$iamportSetting['vbank_day_limit'] = "none";
 
 		update_option('iamport_setting', $iamportSetting);

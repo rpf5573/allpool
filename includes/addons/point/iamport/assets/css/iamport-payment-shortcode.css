@@ -1,0 +1,76 @@
+
+.post-type-iamport_payment table {
+	border-collapse: collapse!important;
+}
+
+.post-type-iamport_payment .widefat td, .post-type-iamport_payment .widefat th, .post-type-iamport_payment .widefat tfoot td, .post-type-iamport_payment .widefat thead td {
+	text-align: center;
+	border: 1px solid #e1e1e1;
+}
+
+/* ---------- TABLE BODY ---------- */
+.post-type-iamport_payment .widefat td, .post-type-iamport_payment .widefat th.check-column {
+	background: white;
+}
+
+/* ---------- TABLE HEAD ---------- */
+.post-type-iamport_payment .widefat thead th, .post-type-iamport_payment .widefat thead td.check-column, .post-type-iamport_payment .widefat tfoot th, .post-type-iamport_payment .widefat tfoot td.check-column {
+	font-size: 12px;
+	color: #888!important;
+	background: #f5f5f5;
+}
+
+/* ---------- 체크박스 ---------- */
+.post-type-iamport_payment input[type=radio], .post-type-iamport_payment input[type=checkbox] {
+	margin: 0!important;
+	border-radius: 3px;
+}
+
+.post-type-iamport_payment input[type=checkbox]:checked:before {
+	color: #00bfff;
+}
+
+
+.post-type-iamport_payment th[id="order_status"], .post-type-iamport_payment th[id="attached_files"] {
+	width: 59px;
+}
+
+.post-type-iamport_payment th[id="order_paid_amount"], .post-type-iamport_payment th[id="pay_method_date"]  {
+	width: 100px;
+}
+
+/* ---------- 부가정보 ---------- */
+.post-type-iamport_payment td.extra_fields {
+	text-align: left;
+}
+
+/* ---------- 첨부파일 ---------- */
+.post-type-iamport_payment .file-info {
+	right: 0;
+	z-index: 1;
+	display: none;
+	position: absolute;
+	border-radius: 3px;
+	margin-right: 35px;
+    padding: 10px 15px;
+    background: #fff3d6;
+    border: 1px solid #f3dba0;
+}
+
+.post-type-iamport_payment .file-info p {
+	margin: 0!important;
+}
+
+@media screen and (max-width: 782px) {
+	.post-type-iamport_payment .widefat td, .post-type-iamport_payment .widefat th {
+		border: none;
+	}
+
+	.post-type-iamport_payment .widefat thead td, .post-type-iamport_payment .widefat tfoot td {
+		border-right: none;
+	}
+
+	.post-type-iamport_payment td.extra_fields {
+		text-align: center;
+	}
+}

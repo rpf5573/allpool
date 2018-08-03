@@ -12,13 +12,15 @@ class IamportPaymentPlugin {
   }
 
   public static function create_history_page() {
-    $slug = 'iamport_history';	
+    $slug = 'iamport_history';
     $history_page = self::get_page_by_slug($slug);
+    $user_id = get_current_user_id();
+    $user_id = $user_id ? $user_id : 1;
     if( empty($history_page) ) {
       $page_data = array(
         'post_status'		=> 'publish',
         'post_type'			=> 'page',
-        'post_author'		=> 1,
+        'post_author'		=> $user_id,
         'post_name'			=> $slug,
         'post_title'		=> '결제내역 - 아임포트',
         'post_content'		=> '[iamport_history_page]',
@@ -33,11 +35,13 @@ class IamportPaymentPlugin {
   public static function create_thankyou_page() {
     $slug = 'iamport_thankyou';	
     $thankyou_page = self::get_page_by_slug($slug);
+    $user_id = get_current_user_id();
+    $user_id = $user_id ? $user_id : 1;
     if( empty($thankyou_page) ) {
       $page_data = array(
         'post_status'		=> 'publish',
         'post_type'			=> 'page',
-        'post_author'		=> 1,
+        'post_author'		=> $user_id,
         'post_name'			=> $slug,
         'post_title'		=> '결제완료 - 아임포트',
         'post_content'		=> '[iamport_thankyou_page]',

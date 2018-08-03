@@ -100,8 +100,10 @@ class IamportPaymentInfo {
         ));
       }
 
-      $history_page = get_page_by_slug('iamport_history');
+      $history_page = IamportPaymentPlugin::get_page_by_slug('iamport_history');
       if ( !empty($history_page) )	$order_view_url = add_query_arg( 'iamport-order-view', $order_uid, get_page_link($history_page[0]->ID) );
+
+      do_action( 'after_iamport_payment', $iamport_result );
 
       return require_once(dirname(__FILE__).'/../view/history/thankyou-success.php');
     } else {

@@ -135,6 +135,7 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_user_mobile_buttons', 'AP_Point', 'point_charge_button', 10 );
 		anspress()->add_filter( 'ap_user_point_charge_button', 'AP_Point', 'point_charge_button' );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Point', 'ap_user_pages' );
+		anspress()->add_action( 'after_iamport_payment', 'AP_Point', 'after_charge_point' );
 
 		// Wishlist hooks.
 		anspress()->add_action( 'ap_display_question_metas', 'AP_Wishlist', 'display_question_metas', 10, 2 );

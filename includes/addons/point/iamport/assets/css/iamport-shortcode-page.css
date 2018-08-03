@@ -1,0 +1,58 @@
+.iamport-manual-page .shortcode-box {
+	color: #666;
+	padding: 30px;
+	line-height: 2;
+	font-size: 1.2em;
+	background: white;
+	margin-bottom: 2em;
+	border: 1px solid #cfcfcf;
+}
+
+
+.iamport-manual-page .attr-text {
+	float: left;
+	min-width: 65%;
+	margin-right:2em;
+}
+
+.iamport-manual-page .attr-title {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 600;
+	position: relative;
+}
+
+.iamport-manual-page .attr-explanation {
+	color: #888;
+	font-size: 14px;
+	margin-top: 0.3em;
+	margin-bottom: 2em;
+	line-height: 1.8em;
+}
+
+.iamport-manual-page .attr-detail {
+    color: #aaa;
+    display: block;
+    font-size: 13px;
+    padding-left: 10px;
+    border-left: 5px solid #eee;
+}
+
+
+.iamport-manual-page .attr-img {
+	float: left;
+	border:1px solid #eee;
+}
+
+.iamport-manual-page .attr-tag {
+	top: 5px;
+	margin-left: 10px;
+	position: absolute;
+}
+
+
+.iamport-manual-page .vir-div {
+	clear:both;
+	content:'';
+	display:block;
+}

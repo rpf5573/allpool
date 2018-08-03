@@ -5,7 +5,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// require_once( 'iamport/iamportPaymentPlugin.php' );
+require_once( 'iamport/iamportPaymentPlugin.php' );
 
 /**
  * Reputation hooks.
@@ -54,6 +54,12 @@ class AP_Point extends \AnsPress\Singleton {
 		if ( $type == 'mycred_point' ) {	
 		}
 		return $installed;
+	}
+
+	public static function install_iamport() {
+		if ( class_exists( 'IamportPaymentPlugin' ) ) {
+			IamportPaymentPlugin::iamport_activated();
+		}
 	}
 
 	public static function mycred_creds( $user_id ) {
@@ -183,6 +189,16 @@ class AP_Point extends \AnsPress\Singleton {
 		$user_id = get_queried_object_id();
 		ap_template_part( 'profile/point', 'log', array( 'user_id' => $user_id ) );
 	}
+
+	public static function after_charge_point( $iamport_result ) {
+		if ( $iamport_result->success ) {
+			$user_id = get_current_user_id();
+			if ( $iamport_result->data->status == 'paid' && $iamport_result->data->amount > 0 && $user_id ) {
+				$point = (int)($iamport_result->data->amount);
+				ap_update_user_point( 'point_charge', $user_id, $point );
+			}
+		}
+	}
 	
 }
 
@@ -190,11 +206,13 @@ class AP_Point extends \AnsPress\Singleton {
 AP_Point::init();
 
 function ap_get_point_icon_class( $log_entry ) {
-
 	$icon_class = 'apicon-';
 	switch( $log_entry->ref ) {
 		case 'purchase_answers':
 			$icon_class = 'fas fa-cart-plus purchase-answers';
+		break;
+		case 'point_charge':
+			$icon_class = 'fas fa-credit-card point-charge';
 		break;
 		case 'vote_up':
 			$icon_class .= 'thumb-up';
@@ -236,6 +254,7 @@ function ap_point_ref_content( $log_entry ) {
 function ap_get_user_point( $user_id ) {
 	return mycred_get_users_balance( $user_id, AP_Point::$mycred_type );
 }
+
 function ap_update_user_point( $ref, $user_id, $point, $question_id = null ) {
 	mycred_add( $ref, $user_id, $point, AP_Point::$mycred_entry[$ref], $question_id, null, AP_Point::$mycred_type );
 }

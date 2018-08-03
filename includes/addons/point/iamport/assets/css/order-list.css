@@ -1,0 +1,40 @@
+.iamport-order-list {
+	width: 100%; 
+	border: 1px solid #efefef; 
+	padding: 4px;
+}
+
+.iamport-order-list .mobile-content {
+	display: none;
+	font-size: 85%;
+}
+
+.iamport-order-list th, .iamport-order-list td {
+	padding: 4px;
+	border-bottom: 1px solid #efefef;
+}
+
+.iamport-order-list th {
+	font-weight: bold;
+}
+
+.iamport-order-list td a.view-order {
+	display: inline-block; 
+	background-color: #efefef; 
+	color: #333;
+	padding: 4px 8px;
+}
+
+@media screen and (max-width: 782px) {
+	.iamport-order-list th.column-primary~th {
+		display: none;
+	}
+	
+	.iamport-order-list td.column-primary~td {
+		display: none;
+	}
+	
+	.iamport-order-list .mobile-content {
+		display: inline;
+	}
+}
