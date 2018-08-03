@@ -1,0 +1,30 @@
+.mini-creds {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  &.ap-user-reputation-creds {
+    background-color: $reputation-color;
+  }
+  &.ap-user-point-creds {
+    background-color: $point-color;
+  }
+}
+
+// override semantic-ui color
+.ap-user-bio {
+  .ap-user-reputation-creds > .button,
+  .ap-user-point-creds > .button {
+    color: white;
+  }
+  .ap-user-reputation-creds > .button {
+    background-color: $reputation-color;
+  }
+  .ap-user-point-creds > .button {
+    background-color: $point-color;
+  }
+}

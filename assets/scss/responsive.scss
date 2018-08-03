@@ -177,6 +177,7 @@
     #wrs_modal_iframe_id #container {
       width: 100%;
     }
+
   }
   
   /*  Small
@@ -386,6 +387,16 @@
         display: block;
         float: none;
         margin: 7px 7px 7px auto;
+      }
+    }
+
+    .ap-user {
+      .ap-user-bio > .l-flex > .l-right {
+        display: none;
+      }
+      .ap-user-mobile-buttons {
+        display: flex;
+        
       }
     }
   }

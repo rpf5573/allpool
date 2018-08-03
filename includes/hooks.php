@@ -122,13 +122,18 @@ class AP_Hooks {
 		// Reputation hooks.
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'unset_useless_hooks', 10, 2 );
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'register_hooks', 999, 2 );
+		anspress()->add_filter( 'ap_user_mycred_creds', 'AP_Reputation', 'mycred_creds', 10 );
+		anspress()->add_filter( 'ap_user_mobile_buttons', 'AP_Reputation', 'mycred_creds', 10 );
 		anspress()->add_filter( 'ap_user_display_name', 'AP_Reputation', 'display_name', 10, 2 );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Reputation', 'ap_user_pages' );
 
 		// Point hooks.
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Point', 'unset_useless_hooks', 10, 2 );
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Point', 'register_hooks', 999, 2 );
-		anspress()->add_filter( 'ap_user_display_name', 'AP_Point', 'display_name', 10, 2 );
+		anspress()->add_filter( 'ap_user_mycred_creds', 'AP_Point', 'mycred_creds', 11 );
+		anspress()->add_filter( 'ap_user_mobile_buttons', 'AP_Point', 'mycred_creds', 10 );
+		anspress()->add_filter( 'ap_user_mobile_buttons', 'AP_Point', 'point_charge_button', 10 );
+		anspress()->add_filter( 'ap_user_point_charge_button', 'AP_Point', 'point_charge_button' );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Point', 'ap_user_pages' );
 
 		// Wishlist hooks.

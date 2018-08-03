@@ -4909,7 +4909,10 @@ a.no-style {
   margin-right: auto; }
 
 .ap-orange {
-  background-color: #F4AC20; }
+  background-color: #F4AC20 !important; }
+
+.ap-primary {
+  background-color: #2185d0 !important; }
 
 /* ------------------------------------------------------------------------- *
  *  Semantic-ui
@@ -5061,6 +5064,12 @@ a.no-style {
     left: -11px;
     position: absolute;
     top: 6px; }
+
+.iamport_btn {
+  display: inline-block;
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #2c3e50; }
 
 .ap-dropdown {
   position: relative;
@@ -6042,27 +6051,56 @@ form[apform] {
     border-radius: 3px;
     padding: 2px 10px; }
 
-#anspress .ap-user-bio {
+.ap-user-bio {
   margin-bottom: 15px;
   border-top: solid 1px #ddd;
   padding: 20px 0;
   min-height: 122px;
   display: flex; }
+  .ap-user-bio .ap-user-avatar {
+    margin-right: 20px; }
+  .ap-user-bio .l-flex {
+    flex: 1;
+    display: flex; }
+    .ap-user-bio .l-flex > .l-left {
+      flex: 1; }
+    .ap-user-bio .l-flex > .l-right {
+      display: flex;
+      align-items: flex-start; }
+      .ap-user-bio .l-flex > .l-right .point-charge {
+        margin-left: 10px; }
+  .ap-user-bio .ap-user-name {
+    font-size: 22px;
+    font-weight: 600; }
+    .ap-user-bio .ap-user-name .ap-user-reputation > .button {
+      margin-left: 10px;
+      color: white;
+      background-color: #F4AC20; }
+    .ap-user-bio .ap-user-name .ap-user-point {
+      margin-left: 10px;
+      color: white;
+      background-color: #F4AC20; }
 
-#anspress .ap-user-avatar {
-  margin-right: 20px; }
-
-#anspress .ap-user-name {
-  font-size: 22px;
-  font-weight: 600; }
-  #anspress .ap-user-name .ap-user-reputation > .button {
-    margin-left: 10px;
-    color: white;
-    background-color: #F4AC20; }
-  #anspress .ap-user-name .ap-user-point {
-    margin-left: 10px;
-    color: white;
-    background-color: #F4AC20; }
+.ap-user-mobile-buttons {
+  display: none;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .ap-user-mobile-buttons .ap-user-reputation-creds,
+  .ap-user-mobile-buttons .ap-user-point-creds {
+    flex-basis: 49%;
+    margin: 0; }
+    .ap-user-mobile-buttons .ap-user-reputation-creds .button,
+    .ap-user-mobile-buttons .ap-user-point-creds .button {
+      flex: 1; }
+  .ap-user-mobile-buttons .ap-user-reputation-creds > .button {
+    background-color: #F4AC20;
+    color: white; }
+  .ap-user-mobile-buttons .iamport_btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center; }
 
 #anspress .ap-user .ap-point-charge {
   flex: 1;
@@ -6147,12 +6185,21 @@ form[apform] {
   border-radius: 2px;
   padding-left: 4px;
   padding-right: 4px;
-  margin-left: 6px; }
+  margin-left: 4px;
+  margin-right: 4px; }
+  .mini-creds.ap-user-reputation-creds {
+    background-color: #F4AC20; }
+  .mini-creds.ap-user-point-creds {
+    background-color: #2185d0; }
 
-.ap-user-reputation-creds {
+.ap-user-bio .ap-user-reputation-creds > .button,
+.ap-user-bio .ap-user-point-creds > .button {
+  color: white; }
+
+.ap-user-bio .ap-user-reputation-creds > .button {
   background-color: #F4AC20; }
 
-.ap-user-point-creds {
+.ap-user-bio .ap-user-point-creds > .button {
   background-color: #2185d0; }
 
 /*  Layout
@@ -6798,4 +6845,8 @@ ul.ap-actions {
       #ap-responsive body #noti-dp .ap-droptogg {
         display: block;
         float: none;
-        margin: 7px 7px 7px auto; } }
+        margin: 7px 7px 7px auto; }
+    #ap-responsive .ap-user .ap-user-bio > .l-flex > .l-right {
+      display: none; }
+    #ap-responsive .ap-user .ap-user-mobile-buttons {
+      display: flex; } }

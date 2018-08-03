@@ -1138,19 +1138,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_mini-creds.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_mini-creds.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/assets\/scss\/components\/_mobile-menu-trigger.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1173,6 +1160,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_modal.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_mycred-creds.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_mycred-creds.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -1303,6 +1303,32 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_user-answers.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_user-bio.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_user-bio.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_user-mobile-buttons.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_user-mobile-buttons.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -3243,11 +3269,11 @@
 		"oAP": "\/template-parts\/profile\/index.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/point-charge.php": {
+	"\/template-parts\/profile\/point-charge-button.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/point-charge.php",
+		"oAP": "\/template-parts\/profile\/point-charge-button.php",
 		"oF": 0
 		},
 	"\/template-parts\/profile\/point-log-item.php": {

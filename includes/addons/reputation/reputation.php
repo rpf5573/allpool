@@ -85,21 +85,20 @@ class AP_Reputation extends \AnsPress\Singleton {
 		return $installed;
 	}
 
+	public static function mycred_creds( $user_id ) {
+		$reputation = mycred_get_users_balance( $user_id );
+		$href = ap_user_link( $user_id ) . 'reputations'; ?>
+		<div class="ui right labeled button ap-user-reputation-creds" tabindex="0">
+			<a class="ui mini button" href="<?=$href?>"> 전문가지수 </a>
+			<a class="ui basic left pointing label"><?=$reputation?></a>
+		</div> <?php
+	}	
+
 	public static function display_name( $name, $args ) {
-	
-		if ( $args['user_id'] > 0 ) {
+		$query_var = get_query_var( 'ap_page', false );
+		if ( $args['user_id'] > 0 && $query_var != 'user' ) {
 			$reputation = mycred_get_users_balance( $args['user_id'] );
-			if ( isset($args['is_profile']) && $args['is_profile'] && $args['html'] ) {
-				$href = ap_user_link( $args['user_id'] ) . 'reputations';
-				$name .= 
-				'<div class="ui right labeled button ap-user-reputation" tabindex="0">
-					<a class="ui button" href="' . $href . '"> 전문가지수 </a>
-					<a class="ui basic left pointing label"> ' . $reputation . ' </a>
-				</div>';
-			} else {
-				\PC::debug( 'called', __FUNCTION__ );
-				$name .= '<span class="ap-user-reputation-creds mini-creds">' . $reputation . '</span>';
-			}
+			$name .= '<span class="ap-user-reputation-creds mini-creds">' . $reputation . '</span>';
 		}
 		return $name;
 	}
