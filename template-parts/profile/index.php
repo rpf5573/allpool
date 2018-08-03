@@ -35,6 +35,7 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 						[
 							'user_id' => $user_id,
 							'html'    => true,
+							'is_profile' => true
 						]
 					); ?>
 				</div>

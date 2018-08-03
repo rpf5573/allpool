@@ -59,7 +59,7 @@ class Answers_Query extends WP_Query {
 
 		$args = apply_filters( 'ap_answer_query_args', $args );
 
-		\PC::debug( ['args' => $args], __FUNCTION__ );
+		
 
 		/**
 			* Initialize parent class

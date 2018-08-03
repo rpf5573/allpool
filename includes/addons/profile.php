@@ -196,7 +196,13 @@ class AP_Profile extends \AnsPress\Singleton {
 
 	public static function user_page_title() {
 		self::user_pages();
-		$title       = ap_user_display_name( ap_current_user_id() );
+		$arg = array(
+			'user_id'			=> ap_current_user_id(),
+			'is_profile'	=> true,
+			'html'				=> true,
+		);
+		
+		$title       = ap_user_display_name( $arg );
 		$current_tab = sanitize_title( get_query_var( 'user_page', ap_opt( 'user_page_slug_questions' ) ) );
 		$page        = ap_search_array( anspress()->user_pages, 'rewrite', $current_tab );
 

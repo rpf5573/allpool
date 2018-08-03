@@ -6130,19 +6130,6 @@ form[apform] {
       color: black; }
     .ap-user-mycred-log .ap-user-mycred-log-item .col-event__ref p {
       color: gray; }
-  .ap-user-mycred-log .ap-user-mycred-log-item .col-creds {
-    text-align: right; }
-    .ap-user-mycred-log .ap-user-mycred-log-item .col-creds span {
-      background: #F4AC20;
-      color: #fff;
-      display: block;
-      text-align: center;
-      border-radius: 2px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      padding-left: 6px;
-      padding-right: 6px;
-      margin-left: 10px; }
 
 .ap-user-mycred-log.ap-user-point-log .ap-user-point-log-item .col-creds > span {
   background-color: #2185d0; }
@@ -6152,6 +6139,21 @@ form[apform] {
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px; }
+
+.mini-creds {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 6px; }
+
+.ap-user-reputation-creds {
+  background-color: #F4AC20; }
+
+.ap-user-point-creds {
+  background-color: #2185d0; }
 
 /*  Layout
 /* --------------------------------------------------- */

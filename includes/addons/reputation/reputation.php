@@ -85,26 +85,22 @@ class AP_Reputation extends \AnsPress\Singleton {
 		return $installed;
 	}
 
-	/**
-	 * Append user reputations in display name.
-	 *
-	 * @param string $name User display name.
-	 * @param array  $args Arguments.
-	 * @return string
-	 */
 	public static function display_name( $name, $args ) {
+	
 		if ( $args['user_id'] > 0 ) {
-			if ( $args['html'] ) {
-				$reputation = mycred_get_users_balance( $args['user_id'] );
+			$reputation = mycred_get_users_balance( $args['user_id'] );
+			if ( isset($args['is_profile']) && $args['is_profile'] && $args['html'] ) {
 				$href = ap_user_link( $args['user_id'] ) . 'reputations';
 				$name .= 
 				'<div class="ui right labeled button ap-user-reputation" tabindex="0">
 					<a class="ui button" href="' . $href . '"> 전문가지수 </a>
 					<a class="ui basic left pointing label"> ' . $reputation . ' </a>
 				</div>';
+			} else {
+				\PC::debug( 'called', __FUNCTION__ );
+				$name .= '<span class="ap-user-reputation-creds mini-creds">' . $reputation . '</span>';
 			}
 		}
-
 		return $name;
 	}
 
@@ -126,7 +122,7 @@ class AP_Reputation extends \AnsPress\Singleton {
 	 */
 	public static function reputation_page() {
 		$user_id = get_queried_object_id();
-		ap_template_part( 'user', 'reputation-log', array( 'user_id' => $user_id ) );
+		ap_template_part( 'profile/reputation', 'log', array( 'user_id' => $user_id ) );
 	}
 	
 }

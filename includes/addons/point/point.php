@@ -57,19 +57,20 @@ class AP_Point extends \AnsPress\Singleton {
 	}
 
 	public static function display_name( $name, $args ) {
-		
+		// show point only in profile page
 		if ( $args['user_id'] > 0 ) {
-			if ( $args['html'] ) {
-				$point = ap_get_user_point( $args['user_id'] );
+			$point = ap_get_user_point( $args['user_id'] );
+			if ( isset($args['is_profile']) && $args['is_profile'] && $args['html'] ) {
 				$href = ap_user_link( $args['user_id'] ) . 'point';
 				$name .= 
 				'<div class="ui right labeled button ap-user-point" tabindex="0">
 					<a class="ui button primary" href="' . $href . '"> 포인트 </a>
 					<a class="ui basic left pointing label"> ' . $point . ' </a>
 				</div>';
+			} else {
+				$name .= '<span class="ap-user-point-creds mini-creds">' . $point . '</span>';
 			}
 		}
-
 		return $name;
 	}
 
@@ -119,7 +120,7 @@ class AP_Point extends \AnsPress\Singleton {
 
 	public static function ajax_purchase_answers() {
 		$post_id = (int) ap_sanitize_unslash( 'id', 'r' );
-		\PC::debug( ['request' => $_REQUEST], __FUNCTION__ );
+		
 
 		// 로그인 한 사람만 담을 수 있어
 		if ( ! is_user_logged_in() ) {
@@ -185,8 +186,8 @@ class AP_Point extends \AnsPress\Singleton {
 	 */
 	public static function point_page() {
 		$user_id = get_queried_object_id();
-		ap_template_part( 'point', 'charge', array( 'user_id' => $user_id ) );
-		ap_template_part( 'user', 'point-log', array( 'user_id' => $user_id ) );
+		ap_template_part( 'profile/point', 'charge', array( 'user_id' => $user_id ) );
+		ap_template_part( 'profile/point', 'log', array( 'user_id' => $user_id ) );
 	}
 	
 }
