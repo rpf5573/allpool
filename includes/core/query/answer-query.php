@@ -55,12 +55,16 @@ class Answers_Query extends WP_Query {
 			$this->args['post_parent'] = $question_id;
 			$this->args['post_type']   = 'answer';
 			$args                      = $this->args;
-
-			/**
-			 * Initialize parent class
-			 */
-			parent::__construct( $args );
 		}
+
+		$args = apply_filters( 'ap_answer_query_args', $args );
+
+		\PC::debug( ['args' => $args], __FUNCTION__ );
+
+		/**
+			* Initialize parent class
+		*/
+		parent::__construct( $args );
 	}
 
 	public function get_answers() {

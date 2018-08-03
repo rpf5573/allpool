@@ -43,7 +43,7 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 				</div>
 			</div>
 			<div class="ap-point-charge">
-				<?php echo do_shortcode( '[iamport_payment_button title="포인트 충전" description="아래 정보를 기입 후 결제진행해주세요." name="알풀 포인트 충전" amount="1000,3000,5000,10000" pay_method_list="card,trans,vbank,phone" field_list="name,email,phone"]결제하기[/iamport_payment_button]', true ); ?>
+				<?php // echo do_shortcode( '[iamport_payment_button title="포인트 충전" description="아래 정보를 기입 후 결제진행해주세요." name="알풀 포인트 충전" amount="1000,3000,5000,10000" pay_method_list="card,trans,vbank,phone" field_list="name,email,phone"]결제하기[/iamport_payment_button]', true ); ?>
 			</div>
 		</div>
 		<?php AP_Profile::user_menu(); ?>

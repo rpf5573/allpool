@@ -133,7 +133,6 @@ class AP_Hooks {
 
 		// Wishlist hooks.
 		anspress()->add_action( 'ap_display_question_metas', 'AP_Wishlist', 'display_question_metas', 10, 2 );
-		anspress()->add_action( 'ap_ajax_wish', 'AP_Wishlist', 'toggle_wishlist' );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Wishlist', 'ap_user_pages' );
 
 		// Profile hooks.
@@ -143,6 +142,10 @@ class AP_Hooks {
 		anspress()->add_action( 'the_post', 'AP_Profile', 'filter_page_title' );
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
+
+		// Point hooks
+		anspress()->add_action( 'ap_before_answers', 'AP_Point', 'purchase_answers_button_modal' );
+		anspress()->add_filter( 'ap_answer_query_args', 'AP_Point', 'answers_query_args' );
 
     // Ajax hooks - ajax == is_admin
 		if ( wp_doing_ajax() ) {

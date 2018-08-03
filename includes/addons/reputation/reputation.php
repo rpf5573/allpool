@@ -96,7 +96,12 @@ class AP_Reputation extends \AnsPress\Singleton {
 		if ( $args['user_id'] > 0 ) {
 			if ( $args['html'] ) {
 				$reputation = mycred_get_users_balance( $args['user_id'] );
-				return $name . '<a href="' . ap_user_link( $args['user_id'] ) . 'reputations" class="ap-user-reputation" title="' . __( 'Reputation', 'anspress-question-answer' ) . '">' . $reputation . '</a>';
+				$href = ap_user_link( $args['user_id'] ) . 'reputations';
+				$name .= 
+				'<div class="ui right labeled button ap-user-reputation" tabindex="0">
+					<a class="ui button" href="' . $href . '"> 전문가지수 </a>
+					<a class="ui basic left pointing label"> ' . $reputation . ' </a>
+				</div>';
 			}
 		}
 
@@ -121,7 +126,7 @@ class AP_Reputation extends \AnsPress\Singleton {
 	 */
 	public static function reputation_page() {
 		$user_id = get_queried_object_id();
-		ap_template_part( 'reputation', null, array( 'user_id' => $user_id ) );
+		ap_template_part( 'user', 'reputation-log', array( 'user_id' => $user_id ) );
 	}
 	
 }
@@ -182,7 +187,7 @@ function ap_reputation_ref_content( $log_entry ) {
 	if ( ! empty( $log_entry->ref_id ) ) {
 		$post = get_post( $log_entry->ref_id );
 		
-		echo '<a class="ap-reputation-ref" href="' . esc_url( ap_get_short_link( [ 'ap_p' => $log_entry->ref_id ] ) ) . '">';
+		echo '<a class="ap-user-reputation-log-ref ap-user-mycred-log-ref" href="' . esc_url( ap_get_short_link( [ 'ap_p' => $log_entry->ref_id ] ) ) . '">';
 		if ( ! empty( $post->post_title ) ) {
 			echo '<strong>' . esc_html( $post->post_title ) . '</strong>';
 		}

@@ -43,6 +43,8 @@ class AP_Ajax_Hooks {
     anspress()->add_action( 'ap_ajax_load_tinymce', __CLASS__, 'load_tinymce' );
     anspress()->add_action( 'ap_ajax_vote', 'AP_Vote', 'vote' );
 		anspress()->add_action( 'wp_ajax_ap_toggle_best_answer', 'AP_Toggle_Best_Answer', 'init' );
+		anspress()->add_action( 'ap_ajax_wish', 'AP_Wishlist', 'toggle_wishlist' );
+		anspress()->add_action( 'ap_ajax_purchase_answers', 'AP_Point', 'ajax_purchase_answers' );
 	}
 
 	public static function edit_post() {

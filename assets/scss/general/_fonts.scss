@@ -496,7 +496,8 @@ i {
 
   &.register,
   &.best_answer,
-  &.manual {
+  &.manual,
+  &.purchase-answers {
     &:before {
       vertical-align: middle;
     }
@@ -531,5 +532,8 @@ i {
   }
   &.undo {
     background-color: gray !important;
+  }
+  &.purchase-answers {
+    background-color: $purchase-answers-background-color;
   }
 }

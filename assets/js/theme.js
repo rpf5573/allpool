@@ -88,7 +88,7 @@ jQuery(document).ready(function () {
   }  })(jQuery);
   
   /* ------------------------------------------------------------------------- *
-    *  Questions page
+    *  Question list page
   /* ------------------------------------------------------------------------- */ (function($){
   
   /*  Search filter
@@ -153,11 +153,75 @@ jQuery(document).ready(function () {
   /* --------------------------------------------------- */
   })(jQuery);
 
-
   /* ------------------------------------------------------------------------- *
-   * Import - checkout process
-  /* ------------------------------------------------------------------------- */
-  
+    *  Single Question
+  /* ------------------------------------------------------------------------- */ (function($){
 
+    /*  wish list
+    /* --------------------------------------------------- */
+    // Add to wishlist button.
+    $('[apwish]').click(function(e){
+      e.preventDefault();
+      var self = $(this);
+      var query = JSON.parse(self.attr('apquery'));
+      if ( ! self.hasClass('show-loading') ) {
+        AnsPress.showLoading(self);
+        AnsPress.ajax({
+          data: query,
+          success: function(data){
+            console.dir( data );
+            if(data.label) self.text(data.label);
+            if (data.status == 'deleted') { 
+              self.removeClass('active') 
+            } else {
+              self.addClass('active');
+            }
+            AnsPress.hideLoading(self);
+          }
+        });
+      }
+    });
   
+    /*  buy answer
+    /* --------------------------------------------------- */
+    var purchase_answers = {
+      button : $('.buy-answers-button'),
+      modal : $('.buy-answers-modal'),
+      positive_btn : $('.buy-answers-modal .button.positive'),
+    }
+    if ( purchase_answers.button.length > 0 && purchase_answers.modal.length > 0 ) {
+      purchase_answers.button.on('click', function(){
+        purchase_answers.modal.modal({
+          closable : true,
+          onApprove : function(){
+            var self = purchase_answers.positive_btn;
+            var query = JSON.parse(self.attr('apquery'));
+            if ( ! self.hasClass('show-loading') ) {
+              AnsPress.showLoading(self);
+              AnsPress.ajax({
+                data: query,
+                success: function(data){
+                  console.dir( data );
+                  if(data.label) self.text(data.label);
+                  if (data.status == 'deleted') {
+                    self.removeClass('active')
+                  } else {
+                    self.addClass('active');
+                  }
+                  AnsPress.hideLoading(self);
+                  if(typeof data.redirect !== 'undefined'){
+                    setTimeout( function(){
+                      window.location = data.redirect;
+                    }, 600 );
+                  }
+                }
+              });
+            }
+            return false;
+          }
+        }).modal('show');;
+      });
+    }
+  })(jQuery);
+
 });

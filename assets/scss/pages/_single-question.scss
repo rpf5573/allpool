@@ -20,7 +20,7 @@
 		}
 		.ap-cell {
 			font-size: 14px;
-			margin-left: 70px;
+			margin-left: $cell-left-margin;
 			&-inner {
 				border: 2px solid rgba(0, 0, 0, .1);
 				border-radius: 3px;

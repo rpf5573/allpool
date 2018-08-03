@@ -1,0 +1,62 @@
+.ap-user-mycred-log {
+  table {
+    width: 100%;
+  }
+  .ap-user-mycred-log-item {
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    .col-icon {
+      flex-basis: 50px;
+      i{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        color: #fff;
+      }
+    }
+    .col-event {
+      flex-grow: 1;
+      flex-shrink: 0;
+      &__activity {
+        font-weight: 900;
+        padding-bottom: 10px;
+      }
+      &__ref {
+        strong {
+          color: black;
+        }
+        p {
+          color: gray;
+        }
+      }
+    }
+    .col-date {
+
+    }
+    .col-creds {
+      text-align: right;
+      // width: 55px;
+      span{
+        background: $color9;
+        color: #fff;
+        display: block;
+        text-align: center;
+        border-radius: 2px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 6px;
+        padding-right: 6px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &.ap-user-point-log .ap-user-point-log-item .col-creds > span {
+    background-color: $point-color;
+  }
+}

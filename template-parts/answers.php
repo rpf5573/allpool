@@ -8,14 +8,13 @@
  * @author Rahul Aryan <support@anspress.io>
  * @package AnsPress
  */
-
 ?>
 <apanswersw style="<?php echo ! ap_have_answers() ? 'display:none' : ''; ?>">
 
 	<div id="ap-answers-c" class="ap-answers">
 		<div class="ap-sorting-tab clearfix">
 			<h3 class="ap-answers-label ap-pull-left" ap="answers_count_t">
-				<?php $count = ( '' !== get_query_var( 'answer_id' ) ? ap_get_answers_count() : ap_total_answers_found() ); ?>
+				<?php $count = ap_get_answers_count(); ?>
 				<span itemprop="answerCount"><?php echo (int) $count; ?></span>
 				<?php echo _n( 'Answer', 'Answers', $count, 'anspress-question-answer' ); ?>
 			</h3>

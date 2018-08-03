@@ -528,130 +528,140 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/admin-min-babel.js",
+		"oAP": "\/assets\/js\/admin-min-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/admin.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/admin-babel.js",
+		"oAP": "\/assets\/js\/admin-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/ask.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/ask-babel.js",
+		"oAP": "\/assets\/js\/ask-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/common.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/common-babel.js",
+		"oAP": "\/assets\/js\/common-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/list.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/list-babel.js",
+		"oAP": "\/assets\/js\/list-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
+		},
+	"\/assets\/js\/main-min-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/js\/main-min-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/assets\/js\/main-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-min-babel.js",
+		"oAP": "\/assets\/js\/main-min-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/main.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-babel.js",
+		"oAP": "\/assets\/js\/main-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/notifications.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/notifications-babel.js",
+		"oAP": "\/assets\/js\/notifications-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/question.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/question-babel.js",
+		"oAP": "\/assets\/js\/question-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/tags.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/tags-babel.js",
+		"oAP": "\/assets\/js\/tags-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/js\/theme.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/theme-babel.js",
+		"oAP": "\/assets\/js\/theme-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/jquery.floatThead.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/jquery.floatThead-babel.js",
+		"oAP": "\/assets\/lib\/jquery.floatThead-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/loading-indicator\/.eslintrc.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-babel.js",
+		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/loading-indicator\/.gitignore": {
 		"cB": 0,
@@ -675,10 +685,10 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-babel.js",
+		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/mmenu\/jquery.mmenu.all.css": {
 		"aP": 1,
@@ -695,20 +705,20 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-babel.js",
+		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/selectize.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/selectize.min-babel.js",
+		"oAP": "\/assets\/lib\/selectize.min-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/semantic-ui\/semantic.min.css": {
 		"aP": 1,
@@ -725,10 +735,10 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-babel.js",
+		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.eot": {
 		"cB": 0,
@@ -960,20 +970,20 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-babel.js",
+		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/sumoselect\/jquery.sumoselect.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-babel.js",
+		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/assets\/lib\/sumoselect\/sumoselect-min.css": {
 		"aP": 1,
@@ -1007,6 +1017,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_buttons.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_buy-answers-button.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_buy-answers-button.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -1206,19 +1229,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_reputations.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_reputations.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/assets\/scss\/components\/_site-info.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1280,6 +1290,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_user-answers.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_user-mycred-log.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_user-mycred-log.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -2329,30 +2352,30 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/controller\/custom-fields-babel.js",
+		"oAP": "\/includes\/addons\/point\/iamport\/controller\/custom-fields-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/includes\/addons\/point\/iamport\/dist\/main-babel.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/dist\/main-babel-babel.js",
+		"oAP": "\/includes\/addons\/point\/iamport\/dist\/main-babel-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/includes\/addons\/point\/iamport\/dist\/main.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/dist\/main-babel.js",
+		"oAP": "\/includes\/addons\/point\/iamport\/dist\/main-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/includes\/addons\/point\/iamport\/iamportPaymentPlugin.php": {
 		"cB": 0,
@@ -2366,30 +2389,30 @@
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/button-fields-babel.js",
+		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/button-fields-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/select-fields.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/select-fields-babel.js",
+		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/select-fields-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/text-fields.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/text-fields-babel.js",
+		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/text-fields-min.js",
 		"oF": 0,
 		"sC": 0,
-		"tS": 1
+		"tS": 0
 		},
 	"\/includes\/addons\/point\/iamport\/model\/iamport-order.php": {
 		"cB": 0,
@@ -3081,6 +3104,20 @@
 		"oAP": "\/template-parts\/ask.php",
 		"oF": 0
 		},
+	"\/template-parts\/buy-answers-button.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/buy-answers-button.php",
+		"oF": 0
+		},
+	"\/template-parts\/buy-answers-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/buy-answers-modal.php",
+		"oF": 0
+		},
 	"\/template-parts\/categories.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3179,20 +3216,6 @@
 		"oAP": "\/template-parts\/point-charge.php",
 		"oF": 0
 		},
-	"\/template-parts\/point-item.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/point-item.php",
-		"oF": 0
-		},
-	"\/template-parts\/point.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/point.php",
-		"oF": 0
-		},
 	"\/template-parts\/profile\/answer-item.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3249,20 +3272,6 @@
 		"oAP": "\/template-parts\/question-list.php",
 		"oF": 0
 		},
-	"\/template-parts\/reputation-item.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/reputation-item.php",
-		"oF": 0
-		},
-	"\/template-parts\/reputation.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/reputation.php",
-		"oF": 0
-		},
 	"\/template-parts\/single-question.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3296,6 +3305,34 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/user-nav.php",
+		"oF": 0
+		},
+	"\/template-parts\/user-point-log-item.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/user-point-log-item.php",
+		"oF": 0
+		},
+	"\/template-parts\/user-point-log.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/user-point-log.php",
+		"oF": 0
+		},
+	"\/template-parts\/user-reputation-log-item.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/user-reputation-log-item.php",
+		"oF": 0
+		},
+	"\/template-parts\/user-reputation-log.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/user-reputation-log.php",
 		"oF": 0
 		},
 	"\/warning.php": {
@@ -5130,7 +5167,7 @@
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
-		"autoOutputPathFilenamePattern": "*-babel.js",
+		"autoOutputPathFilenamePattern": "*-min.js",
 		"autoOutputPathRelativePath": "\/min",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
@@ -5138,7 +5175,7 @@
 		"createSourceMap": 0,
 		"minifyOutput": 0,
 		"syntaxCheckerStyle": 0,
-		"transpilerStyle": 1
+		"transpilerStyle": 0
 		},
 	"languageDefaultsJSON": {
 		"autoOutputAction": 1,

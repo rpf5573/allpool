@@ -572,29 +572,6 @@ jQuery(document).ready(function($){
 		$(this).closest('.ap-dropdown').toggleClass('open');
 	});
 
-	// Add to wishlist button.
-	$('[apwish]').click(function(e){
-		e.preventDefault();
-		var self = $(this);
-		var query = JSON.parse(self.attr('apquery'));
-		if ( ! self.hasClass('show-loading') ) {
-			AnsPress.showLoading(self);
-			AnsPress.ajax({
-				data: query,
-				success: function(data){
-					console.dir( data );
-					if(data.label) self.text(data.label);
-					if (data.status == 'deleted') { 
-						self.removeClass('active') 
-					} else {
-						self.addClass('active');
-					}
-					AnsPress.hideLoading(self);
-				}
-			});
-		}
-	});
-
 	$('body').on('click', '.ap-droptogg', function(e){
 		e.preventDefault();
 		$(this).closest('.ap-dropdown').removeClass('open');

@@ -17,10 +17,16 @@
       font-size: 22px;
       font-weight: 600;
       .ap-user-reputation{
-        font-size: 13px;
-        padding: 3px 7px;
+        & > .button {
+          margin-left: 10px;
+          color: white;
+          background-color: $color9;
+        }
+      }
+      .ap-user-point{
         margin-left: 10px;
-        vertical-align: middle;
+        color: white;
+        background-color: $color9;
       }
     }
     .ap-point-charge {
@@ -69,15 +75,4 @@
       }
     }
   }
-}
-
-.ap-user-reputation {
-  margin-left: 5px;
-  background: #FFC107;
-  padding: 1px 4px;
-  font-size: 11px;
-  border-radius: 2px;
-  font-weight: bold;
-  margin-right: 5px;
-  vertical-align: text-bottom;
 }

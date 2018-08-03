@@ -539,5 +539,4 @@
 			Backbone.history.start();
 	});
 
-
 })(jQuery);
