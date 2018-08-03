@@ -61,6 +61,12 @@ class AP_Toggle_Best_Answer extends \AnsPress\Ajax {
 
 		// Unselect best answer if already selected.
 		if ( ap_have_answer_selected( $_post->post_parent ) ) {
+			if ( ! ap_opt( 'allow_unselect_answer' ) ) {
+				$this->set_fail();
+				$this->snackbar( '채택 취소는 허용되지 않습니다' );	
+				$this->send();
+			}
+
 			ap_unset_selected_answer( $_post->post_parent );
 			$this->set_success();
 			$this->add_res( 'selected', false );
@@ -74,7 +80,6 @@ class AP_Toggle_Best_Answer extends \AnsPress\Ajax {
 		if ( in_array( $_post->post_status, [ 'moderate', 'trash', 'private' ], true ) ) {
 			$this->set_fail();
 			$this->snackbar( __( 'This answer cannot be selected as best, update status to select as best answer.', 'anspress-question-answer' ) );
-
 			$this->send();
 		}
 
@@ -84,6 +89,11 @@ class AP_Toggle_Best_Answer extends \AnsPress\Ajax {
 		$this->set_success();
 		$this->add_res( 'selected', true );
 		$this->add_res( 'label', __( 'Unselect', 'anspress-question-answer' ) );
+		if ( ap_opt( 'allow_unselect_answer' ) ) {
+			$this->add_res( 'allow_unselect_answer', true );
+		} else {
+			$this->add_res( 'allow_unselect_answer', false );
+		}
 		$this->snackbar( __( 'Best answer is selected for your question.', 'anspress-question-answer' ) );
   }
   

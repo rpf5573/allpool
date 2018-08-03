@@ -367,7 +367,7 @@ function ap_user_can_edit_post( $post = null, $user_id = false, $wp_error = fals
 		// selected as best answer or got votes
 		if ( $type == 'answer' && ( $_post->selected || $_post->votes_net > 0 ) ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
 			}
 			return false;
 		}
@@ -454,7 +454,7 @@ function ap_user_can_edit_answer( $post_id, $user_id = false, $wp_error = false 
 		// select best answer or got votes
 		if ( $answer->selected > 0 || $answer->votes_net > 0 ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
 			}
 			return false;
 		}

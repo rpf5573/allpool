@@ -78,7 +78,17 @@ class AP_Point extends \AnsPress\Singleton {
 
 		$user_id = get_current_user_id();
 		if ( $user_id ) {
-			if ( ap_is_admin( $user_id ) || ap_has_purchased_answers( $user_id, $question_id ) ) { 
+			$post = ap_get_post();
+			// admin can see all answers for free
+			if ( ap_is_admin( $user_id ) ) { 
+				return false;
+			}
+			// no need to purchase answers again
+			if ( ap_has_purchased_answers( $user_id, $question_id ) ) {
+				return false;
+			}
+			// no need to purchase answers if you are the author of this question
+			if ( ( $post->post_type == 'question' && (int)($post->post_author) == $user_id ) ) {
 				return false;
 			}
 		}
@@ -122,7 +132,6 @@ class AP_Point extends \AnsPress\Singleton {
 	public static function ajax_purchase_answers() {
 		$post_id = (int) ap_sanitize_unslash( 'id', 'r' );
 		
-
 		// 로그인 한 사람만 담을 수 있어
 		if ( ! is_user_logged_in() ) {
 			$login_url = tml_get_action('login')->get_url();

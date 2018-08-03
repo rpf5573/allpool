@@ -888,13 +888,17 @@ function ap_select_answer_btn_html( $_post = null ) {
 	$active = false;
 
 	$title = __( 'Select this answer as best', 'anspress-question-answer' );
-	$label = __( 'Select', 'anspress-question-answer' );
+	$label = '채택';
 
 	$have_best = ap_have_answer_selected( $_post->post_parent );
 	$selected  = ap_is_selected( $_post );
 	$hide      = false;
 
 	if ( $have_best && $selected ) {
+		if ( ! ap_opt( 'allow_unselect_answer' ) ) {
+			return;
+		}
+
 		$title  = __( 'Unselect this answer', 'anspress-question-answer' );
 		$label  = __( 'Unselect', 'anspress-question-answer' );
 		$active = true;

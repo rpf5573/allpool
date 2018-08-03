@@ -1313,6 +1313,10 @@ window.AnsPress.Helper = {
 				success: function(data) {
 					if (data.success && _.isObject(data.voteData))
 						self.model.set('vote', data.voteData);
+						if ( typeof data.allow_cancel_vote !== 'undefined' && ! data.allow_cancel_vote ) {
+							self.$el.find('.vote-up').addClass( 'disable' );
+							self.$el.find('.vote-down').addClass( 'disable' );
+						}
 					else
 						self.model.set('vote', originalValue); // Restore original value on fail
 				}
@@ -1377,9 +1381,13 @@ window.AnsPress.Helper = {
 					if(data.success){
 						if(data.selected){
 							self.$el.addClass('best-answer');
-							$(e.target).addClass('active').text(data.label);
 							AnsPress.trigger('answerToggle', [self.model, true]);
-						}else{
+							if ( (typeof data.allow_unselect_answer !== 'undefined') && ! data.allow_unselect_answer ) {
+								$(e.target).remove();
+							} else {
+								$(e.target).addClass('active').text(data.label);
+							}
+						} else if ( (typeof data.allow_unselect_answer !== 'undefined') && data.allow_unselect_answer ) {
 							self.$el.removeClass('best-answer');
 							$(e.target).removeClass('active').text(data.label);
 							AnsPress.trigger('answerToggle', [self.model, false]);

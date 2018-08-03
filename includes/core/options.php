@@ -41,6 +41,9 @@ function ap_default_options() {
 		'author_credits'								=> false,
 		'question_price_min'						=> 0,
 		'question_price_max'						=> 5000,
+		'allow_unselect_answer'				  => false,
+		'allow_cancel_vote'				  		=> false,
+		'allow_answer_vote_down'		  	=> false,
 	);
 
 	// Set custom options. Because I can't insert by using filter

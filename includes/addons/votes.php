@@ -52,6 +52,18 @@ class AP_Vote {
 
 			// If user already voted and click that again then reverse.
 			if ( $is_voted->vote_value == $value ) { // loose comparison okay.
+
+				if ( ! ap_opt( 'allow_cancel_vote' ) ) {
+					ap_ajax_json(
+						array(
+							'success'   => false,
+							'snackbar'  => [
+								'message' => '추천은 취소할 수 없습니다',
+							]
+						)
+					);
+				}
+
 				$counts = ap_delete_post_vote( $post_id, $userid, 'vote_up' === $type );
 				ap_ajax_json(
 					array(
@@ -86,22 +98,24 @@ class AP_Vote {
 		}
 
 		$counts = ap_add_post_vote( $post_id, $userid, 'vote_up' === $type );
-
-		ap_ajax_json(
-			array(
-				'success'   => true,
-				'action'    => 'voted',
-				'vote_type' => $type,
-				'snackbar'  => [
-					'message' => __( 'Thank you for voting.', 'anspress-question-answer' ),
-				],
-				'voteData'  => [
-					'net'    => $counts['votes_net'],
-					'active' => $type,
-					'nonce'  => wp_create_nonce( 'vote_' . $post_id ),
-				],
-			)
+		
+		$args = array(
+			'success'   => true,
+			'action'    => 'voted',
+			'vote_type' => $type,
+			'snackbar'  => [
+				'message' => __( 'Thank you for voting.', 'anspress-question-answer' ),
+			],
+			'voteData'  => [
+				'net'    => $counts['votes_net'],
+				'active' => $type,
+				'nonce'  => wp_create_nonce( 'vote_' . $post_id ),
+			],
 		);
+		if ( ! ap_opt( 'allow_cancel_vote' ) ) {
+			$args['allow_cancel_vote'] = false;
+		}
+		ap_ajax_json( $args );
 	}
 
 	/**
@@ -585,7 +599,8 @@ function ap_vote_btn( $post = null, $echo = true ) {
 		return;
 	}
 
-	$vote  = is_user_logged_in() ? ap_get_vote( $post->ID, get_current_user_id(), 'vote' ) : false;
+	$user_id = get_current_user_id();
+	$vote  = is_user_logged_in() ? ap_get_vote( $post->ID, $user_id, 'vote' ) : false;
 	$voted = $vote ? true : false;
 
 	if ( $vote && '1' === $vote->vote_value ) {
@@ -603,11 +618,39 @@ function ap_vote_btn( $post = null, $echo = true ) {
 		'__nonce' => wp_create_nonce( 'vote_' . $post->ID ),
 	];
 
+	$up_vote_disable = '';
+	if ( $vote && 'vote_down' === $type ) {
+		$up_vote_disable = ' disable ';
+	}
+
+	$down_vote_disable = '';
+	if ( $vote && 'vote_up' === $type ) {
+		$down_vote_disable = ' disable ';
+	}
+
+	// 자기 자신의 포스트라면, disable => 이건 너무 당연해서 옵션으로 안뺌
+	if ( $user_id && (int)$post->post_author == $user_id ) {
+		$up_vote_disable = ' disable ';
+		$down_vote_disable = ' disable ';
+	}
+
+	// 투표를 했는데, 취소가 안된다면 둘다 disable시켜보려!
+	if ( $voted && ! ap_opt( 'allow_cancel_vote' ) ) {
+		$up_vote_disable = ' disable ';
+		$down_vote_disable = ' disable ';
+	}
+
 	$html  = '';
 	$html .= '<div id="vote_' . $post->ID . '" class="ap-vote net-vote" ap-vote=\'' . wp_json_encode( $data ) . '\'>';
-	$html .= '<a class="apicon-thumb-up ap-tip vote-up' . ( $voted ? ' voted' : '' ) . ( $vote && 'vote_down' === $type ? ' disable' : '' ) . '" href="#" title="' . ( $vote && 'vote_down' === $type ? __( 'You have already voted', 'anspress-question-answer' ) : ( $voted ? __( 'Withdraw your vote', 'anspress-question-answer' ) : __( 'Up vote this post', 'anspress-question-answer' ) ) ) . '" ap="vote_up"></a>';
+	$html .= '<a class="apicon-thumb-up ap-tip vote-up' . ( $voted ? ' voted' : '' ) . ( $up_vote_disable ) . '" href="#" title="' . ( $vote && 'vote_down' === $type ? __( 'You have already voted', 'anspress-question-answer' ) : ( $voted ? __( 'Withdraw your vote', 'anspress-question-answer' ) : __( 'Up vote this post', 'anspress-question-answer' ) ) ) . '" ap="vote_up"></a>';
 	$html .= '<span class="net-vote-count" data-view="ap-net-vote" itemprop="upvoteCount" ap="votes_net">' . ap_get_votes_net() . '</span>';
-	$html .= '<a data-tipposition="bottom center" class="apicon-thumb-down ap-tip vote-down' . ( $voted ? ' voted' : '' ) . ( $vote && 'vote_up' === $type ? ' disable' : '' ) . '" href="#" title="' . ( $vote && 'vote_up' === $type ? __( 'You have already voted', 'anspress-question-answer' ) : ( $voted ? __( 'Withdraw your vote', 'anspress-question-answer' ) : __( 'Down vote this post', 'anspress-question-answer' ) ) ) . '" ap="vote_down"></a>';
+
+	$vote_down_html = '<a data-tipposition="bottom center" class="apicon-thumb-down ap-tip vote-down' . ( $voted ? ' voted' : '' ) . ( $down_vote_disable ) . '" href="#" title="' . ( $vote && 'vote_up' === $type ? __( 'You have already voted', 'anspress-question-answer' ) : ( $voted ? __( 'Withdraw your vote', 'anspress-question-answer' ) : __( 'Down vote this post', 'anspress-question-answer' ) ) ) . '" ap="vote_down"></a>';
+	if ( $post->post_type == 'question' ) {
+		$html .= $vote_down_html;
+	} else if ( ap_opt( 'allow_answer_vote_down' ) ) {
+		$html .= $vote_down_html;
+	}
 	$html .= '</div>';
 
 	/**
