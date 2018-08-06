@@ -14,7 +14,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-
 /**
  * This class should ideally be used to work with the
  * administrative side of the WordPress site.
@@ -113,6 +112,9 @@ class AP_Admin {
 
 		// select answer
 		anspress()->add_action( 'ap_insert_question_qameta', __CLASS__, 'save_best_answer_selection', 10, 3 );
+
+		// point
+		anspress()->add_filter( 'mycred_after_core_prefs', 'AP_Point', 'mycred_after_general_setting' );
 
 		// back to question
 		// anspress()->add_action( 'admin_notices', __CLASS__, 'back_to_question' );
@@ -647,6 +649,7 @@ class AP_Admin {
 		add_filter( 'ap_form_options_general_pages', [ __CLASS__, 'options_general_pages' ] );
 		add_filter( 'ap_form_options_general_layout', [ __CLASS__, 'options_general_layout' ] );
 		add_filter( 'ap_form_options_general_upload', [ __CLASS__, 'options_general_upload' ] );
+		add_filter( 'ap_form_options_general_point', [ __CLASS__, 'options_general_point' ] );
 	}
 
 	/**
@@ -745,6 +748,32 @@ class AP_Admin {
 					'desc'  => __( 'Set maximum upload size.', 'anspress-question-answer' ),
 					'value' => $opt['max_upload_size'],
 				),
+			),
+		);
+
+		return $form;
+	}
+
+	public static function options_general_point() {
+		$opt = ap_opt();
+
+		$form = array(
+			'fields' => array(
+				'best_answer'    => array(
+					'label' => '베스트 답변 채택',
+					'desc'  => '베스트 답변으로 채택되었을때, 질문자가 올린 질문의 가격의 몇퍼센트 만큼 답변자가 획득하는지를 설정해주세요.',
+					'value' => $opt['best_answer'],
+				),
+				'vote_up_answer'     => array(
+					'label' => '답변 추천',
+					'desc'  => '답변이 추천을 받았을때, 질문자가 올린 질문의 가격의 몇퍼센트 만큼 추천을 받은 답변지가 획득하는지를 설정해주세요.',
+					'value' => $opt['vote_up_answer'],
+				),
+				'purchase_answers'  => array(
+					'label' => '답변 구매',
+					'desc'  => '답변을 보기위해서, 질문자가 올린 질문의 가격의 몇퍼센트만큼 지불해야 하는지를 설정해주세요.',
+					'value' => $opt['purchase_answers'],
+				)
 			),
 		);
 

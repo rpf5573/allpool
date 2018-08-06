@@ -44,6 +44,9 @@ function ap_default_options() {
 		'allow_unselect_answer'				  => false,
 		'allow_cancel_vote'				  		=> false,
 		'allow_answer_vote_down'		  	=> false,
+		'best_answer'										=> 100,
+		'vote_up_answer'	 							=> 30,
+		'purchase_answers' 							=> 30
 	);
 
 	// Set custom options. Because I can't insert by using filter

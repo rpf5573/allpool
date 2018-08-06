@@ -176,7 +176,8 @@ class AP_Point extends \AnsPress\Singleton {
 				'redirect' => $user_link
 			) );
 		} else {
-			ap_update_user_point( 'purchase_answers', $user_id, -$question_price, $post_id );
+			$price = ap_get_rate_applied_point( $question_price, 'purchase_answers' );
+			ap_update_user_point( 'purchase_answers', $user_id, -$price, $post_id );
 			ap_update_purchased_answers( $user_id, $post_id );
 			ap_ajax_json( array(
 				'success' => true,
@@ -223,7 +224,7 @@ class AP_Point extends \AnsPress\Singleton {
 		if ( $post->post_type == 'answer' ) {
 			$question = ap_get_post( $post->post_parent );
 			$price = (int)$question->price;
-			$reward = ap_get_reward_point( $price, 'vote_up_answer' );
+			$reward = ap_get_rate_applied_point( $price, 'vote_up_answer' );
 			if ( $reward > 0 ) {
 				ap_update_user_point( 'vote_up_answer', (int)$post->post_author, $reward, $question->ID );
 			}
@@ -236,11 +237,15 @@ class AP_Point extends \AnsPress\Singleton {
 		\PC::debug( ['question' => $question], __FUNCTION__ );
 		if ( $post->post_type == 'answer' && $post->selected && $question->post_type == 'question' ) {
 			$price = (int)$question->price;
-			$reward = ap_get_reward_point( $price, 'best_answer' );
+			$reward = ap_get_rate_applied_point( $price, 'best_answer' );
 			if ( $reward > 0 ) {
 				ap_update_user_point( 'best_answer', (int)$post->post_author, $reward, $question->ID );
 			}
 		}
+	}
+
+	public static function mycred_after_general_setting() {
+		\PC::debug( 'called', __FUNCTION__ );
 	}
 	
 }
@@ -320,12 +325,8 @@ function ap_update_purchased_answers( $user_id, $question_id ) {
 	update_user_meta( $user_id, 'purchased_answers', maybe_serialize( $purchased_answers ) );
 }
 
-function ap_get_reward_point( $price, $ref ) {
-	$rate = 0.7; // best answer default
-	switch( $ref ) {
-		case 'vote_up_answer':
-		$rate = 0.3;
-		break;
-	}
+function ap_get_rate_applied_point( $price, $ref ) {
+	$opt = ap_opt();
+	$rate = $opt[$ref] * 0.01; // 30% = 0.3
 	return round( round($price * 0.1) * $rate ) * 10;
 }

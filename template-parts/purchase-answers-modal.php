@@ -15,7 +15,7 @@ $args = wp_json_encode(
     답변 구매
   </div>
   <div class="content">
-    <p> <?=$template_args['price']?>원을 지불하여, <?=$template_args['answer_count']?>개의 답변을 열람하시겠습니까? </p>
+    <p> <?php echo ap_get_rate_applied_point( $template_args['price'], 'purchase_answers' ); ?>포인트를 지불하여, <?=$template_args['answer_count']?>개의 답변을 열람하시겠습니까? </p>
   </div>
   <div class="actions">
     <div class="ui negative button">

@@ -10,6 +10,12 @@
 .ui.dimmer {
   background-color: rgba(0,0,0,.50);
 }
+.ui.modal {
+  .content {
+    color: black;
+    font-size: 16px;
+  }
+}
 
 /* ------------------------------------------------------------------------- *
  *  SumoSelect

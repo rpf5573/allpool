@@ -4930,6 +4930,10 @@ a.no-style {
 .ui.dimmer {
   background-color: rgba(0, 0, 0, 0.5); }
 
+.ui.modal .content {
+  color: black;
+  font-size: 16px; }
+
 /* ------------------------------------------------------------------------- *
  *  SumoSelect
 /* ------------------------------------------------------------------------- */
@@ -5690,6 +5694,15 @@ form[apform] {
   justify-content: space-around;
   position: relative; }
 
+.page-banner {
+  background-color: #EEF1F7;
+  text-align: center;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
 .question-categories a:last-child {
   margin-right: 0; }
 
@@ -6182,6 +6195,10 @@ form[apform] {
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px; }
+
+.purchase-answers-modal .content p {
+  color: black;
+  font-size: 20px; }
 
 .mini-creds {
   color: #fff;

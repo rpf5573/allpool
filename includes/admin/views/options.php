@@ -39,6 +39,9 @@ $all_options = array(
 			'upload'   => array(
 				'label' => __( 'Upload Options', 'anspress-question-answer' ),
 			),
+			'point'		 => array(
+				'label'	=> '포인트 %설정'
+			)
 		),
 	),
 	'tools'         => array(
