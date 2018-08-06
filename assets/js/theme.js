@@ -169,7 +169,6 @@ jQuery(document).ready(function () {
         AnsPress.ajax({
           data: query,
           success: function(data){
-            console.dir( data );
             if(data.label) self.text(data.label);
             if (data.status == 'deleted') { 
               self.removeClass('active') 
@@ -185,9 +184,9 @@ jQuery(document).ready(function () {
     /*  buy answer
     /* --------------------------------------------------- */
     var purchase_answers = {
-      button : $('.buy-answers-button'),
-      modal : $('.buy-answers-modal'),
-      positive_btn : $('.buy-answers-modal .button.positive'),
+      button : $('.purchase-answers-button'),
+      modal : $('.purchase-answers-modal'),
+      positive_btn : $('.purchase-answers-modal .button.positive'),
     }
     if ( purchase_answers.button.length > 0 && purchase_answers.modal.length > 0 ) {
       purchase_answers.button.on('click', function(){
@@ -201,7 +200,6 @@ jQuery(document).ready(function () {
               AnsPress.ajax({
                 data: query,
                 success: function(data){
-                  console.dir( data );
                   if(data.label) self.text(data.label);
                   if (data.status == 'deleted') {
                     self.removeClass('active')
@@ -219,8 +217,49 @@ jQuery(document).ready(function () {
             }
             return false;
           }
-        }).modal('show');;
+        }).modal('show');
       });
+    }
+
+    var select_answer_modal_btn = $('.ap-btn-select-answer-modal');
+    var select_answer_modal = $('.select-answers-modal');
+    // stop
+    if ( select_answer_modal_btn.length < 0 && select_answer_modal.length > 0 ) {
+      select_answer_modal_btn.on( 'click', function(){
+        select_answer_modal.modal({
+          closable : true,
+          onApprove : function(e){
+            alert( "Select Answer" );
+            var self = this;
+            var q = $.parseJSON($(e).attr('apquery'));
+            q.action = 'ap_toggle_best_answer';
+            AnsPress.showLoading(e);
+            AnsPress.ajax({
+              data: q,
+              success: function(data){
+                AnsPress.hideLoading(e);
+                if(data.success){
+                  if(data.selected){
+                    var cell = selected_answer_modal_btn.closest( 'ap-cell' );
+                    cell.addClass('best-answer');
+                    AnsPress.trigger('answerToggle', [self.model, true]);
+                    if ( (typeof data.allow_unselect_answer !== 'undefined') && ! data.allow_unselect_answer ) {
+                      $(e.target).remove();
+                    } else {
+                      $(e.target).addClass('active').text(data.label);
+                    }
+                  } else if ( (typeof data.allow_unselect_answer !== 'undefined') && data.allow_unselect_answer ) {
+                    self.$el.removeClass('best-answer');
+                    $(e.target).removeClass('active').text(data.label);
+                    AnsPress.trigger('answerToggle', [self.model, false]);
+                  }
+                }
+              }
+            });
+            return false;
+          }
+        }).modal('show');
+      } );
     }
   })(jQuery);
 

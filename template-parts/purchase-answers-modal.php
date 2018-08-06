@@ -10,7 +10,7 @@ $args = wp_json_encode(
   ]
 );
 ?>
-<div class="ui tiny modal buy-answers-modal">
+<div class="ui tiny modal purchase-answers-modal">
   <div class="header">
     답변 구매
   </div>

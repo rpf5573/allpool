@@ -908,7 +908,7 @@ function ap_select_answer_btn_html( $_post = null ) {
 		$hide = true;
 	}
 
-	return '<a href="#" class="ap-btn-select ap-btn ' . ( $active ? ' active' : '' ) . ( $hide ? ' hide' : '' ) . '" ap="select_answer" apquery="' . $q . '" title="' . $title . '">' . $label . '</a>';
+	return '<a href="#" class="ap-btn ' . ( $active ? ' active' : '' ) . ( $hide ? ' hide' : '' ) . '" ap="select-answer-modal-open" apquery="' . $q . '" title="' . $title . '">' . $label . '</a>';
 }
 
 function ap_get_copyright_content() {

@@ -1021,19 +1021,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_buy-answers-button.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_buy-answers-button.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/assets\/scss\/components\/_dropdown.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1186,6 +1173,32 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_page-banner.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_purchase-answers-button.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_purchase-answers-button.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_purchase-answers-modal.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_purchase-answers-modal.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -3153,20 +3166,6 @@
 		"oAP": "\/template-parts\/ask.php",
 		"oF": 0
 		},
-	"\/template-parts\/buy-answers-button.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/buy-answers-button.php",
-		"oF": 0
-		},
-	"\/template-parts\/buy-answers-modal.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/buy-answers-modal.php",
-		"oF": 0
-		},
 	"\/template-parts\/categories.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3328,6 +3327,20 @@
 		"oAP": "\/template-parts\/profile\/wishlist.php",
 		"oF": 0
 		},
+	"\/template-parts\/purchase-answers-button.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/purchase-answers-button.php",
+		"oF": 0
+		},
+	"\/template-parts\/purchase-answers-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/purchase-answers-modal.php",
+		"oF": 0
+		},
 	"\/template-parts\/question-filter.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3347,6 +3360,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/question-list.php",
+		"oF": 0
+		},
+	"\/template-parts\/select-answer-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/select-answer-modal.php",
 		"oF": 0
 		},
 	"\/template-parts\/single-question.php": {

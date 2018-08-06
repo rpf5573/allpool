@@ -147,7 +147,7 @@ function ap_reset_question_query() {
 
 function ap_get_question_price( $question_id = null ) {
 	$_post = ap_get_post( $question_id );
-	return $_post->price;
+	return (int)$_post->price;
 }
 
 

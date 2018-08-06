@@ -131,6 +131,9 @@
 
 				// Get answer form.
 				ap_template_part( 'answer-form' );
+
+				// answer modal
+				ap_template_part( 'select-answer', 'modal' );
 			?>
 		</div>
 

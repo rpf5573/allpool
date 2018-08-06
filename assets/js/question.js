@@ -203,12 +203,13 @@
 			this.listenTo(this.model, 'change:hideSelect', this.selectToggle);
 		},
 		events: {
+			'click [ap="select-answer-modal-open"]' : 'selectAnswerModalOpen',
 			'click [ap-vote] > a': 'voteClicked',
 			'click [ap="actiontoggle"]:not(.loaded)': 'postActions',
-			'click [ap="select_answer"]': 'selectAnswer'
 		},
 		voteClicked: function(e){
 			e.preventDefault();
+			// disable이면 클릭이 안되지
 			if($(e.target).is('.disable'))
 				return;
 
@@ -258,6 +259,7 @@
 			if(curr === 'vote_down' && type === 'vote_down')
 				klass = 'active';
 
+			// active가 없다는거는, 지금 새로 눌렀다는거야
 			if(type !== curr && curr !== '')
 				klass += ' disable';
 
@@ -285,21 +287,22 @@
 				}
 			});
 		},
-
-		selectAnswer: function(e){
+		selectAnswer: function(e, modal, cell){
 			e.preventDefault();
 			var self = this;
 			var q = $.parseJSON($(e.target).attr('apquery'));
 			q.action = 'ap_toggle_best_answer';
-
-			AnsPress.showLoading(e.target);
+			console.dir( q );
+			var positive_btn = modal.find( '.positive.button' );
+			AnsPress.showLoading(positive_btn);
 			AnsPress.ajax({
 				data: q,
 				success: function(data){
-					AnsPress.hideLoading(e.target);
+					AnsPress.hideLoading(positive_btn);
+					modal.modal('hide');
 					if(data.success){
 						if(data.selected){
-							self.$el.addClass('best-answer');
+							cell.addClass('best-answer');
 							AnsPress.trigger('answerToggle', [self.model, true]);
 							if ( (typeof data.allow_unselect_answer !== 'undefined') && ! data.allow_unselect_answer ) {
 								$(e.target).remove();
@@ -307,7 +310,7 @@
 								$(e.target).addClass('active').text(data.label);
 							}
 						} else if ( (typeof data.allow_unselect_answer !== 'undefined') && data.allow_unselect_answer ) {
-							self.$el.removeClass('best-answer');
+							cell.removeClass('best-answer');
 							$(e.target).removeClass('active').text(data.label);
 							AnsPress.trigger('answerToggle', [self.model, false]);
 						}
@@ -315,11 +318,23 @@
 				}
 			});
 		},
+		selectAnswerModalOpen: function(e){
+			var self = this;
+			var cell = $(e.target).closest('.ap-cell');
+			var modal = $('.select-answers-modal');
+			modal.modal({
+				closable : true,
+				onApprove : function(){
+					self.selectAnswer(e, modal, cell);
+					return false;
+				}
+			}).modal('show');
+		},
 		selectToggle: function(){
 			if(this.model.get('hideSelect'))
-				this.$el.find('[ap="select_answer"]').addClass('hide');
+				this.$el.find('[ap="select-answer-modal-open"]').addClass('hide');
 			else
-				this.$el.find('[ap="select_answer"]').removeClass('hide');
+				this.$el.find('[ap="select-answer-modal-open"]').removeClass('hide');
 		}
 	});
 
@@ -353,7 +368,6 @@
 			var view = new AnsPress.views.Post({ model: post, el: '[apId="'+post.get('ID')+'"]' });
 			view.render();
 		},
-
 		render: function(){
 			var self = this;
 			this.model.each(function(post){
@@ -362,7 +376,6 @@
 
 			return self;
 		},
-
 		loadEditor: function(e){
 			var self = this;
 			AnsPress.showLoading(e.target);

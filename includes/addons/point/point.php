@@ -16,7 +16,9 @@ class AP_Point extends \AnsPress\Singleton {
 
 	public static $mycred_entry = array(
 		'purchase_answers' 	=> '답변 구매',
-		'point_charge'	=> '포인트 충전'
+		'point_charge'			=> '포인트 충전',
+		'best_answer'				=> '내가 올린 답변이 채택됨',
+		'vote_up_answer'		=> '추천을 받음'
 	);
 
 	/**
@@ -76,29 +78,35 @@ class AP_Point extends \AnsPress\Singleton {
 		$count = ap_get_answers_count( $question_id );
 		if ( $count == 0 ) { return; }
 
+		$price = ap_get_question_price();
+
 		$user_id = get_current_user_id();
 		if ( $user_id ) {
 			$post = ap_get_post();
 			// admin can see all answers for free
 			if ( ap_is_admin( $user_id ) ) { 
-				return false;
+				return;
 			}
 			// no need to purchase answers again
 			if ( ap_has_purchased_answers( $user_id, $question_id ) ) {
-				return false;
+				return;
 			}
 			// no need to purchase answers if you are the author of this question
 			if ( ( $post->post_type == 'question' && (int)($post->post_author) == $user_id ) ) {
 				return false;
 			}
+			if ( $price == 0 ) {
+				return;
+			}
 		}
+
 		$args = array(
-			'price' 				=> ap_get_question_price(),
+			'price' 				=> $price,
 			'answer_count' 	=> $count,
 			'question_id'		=> $question_id,
 		);
-		ap_template_part( 'buy-answers','button', $args );
-		ap_template_part( 'buy-answers', 'modal', $args );
+		ap_template_part( 'purchase-answers','button', $args );
+		ap_template_part( 'purchase-answers', 'modal', $args );
 	}
 
 	public static function point_charge_button() {
@@ -117,10 +125,10 @@ class AP_Point extends \AnsPress\Singleton {
 		if ( $post && $post->post_type == 'question' && is_singular( 'question' ) ) {
 			$user_id = get_current_user_id();
 			if ( $user_id && isset( $args['question_id'] ) && $args['question_id'] > 0 && ! ap_is_admin( $user_id ) ) {
-				// show answers if current user is this question's author
+				// hide answers if current user is not the author of this question
 				if ( $post->post_author != $user_id ) {
-					// show answers if current user has purchased this question's answers
-					if ( ! ap_has_purchased_answers( $user_id, $args['question_id'] ) ) {
+					// hide answers if current user did not purchase answers or price is not zero
+					if ( ( (int)$post->price != 0 ) && ( ! ap_has_purchased_answers( $user_id, $args['question_id'] ) ) ) {
 						$args['author'] = $user_id;
 					}
 				}
@@ -208,6 +216,31 @@ class AP_Point extends \AnsPress\Singleton {
 			}
 		}
 	}
+
+	public static function after_vote_up( $post_id, $counts ) {
+		$post = ap_get_post( $post_id );
+		if ( $post->post_type == 'answer' ) {
+			$question = ap_get_post( $post->post_parent );
+			$price = (int)$question->price;
+			$reward = ap_get_reward_point( $price, 'vote_up_answer' );
+			if ( $reward > 0 ) {
+				ap_update_user_point( 'vote_up_answer', (int)$post->post_author, $reward, $question->ID );
+			}
+		}
+	}
+
+	public static function after_select_answer( $post, $question_id ) {
+		\PC::debug( ['post' => $post], __FUNCTION__ );
+		$question = ap_get_post( $question_id );
+		\PC::debug( ['question' => $question], __FUNCTION__ );
+		if ( $post->post_type == 'answer' && $post->selected && $question->post_type == 'question' ) {
+			$price = (int)$question->price;
+			$reward = ap_get_reward_point( $price, 'best_answer' );
+			if ( $reward > 0 ) {
+				ap_update_user_point( 'best_answer', (int)$post->post_author, $reward, $question->ID );
+			}
+		}
+	}
 	
 }
 
@@ -215,6 +248,7 @@ class AP_Point extends \AnsPress\Singleton {
 AP_Point::init();
 
 function ap_get_point_icon_class( $log_entry ) {
+	\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
 	$icon_class = 'apicon-';
 	switch( $log_entry->ref ) {
 		case 'purchase_answers':
@@ -223,20 +257,15 @@ function ap_get_point_icon_class( $log_entry ) {
 		case 'point_charge':
 			$icon_class = 'fas fa-credit-card point-charge';
 		break;
-		case 'vote_up':
-			$icon_class .= 'thumb-up';
-			if ( isset( $log_entry->data['parent'] ) ) {
-				$icon_class .= (' ' . $log_entry->data['parent']);
-			}
-		break;
-		case 'vote_down':
-			$icon_class .= 'thumb-down';
+		case 'vote_up_answer':
+			$icon_class .= 'thumb-up thumb-up answer';
 			if ( isset( $log_entry->data['parent'] ) ) {
 				$icon_class .= (' ' . $log_entry->data['parent']);
 			}
 		break;
 		case 'best_answer':
 			$icon_class .= 'check best_answer';
+			break;
 		case 'manual':
 			$icon_class = 'manual';
 		break;
@@ -264,8 +293,8 @@ function ap_get_user_point( $user_id ) {
 	return mycred_get_users_balance( $user_id, AP_Point::$mycred_type );
 }
 
-function ap_update_user_point( $ref, $user_id, $point, $question_id = null ) {
-	mycred_add( $ref, $user_id, $point, AP_Point::$mycred_entry[$ref], $question_id, null, AP_Point::$mycred_type );
+function ap_update_user_point( $ref, $user_id, $point, $post_id = null ) {
+	mycred_add( $ref, $user_id, $point, AP_Point::$mycred_entry[$ref], $post_id, null, AP_Point::$mycred_type );
 }
 
 function ap_get_purchased_answers( $user_id ) {
@@ -288,4 +317,14 @@ function ap_update_purchased_answers( $user_id, $question_id ) {
 	$purchased_answers = ap_get_purchased_answers( $user_id );
 	$purchased_answers[] = $question_id;
 	update_user_meta( $user_id, 'purchased_answers', maybe_serialize( $purchased_answers ) );
+}
+
+function ap_get_reward_point( $price, $ref ) {
+	$rate = 0.7; // best answer default
+	switch( $ref ) {
+		case 'vote_up_answer':
+		$rate = 0.3;
+		break;
+	}
+	return round( round($price * 0.1) * $rate ) * 10;
 }
