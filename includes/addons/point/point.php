@@ -166,13 +166,14 @@ class AP_Point extends \AnsPress\Singleton {
 				'snackbar' => [ 'message' => '이미 구매하신 답변입니다' ],
 			) );
 		}
-
+		$user_link = ap_user_link( $user_id );
 		$user_point = (int)ap_get_user_point( $user_id );
 		$question_price = (int)$_post->price;
 		if ( $user_point < $question_price ) {
 			ap_ajax_json( array(
 				'success' => false,
 				'snackbar' => [ 'message' => '포인트가 부족합니다. 마이페이지에서 충전해 주시기 바랍니다' ],
+				'redirect' => $user_link
 			) );
 		} else {
 			ap_update_user_point( 'purchase_answers', $user_id, -$question_price, $post_id );
