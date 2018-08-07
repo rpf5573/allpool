@@ -133,7 +133,7 @@ jQuery(document).ready(function () {
     });
   } 
 
-})(jQuery);
+  })(jQuery);
   
   
   /* ------------------------------------------------------------------------- *
@@ -260,6 +260,39 @@ jQuery(document).ready(function () {
           }
         }).modal('show');
       } );
+    }
+  })(jQuery);
+
+  /* ------------------------------------------------------------------------- *
+   *  Mypage
+  /* ------------------------------------------------------------------------- */(function($){
+    var nickname = {
+      edit_btn : $('.ap-user-info-edit-btn.--nickname'),
+      modal : $('.ap-user-info-edit-modal.--nickname'),
+    }
+    var password = {
+      edit_btn : $('.ap-user-info-edit-btn.--password'),
+      modal : $('.ap-user-info-edit-modal.--password'),
+    }
+
+    if ( nickname.edit_btn.length > 0 && nickname.modal.length > 0 && password.edit_btn.length > 0 && password.modal.length > 0 ) {
+      nickname.edit_btn.on( 'click', function(){
+        var value = nickname.edit_btn.parent(".ap-user-nickname").find( 'span[itemprop="name"]' ).text();
+        nickname.modal.find('input').val( value );
+        nickname.modal.modal({
+          onApprove : function(btn){
+            // AnsPress.showLoading( btn );
+            return false;
+          }
+        }).modal( 'show' );
+      } );
+      password.edit_btn.on( 'click', function(){
+        password.modal.modal({
+          onApprove : function(){
+            return false;
+          }
+        }).modal( 'show' );
+      });
     }
   })(jQuery);
 

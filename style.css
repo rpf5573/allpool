@@ -6075,29 +6075,39 @@ form[apform] {
   padding: 20px 0;
   min-height: 122px;
   display: flex; }
-  .ap-user-bio .ap-user-avatar {
-    margin-right: 20px; }
   .ap-user-bio .l-flex {
     flex: 1;
     display: flex; }
     .ap-user-bio .l-flex > .l-left {
-      flex: 1; }
+      flex: 1;
+      justify-content: flex-start; }
     .ap-user-bio .l-flex > .l-right {
       display: flex;
       align-items: flex-start; }
       .ap-user-bio .l-flex > .l-right .point-charge {
         margin-left: 10px; }
-  .ap-user-bio .ap-user-name {
-    font-size: 22px;
-    font-weight: 600; }
-    .ap-user-bio .ap-user-name .ap-user-reputation > .button {
+  .ap-user-bio .ap-user-avatar {
+    margin-right: 20px; }
+  .ap-user-bio .ap-user-info {
+    color: black; }
+    .ap-user-bio .ap-user-info a {
+      color: black; }
+    .ap-user-bio .ap-user-info .ap-user-info-edit-btn {
+      font-size: 13px;
+      cursor: pointer;
+      color: blue;
+      vertical-align: top;
       margin-left: 10px;
-      color: white;
-      background-color: #F4AC20; }
-    .ap-user-bio .ap-user-name .ap-user-point {
-      margin-left: 10px;
-      color: white;
-      background-color: #F4AC20; }
+      font-weight: 500;
+      display: none; }
+    .ap-user-bio .ap-user-info .ap-user-nickname {
+      font-size: 22px;
+      font-weight: 600; }
+    .ap-user-bio .ap-user-info .ap-user-password {
+      display: flex;
+      align-items: center; }
+      .ap-user-bio .ap-user-info .ap-user-password .pw-secret {
+        padding-left: 4px; }
 
 .ap-user-mobile-buttons {
   display: none;

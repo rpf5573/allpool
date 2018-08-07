@@ -3278,6 +3278,20 @@
 		"oAP": "\/template-parts\/profile\/index.php",
 		"oF": 0
 		},
+	"\/template-parts\/profile\/nickname-edit-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/profile\/nickname-edit-modal.php",
+		"oF": 0
+		},
+	"\/template-parts\/profile\/password-edit-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/profile\/password-edit-modal.php",
+		"oF": 0
+		},
 	"\/template-parts\/profile\/point-charge-button.php": {
 		"cB": 0,
 		"ft": 8192,

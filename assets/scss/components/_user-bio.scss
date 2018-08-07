@@ -4,14 +4,13 @@
   padding: 20px 0;
   min-height: 122px;
   display: flex;
-  .ap-user-avatar{
-    margin-right: 20px;
-  }
+
   .l-flex {
     flex: 1;
     display: flex;
     & > .l-left {
       flex: 1;
+      justify-content: flex-start;
     }
     & > .l-right {
       display: flex;
@@ -22,20 +21,39 @@
       }
     }
   }
-  .ap-user-name{
-    font-size: 22px;
-    font-weight: 600;
-    .ap-user-reputation{
-      & > .button {
-        margin-left: 10px;
-        color: white;
-        background-color: $color9;
+
+  .ap-user-avatar{
+    margin-right: 20px;
+  }
+
+  .ap-user-info {
+    color: black;
+    a {
+      color: black;
+    }
+
+    .ap-user-info-edit-btn {
+      font-size: 13px;
+      cursor: pointer;
+      color: blue;
+      vertical-align: top;
+      margin-left: 10px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .ap-user-nickname{
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .ap-user-password {
+      display: flex;
+      align-items: center;
+      .pw-secret {
+        padding-left: 4px;
       }
     }
-    .ap-user-point{
-      margin-left: 10px;
-      color: white;
-      background-color: $color9;
-    }
   }
+
 }

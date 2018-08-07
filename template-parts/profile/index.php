@@ -12,36 +12,49 @@
  * @subpackage Templates
  */
 
-$user_id     = ap_current_user_id();
+$user_id     = ap_current_user_id(); // this is not current logged in user id
+$logged_in_user_id = get_current_user_id();
 $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 ?>
 
 <div id="ap-user" class="ap-user <?php echo is_active_sidebar( 'ap-user' ) && is_anspress() ? 'ap-col-9' : 'ap-col-12'; ?>">
-
 	<?php if ( '0' == $user_id && ! is_user_logged_in() ) : ?>
 
-		<h1><?php _e( 'Please login to view your profile', 'anspress-question-answer' ); ?></h1>
-
-	<?php else : ?>
-
+	<h1><?php _e( 'Please login to view your profile', 'anspress-question-answer' ); ?></h1>
+	<?php else : $user_data = get_userdata( $user_id ); ?>
 		<div class="ap-user-bio">
 			<div class="ap-user-avatar">
 				<?php echo get_avatar( $user_id, 80 ); ?>
 			</div>
 			<div class="no-overflow l-flex">
 				<div class="l-left">
-					<div class="ap-user-name">
-						<?php
-						echo ap_user_display_name(
-							[
-								'user_id' => $user_id,
-								'html'    => true,
-								'is_profile' => true
-							]
-						); ?>
-					</div>
-					<div class="ap-user-about">
-						<?php echo get_user_meta( $user_id, 'description', true ); ?>
+					<div class="ap-user-info">
+						<div class="ap-user-nickname">
+							<?php
+							echo ap_user_display_name(
+								[
+									'user_id' => $user_id,
+									'html'    => true,
+									'is_profile' => true
+								]
+							);
+							ap_user_info_edit_btn_with_modal( $user_data, 'nickname' ); ?>
+						</div>
+						<div class="ap-user-id">
+							ID : <span> <?php echo $user_data->user_login; ?> </span>
+						</div> <?php
+						if ( $user_data->data->user_email ) { ?>
+							<div class="ap-user-email">
+								<span>E-mail : </span> <?=$user_data->data->user_email?>
+							</div> <?php
+						}
+						// this is shown only in 'my' page not others
+						if ( $user_id == $logged_in_user_id ) { ?>
+							<div class="ap-user-password">
+								<span>Password : </span> <div class="pw-secret"><span>*********</span></div> <?php 
+								ap_user_info_edit_btn_with_modal( $user_data, 'password' ); ?>
+							</div> <?php
+						} ?>
 					</div>
 				</div>
 				<div class="l-right">

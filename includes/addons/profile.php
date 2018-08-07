@@ -409,3 +409,14 @@ class AP_Profile extends \AnsPress\Singleton {
 
 // Init addon.
 AP_Profile::init();
+
+function ap_user_info_edit_btn_with_modal( $user_data, $type ) {
+	$logged_in_user_id = get_current_user_id();
+	if ( $logged_in_user_id == (int)$user_data->data->ID ) { ?>
+		<a class="ap-user-info-edit-btn --<?=$type?>">변경</a> <?php
+		ap_template_part( 'profile/'.$type.'-edit', 'modal', array(
+			'user_data' => $user_data,
+			'type'		=> $type,
+		) );
+	}
+}
