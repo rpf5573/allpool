@@ -11,6 +11,7 @@
  */
 
 $icon_class = ap_get_reputation_icon_class( $log_entry );
+
 ?>
 
 <tr class="ap-user-reputation-log-item ap-user-mycred-log-item">
@@ -21,6 +22,6 @@ $icon_class = ap_get_reputation_icon_class( $log_entry );
 		<div class="col-event__activity"><?php echo $log_entry->entry; ?></div>
 		<?php ap_reputation_ref_content( $log_entry ); ?>
 	</td>
-	<td class="col-date"><?php echo esc_attr( ap_human_time( $log_entry->time, false ) ); ?></td>
+	<td class="col-date"><?php echo esc_attr( ap_human_time( $log_entry->time ) ); ?></td>
 	<td class="col-creds"><span class="ap-user-reputation-creds mini-creds"><?php echo $log_entry->creds; ?></span></td>
 </tr>

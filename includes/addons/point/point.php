@@ -74,11 +74,15 @@ class AP_Point extends \AnsPress\Singleton {
 	}	
 
 	public static function purchase_answers_button_modal() {
+		
+
 		$question_id = get_the_ID();
 		$count = ap_get_answers_count( $question_id );
 		if ( $count == 0 ) { return; }
 
 		$price = ap_get_question_price();
+
+		
 
 		$user_id = get_current_user_id();
 		if ( $user_id ) {
@@ -169,17 +173,18 @@ class AP_Point extends \AnsPress\Singleton {
 				'snackbar' => [ 'message' => '이미 구매하신 답변입니다' ],
 			) );
 		}
+
 		$user_link = ap_user_link( $user_id );
 		$user_point = (int)ap_get_user_point( $user_id );
 		$question_price = (int)$_post->price;
-		if ( $user_point < $question_price ) {
+		$price = ap_get_rate_applied_point( $question_price, 'purchase_answers' );
+		if ( $user_point <= $price ) {
 			ap_ajax_json( array(
 				'success' => false,
 				'snackbar' => [ 'message' => '포인트가 부족합니다. 마이페이지에서 충전해 주시기 바랍니다' ],
 				'redirect' => $user_link
 			) );
 		} else {
-			$price = ap_get_rate_applied_point( $question_price, 'purchase_answers' );
 			ap_update_user_point( 'purchase_answers', $user_id, -$price, $post_id );
 			ap_update_purchased_answers( $user_id, $post_id );
 			ap_ajax_json( array(
@@ -235,9 +240,9 @@ class AP_Point extends \AnsPress\Singleton {
 	}
 
 	public static function after_select_answer( $post, $question_id ) {
-		\PC::debug( ['post' => $post], __FUNCTION__ );
+		
 		$question = ap_get_post( $question_id );
-		\PC::debug( ['question' => $question], __FUNCTION__ );
+		
 		if ( $post->post_type == 'answer' && $post->selected && $question->post_type == 'question' ) {
 			$price = (int)$question->price;
 			$reward = ap_get_rate_applied_point( $price, 'best_answer' );
@@ -248,7 +253,7 @@ class AP_Point extends \AnsPress\Singleton {
 	}
 
 	public static function mycred_after_general_setting() {
-		\PC::debug( 'called', __FUNCTION__ );
+		
 	}
 	
 }
@@ -257,7 +262,7 @@ class AP_Point extends \AnsPress\Singleton {
 AP_Point::init();
 
 function ap_get_point_icon_class( $log_entry ) {
-	\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
+	
 	$icon_class = 'apicon-';
 	switch( $log_entry->ref ) {
 		case 'purchase_answers':

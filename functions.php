@@ -1207,12 +1207,13 @@ function ap_form_allowed_tags() {
  *
  * @param  string         $time Time.
  * @param  boolean        $unix Is $time is unix.
- * @param  integer        $show_full_date Show full date after some period. Default is 7 days in epoch.
+ * @param  integer        $show_full_date Show full date after some period. Default is 3 days in epoch.
  * @param  boolean|string $format Date format.
  * @return string|null
  * @since  2.4.7 Checks if showing default date format is enabled.
  */
-function ap_human_time( $time, $unix = true, $show_full_date = 604800, $format = false ) {
+function ap_human_time( $time, $unix = true, $show_full_date = 259200, $format = false ) {
+
 	if ( false === $format ) {
 		$format = get_option( 'date_format' );
 	}
@@ -1227,11 +1228,11 @@ function ap_human_time( $time, $unix = true, $show_full_date = 604800, $format =
 	}
 
 	if ( $time ) {
-		if ( $show_full_date + $time > current_time( 'timestamp', true ) ) {
+		if ( $show_full_date + $time > current_time( 'timestamp' ) ) {
 			return sprintf(
 				/* translators: %s: human-readable time difference */
 				__( '%s ago', 'anspress-question-answer' ),
-				human_time_diff( $time, current_time( 'timestamp', true ) )
+				human_time_diff( $time, current_time( 'timestamp' ) )
 			);
 		}
 

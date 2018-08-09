@@ -95,10 +95,12 @@ class AP_Reputation extends \AnsPress\Singleton {
 	}	
 
 	public static function display_name( $name, $args ) {
-		$query_var = get_query_var( 'ap_page', false );
-		if ( $args['user_id'] > 0 && $query_var != 'user' ) {
-			$reputation = mycred_get_users_balance( $args['user_id'] );
-			$name .= '<span class="ap-user-reputation-creds mini-creds">' . $reputation . '</span>';
+		if ( ! is_admin() ) {
+			$query_var = get_query_var( 'ap_page', false );
+			if ( $args['user_id'] > 0 && $query_var != 'user' ) {
+				$reputation = mycred_get_users_balance( $args['user_id'] );
+				$name .= '<span class="ap-user-reputation-creds mini-creds">' . $reputation . '</span>';
+			}
 		}
 		return $name;
 	}

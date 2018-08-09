@@ -80,7 +80,7 @@ class AP_Common_Pages {
 				$msg = __( 'Sorry! you are not allowed to read this question.', 'anspress-question-answer' );
 			}
 		} elseif ( 'future' === $_post->post_status && ! ap_user_can_view_future_post( $_post ) ) {
-			$time_to_publish = human_time_diff( strtotime( $_post->post_date ), current_time( 'timestamp', true ) );
+			$time_to_publish = human_time_diff( strtotime( $_post->post_date ), current_time( 'timestamp' ) );
 
 			$msg = '<strong>' . sprintf(
 				// Translators: %s contain time to publish.

@@ -411,8 +411,8 @@ function ap_profile_link() {
  */
 function ap_get_last_active( $post_id = null ) {
 	$p    = ap_get_post( $post_id );
-	$date = ! empty( $p->last_updated ) ? $p->last_updated : $p->post_modified_gmt;
-	return ap_human_time( get_gmt_from_date( $date ), false );
+	$date = ! empty( $p->last_updated ) ? $p->last_updated : $p->post_modified;
+	return ap_human_time( $date, false );
 }
 
 /**
@@ -450,7 +450,7 @@ function ap_get_time( $_post = null, $format = '' ) {
 		return;
 	}
 
-	return get_post_time( $format, true, $_post->ID, true );
+	return get_post_time( $format, false, $_post->ID, true );
 }
 
 /**
@@ -505,6 +505,9 @@ function ap_get_recent_post_activity( $_post = null ) {
  * @return string
  */
 function ap_latest_post_activity_html( $post_id = false, $answer_activities = false ) {
+
+	\PC::debug( 'called', __FUNCTION__ );
+
 	if ( false === $post_id ) {
 		$post_id = get_the_ID();
 	}
@@ -517,7 +520,7 @@ function ap_latest_post_activity_html( $post_id = false, $answer_activities = fa
 	}
 
 	if ( ! empty( $activity ) && ! empty( $activity['date'] ) ) {
-		$activity['date'] = get_gmt_from_date( $activity['date'] );
+		$activity['date'] = strtotime( $activity['date'] );
 	}
 
 	if ( false === $answer_activities && ( ! isset( $activity['type'] ) || in_array( $activity['type'], [ 'new_answer', 'new_question' ], true ) ) ) {

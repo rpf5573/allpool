@@ -4832,6 +4832,9 @@ i.point-charge {
 /* ------------------------------------------------------------------------- *
  *  Base
 /* ------------------------------------------------------------------------- */
+html {
+  overflow: visible; }
+
 body {
   color: #6f7d95; }
 
@@ -6188,7 +6191,8 @@ form[apform] {
       color: #fff; }
   .ap-user-mycred-log .ap-user-mycred-log-item .col-event {
     flex-grow: 1;
-    flex-shrink: 0; }
+    flex-shrink: 1;
+    flex-basis: 0; }
     .ap-user-mycred-log .ap-user-mycred-log-item .col-event__activity {
       font-weight: 900;
       padding-bottom: 10px; }
@@ -6722,10 +6726,6 @@ ul.ap-actions {
             margin-right: 10px; }
       #ap-responsive .question-filter > form .question-filter__btns {
         width: 100%; }
-    #ap-responsive .ap-q-content p {
-      word-wrap: break-word; }
-    #ap-responsive .ap-q-content img {
-      width: 100%; }
     #ap-responsive .licence-map {
       font-size: 20px; }
     #ap-responsive .question-list-item__avatar {
@@ -6885,3 +6885,14 @@ ul.ap-actions {
       display: none; }
     #ap-responsive .ap-user .ap-user-mobile-buttons {
       display: flex; } }
+
+@media print {
+  html {
+    height: auto; }
+    html #masthead {
+      display: none; }
+    html .site-footer {
+      display: none; }
+    html #answer-form-c,
+    html .ap-minimal-editor {
+      display: none; } }
