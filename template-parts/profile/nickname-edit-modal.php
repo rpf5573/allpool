@@ -1,9 +1,10 @@
 <?php
+$user_id = $template_args['user_data']->ID;
 $args = wp_json_encode(
   [
-    '__nonce' => wp_create_nonce( 'user_info_edit_' . $template_args['user_data']->ID ),
-    'id'      => $template_args['user_data']->ID,
-    'ap_ajax_action' => 'user_info_edit_nickname'
+    '__nonce' => wp_create_nonce( 'user_info_edit_' . $user_id ),
+    'user_id'      => $user_id,
+    'ap_ajax_action' => 'update_user_nickname',
   ]
 );?>
 <div class="ui mini modal ap-user-info-edit-modal --nickname">

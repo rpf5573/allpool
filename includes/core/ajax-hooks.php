@@ -45,6 +45,8 @@ class AP_Ajax_Hooks {
 		anspress()->add_action( 'wp_ajax_ap_toggle_best_answer', 'AP_Toggle_Best_Answer', 'init' );
 		anspress()->add_action( 'ap_ajax_wish', 'AP_Wishlist', 'toggle_wishlist' );
 		anspress()->add_action( 'ap_ajax_purchase_answers', 'AP_Point', 'ajax_purchase_answers' );
+		anspress()->add_action( 'ap_ajax_update_user_nickname', 'AP_Profile', 'ajax_update_user_nickname' );
+
 	}
 
 	public static function edit_post() {

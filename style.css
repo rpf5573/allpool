@@ -4832,9 +4832,6 @@ i.point-charge {
 /* ------------------------------------------------------------------------- *
  *  Base
 /* ------------------------------------------------------------------------- */
-html {
-  overflow: visible; }
-
 body {
   color: #6f7d95; }
 
@@ -4920,6 +4917,10 @@ a.no-style {
 
 .ap-primary {
   background-color: #2185d0 !important; }
+
+.printomatic {
+  float: right;
+  margin-bottom: 10px; }
 
 /* ------------------------------------------------------------------------- *
  *  Semantic-ui
@@ -6101,8 +6102,7 @@ form[apform] {
       color: blue;
       vertical-align: top;
       margin-left: 10px;
-      font-weight: 500;
-      display: none; }
+      font-weight: 500; }
     .ap-user-bio .ap-user-info .ap-user-nickname {
       font-size: 22px;
       font-weight: 600; }
@@ -6735,7 +6735,9 @@ ul.ap-actions {
     #ap-responsive .question-list-item__list-counts {
       display: none; }
     #ap-responsive #wrs_modal_iframe_id #container {
-      width: 100%; } }
+      width: 100%; }
+    #ap-responsive .printomatic {
+      display: none; } }
   @media (max-width: 35.99em) {
     #ap-responsive .front-page .q-icon img,
     #ap-responsive .front-page .a-icon img {

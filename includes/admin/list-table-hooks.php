@@ -140,6 +140,8 @@ class AP_Post_Table_Hooks {
 		$columns['status']   = __( 'Status', 'anspress-question-answer' );
 		$columns['answers']  = __( 'Ans', 'anspress-question-answer' );
 		$columns['votes']    = __( 'Votes', 'anspress-question-answer' );
+		$columns['price']    = '가격';
+		$columns['views']    = '조회수';
 		$columns['date']     = __( 'Date', 'anspress-question-answer' );
 
 		return $columns;
@@ -238,6 +240,10 @@ class AP_Post_Table_Hooks {
 			echo '<a class="parent_question" href="' . esc_url( $url ) . '"><strong>' . get_the_title( $post->post_parent ) . '</strong></a>';
 		} elseif ( 'votes' === $column ) {
 			echo '<span class="vote-count">' . esc_attr( $post->votes_net ) . '</span>';
+		} elseif ( 'views' === $column ) {
+			echo '<span class="views">' . esc_attr( $post->views ) . '</span>';
+		} elseif ( 'price' === $column ) {
+			echo '<span class="price">' . esc_attr( $post->price ) . '</span>';
 		}
 
 	}

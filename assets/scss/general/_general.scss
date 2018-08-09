@@ -1,9 +1,6 @@
 /* ------------------------------------------------------------------------- *
  *  Base
 /* ------------------------------------------------------------------------- */
-html {
-  overflow: visible;
-}
 body {
   color: $theme-color-body;
 }
@@ -103,4 +100,10 @@ blockquote{
 
 .ap-primary {
   background-color: $color10 !important;
+}
+
+// plugin
+.printomatic {
+  float: right;
+  margin-bottom: 10px;
 }

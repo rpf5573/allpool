@@ -5,7 +5,7 @@ $user_link = ap_user_link( $user->ID ); ?>
   <div class="ui pointing dropdown">
     <i class="fas fa-user-circle fa-2x"></i>
     <span class="user-nav__name"> <?php
-      echo $user->user_login; ?>
+      echo $user->display_name; ?>
     </span>
     <i class="fas fa-angle-down"></i>
     <div class="user-nav__menu menu">

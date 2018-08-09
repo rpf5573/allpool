@@ -269,19 +269,57 @@ jQuery(document).ready(function () {
     var nickname = {
       edit_btn : $('.ap-user-info-edit-btn.--nickname'),
       modal : $('.ap-user-info-edit-modal.--nickname'),
+      input : $('.ap-user-info-edit-modal.--nickname input'),
     }
     var password = {
       edit_btn : $('.ap-user-info-edit-btn.--password'),
       modal : $('.ap-user-info-edit-modal.--password'),
     }
 
-    if ( nickname.edit_btn.length > 0 && nickname.modal.length > 0 && password.edit_btn.length > 0 && password.modal.length > 0 ) {
+    function nickname_check( str ) {
+      if(str.length < 2 || str.length > 10) {
+        alert("2~10자의 한글, 영문, 숫자만 사용할 수 있습니다.");
+        return false;
+      }
+      var chk = /[0-9]|[a-z]|[A-Z]|[가-힣]/;
+      for( var i = 0; i <= str.length -1 ; i++ )
+      {
+        if(chk.test(str.charAt(i))) {
+        }
+        else {
+          alert("2~10자의 한글, 영문, 숫자만 사용할 수 있습니다.");
+          return false;
+        }
+      }
+     
+      return true;
+    }
+
+    if ( nickname.edit_btn.length > 0 && password.edit_btn.length > 0 ) {
       nickname.edit_btn.on( 'click', function(){
-        var value = nickname.edit_btn.parent(".ap-user-nickname").find( 'span[itemprop="name"]' ).text();
-        nickname.modal.find('input').val( value );
+        var label = nickname.edit_btn.parent(".ap-user-nickname").find( 'span[itemprop="name"]' );
+        var value = label.text();
+        nickname.input.val( value );
         nickname.modal.modal({
           onApprove : function(btn){
-            // AnsPress.showLoading( btn );
+            var new_nickname = nickname.input.val();
+            if ( ! nickname_check( new_nickname ) ) {
+              return false;
+            }
+            AnsPress.showLoading( btn );
+            var query = JSON.parse(btn.attr('apquery'));
+            query.nickname = new_nickname;
+            console.dir( query );
+            AnsPress.ajax({
+              url: ajaxurl,
+              data: query,
+              context: this,
+              type: 'POST',
+              success: function (data) {
+                console.dir( data );
+                window.location.href = data.redirect;
+              }
+            });
             return false;
           }
         }).modal( 'show' );

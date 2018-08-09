@@ -3611,7 +3611,13 @@ readers do not read off random characters that represent icons */
 .ap-admin-container {
   max-width: 800px; }
 
-th#answers {
+.manage-column.column-answers {
+  width: 60px; }
+
+.manage-column.column-price {
+  width: 60px; }
+
+.manage-column.column-views {
   width: 60px; }
 
 .ans-count, .vote-count, .flag-count {

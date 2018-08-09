@@ -8,17 +8,13 @@ $args = wp_json_encode(
 );?>
 <div class="ui mini modal ap-user-info-edit-modal --password">
   <div class="header">
-    닉네임 변경
+    비밀번호 변경
   </div>
-  <div class="content">
-    닉네임을 입력해 주세요
-  </div>
-  <div class="actions">
-    <div class="ui negative button">
-      취소
-    </div>
-    <div class="ui positive button" apquery="<?=esc_js( $args )?>">
-      확인
-    </div>
+  <div class="content"> <?php 
+      $args = array(
+        'show_links' => false
+      );
+      $form = tml_get_form( 'lostpassword' );
+      echo $form->render( $args ); ?>
   </div>
 </div>

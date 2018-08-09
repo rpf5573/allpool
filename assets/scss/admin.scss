@@ -81,8 +81,16 @@
   max-width: 800px;
 }
 
-th#answers {
-  width: 60px;
+.manage-column {
+  &.column-answers {
+    width: 60px;
+  }
+  &.column-price {
+    width: 60px;
+  }
+  &.column-views {
+    width: 60px;
+  }
 }
 
 .ans-count, .vote-count, .flag-count {

@@ -87,6 +87,8 @@ window.AnsPress = _.extend({
 			}
 		};
 
+		console.dir( options );
+
 		return jQuery.ajax(options);
 	},
 	uniqueId: function() {

@@ -405,6 +405,41 @@ class AP_Profile extends \AnsPress\Singleton {
 		return $posts;
 	}
 
+	public static function ajax_update_user_nickname() {
+		$user_id = ap_isset_post_value( 'user_id', false );
+		$new_nickname = ap_isset_post_value( 'nickname', false );
+		$redirect = ap_user_link( $user_id );
+
+		if ( $user_id && ( $user_id == get_current_user_id() ) && $new_nickname ) {
+			wp_update_user(
+				array(
+					'ID' => $user_id,
+					'display_name' => $new_nickname,
+					'nickname' => $new_nickname
+				)
+			);
+			ap_ajax_json(
+				array(
+					'success' => true,
+					'snackbar' => [ 'message' => '성공적으로 반영되었습니다' ],
+					'redirect' => $redirect
+				)
+			);			
+		} else {
+			ap_ajax_json(
+				array(
+					'success' => false,
+					'snackbar' => [ 'message' => '알수없는 에러가 발생하였습니다' ],
+					'redirect' => $redirect
+				)
+			);
+		}
+	}
+
+	public static function ajax_update_user_password() {
+		// update_user_meta( $user_id, 'nickname', $new );
+	}
+
 }
 
 // Init addon.
