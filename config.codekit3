@@ -1333,19 +1333,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user-mobile-buttons.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_user-mobile-buttons.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/assets\/scss\/components\/_user-mycred-log.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -2564,34 +2551,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/thankyou-success.php",
-		"oF": 0
-		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/background.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/background.php",
-		"oF": 0
-		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/login.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/login.php",
-		"oF": 0
-		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/payment.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/payment.php",
-		"oF": 0
-		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/result.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/result.php",
 		"oF": 0
 		},
 	"\/includes\/addons\/point\/point.php": {

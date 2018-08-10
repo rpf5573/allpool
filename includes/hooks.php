@@ -147,7 +147,6 @@ class AP_Hooks {
 		anspress()->add_action( 'the_post', 'AP_Profile', 'filter_page_title' );
 		anspress()->add_filter( 'ap_current_page', 'AP_Profile', 'ap_current_page' );
 		anspress()->add_filter( 'posts_pre_query', 'AP_Profile', 'modify_query_archive', 999, 2 );
-		anspress()->add_filter( 'lostpassword_redirect', 'AP_Profile', 'tml_lostpassword_redirect' );
 
 		// Point hooks
 		anspress()->add_action( 'ap_before_answers', 'AP_Point', 'purchase_answers_button_modal' );

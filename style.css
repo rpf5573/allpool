@@ -6083,17 +6083,11 @@ form[apform] {
     flex-direction: row; }
     .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type {
       flex-grow: 1;
-      flex-shrink: 1;
-      flex-basis: auto;
       display: flex; }
       .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type .l-left {
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto; }
+        flex-grow: 1; }
       .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type .l-right {
-        display: flex;
-        flex-direction: row;
-        display: none; }
+        display: flex; }
   .ap-user-bio .iamport_btn {
     margin-left: 10px; }
     .ap-user-bio .iamport_btn:hover {
@@ -6121,7 +6115,6 @@ form[apform] {
         padding-left: 4px; }
   .ap-user-bio .ap-user-mobile-buttons {
     display: none;
-    visibility: hidden;
     margin-bottom: 20px;
     flex-wrap: wrap;
     justify-content: space-between; }

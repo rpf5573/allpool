@@ -69,7 +69,7 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 					</div>
 				</div>
 			</div>
-			<div class="l-row">
+			<div class="l-row"> 
 				<div class="ap-user-mobile-buttons">
 					<div class="user-mycred-creds"> <?php 
 						do_action( 'ap_user_mycred_creds', $user_id ); ?>
@@ -77,7 +77,7 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 					<div class="point-charge"> <?php 
 						do_action( 'ap_user_point_charge_button', $user_id ); ?>
 					</div>
-				</div> <?php
+				</div><?php
 				if ( ap_isset_post_value( 'confirm_email', false ) ) {
 					ap_template_part( 'message', null, array(
 						'body' => '메일을 확인해 주세요'
