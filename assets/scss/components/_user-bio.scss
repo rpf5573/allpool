@@ -16,7 +16,6 @@
             flex-grow: 1;
           }
           .l-right {
-            display: flex;
           }
         }
       }
@@ -61,6 +60,10 @@
         padding-left: 4px;
       }
     }
+  }
+
+  .ap-user-desktop-buttons {
+    display: none;
   }
 
   .ap-user-mobile-buttons {

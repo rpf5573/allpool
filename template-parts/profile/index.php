@@ -14,6 +14,7 @@
 
 $user_id     = ap_current_user_id(); // this is not current logged in user id
 $logged_in_user_id = get_current_user_id();
+$is_mypage = ( $user_id == $logged_in_user_id ) ? true : false;
 $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 ?>
 
@@ -60,25 +61,34 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 						</div>
 					</div>
 					<div class="l-right">
-						<div class="user-mycred-creds">
-							<?php do_action( 'ap_user_mycred_creds', $user_id ); ?>
-						</div>
-						<div class="point-charge">
-							<?php do_action( 'ap_user_point_charge_button', $user_id ); ?>
+						<div class="ap-user-desktop-buttons">
+							<div class="user-mycred-creds">
+								<?php do_action( 'ap_user_mycred_creds', $user_id ); ?>
+							</div> <?php
+							if ( $is_mypage ) { ?>
+								<div class="point-charge"> <?php 
+									AP_Point::point_charge_button( $user_id ); ?>
+								</div> <?php
+							} ?>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="l-row"> 
 				<div class="ap-user-mobile-buttons">
-					<div class="user-mycred-creds"> <?php 
-						do_action( 'ap_user_mycred_creds', $user_id ); ?>
-					</div>
-					<div class="point-charge"> <?php 
-						do_action( 'ap_user_point_charge_button', $user_id ); ?>
-					</div>
-				</div><?php
-				if ( ap_isset_post_value( 'confirm_email', false ) ) {
+					<div class="user-mycred-creds"> <?php
+						AP_Reputation::mycred_creds( $user_id );
+						if ( $is_mypage ) {
+							AP_Point::mycred_creds( $user_id );
+						} ?>
+					</div> <?php
+					if ( $is_mypage ) { ?>
+						<div class="point-charge"> <?php
+							AP_Point::point_charge_button( $user_id ); ?>
+						</div> <?php
+					} ?>
+				</div> <?php
+				if ( $is_mypage && ap_isset_post_value( 'confirm_email', false ) ) {
 					ap_template_part( 'message', null, array(
 						'body' => '메일을 확인해 주세요'
 					) );

@@ -2553,13 +2553,6 @@
 		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/thankyou-success.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/point.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/point.php",
-		"oF": 0
-		},
 	"\/includes\/addons\/profile.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2959,13 +2952,6 @@
 		"oAP": "\/includes\/core\/toggle-best-answer.php",
 		"oF": 0
 		},
-	"\/includes\/hooks.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/includes\/hooks.php",
-		"oF": 0
-		},
 	"\/includes\/start.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3241,13 +3227,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/profile\/answers.php",
-		"oF": 0
-		},
-	"\/template-parts\/profile\/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/profile\/index.php",
 		"oF": 0
 		},
 	"\/template-parts\/profile\/nickname-edit-modal.php": {

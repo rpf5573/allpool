@@ -332,6 +332,15 @@ jQuery(document).ready(function () {
         }).modal( 'show' );
       });
     }
+
+    // lazy show
+    var user_desktop_buttons = $('.ap-user-desktop-buttons');
+    if ( user_desktop_buttons.length > 0 ) {
+      setTimeout( function(){
+        user_desktop_buttons.css( 'display', 'flex' );
+      }, 100 );
+    }
+
   })(jQuery);
 
 });

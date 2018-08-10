@@ -113,11 +113,8 @@ class AP_Point extends \AnsPress\Singleton {
 		ap_template_part( 'purchase-answers', 'modal', $args );
 	}
 
-	public static function point_charge_button( $user_id ) {
-		$logged_in_user_id = get_current_user_id();
-		if ( $logged_in_user_id == (int)$user_id ) {
-			echo do_shortcode( '[iamport_payment_button title="포인트 충전" class="iamport_btn" description="아래 정보를 기입 후 결제진행해주세요." name="알풀 포인트 충전" amount="1000,3000,5000,10000" pay_method_list="card,trans,phone"]포인트 충전[/iamport_payment_button]' );
-		}
+	public static function point_charge_button() {
+		echo do_shortcode( '[iamport_payment_button title="포인트 충전" class="iamport_btn" description="아래 정보를 기입 후 결제진행해주세요." name="알풀 포인트 충전" amount="1000,3000,5000,10000" pay_method_list="card,trans,phone"]포인트 충전[/iamport_payment_button]' );
 	}
 
 	/**
@@ -214,7 +211,17 @@ class AP_Point extends \AnsPress\Singleton {
 	 */
 	public static function point_page() {
 		$user_id = get_queried_object_id();
-		ap_template_part( 'profile/point', 'log', array( 'user_id' => $user_id ) );
+		$logged_in_user_id = get_current_user_id();
+		// only show to owner of this page
+		if ( $user_id == $logged_in_user_id ) {
+			ap_template_part( 'profile/point', 'log', array( 'user_id' => $user_id ) );
+		} else {
+			ap_template_part( 'message', null, array(
+				'type' => 'error',
+				'header' => '잠시만요',
+				'body' => '다른 사용자의 포인트 기록은 확인하실 수 없습니다'
+			) );
+		}
 	}
 
 	public static function after_charge_point( $iamport_result ) {
