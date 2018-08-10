@@ -440,6 +440,13 @@ class AP_Profile extends \AnsPress\Singleton {
 		// update_user_meta( $user_id, 'nickname', $new );
 	}
 
+	public static function tml_lostpassword_redirect( $url ) {
+		\PC::debug( ['redirect url' => $url], __FUNCTION__ );
+		if ( ap_is_user_page() ) {
+		}
+		return $url;
+	}
+
 }
 
 // Init addon.
@@ -454,4 +461,11 @@ function ap_user_info_edit_btn_with_modal( $user_data, $type ) {
 			'type'		=> $type,
 		) );
 	}
+}
+
+function ap_is_user_page() {
+	if ( get_query_var( 'author_name' ) ) {
+		return true;
+	}
+	return false;
 }

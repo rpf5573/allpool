@@ -3,23 +3,37 @@
   border-top: solid 1px #ddd;
   padding: 20px 0;
   min-height: 122px;
-  display: flex;
 
-  .l-flex {
-    flex: 1;
-    display: flex;
-    & > .l-left {
-      flex: 1;
-      justify-content: flex-start;
-    }
-    & > .l-right {
+  & > .l-row {
+    @include first-child() {
       display: flex;
-      align-items: flex-start;
-      // flex-direction: column;
-      .point-charge {
-        margin-left: 10px;
+      flex-direction: row;
+      & > .l-row {
+        @include last-child() {
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: auto;
+          display: flex;
+          .l-left {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: auto;
+          }
+          .l-right {
+            display: flex;
+            flex-direction: row;
+            display: none;
+          }
+        }
       }
     }
+  }
+
+  .iamport_btn {
+    &:hover {
+      color: white;
+    }
+    margin-left: 10px;
   }
 
   .ap-user-avatar{
@@ -54,4 +68,31 @@
       }
     }
   }
+
+  .ap-user-mobile-buttons {
+    display: none;
+    visibility: hidden;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .ap-user-reputation-creds,
+    .ap-user-point-creds {
+      flex-basis: 49%;
+      margin: 0;
+      .button {
+        flex: 1;
+      }
+    }
+    .ap-user-reputation-creds > .button {
+      background-color: $reputation-color;
+      color: white;
+    }
+    .iamport_btn {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
 }

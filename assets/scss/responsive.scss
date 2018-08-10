@@ -367,7 +367,6 @@
         }
       }
     }
-  
     body #noti-dp {
       position: fixed;
       left: 2.5% !important;
@@ -385,17 +384,31 @@
         margin: 7px 7px 7px auto;
       }
     }
-
     .ap-user {
-      .ap-user-bio > .l-flex > .l-right {
-        display: none;
+      .ap-user-bio > .l-row {
+        @include first-child() {
+          & > .l-row {
+            @include last-child() {
+              .l-right {
+                display: none;
+              }
+            }
+          }
+        }
       }
       .ap-user-mobile-buttons {
         display: flex;
-        
+        flex-direction: column;
+        .user-mycred-creds {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+        .iamport_btn {
+          margin-left: 0;
+        }
       }
     }
-
   }
 
 }

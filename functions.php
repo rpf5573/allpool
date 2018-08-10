@@ -1468,8 +1468,9 @@ function ap_get_questions_page_url() {
  */
 function ap_is_login_related_page() {
   global $wp;
-  $related = false;
-  if ( $wp->request == 'register' || $wp->request == 'login' || $wp->request == 'lostpassword' ) {
+	$related = false;
+	
+  if ( $wp->request == 'register' || $wp->request == 'login' || $wp->request == 'lostpassword' || ( ap_is_user_page() && is_user_logged_in() ) ) {
     $related = true;
   }
   return $related;

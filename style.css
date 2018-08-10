@@ -6077,19 +6077,27 @@ form[apform] {
   margin-bottom: 15px;
   border-top: solid 1px #ddd;
   padding: 20px 0;
-  min-height: 122px;
-  display: flex; }
-  .ap-user-bio .l-flex {
-    flex: 1;
-    display: flex; }
-    .ap-user-bio .l-flex > .l-left {
-      flex: 1;
-      justify-content: flex-start; }
-    .ap-user-bio .l-flex > .l-right {
-      display: flex;
-      align-items: flex-start; }
-      .ap-user-bio .l-flex > .l-right .point-charge {
-        margin-left: 10px; }
+  min-height: 122px; }
+  .ap-user-bio > .l-row:first-of-type {
+    display: flex;
+    flex-direction: row; }
+    .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type {
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto;
+      display: flex; }
+      .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type .l-left {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto; }
+      .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type .l-right {
+        display: flex;
+        flex-direction: row;
+        display: none; }
+  .ap-user-bio .iamport_btn {
+    margin-left: 10px; }
+    .ap-user-bio .iamport_btn:hover {
+      color: white; }
   .ap-user-bio .ap-user-avatar {
     margin-right: 20px; }
   .ap-user-bio .ap-user-info {
@@ -6111,27 +6119,27 @@ form[apform] {
       align-items: center; }
       .ap-user-bio .ap-user-info .ap-user-password .pw-secret {
         padding-left: 4px; }
-
-.ap-user-mobile-buttons {
-  display: none;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-  .ap-user-mobile-buttons .ap-user-reputation-creds,
-  .ap-user-mobile-buttons .ap-user-point-creds {
-    flex-basis: 49%;
-    margin: 0; }
-    .ap-user-mobile-buttons .ap-user-reputation-creds .button,
-    .ap-user-mobile-buttons .ap-user-point-creds .button {
-      flex: 1; }
-  .ap-user-mobile-buttons .ap-user-reputation-creds > .button {
-    background-color: #F4AC20;
-    color: white; }
-  .ap-user-mobile-buttons .iamport_btn {
-    margin-top: 20px;
+  .ap-user-bio .ap-user-mobile-buttons {
+    display: none;
+    visibility: hidden;
     margin-bottom: 20px;
-    width: 100%;
-    text-align: center; }
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .ap-user-bio .ap-user-mobile-buttons .ap-user-reputation-creds,
+    .ap-user-bio .ap-user-mobile-buttons .ap-user-point-creds {
+      flex-basis: 49%;
+      margin: 0; }
+      .ap-user-bio .ap-user-mobile-buttons .ap-user-reputation-creds .button,
+      .ap-user-bio .ap-user-mobile-buttons .ap-user-point-creds .button {
+        flex: 1; }
+    .ap-user-bio .ap-user-mobile-buttons .ap-user-reputation-creds > .button {
+      background-color: #F4AC20;
+      color: white; }
+    .ap-user-bio .ap-user-mobile-buttons .iamport_btn {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: center; }
 
 #anspress .ap-user .ap-point-charge {
   flex: 1;
@@ -6883,10 +6891,17 @@ ul.ap-actions {
         display: block;
         float: none;
         margin: 7px 7px 7px auto; }
-    #ap-responsive .ap-user .ap-user-bio > .l-flex > .l-right {
+    #ap-responsive .ap-user .ap-user-bio > .l-row:first-of-type > .l-row:last-of-type .l-right {
       display: none; }
     #ap-responsive .ap-user .ap-user-mobile-buttons {
-      display: flex; } }
+      display: flex;
+      flex-direction: column; }
+      #ap-responsive .ap-user .ap-user-mobile-buttons .user-mycred-creds {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end; }
+      #ap-responsive .ap-user .ap-user-mobile-buttons .iamport_btn {
+        margin-left: 0; } }
 
 @media print {
   html {
