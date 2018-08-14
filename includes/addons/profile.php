@@ -409,22 +409,42 @@ class AP_Profile extends \AnsPress\Singleton {
 		$user_id = ap_isset_post_value( 'user_id', false );
 		$new_nickname = ap_isset_post_value( 'nickname', false );
 		$redirect = ap_user_link( $user_id );
+		$action = 'user_info_edit_' . $user_id;
 
-		if ( $user_id && ( $user_id == get_current_user_id() ) && $new_nickname ) {
-			wp_update_user(
-				array(
-					'ID' => $user_id,
-					'display_name' => $new_nickname,
-					'nickname' => $new_nickname
-				)
-			);
+		if ( ! ap_verify_nonce( $action ) ) {
 			ap_ajax_json(
 				array(
-					'success' => true,
-					'snackbar' => [ 'message' => '성공적으로 반영되었습니다' ],
+					'success' => false,
+					'snackbar' => [ 'message' => '알수없는 에러가 발생하였습니다' ],
 					'redirect' => $redirect
 				)
-			);			
+			);
+		}
+
+		if ( $user_id && ( $user_id == get_current_user_id() ) && $new_nickname ) {
+			if ( ap_validate_nickname( $new_nickname ) ) {
+				wp_update_user(
+					array(
+						'ID' => $user_id,
+						'display_name' => $new_nickname,
+						'nickname' => $new_nickname
+					)
+				);
+				ap_ajax_json(
+					array(
+						'success' => true,
+						'snackbar' => [ 'message' => '성공적으로 반영되었습니다' ],
+						'redirect' => $redirect
+					)
+				);
+			} else {
+				ap_ajax_json(
+					array(
+						'success' => false,
+						'snackbar' => [ 'message' => '이미 등록된 닉네임입니다' ],
+					)
+				);
+			}
 		} else {
 			ap_ajax_json(
 				array(
@@ -436,8 +456,55 @@ class AP_Profile extends \AnsPress\Singleton {
 		}
 	}
 
-	public static function ajax_update_user_password() {
-		// update_user_meta( $user_id, 'nickname', $new );
+	public static function ajax_update_user_email() {
+		$user_id = ap_isset_post_value( 'user_id', false );
+		$new_email = ap_isset_post_value( 'email', false );
+		$redirect = ap_user_link( $user_id );		
+		$action = 'user_info_edit_' . $user_id;
+
+		if ( ! ap_verify_nonce( $action ) ) {
+			ap_ajax_json(
+				array(
+					'success' => false,
+					'snackbar' => [ 'message' => '알수없는 에러가 발생하였습니다' ],
+					'redirect' => $redirect
+				)
+			);
+		}
+
+		if ( $user_id && ( $user_id == get_current_user_id() ) && $new_email ) {
+			if ( ap_validate_email( $new_email ) ) {
+				wp_update_user(
+					array(
+						'ID' => $user_id,
+						'user_email' => $new_email,
+					)
+				);
+				ap_ajax_json(
+					array(
+						'success' => true,
+						'snackbar' => [ 'message' => '성공적으로 반영되었습니다' ],
+						'redirect' => $redirect
+					)
+				);
+			} else {
+				ap_ajax_json(
+					array(
+						'success' => false,
+						'snackbar' => [ 'message' => '이미 등록된 메일 입니다' ],
+					)
+				);
+			}
+		} else {
+			ap_ajax_json(
+				array(
+					'success' => false,
+					'snackbar' => [ 'message' => '알수없는 에러가 발생하였습니다' ],
+					'redirect' => $redirect
+				)
+			);
+		}
+		
 	}
 
 	public static function wsl_facebook_alert_scope( $scope, $provider ) {
@@ -475,4 +542,32 @@ function ap_is_user_page() {
 		return true;
 	}
 	return false;
+}
+
+function ap_validate_nickname( $name ) {
+	global $wpdb;
+
+	// duplicate check
+	$sql = "SELECT COUNT(*) FROM $wpdb->users as users, $wpdb->usermeta as meta
+					WHERE users.ID = meta.user_id
+					AND meta.meta_key = 'nickname'
+					AND meta.meta_value = '$name'";
+	$count = (int) $wpdb->get_var( $sql );
+	if ( $count > 0 ) {
+		return false;
+	}
+	return true;
+}
+
+function ap_validate_email( $email ) {
+	global $wpdb;
+
+	// duplicate check
+	$sql = "SELECT COUNT(*) FROM $wpdb->users as users 
+					WHERE users.user_email = '$email'";
+	$count = (int) $wpdb->get_var( $sql );
+	if ( $count > 0 ) {
+		return false;
+	}
+	return true;
 }

@@ -2144,6 +2144,12 @@ jQuery(document).ready(function () {
       modal : $('.ap-user-info-edit-modal.--password'),
     }
 
+    var email = {
+      edit_btn : $('.ap-user-info-edit-btn.--email'),
+      modal : $('.ap-user-info-edit-modal.--email'),
+      input : $('.ap-user-info-edit-modal.--email input'),
+    }
+
     function nickname_check( str ) {
       if(str.length < 2 || str.length > 10) {
         alert("2~10자의 한글, 영문, 숫자만 사용할 수 있습니다.");
@@ -2163,10 +2169,22 @@ jQuery(document).ready(function () {
       return true;
     }
 
-    if ( nickname.edit_btn.length > 0 && password.edit_btn.length > 0 ) {
+    function email_check( email ) {
+      var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+      var result = re.test(email);
+      if ( ! result ) {
+        alert( "올바른 형식의 이메일을 입력해 주세요" );
+        return false;
+      }
+      
+      return true;
+    }
+
+    if ( nickname.edit_btn.length > 0 && password.edit_btn.length > 0 && email.edit_btn.length > 0 ) {
       nickname.edit_btn.on( 'click', function(){
         var label = nickname.edit_btn.parent(".ap-user-nickname").find( 'span[itemprop="name"]' );
-        var value = label.text();
+        // remove white spaces
+        var value = label.text().replace(/\s+/g, '');
         nickname.input.val( value );
         nickname.modal.modal({
           onApprove : function(btn){
@@ -2185,7 +2203,11 @@ jQuery(document).ready(function () {
               type: 'POST',
               success: function (data) {
                 console.dir( data );
-                window.location.href = data.redirect;
+                if ( data.success ) {
+                  window.location.href = data.redirect;
+                } else {
+                  AnsPress.hideLoading( btn );
+                }
               }
             });
             return false;
@@ -2199,6 +2221,37 @@ jQuery(document).ready(function () {
           }
         }).modal( 'show' );
       });
+      email.edit_btn.on( 'click', function(){
+        var label = email.edit_btn.parent(".ap-user-email").find( 'span[itemprop="email"]' );
+        // remove white spaces
+        var value = label.text().replace(/\s+/g, '');
+        email.input.val( value );
+        email.modal.modal({
+          onApprove : function(btn){
+            var new_email = email.input.val();
+            if ( ! email_check( new_email ) ) {
+              return false;
+            }
+            AnsPress.showLoading( btn );
+            var query = JSON.parse(btn.attr('apquery'));
+            query.email = new_email;
+            console.dir( query );
+            AnsPress.ajax({
+              url: ajaxurl,
+              data: query,
+              context: this,
+              type: 'POST',
+              success: function (data) {
+                console.dir( data );
+                if ( data.success ) {
+                  window.location.href = data.redirect;
+                }
+              }
+            });
+            return false;
+          }
+        }).modal( 'show' );
+      } );
     }
 
     // lazy show

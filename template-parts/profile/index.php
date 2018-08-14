@@ -48,7 +48,7 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 							</div> <?php
 							if ( $user_data->data->user_email ) { ?>
 								<div class="ap-user-email">
-									<span>E-mail : </span> <?=$user_data->data->user_email?> <?php
+									<span>E-mail : </span>  <span itemprop="email"> <?=$user_data->data->user_email?> </span> <?php
 									ap_user_info_edit_btn_with_modal( $user_data, 'email' ); ?>
 								</div> <?php
 							}
