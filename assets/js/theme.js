@@ -334,11 +334,9 @@ jQuery(document).ready(function () {
               context: this,
               type: 'POST',
               success: function (data) {
-                console.dir( data );
+                AnsPress.hideLoading( btn );
                 if ( data.success ) {
                   window.location.href = data.redirect;
-                } else {
-                  AnsPress.hideLoading( btn );
                 }
               }
             });
@@ -374,7 +372,7 @@ jQuery(document).ready(function () {
               context: this,
               type: 'POST',
               success: function (data) {
-                console.dir( data );
+                AnsPress.hideLoading( btn );
                 if ( data.success ) {
                   window.location.href = data.redirect;
                 }

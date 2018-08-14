@@ -506,7 +506,7 @@ function ap_get_recent_post_activity( $_post = null ) {
  */
 function ap_latest_post_activity_html( $post_id = false, $answer_activities = false ) {
 
-	\PC::debug( 'called', __FUNCTION__ );
+	
 
 	if ( false === $post_id ) {
 		$post_id = get_the_ID();

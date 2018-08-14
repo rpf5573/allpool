@@ -492,7 +492,7 @@ class AP_Statistic {
 		$prefix = $wpdb->prefix;
 		$type = 'question';
 		$sql = self::user_get_sql( $type, $user_id );
-		\PC::debug( ['sql' => $sql], __FUNCTION__ );
+		
 		$count = $wpdb->get_var( $sql );
 		if ( $count > 0 ) {
 			return self::user_get_link( $type, $user_id, $count );
@@ -526,7 +526,7 @@ class AP_Statistic {
 	public static function user_get_link( $type, $user_id, $count ) {
 		$url = esc_url( admin_url( "edit.php?post_type={$type}&user_filter=user_id&user_id={$user_id}" ) );
 		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
-		\PC::debug( ['link' => $link], __FUNCTION__ );
+		
 		return $link;
 	}
 	public static function user_filter_question( $sql, $instance ) {
@@ -539,7 +539,7 @@ class AP_Statistic {
 				return $sql;
 			}
 			$sql['where'] .= " AND {$wpdb->posts}.post_author = {$user_id} ";
-			\PC::debug( ['sql' => $sql], __FUNCTION__ );
+			
 		}
 
 		return $sql;
