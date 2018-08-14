@@ -440,6 +440,20 @@ class AP_Profile extends \AnsPress\Singleton {
 		// update_user_meta( $user_id, 'nickname', $new );
 	}
 
+	public static function wsl_facebook_alert_scope( $scope, $provider ) {
+		if ( $provider == 'Facebook' || $provider == 'facebook' ) {
+			$scope = str_replace( ', user_friends', '', $scope );
+		}
+		return $scope;
+	}
+
+	public static function wsl_fill_user_login( $userdata, $provider, $hybridauth_user_profile ) {
+		if ( empty( $userdata['user_login'] ) ) {
+			$userdata['user_login'] = $userdata['user_email'];
+		}
+		return $userdata;
+	}
+
 }
 
 // Init addon.

@@ -262,8 +262,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/a-icon.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -273,8 +273,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/answer.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -316,7 +316,7 @@
 		"oAP": "\/assets\/images\/cover.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"\/assets\/images\/cover.psd": {
@@ -332,8 +332,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/editor-buttons.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -373,7 +373,7 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/loading.gif",
 		"oF": 0,
-		"opt": 0
+		"opt": 1
 		},
 	"\/assets\/images\/loading.png": {
 		"ft": 32768,
@@ -381,8 +381,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/loading.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -402,8 +402,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/logo.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -413,8 +413,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/money.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -424,8 +424,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/money2.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -435,8 +435,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/money3.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -476,8 +476,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/q-icon.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -487,8 +487,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/question.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -510,7 +510,7 @@
 		"oAP": "\/assets\/images\/small_cover.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"\/assets\/images\/user.svg": {
@@ -603,6 +603,16 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/assets\/js\/notifications-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/js\/notifications-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/js\/notifications.js": {
 		"ft": 64,
 		"ma": 0,
@@ -643,12 +653,32 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/assets\/lib\/jquery.floatThead-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/jquery.floatThead-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/lib\/jquery.floatThead.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/assets\/lib\/jquery.floatThead-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/assets\/lib\/loading-indicator\/.eslintrc-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -670,6 +700,16 @@
 		"oAP": "\/assets\/lib\/loading-indicator\/.gitignore",
 		"oF": 0
 		},
+	"\/assets\/lib\/loading-indicator\/css\/modal-loading-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/css\/modal-loading-min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"\/assets\/lib\/loading-indicator\/css\/modal-loading.css": {
 		"aP": 1,
 		"bl": 0,
@@ -680,12 +720,42 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/lib\/loading-indicator\/js\/modal-loading.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/assets\/lib\/mmenu\/jquery.mmenu.all-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/assets\/lib\/mmenu\/jquery.mmenu.all-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -710,12 +780,42 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/assets\/lib\/selectize.min-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/selectize.min-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/assets\/lib\/selectize.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/assets\/lib\/selectize.min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/assets\/lib\/semantic-ui\/semantic.min-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/assets\/lib\/semantic-ui\/semantic.min-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -891,8 +991,8 @@
 		"oA": 0,
 		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/images\/flags.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -984,6 +1084,16 @@
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
+		},
+	"\/assets\/lib\/sumoselect\/sumoselect-min-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/lib\/sumoselect\/sumoselect-min-min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/assets\/lib\/sumoselect\/sumoselect-min.css": {
 		"aP": 1,
@@ -2247,6 +2357,16 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/fa-regular.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/fa-regular-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"\/footer.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2551,6 +2671,41 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/thankyou-success.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/iamport\/view\/modal\/background.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/background.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/iamport\/view\/modal\/login.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/login.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/iamport\/view\/modal\/payment.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/payment.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/iamport\/view\/modal\/result.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/result.php",
+		"oF": 0
+		},
+	"\/includes\/addons\/point\/point.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/point\/point.php",
 		"oF": 0
 		},
 	"\/includes\/addons\/profile.php": {
@@ -2952,6 +3107,13 @@
 		"oAP": "\/includes\/core\/toggle-best-answer.php",
 		"oF": 0
 		},
+	"\/includes\/hooks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/hooks.php",
+		"oF": 0
+		},
 	"\/includes\/start.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3027,6 +3189,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/page.php",
+		"oF": 0
+		},
+	"\/README.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/README.html",
 		"oF": 0
 		},
 	"\/README.md": {
@@ -3229,6 +3398,20 @@
 		"oAP": "\/template-parts\/profile\/answers.php",
 		"oF": 0
 		},
+	"\/template-parts\/profile\/email-edit-modal.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/profile\/email-edit-modal.php",
+		"oF": 0
+		},
+	"\/template-parts\/profile\/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/profile\/index.php",
+		"oF": 0
+		},
 	"\/template-parts\/profile\/nickname-edit-modal.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3368,6 +3551,16 @@
 		"oA": 0,
 		"oAP": "\/template-parts\/user-nav.php",
 		"oF": 0
+		},
+	"\/v4-shims.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/v4-shims-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/warning.php": {
 		"cB": 0,

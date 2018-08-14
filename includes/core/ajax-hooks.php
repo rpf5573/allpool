@@ -46,6 +46,7 @@ class AP_Ajax_Hooks {
 		anspress()->add_action( 'ap_ajax_wish', 'AP_Wishlist', 'toggle_wishlist' );
 		anspress()->add_action( 'ap_ajax_purchase_answers', 'AP_Point', 'ajax_purchase_answers' );
 		anspress()->add_action( 'ap_ajax_update_user_nickname', 'AP_Profile', 'ajax_update_user_nickname' );
+		anspress()->add_action( 'ap_ajax_update_user_email', 'AP_Profile', 'ajax_update_user_email' );
 		anspress()->add_action( 'wp_ajax_point_charge_button', 'AP_Point', 'point_charge_button' );
 
 	}
