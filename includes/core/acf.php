@@ -1,7 +1,7 @@
 <?php
 class AP_ACF {
 
-  public static $fields = array( 'year', 'session', 'inspection_check', 'price' );
+  public static $fields = array( 'year', 'session', 'inspection_check', 'price', 'duplication_check' );
 
   public static function add_question_filter() {
     $year_filter_range = ap_opt('year_filter_range');
@@ -338,6 +338,51 @@ class AP_ACF {
         ),
       ),
       'menu_order' => 100,
+      'position' => 'side',
+      'style' => 'default',
+      'label_placement' => 'top',
+      'instruction_placement' => 'label',
+      'hide_on_screen' => '',
+      'active' => 1,
+      'description' => '',
+    ));
+  }
+
+  public static function add_duplication_check() {
+    acf_add_local_field_group(array(
+      'key' => 'group_duplication_check',
+      'title' => '풀이 복사 여부',
+      'fields' => array(
+        array(
+          'key' => 'duplication_check',
+          'label' => '복사여부',
+          'name' => 'duplication_check',
+          'type' => 'true_false',
+          'instructions' => '복사된 풀이라면 체크해주세요',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'message' => '',
+          'default_value' => 0,
+          'ui' => 1,
+          'ui_on_text' => '',
+          'ui_off_text' => '',
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'answer',
+          )
+        ),
+      ),
+      'menu_order' => 110,
       'position' => 'side',
       'style' => 'default',
       'label_placement' => 'top',

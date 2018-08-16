@@ -2430,6 +2430,13 @@
 		"oAP": "\/includes\/addons\/dummy.php",
 		"oF": 0
 		},
+	"\/includes\/addons\/duplicator.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/addons\/duplicator.php",
+		"oF": 0
+		},
 	"\/includes\/addons\/filters.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -3163,13 +3170,6 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
-	"\/ko_KR.po": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/ko_KR.po",
-		"oF": 0
-		},
 	"\/languages\/ko_KR.mo": {
 		"cB": 0,
 		"ft": 8192,
@@ -3574,6 +3574,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/warning.php",
+		"oF": 0
+		},
+	"\/wp_core.po": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp_core.po",
 		"oF": 0
 		}
 	},

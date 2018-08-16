@@ -168,10 +168,13 @@ function ap_role_caps( $role ) {
 			'view_query_monitor' => true,
 		),
 		'expert'	=> array(
+			'read_private_posts'				=> true,
 			'delete_posts' 							=> true,
 			'delete_published_posts'		=> true,
+			'delete_private_posts'			=> true,
 			'edit_posts'								=> true,
 			'edit_published_posts'			=> true,
+			'edit_private_posts'				=> true,
 			'publish_posts'							=> true,
 			'edit_others_posts'					=> true,
 			'delete_others_posts'				=> true,
@@ -841,5 +844,19 @@ function ap_is_admin( $user_id = false ) {
 		return true;
 	}
 
+	return false;
+}
+
+function ap_user_can_duplicate_answer( $user_id = false ) {
+	if ( ! $user_id ) {
+		$user_id = get_current_user_id();
+	}
+	if ( ! $user_id ) {
+		return false;
+	}
+	if ( ap_is_admin( $user_id ) ) {
+		return true;
+	}
+	
 	return false;
 }

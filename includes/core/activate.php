@@ -88,6 +88,7 @@ class AP_Activate {
 			year smallint(20) DEFAULT 0,
 			session tinyint(1) DEFAULT 0,
 			inspection_check tinyint(1) DEFAULT 0,
+			duplication_check tinyint(1) DEFAULT 0,
 			price bigint(20) DEFAULT 0,
 			attach LONGTEXT DEFAULT NULL,
 			activities LONGTEXT DEFAULT NULL,

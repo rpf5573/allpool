@@ -90,6 +90,7 @@ class AP_Admin {
 		// filter
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_inspection_check', 10, 3 );
 		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Filters', 'save_inspection_check', 10, 3 );
+		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Filters', 'save_duplication_check', 10, 3 );
 
 		// expert category
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_question_by_expert_categories', -999, 2 );
@@ -115,6 +116,12 @@ class AP_Admin {
 
 		// point
 		anspress()->add_filter( 'mycred_after_core_prefs', 'AP_Point', 'mycred_after_general_setting' );
+
+		// duplicator
+		// anspress()->add_action( 'init', 'AP_Duplicator', 'register_dupliacted_post_status' );
+		// anspress()->add_action( 'admin_footer-post.php', 'AP_Duplicator', 'append_post_status_list' );
+		anspress()->add_filter( 'post_row_actions', 'AP_Duplicator', 'add_copy_answer_btn', 999, 2 );
+		anspress()->add_action( 'admin_action_ap_post_save_as_new_post', 'AP_Duplicator', 'post_save_as_new_post' );
 
 		// back to question
 		// anspress()->add_action( 'admin_notices', __CLASS__, 'back_to_question' );

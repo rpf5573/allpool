@@ -1889,7 +1889,7 @@ jQuery(document).ready(function () {
   if ( mobile_menu.length > 0 ) {
     mobile_menu.mmenu(
       {
-        "extensions": [
+        extensions: [
           "pagedim-black"
         ]
       },
@@ -4155,7 +4155,7 @@ jQuery(document).ready(function () {
   if ( mobile_menu.length > 0 ) {
     mobile_menu.mmenu(
       {
-        "extensions": [
+        extensions: [
           "pagedim-black"
         ]
       },

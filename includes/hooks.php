@@ -24,6 +24,7 @@ class AP_Hooks {
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_expert_categories' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_choices_answer' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_inspection_check' );
+		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_duplication_check' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_price' );
 
     // Register pages
@@ -74,7 +75,6 @@ class AP_Hooks {
     anspress()->add_action( 'ap_processed_update_question', 'AP_Filters', 'save_category', 0, 2 );
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_meta_from_front', 10, 3 );
 		// anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Filters', 'save_price', 10, 3 );
-	
 
     // Form hooks
     anspress()->add_action( 'ap_form_question', 'AP_Form_Hooks', 'question_form', 11 );
@@ -82,7 +82,6 @@ class AP_Hooks {
     anspress()->add_action( 'ap_form_image_upload', 'AP_Form_Hooks', 'image_upload_form', 11 );
 		anspress()->add_action( 'ap_form_contents_filter', 'AP_Form_Hooks', 'sanitize_description' );
 		
-
 		// Theme	hooks.
 		anspress()->add_action( 'after_setup_theme', 'AP_Theme', 'add_theme_supports' );
 		anspress()->add_action( 'after_setup_theme', 'AP_Theme', 'register_nav_menus' );
@@ -152,6 +151,9 @@ class AP_Hooks {
 		// Point hooks
 		anspress()->add_action( 'ap_before_answers', 'AP_Point', 'purchase_answers_button_modal' );
 		anspress()->add_filter( 'ap_answer_query_args', 'AP_Point', 'answers_query_args' );
+
+		// Duplicator hooks
+		anspress()->add_action( 'ap_qa_sql', 'AP_Duplicator', 'exclude_duplicated_answer', 13, 1 );
 
     // Ajax hooks - ajax == is_admin
 		if ( wp_doing_ajax() ) {

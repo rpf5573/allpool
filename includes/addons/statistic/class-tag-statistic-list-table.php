@@ -180,7 +180,7 @@ class AP_Tag_Statistic_List_Table extends AP_List_Table {
 						ON (posts.ID = term_relationships.object_id)
 						WHERE ( term_relationships.term_taxonomy_id = {$tag->term_id} )
 						AND posts.post_type = 'answer'
-						AND posts.post_status = 'publish'" ;
+						AND posts.post_status IN('publish','private')" ;
 
 		return $sql;
 	}

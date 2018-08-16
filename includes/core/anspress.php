@@ -225,6 +225,7 @@ class AnsPress {
     require_once ANSPRESS_DIR . 'includes/addons/profile.php';
 		require_once ANSPRESS_DIR . 'includes/addons/wishlist.php';
 		require_once ANSPRESS_DIR . 'includes/addons/analysis-keyword.php';
+		require_once ANSPRESS_DIR . 'includes/addons/duplicator.php';
 
 		if ( wp_doing_ajax() ) {
 			require_once ANSPRESS_DIR . 'includes/tools/ajax.php';
