@@ -4925,3 +4925,6 @@ span.MathJax + p {
 #ap_answers_meta_box .trash > a,
 #ap_answers_meta_box .delete > a {
   color: #a00; }
+
+#ap-copy-answer-btn {
+  color: blue; }

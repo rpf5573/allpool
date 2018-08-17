@@ -250,19 +250,6 @@ class AP_Filters {
 
     return $qameta;
   }
-
-  public static function save_duplication_check( $qameta, $post, $updated ) {
-    // insert question meta at admin
-    $acf = ap_isset_post_value( 'acf', false );
-    
-    if ( $acf ) {
-      if ( isset( $acf['duplication_check'] ) ) {
-        $qameta['duplication_check'] = (int)$acf['duplication_check'];
-      }
-    }
-
-    return $qameta;
-  }
   
 }
 

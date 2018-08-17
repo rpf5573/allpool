@@ -24,7 +24,6 @@ class AP_Hooks {
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_expert_categories' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_question_choices_answer' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_inspection_check' );
-		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_duplication_check' );
 		anspress()->add_action( 'after_setup_theme', 'AP_ACF', 'add_price' );
 
     // Register pages
@@ -151,9 +150,6 @@ class AP_Hooks {
 		// Point hooks
 		anspress()->add_action( 'ap_before_answers', 'AP_Point', 'purchase_answers_button_modal' );
 		anspress()->add_filter( 'ap_answer_query_args', 'AP_Point', 'answers_query_args' );
-
-		// Duplicator hooks
-		anspress()->add_action( 'ap_qa_sql', 'AP_Duplicator', 'exclude_duplicated_answer', 13, 1 );
 
     // Ajax hooks - ajax == is_admin
 		if ( wp_doing_ajax() ) {

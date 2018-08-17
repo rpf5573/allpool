@@ -1,7 +1,7 @@
 <?php
 class AP_Duplicator {
 
-  public static function add_copy_answer_btn( $actions = array(), $post ) {
+  public static function add_copy_answer_btn_on_row_actions( $actions = array(), $post ) {
 		if ( $post->post_type == 'answer' ) {
 			if ( ap_user_can_duplicate_answer() ) {
 				$link = AP_Duplicator::get_duplicate_post_link( $post , 'display' );
@@ -21,9 +21,7 @@ class AP_Duplicator {
 		if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'ap_post_save_as_new_post' == $_REQUEST['action'] ) ) ) {
 			wp_die( '알수없는 에러가 발생했습니다' );
     }
-    
-    \PC::debug( 'called', __FUNCTION__ );
-	
+  
 		// Get the original post
 		$id = (isset($_GET['post']) ? $_GET['post'] : $_POST['post']);
 		
@@ -34,25 +32,14 @@ class AP_Duplicator {
 		// Copy the post and insert it
 		if (isset($post) && $post!=null) {
       $new_id = AP_Duplicator::post_create_duplicate($post, $status);
-      wp_redirect( add_query_arg( array( 'cloned' => 1, 'ids' => $post->ID), admin_url( 'post.php?action=edit&post=' . $new_id ) ) );
+      if ( $new_id ) {
+        wp_redirect( add_query_arg( array( 'cloned' => 1, 'ids' => $post->ID), admin_url( 'post.php?action=edit&post=' . $new_id ) ) );
+      }
 			exit;
 		} else {
 			wp_die(esc_html__('Copy creation failed, could not find original:', 'duplicate-post') . ' ' . htmlspecialchars($id));
     }
 	}
-
-  // Register Custom Status
-  public static function register_dupliacted_post_status() {
-    $args = array(
-      'label'                     => '복사됨',
-      'label_count'               => _n_noop('복사됨 (%s)', '복사됨 (%s)'),
-      'internal'                  => true,
-      'show_in_admin_all_list'    => true,
-      'show_in_admin_status_list' => true,
-      'exclude_from_search'       => false,
-    );
-    register_post_status( 'duplicated', $args );
-  }
 
   public static function get_duplicate_post_link( $post = false, $context = 'display' ) {
     if ( ! ap_user_can_duplicate_answer() ) {
@@ -73,14 +60,14 @@ class AP_Duplicator {
   }
   
   public static function post_create_duplicate($post, $status = '', $parent_id = '') {
-    $new_post_status = (empty($status))? $post->post_status: $status;
-    $prefix = '[풀이 복사]';
-    $title = $post->post_title;
-  
-    if ($title == ''){
-      // empty title
-      $title = '제목없음';
+    if ( $post->post_type != 'answer' ) { 
+      return;
     }
+    $new_post_status = (empty($status))? $post->post_status: $status;
+    $title = $post->post_title;
+
+    \PC::debug( ['title' => $title], __FUNCTION__ );
+
     $new_post_status = 'private';
     $new_post_author = wp_get_current_user();
     $new_post_author_id = $new_post_author->ID;
@@ -116,31 +103,26 @@ class AP_Duplicator {
     return $new_post_id;
   }
 
-  public static function append_post_status_list() {
+  public static function add_copy_answer_btn_on_edit_page() {
     global $post;
-    $complete = '';
-    $label    = '';
-
-   if ( in_array( $post->post_type, [ 'question', 'answer' ], true ) ) {
-     if ( 'duplicated' === $post->post_status ) {
-        $complete = ' selected=\'selected\'';
-        $label    = "'복사됨'";
-     }
-
-     // @codingStandardsIgnoreStart
-     echo '<script>
-       jQuery(document).ready(function(){
-         jQuery("select#post_status").append("<option value=\'duplicated\' ' . $complete . '>복사됨</option>");
-         jQuery("#post-status-display").text( ' . $label . ' );
-       });
-     </script>';
-   }
+    if ( $post && $post->post_type == 'answer' ) {
+			if ( ap_user_can_duplicate_answer() ) {
+				$link = AP_Duplicator::get_duplicate_post_link( $post , 'display' );
+				if ( $link ) {
+					echo '<a id="ap-copy-answer-btn" class="wp-core-ui button" href="' . $link . '" title="">풀이 복사</a>';
+				}
+			}
+		}
   }
 
-  public static function exclude_duplicated_answer( $sql ) {
-    // $sql['where'] .= ' AND qameta.duplication_check != 1 ';
-    // \PC::debug( ['sql' => $sql], __FUNCTION__ );
-    return $sql;
+  public static function clone_notice() { 
+    if ( ap_isset_post_value( 'cloned', false ) ) { ?>
+      <div class="updated notice notice-success is-dismissible">
+        <p>
+          풀이가 복사되었습니다
+        </p>
+      </div> <?php
+    }
   }
 
 }
