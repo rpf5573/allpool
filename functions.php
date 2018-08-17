@@ -1093,6 +1093,10 @@ function ap_responce_message( $id, $only_message = false ) {
 			'type'    => 'warning',
 			'message' => __( 'You cannot vote on your own question or answer.', 'anspress-question-answer' ),
 		),
+		'cannot_vote_twice_in_question' => array(
+			'type' 		=> 'error',
+			'message' => '한질문 안에서 추천은 한번만 가능합니다'
+		),
 		'no_permission_to_view_private' => array(
 			'type'    => 'warning',
 			'message' => __( 'You do not have permission to view private posts.', 'anspress-question-answer' ),

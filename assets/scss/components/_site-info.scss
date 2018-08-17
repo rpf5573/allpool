@@ -7,6 +7,8 @@
   padding-right: 15px;
   border-top: 1px solid #e4e4e4;
   font-size: 80%;
+  padding-top: 6px;
+  padding-bottom: 6px;
   .site-info__links {
     & > ul {
       display: flex;
@@ -23,4 +25,16 @@
     color: theme-color('footer-site-info__etc');
   } 
 
+  .footer-menu {
+    display: flex;
+    .menu-item {
+      @include even(){
+        &:before {
+          content: "|";
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+    }
+  }
 }

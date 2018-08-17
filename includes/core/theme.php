@@ -39,6 +39,7 @@ class AP_Theme {
 		register_nav_menu( 'top', '데스크탑에서 보여지는 기본 메뉴입니다' );
     register_nav_menu( 'mobile-no-login', '모바일에서 로그인하지 않은 유저에게 보여지는 메뉴입니다' );
 		register_nav_menu( 'mobile-logged-in', '모바일에서 로그인한 유저에게 보여지는 메뉴입니다' );
+		register_nav_menu( 'footer', '페이지 하단에 보여지는 메뉴입니다. 개인정보 처리방침, 이용약관페이지를 넣어주세요!' );
 	}
 
 	public static function enqueue_scripts() {

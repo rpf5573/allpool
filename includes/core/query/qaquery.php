@@ -578,3 +578,21 @@ function ap_get_question_ids( $year, $session, $term_family ) {
 
 	return $ids;
 }
+
+function ap_get_answer_ids( $question_id ) {
+	global $wpdb;
+	$sql = "SELECT ID FROM {$wpdb->posts}
+					WHERE post_status = 'publish'
+					AND post_type = 'answer'
+					AND post_parent = {$question_id}";
+	
+	$results = $wpdb->get_results( $sql );
+	if ( ! $results ) {
+		return false;
+	} 
+	$answer_ids = array();
+	foreach( $results as $row ) {
+		$answer_ids[] = $row->ID;
+	}
+	return $answer_ids;
+}

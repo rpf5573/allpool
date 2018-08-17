@@ -5773,7 +5773,9 @@ form[apform] {
   padding-left: 15px;
   padding-right: 15px;
   border-top: 1px solid #e4e4e4;
-  font-size: 80%; }
+  font-size: 80%;
+  padding-top: 6px;
+  padding-bottom: 6px; }
   .site-info .site-info__links {
     margin-top: 2px;
     margin-bottom: 2px; }
@@ -5786,6 +5788,12 @@ form[apform] {
     display: flex;
     flex-direction: column;
     color: theme-color("footer-site-info__etc"); }
+  .site-info .footer-menu {
+    display: flex; }
+    .site-info .footer-menu .menu-item:nth-child(even):before {
+      content: "|";
+      padding-left: 6px;
+      padding-right: 6px; }
 
 .site-logo {
   max-width: 120px; }
@@ -6262,8 +6270,7 @@ form[apform] {
 
 .site-footer {
   flex-shrink: 0;
-  background-color: #EEF1F7;
-  height: 60px; }
+  background-color: #EEF1F7; }
 
 /*  Pages
 /* --------------------------------------------------- */

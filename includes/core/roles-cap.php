@@ -647,6 +647,14 @@ function ap_user_can_vote_on_post( $post_id, $type, $user_id = false, $wp_error 
 		$user_id = get_current_user_id();
 	}
 
+	if ( ! $user_id ) {
+		if ( $wp_error ) {
+			return new WP_Error( 'no_permission', '로그인이 필요합니다' );
+		} else {
+			return false;
+		}
+	}
+
 	$type   = 'vote_up' === $type ? 'vote_up' : 'vote_down';
 	$post_o = ap_get_post( $post_id );
 
@@ -658,15 +666,24 @@ function ap_user_can_vote_on_post( $post_id, $type, $user_id = false, $wp_error 
 		return false;
 	}
 
-	if ( user_can( $user_id, 'ap_' . $type ) ) {
-		return true;
+	if ( $post_o->post_type == 'answer' && $post_o->post_parent > 0 ) {
+		$answer_ids = ap_get_answer_ids( $post_o->post_parent );
+		if ( $answer_ids ) {
+			$votes = ap_get_votes( array(
+				'vote_post_id'	=> $answer_ids,
+				'vote_user_id'	=> $user_id
+			) );
+			if ( ! empty( $votes ) ) {
+				if ( $wp_error ) {
+					return new WP_Error( 'cannot_vote_twice_in_question', ap_responce_message( 'cannot_vote_twice_in_question', true ) );
+				} else {
+					return false;
+				}
+			}
+		}
 	}
 
-	if ( $wp_error ) {
-		return new WP_Error( 'no_permission', __( 'You do not have permission to vote.', 'anspress-question-answer' ) );
-	}
-
-	return false;
+	return true;
 }
 
 /**

@@ -644,6 +644,7 @@ class AP_Admin {
 
 		wp_redirect( admin_url( 'admin.php?page=anspress_options' ) );
 	}
+	
 
 	/**
 	 * Register all AnsPress options.

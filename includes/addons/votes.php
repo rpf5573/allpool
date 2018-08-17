@@ -25,7 +25,7 @@ class AP_Vote {
 		$post_id = (int) ap_sanitize_unslash( 'post_id', 'request' );
 
 		if ( ! ap_verify_nonce( 'vote_' . $post_id ) ) {
-				ap_ajax_json( 'something_wrong' );
+			ap_ajax_json( 'something_wrong' );
 		}
 
 		$type   = 'vote_up' === ap_sanitize_unslash( 'type', 'request' ) ? 'vote_up' : 'vote_down';
@@ -49,10 +49,8 @@ class AP_Vote {
 		$is_voted = ap_get_vote( $post_id, get_current_user_id(), 'vote' );
 
 		if ( false !== $is_voted ) {
-
 			// If user already voted and click that again then reverse.
 			if ( $is_voted->vote_value == $value ) { // loose comparison okay.
-
 				if ( ! ap_opt( 'allow_cancel_vote' ) ) {
 					ap_ajax_json(
 						array(
@@ -63,7 +61,6 @@ class AP_Vote {
 						)
 					);
 				}
-
 				$counts = ap_delete_post_vote( $post_id, $userid, 'vote_up' === $type );
 				ap_ajax_json(
 					array(
@@ -232,11 +229,11 @@ function ap_get_votes( $args = array() ) {
 	}
 
 	// Vote actors.
-	if ( isset( $args['vote_actor_id'] ) && ! empty( $args['vote_actor_id'] ) ) {
-		if ( is_array( $args['vote_actor_id'] ) ) {
-			$where .= ' AND vote_actor_id IN (' . sanitize_comma_delimited( $args['vote_actor_id'] ) . ')';
+	if ( isset( $args['vote_rec_user'] ) && ! empty( $args['vote_rec_user'] ) ) {
+		if ( is_array( $args['vote_rec_user'] ) ) {
+			$where .= ' AND vote_rec_user IN (' . sanitize_comma_delimited( $args['vote_rec_user'] ) . ')';
 		} else {
-			$where .= ' AND vote_actor_id = ' . (int) $args['vote_actor_id'];
+			$where .= ' AND vote_rec_user = ' . (int) $args['vote_rec_user'];
 		}
 	}
 
@@ -318,11 +315,11 @@ function ap_count_votes( $args ) {
 	}
 
 	// Vote actor id.
-	if ( isset( $args['vote_actor_id'] ) ) {
-		if ( is_array( $args['vote_actor_id'] ) ) {
-			$where .= ' AND vote_actor_id IN (' . sanitize_comma_delimited( $args['vote_actor_id'] ) . ')';
+	if ( isset( $args['vote_rec_user'] ) ) {
+		if ( is_array( $args['vote_rec_user'] ) ) {
+			$where .= ' AND vote_rec_user IN (' . sanitize_comma_delimited( $args['vote_rec_user'] ) . ')';
 		} else {
-			$where .= " AND vote_actor_id = '" . (int) $args['vote_actor_id'] . "'";
+			$where .= " AND vote_rec_user = '" . (int) $args['vote_rec_user'] . "'";
 		}
 	}
 
@@ -367,7 +364,7 @@ function ap_count_votes( $args ) {
  * @uses   ap_count_votes
  */
 function ap_count_post_votes_by( $by, $value ) {
-	$bys = [ 'post_id', 'user_id', 'actor_id' ];
+	$bys = [ 'post_id', 'user_id', 'rec_user' ];
 
 	if ( ! in_array( $by, $bys, true ) ) {
 		return false;
