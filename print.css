@@ -3,7 +3,7 @@ html {
   height: auto;
 }
 #page #masthead {
-  display: none;
+  display: none !important;
 }
 #page .site-footer {
   display: none;
