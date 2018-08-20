@@ -1273,7 +1273,7 @@ APjs.admin = function () {};
 			console.dir( expert_categories );
 			alert( expert_categories );
 			if ( expert_categories.length > 0 ) {
-				expert_categories.forEach(id => {
+				expert_categories.forEach(function(id){
 					checkboxes.each(function(){
 						if ( this.id == ('in-question_category-' + id ) || this.id == ('in-popular-question_category-' + id ) ) {
 							$(this).removeAttr('disabled');
