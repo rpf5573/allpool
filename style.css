@@ -6911,18 +6911,3 @@ ul.ap-actions {
         align-items: flex-end; }
       #ap-responsive .ap-user .ap-user-mobile-buttons .iamport_btn {
         margin-left: 0; } }
-
-@media print {
-  html, body {
-    background-color: yellow;
-    display: none; }
-  html {
-    background-color: green;
-    height: auto; }
-    html #masthead {
-      display: none; }
-    html .site-footer {
-      display: none; }
-    html #answer-form-c,
-    html .ap-minimal-editor {
-      display: none; } }

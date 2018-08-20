@@ -1,0 +1,13 @@
+html {
+  background-color: green;
+  height: auto;
+}
+#page #masthead {
+  display: none;
+}
+#page .site-footer {
+  display: none;
+}
+#page #answer-form-c, #page .ap-minimal-editor {
+  display: none;
+}

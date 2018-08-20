@@ -60,8 +60,10 @@ class AP_Theme {
 		wp_enqueue_style( 'mmenu', ANSPRESS_URL . 'assets/lib/mmenu/jquery.mmenu.all.css' );
   
     // Main
-    wp_enqueue_style( 'ap-main', get_stylesheet_uri() );
+		wp_enqueue_style( 'ap-main', get_stylesheet_uri() );
 		wp_enqueue_script( 'ap-main', ANSPRESS_URL . 'assets/js/main-min.js', [ 'jquery', 'jquery-form', 'backbone', 'underscore' ], '1.0', true );
+
+		wp_enqueue_style( 'ap-print', ANSPRESS_URL . 'print.css', array(), '1.0.0', 'print' );
 		
 		$aplang = array(
 			'loading'                => __( 'Loading..', 'anspress-question-answer' ),

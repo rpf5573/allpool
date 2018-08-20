@@ -1638,19 +1638,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/print.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/print.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/assets\/scss\/responsive.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -3197,6 +3184,16 @@
 		"oA": 0,
 		"oAP": "\/page.php",
 		"oF": 0
+		},
+	"\/print.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/print-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/README.html": {
 		"cB": 0,
