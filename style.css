@@ -6914,7 +6914,8 @@ ul.ap-actions {
 
 @media print {
   html, body {
-    background-color: yellow; }
+    background-color: yellow;
+    display: none; }
   html {
     background-color: green;
     height: auto; }
