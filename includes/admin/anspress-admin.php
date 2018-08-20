@@ -856,12 +856,18 @@ class AP_Admin {
 	public static function save_best_answer_selection($qameta, $question, $updated) {
 		if ( ap_is_admin_update( 'question' ) ) {
 			
+			$original_selected_id = (int) ap_get_post_field( 'selected_id', $question );
+			$selected_id = (int) ap_isset_post_value( 'selected_answer_id' );
+			if ( $original_selected_id == $selected_id ) {
+				\PC::debug( '나와 같다면...', __FUNCTION__ );
+				return $qameta;
+			}
+			
 			// Unselect best answer if already selected.
 			if ( ap_have_answer_selected( $question->ID ) ) {
 				ap_unset_selected_answer( $question->ID );
 			}
 
-			$selected_id = ap_isset_post_value( 'selected_answer_id' );			
 			if ( $selected_id ) {
 				$answer = get_post( $selected_id );
 				// Do not allow answer to be selected as best if status is moderate.
