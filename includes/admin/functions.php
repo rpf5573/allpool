@@ -70,6 +70,13 @@ function ap_is_admin_update( $post_type ) {
 	return false;
 }
 
+function ap_is_admin_publish( $post_type ) {
+	if ( is_admin() && isset( $_REQUEST['original_post_status'] ) && $_REQUEST['original_post_status'] == 'auto-draft' && isset( $_REQUEST['post_type'] ) && $_REQUEST['post_type'] == $post_type ) {
+		return true;
+	}
+	return false;
+}
+
 function ap_get_untrash_post_link( $post ) {
 	$post_type_object = get_post_type_object( $post->post_type );
 	$action = 'untrash';

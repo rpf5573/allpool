@@ -92,6 +92,7 @@ class AP_Admin {
 		anspress()->add_filter( 'ap_insert_answer_qameta', 'AP_Filters', 'save_inspection_check', 10, 3 );
 
 		// expert category
+		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_publish_answer_by_expert_categories', -999, 2 );
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_question_by_expert_categories', -999, 2 );
 		anspress()->add_action( 'pre_post_update', __CLASS__, 'prevent_edit_answer_by_expert_categories', -998, 2 );
 		anspress()->add_filter( 'ap_trash_question', __CLASS__, 'prevent_trash_question_by_expert_categories', -999, 2 );
@@ -826,6 +827,14 @@ class AP_Admin {
 			$args['checked_ontop'] = false;
 		}
 		return $args;
+	}
+
+	public static function prevent_publish_answer_by_expert_categories( $post_id, $data ) {
+		if ( ap_is_admin_publish( 'answer' ) ) {
+			if ( ! ap_user_can_edit_other_category_qa( $post_id ) ) {
+				wp_die( '해당 카테고리의 담당자가 아닙니다. 관리자에게 문의해주시기 바랍니다.' ,'STOP!' );
+			}
+		}
 	}
 
 	public static function prevent_edit_question_by_expert_categories( $post_id, $data ) {

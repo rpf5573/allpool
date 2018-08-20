@@ -86,6 +86,7 @@ class AP_Admin_Ajax {
 				'trashLink' 		=> esc_url_raw( get_delete_post_link() ),
 				'untrashLink'		=> esc_url_raw( ap_get_untrash_post_link( $post ) ),
 				'deleteLink'		=> esc_url_raw( get_delete_post_link( $post->ID, '', true ) ),
+				'cloneLink'			=> esc_url_raw( AP_Duplicator::get_duplicate_post_link( $post , 'display' ) ),
 				'status'    		=> esc_attr( $post->post_status ),
 				'status_label'	=> esc_attr( $wp_post_statuses[ $post->post_status ]->label ),
         'selected'  		=> ap_get_post_field( 'selected' ),

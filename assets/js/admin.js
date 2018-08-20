@@ -49,6 +49,7 @@
 					this.$el.find('.answer-actions > .edit').remove();
 					this.$el.find('.answer-actions > .trash').remove();
 					this.$el.find('.answer-actions > .select_answer').remove();
+					this.$el.find('.answer-actions > .clone').remove();
 				} else {
 					this.$el.find('.answer-actions > .delete').remove();
 					this.$el.find('.answer-actions > .untrash').remove();

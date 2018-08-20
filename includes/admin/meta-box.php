@@ -68,6 +68,7 @@ class AP_Question_Meta_Box {
 					<span class="trash vim-d vim-destructive"><a href="{{{trashLink}}}"><?php esc_attr_e( 'Trash', 'anspress-question-answer' ); ?></a></span>
 					<span class="untrash"><a href="{{{untrashLink}}}"><?php esc_attr_e( '복구', 'anspress-question-answer' ); ?></a></span>
 					<span class="delete"> | <a href="{{{deleteLink}}}"><?php esc_attr_e( '영구적으로 삭제', 'anspress-question-answer' ); ?></a></span>
+					<span class="clone"> | <a href="{{{cloneLink}}}">풀이 복사</a></span>
 					<div class="select_answer">
 						<label for="select_answer_checkbox_{{{ID}}}"> 채택 </label>
 						<input type="checkbox" class="select_answer_checkbox" id="select_answer_checkbox_{{{ID}}}" name="selected_answer_id" value="{{{ID}}}" {{{selected}}} onClick="select_answer(this);" />
