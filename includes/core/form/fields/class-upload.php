@@ -347,6 +347,9 @@ class Upload extends Field {
 		}
 
 		$this->value    = $this->uploaded_files;
+
+		\PC::debug( ['this->value' => $this->value], __FUNCTION__ );
+
 		$this->uploaded = true;
 	}
 
@@ -460,8 +463,9 @@ class Upload extends Field {
 		}
 
 		$sha           = sha1_file( $file['tmp_name'] );
+		$random 			 = rand(1, 100);
 		$user_id       = get_current_user_id();
-		$new_file_name = "{$sha}_$user_id.$ext";
+		$new_file_name = "{$sha}_{$random}_$user_id.$ext";
 		$new_file      = $temp_dir . "$new_file_name";
 
 		$move_new_file = move_uploaded_file( $file['tmp_name'], $new_file );

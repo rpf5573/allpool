@@ -114,7 +114,7 @@ msgstr "댓글이 성공적으로 업데이트 되었습니다."
 
 #: functions.php:1106
 msgid "You cannot vote on your own question or answer."
-msgstr "자신의 답변에는 좋아요를 누를 수 없습니다."
+msgstr "자신의 답변에는 추천를 누를 수 없습니다."
 
 #: functions.php:1110
 msgid "You do not have permission to view private posts."
@@ -413,11 +413,11 @@ msgstr "베스트 답변 채택 취소"
 #: includes/addons/reputation/mycred-hooks.php:481
 #: includes/addons/reputation/reputation.php:72
 msgid "Vote up"
-msgstr "좋아요"
+msgstr "추천"
 
 #: includes/addons/reputation/mycred-hooks.php:503
 msgid "Undo vote up"
-msgstr "좋아요 철회"
+msgstr "추천 철회"
 
 #: includes/addons/reputation/mycred-hooks.php:572
 #: includes/addons/reputation/reputation.php:77
@@ -480,7 +480,7 @@ msgstr "유저가 단 답변이 베스트 답변으로 채택되거나 철회되
 
 #: includes/addons/reputation/reputation.php:73
 msgid "Points awarded when question or answer get vote up from other user"
-msgstr "유저가 올린 질문이 좋아요를 받을 때 얻는 포인트"
+msgstr "유저가 올린 질문이 추천를 받을 때 얻는 포인트"
 
 #: includes/addons/reputation/reputation.php:78
 msgid "Points awarded when question or answer get vote down from other user"

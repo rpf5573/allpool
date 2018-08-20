@@ -1,4 +1,4 @@
-window.redirect_wait_time = 10;
+window.redirect_wait_time = 100;
 
 /**
  * Common AnsPress functions and constructor.
@@ -2264,7 +2264,7 @@ jQuery(document).ready(function () {
 
 });
 
-window.redirect_wait_time = 10;
+window.redirect_wait_time = 100;
 
 /**
  * Common AnsPress functions and constructor.

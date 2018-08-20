@@ -172,7 +172,6 @@ class AP_Form_Hooks {
 	 */
 	public static function submit_question_form( $manual = false ) {
 		$editing = false;
-
 		$form    = anspress()->get_form( 'question' );
 
 		/**

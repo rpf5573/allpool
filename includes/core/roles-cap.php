@@ -361,16 +361,28 @@ function ap_user_can_edit_post( $post = null, $user_id = false, $wp_error = fals
 
 	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
 		// select best answer or got votes
-		if ( $type == 'question' && ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
-			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 질문을 수정할 수 없습니다', 'anspress-question-answer' ) );
+		if ( $type == 'question' ) {
+			
+			if ( ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
+				if ( $wp_error ) {
+					return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 추천를 받은 경우 질문을 수정할 수 없습니다', 'anspress-question-answer' ) );
+				}
+				return false;
 			}
-			return false;
+
+			$answer_ids = ap_get_answer_ids( $_post->ID );
+			if ( ! empty( $answer_ids ) ) {
+				if ( $wp_error ) {
+					return new WP_Error( 'you_cannot_edit_question', '답변이 달린 질문은 수정할 수 없습니다' );
+				}
+				return false;
+			}
+
 		}
 		// selected as best answer or got votes
 		if ( $type == 'answer' && ( $_post->selected || $_post->votes_net > 0 ) ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 추천를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
 			}
 			return false;
 		}
@@ -418,7 +430,15 @@ function ap_user_can_edit_question( $post_id = false, $user_id = false, $wp_erro
 		// select best answer or got votes
 		if ( $question->selected_id > 0 || $question->votes_net > 0 ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 질문을 수정할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 추천를 받은 경우 질문을 수정할 수 없습니다', 'anspress-question-answer' ) );
+			}
+			return false;
+		}
+
+		$answer_ids = ap_get_answer_ids( $question->ID );
+		if ( ! empty( $answer_ids ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_question', '답변이 달린 질문은 수정할 수 없습니다' );
 			}
 			return false;
 		}
@@ -457,7 +477,7 @@ function ap_user_can_edit_answer( $post_id, $user_id = false, $wp_error = false 
 		// select best answer or got votes
 		if ( $answer->selected > 0 || $answer->votes_net > 0 ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 좋아요를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 추천를 받은 경우 답변을 수정할 수 없습니다', 'anspress-question-answer' ) );
 			}
 			return false;
 		}
@@ -491,17 +511,26 @@ function ap_user_can_permanent_delete( $post = null, $user_id = false, $wp_error
 	$type = $_post->post_type;
 
 	if ( ( ! empty( $_post->post_author ) ) && ( $user_id == $_post->post_author ) ) { // loose comparison ok.
-		// select best answer or got votes
-		if ( $type == 'question' && ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
+
+		if ( ( $_post->selected_id > 0 || $_post->votes_net > 0 ) ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 좋아요를 받은 경우 질문을 삭제할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_question', __( '베스트 답변을 선택했거나 추천를 받은 경우 질문을 삭제할 수 없습니다', 'anspress-question-answer' ) );
 			}
 			return false;
 		}
+
+		$answer_ids = ap_get_answer_ids( $_post->ID );
+		if ( ! empty( $answer_ids ) ) {
+			if ( $wp_error ) {
+				return new WP_Error( 'you_cannot_edit_question', '답변이 달린 질문은 삭제할 수 없습니다' );
+			}
+			return false;
+		}
+
 		// selected as best answer or got votes
 		if ( $type == 'answer' && ( $_post->selected || $_post->votes_net > 0 ) ) {
 			if ( $wp_error ) {
-				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 좋아요를 받은 경우 답변을 삭제할 수 없습니다', 'anspress-question-answer' ) );
+				return new WP_Error( 'you_cannot_edit_answer', __( '베스트 답변으로 채택되었거나 추천를 받은 경우 답변을 삭제할 수 없습니다', 'anspress-question-answer' ) );
 			}
 			return false;
 		}

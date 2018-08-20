@@ -632,8 +632,6 @@ class Validate {
 		$have_error = false;
 		$is_numeric = wp_is_numeric_array( $value );
 
-		
-
 		if ( true === $args['multiple'] && $is_numeric ) {
 			foreach ( $value as $key => $file ) {
 				if ( $file['size'] > ap_opt( 'max_upload_size' ) ) {
@@ -748,6 +746,27 @@ class Validate {
 						$max
 					)
 				);
+			}
+		}
+	}
+
+	public static function validate_wealth( $field ) {
+		$user_id = get_current_user_id();
+		if ( $user_id ) {
+			$value = (int)$field->sanitized_value;
+			$point = ap_get_user_point( $user_id );
+
+			if ( isset( $_REQUEST['form_question'] ) && isset( $_REQUEST['form_question']['post_id'] ) && (int)$_REQUEST['form_question']['post_id'] > 0 ) {
+				$question_id = (int)$_REQUEST['form_question']['post_id'];
+				\PC::debug( ['updated' => $question_id], __FUNCTION__ );
+				$original_price = (int) ap_get_post_field( 'price', $question_id );
+				$point += $original_price;
+			}
+
+			\PC::debug( ['업데이트를 고려한 포인트' => $point], __FUNCTION__ );
+
+			if ( $value > 0 && $point < $value ) {
+				$field->add_error( 'price', '보유한 포인트보다 더 높게 설정할 수 없습니다. 마이페이지에서 포인트를 충전해주세요' );
 			}
 		}
 	}

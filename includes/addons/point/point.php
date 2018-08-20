@@ -5,7 +5,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require_once( 'iamport/iamportPaymentPlugin.php' );
+// require_once( 'iamport/iamportPaymentPlugin.php' );
 
 /**
  * Reputation hooks.
@@ -15,10 +15,13 @@ class AP_Point extends \AnsPress\Singleton {
 	public static $mycred_type = 'mycred_point';
 
 	public static $mycred_entry = array(
-		'purchase_answers' 	=> '답변 구매',
-		'point_charge'			=> '포인트 충전',
-		'best_answer'				=> '내가 올린 답변이 채택됨',
-		'vote_up_answer'		=> '추천을 받음'
+		'ask_question'					=> '질문 생성',
+		'edit_question_point'   => '질문 포인트 수정',
+		'purchase_answers' 			=> '답변 구매',
+		'point_charge'					=> '포인트 충전',
+		'best_answer'						=> '내가 올린 답변이 채택됨',
+		'vote_up_answer'				=> '추천을 받음',
+		'delete_question'				=> '질문 삭제(포인트 회수)'
 	);
 
 	/**
@@ -60,7 +63,7 @@ class AP_Point extends \AnsPress\Singleton {
 
 	public static function install_iamport() {
 		if ( class_exists( 'IamportPaymentPlugin' ) ) {
-			IamportPaymentPlugin::iamport_activated();
+			// IamportPaymentPlugin::iamport_activated();
 		}
 	}
 
@@ -259,9 +262,15 @@ class AP_Point extends \AnsPress\Singleton {
 		}
 	}
 
-	public static function mycred_after_general_setting() {
-		
+	public static function recover_point_after_delete_empty_question( $post_id ) {
+		$answer_ids = ap_get_answer_ids( $post_id );
+		$post = ap_get_post( $post_id );
+		if ( ! $answer_ids && (int)$post->price > 0 ) {
+			ap_update_user_point( 'delete_question', (int)$post->post_author, (int)$post->price );
+		}
 	}
+
+	public static function mycred_after_general_setting() {}
 	
 }
 
@@ -272,6 +281,15 @@ function ap_get_point_icon_class( $log_entry ) {
 	
 	$icon_class = 'apicon-';
 	switch( $log_entry->ref ) {
+		case 'delete_question';
+			$icon_class .= 'question ask undo';
+		break;
+		case 'edit_question_point':
+			$icon_class = 'fas fa-edit edit_question_point';
+		break;
+		case 'ask_question':
+			$icon_class .= 'question ask';
+		break;
 		case 'purchase_answers':
 			$icon_class = 'fas fa-cart-plus purchase-answers';
 		break;
@@ -286,7 +304,7 @@ function ap_get_point_icon_class( $log_entry ) {
 		break;
 		case 'best_answer':
 			$icon_class .= 'check best_answer';
-			break;
+		break;
 		case 'manual':
 			$icon_class = 'fas fa-balance-scale manual';
 		break;
@@ -311,7 +329,7 @@ function ap_point_ref_content( $log_entry ) {
 }
 
 function ap_get_user_point( $user_id ) {
-	return mycred_get_users_balance( $user_id, AP_Point::$mycred_type );
+	return (int) mycred_get_users_balance( $user_id, AP_Point::$mycred_type );
 }
 
 function ap_update_user_point( $ref, $user_id, $point, $post_id = null ) {

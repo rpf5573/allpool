@@ -150,6 +150,7 @@ class AP_Hooks {
 		// Point hooks
 		anspress()->add_action( 'ap_before_answers', 'AP_Point', 'purchase_answers_button_modal' );
 		anspress()->add_filter( 'ap_answer_query_args', 'AP_Point', 'answers_query_args' );
+		anspress()->add_action( 'ap_wp_trash_question', 'AP_Point', 'recover_point_after_delete_empty_question' );
 
     // Ajax hooks - ajax == is_admin
 		if ( wp_doing_ajax() ) {

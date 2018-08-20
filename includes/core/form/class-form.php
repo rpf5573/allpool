@@ -466,8 +466,6 @@ class Form {
 			$fields = $this->fields;
 		}
 
-		
-
 		foreach ( (array) $fields as $field ) {
 			$field->pre_get();
 			$values[ $field->original_name ] = [ 'value' => $field->value() ];

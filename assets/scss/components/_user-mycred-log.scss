@@ -7,8 +7,12 @@
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
+    td {
+      display: block;
+    }
     .col-icon {
       flex-basis: 50px;
+      width: 50px;
       i{
         display: flex;
         justify-content: center;
@@ -36,11 +40,8 @@
         }
       }
     }
-    .col-date {
-
-    }
-    .col-creds {
-    }
+    .col-date {}
+    .col-creds {}
   }
 
   &.ap-user-point-log .ap-user-point-log-item .col-creds > span {

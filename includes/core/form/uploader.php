@@ -163,8 +163,6 @@ class AP_Uploader {
 	public static function image_upload() {
 		$form = anspress()->get_form( 'image_upload' );
 
-		 
-
 		// Check if user have permission to upload tem image.
 		if ( ! ap_user_can_upload() ) {
 			ap_send_json( array(

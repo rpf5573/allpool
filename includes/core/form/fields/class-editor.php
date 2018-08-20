@@ -202,8 +202,7 @@ class Editor extends Field {
 	 * @return string Updated `img` tag.
 	 */
 	public function image_process( $matches ) {
-		
-
+	
 		if ( false === strpos( $matches[1], 'anspress-temp/' ) ) {
 			return $matches[0];
 		}
@@ -219,8 +218,6 @@ class Editor extends Field {
 			// get image width
 			preg_match('/width.*?\"([0-9]*?)\"/i', $matches[1], $width);
 
-			
-
 			if ( count($width) > 1 && (int)$width[1] > 0 ) {
 				$img['width'] = (int) $width[1];
 			} else {
@@ -229,8 +226,6 @@ class Editor extends Field {
 
 			// get image height
 			preg_match('/height.*?\"([0-9]*?)\"/i', $matches[1], $height);
-
-			
 
 			if ( count($height) > 1 && (int)$height[1] > 0 ) {
 				$img['height'] = (int) $height[1];
@@ -301,6 +296,8 @@ class Editor extends Field {
 				return;
 			}
 		}
+
+		\PC::debug( ['value' => $value], __FUNCTION__ );
 
 		$this->value = preg_replace_callback( "/<img[^<]*src=([^<>]+)\/>/i", [ $this, 'image_process' ], $value );
 		// $this->value = preg_replace_callback( '/<img\s+src="([^"]+)"[^>]+>/i', [ $this, 'image_process' ], $value );

@@ -185,7 +185,7 @@ function ap_reputation_ref_content( $log_entry ) {
 		$post = get_post( $log_entry->ref_id );
 		
 		echo '<a class="ap-user-reputation-log-ref ap-user-mycred-log-ref" href="' . esc_url( ap_get_short_link( [ 'ap_p' => $log_entry->ref_id ] ) ) . '">';
-		if ( ! empty( $post->post_title ) ) {
+		if ( ! empty( $post->post_title ) && $post->post_type != 'answer' ) {
 			echo '<strong>' . esc_html( $post->post_title ) . '</strong>';
 		}
 		if ( ! empty( $post->post_content ) ) {

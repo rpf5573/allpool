@@ -4829,6 +4829,9 @@ i.purchase-answers {
 i.point-charge {
   background-color: #e91e63; }
 
+i.edit_question_point {
+  background-color: #0ca678; }
+
 /* ------------------------------------------------------------------------- *
  *  Base
 /* ------------------------------------------------------------------------- */
@@ -6188,8 +6191,11 @@ form[apform] {
   padding-top: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid #ddd; }
+  .ap-user-mycred-log .ap-user-mycred-log-item td {
+    display: block; }
   .ap-user-mycred-log .ap-user-mycred-log-item .col-icon {
-    flex-basis: 50px; }
+    flex-basis: 50px;
+    width: 50px; }
     .ap-user-mycred-log .ap-user-mycred-log-item .col-icon i {
       display: flex;
       justify-content: center;

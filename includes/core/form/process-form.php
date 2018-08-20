@@ -97,6 +97,8 @@ class AP_Process_Form {
 	public function process_form() {
 		$action = sanitize_text_field( $_POST['ap_form_action'] );
 
+		\PC::debug( ['action' => $action], __FUNCTION__ );
+
 		/**
 		 * ACTION: ap_process_form_[action]
 		 * process form
