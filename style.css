@@ -5091,6 +5091,8 @@ a.no-style {
   background-color: #2c3e50; }
 
 .print-btn {
+  display: inline-block;
+  float: right;
   width: 32px;
   height: 32px;
   cursor: pointer; }
