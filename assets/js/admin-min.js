@@ -1149,9 +1149,7 @@ APjs.admin = function () {};
 							}
 
 							// append yas table to right
-							group_table_container.css({
-								'width' 	: '200%',
-							});
+							group_table_container.addClass('width-double');
 							group_table_container.append( response );
 
 							var yas_form = $('.list-table-form.yas');
@@ -1173,7 +1171,7 @@ APjs.admin = function () {};
 							setTimeout( function(){
 								loading.out();
 								scrollFromLeft(yas_form.offset().left);
-							}, 1000 );
+							}, 300 );
 
 							$(".ap-list-table.yas").floatThead({
 								position: 'absolute',

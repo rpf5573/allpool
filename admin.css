@@ -4897,6 +4897,11 @@ span.recount-msg {
   .statistic-table-container.--tag .list-table-form .ap-list-table th#answers {
     width: 30%; }
 
+.width-double {
+  width: 200%; }
+  .width-double > .statistic-table-container {
+    width: 50%; }
+
 p + span.MathJax,
 span.MathJax + p {
   display: inline-block; }
@@ -4928,3 +4933,6 @@ span.MathJax + p {
 
 #ap-copy-answer-btn {
   color: blue; }
+
+.ap-q-content img {
+  max-width: 100%; }

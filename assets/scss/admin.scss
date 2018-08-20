@@ -1658,6 +1658,13 @@ span.recount-msg {
   }
 }
 
+.width-double {
+  width: 200%;
+  & > .statistic-table-container {
+    width: 50%;
+  }
+}
+
 p + span.MathJax,
 span.MathJax + p {
   display: inline-block;
@@ -1696,4 +1703,8 @@ span.MathJax + p {
 
 #ap-copy-answer-btn {
   color: blue;
+}
+
+.ap-q-content img {
+  max-width: 100%;
 }

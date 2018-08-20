@@ -154,6 +154,20 @@ function ap_get_question_price( $question_id = null ) {
 /*  Answer
 /* --------------------------------------------------- */
 
+function ap_answers_the_pagination_in_profile( $paged = false ) {
+	if ( is_front_page() ) {
+		$paged = get_query_var( 'page' );
+	} elseif ( get_query_var( 'ap_paged' ) ) {
+		$paged = get_query_var( 'ap_paged' );
+	} elseif ( get_query_var( 'paged' ) ) {
+		$paged = get_query_var( 'paged' );
+	}
+	
+	
+
+	ap_pagination( $paged, anspress()->answers->max_num_pages );
+}
+
 /**
  * Return total published answer count.
  *

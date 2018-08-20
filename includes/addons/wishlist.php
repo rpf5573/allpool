@@ -119,6 +119,7 @@ class AP_Wishlist extends \AnsPress\Singleton {
 			$args = array(
 				'post__in' => $wishlist,
 				'ap_current_user_ignore' => true,
+				'showposts'           => 10
 			);
 			anspress()->questions = new \Question_Query( $args );	
 		}

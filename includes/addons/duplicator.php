@@ -2,7 +2,8 @@
 class AP_Duplicator {
 
   public static function add_copy_answer_btn_on_row_actions( $actions = array(), $post ) {
-		if ( $post->post_type == 'answer' ) {
+    
+		if ( $post->post_type == 'answer' && $post->post_status == 'publish' ) {
 			if ( ap_user_can_duplicate_answer() ) {
 				$link = AP_Duplicator::get_duplicate_post_link( $post , 'display' );
 				if ( $link ) {
@@ -105,7 +106,8 @@ class AP_Duplicator {
 
   public static function add_copy_answer_btn_on_edit_page() {
     global $post;
-    if ( $post && $post->post_type == 'answer' ) {
+    // publish means not trash or private!
+    if ( $post && $post->post_type == 'answer' && $post->post_status == 'publish' ) {
 			if ( ap_user_can_duplicate_answer() ) {
 				$link = AP_Duplicator::get_duplicate_post_link( $post , 'display' );
 				if ( $link ) {

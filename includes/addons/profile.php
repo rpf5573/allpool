@@ -266,6 +266,7 @@ class AP_Profile extends \AnsPress\Singleton {
 		$user_id                        = ap_current_user_id();
 		$args['ap_current_user_ignore'] = true;
 		$args['author']                 = $user_id;
+		$args['showposts']              = 10;
 
 		/**
 		* Filter authors question list args
@@ -286,16 +287,10 @@ class AP_Profile extends \AnsPress\Singleton {
 		global $answers;
 
 		$user_id = ap_current_user_id();
-
 		$args['ap_current_user_ignore'] = true;
 		$args['ignore_selected_answer'] = true;
 		$args['showposts']              = 10;
 		$args['author']                 = $user_id;
-
-		/*
-		if ( false !== $paged ) {
-			$args['paged'] = $paged;
-		}*/
 
 		/**
 		 * Filter authors question list args
