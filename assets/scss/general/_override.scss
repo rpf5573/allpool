@@ -75,4 +75,7 @@
   -moz-appearance: none; /* FF */
   -ms-appearance: none; /* Edge */
   appearance: none; /* Future */
+  &::-ms-expand {
+    display: none;
+  }
 }

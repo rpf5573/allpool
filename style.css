@@ -4996,6 +4996,8 @@ a.no-style {
   /* Edge */
   appearance: none;
   /* Future */ }
+  .iamport-modal select::-ms-expand {
+    display: none; }
 
 /*  Components
 /* --------------------------------------------------- */
