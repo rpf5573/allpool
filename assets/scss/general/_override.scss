@@ -65,3 +65,14 @@
   display: inline-block;
   margin-right: 15px;
 }
+
+
+/* ------------------------------------------------------------------------- *
+ *  Iamport
+/* ------------------------------------------------------------------------- */
+.iamport-modal select {
+  -webkit-appearance: none; /* Webkit */
+  -moz-appearance: none; /* FF */
+  -ms-appearance: none; /* Edge */
+  appearance: none; /* Future */
+}
