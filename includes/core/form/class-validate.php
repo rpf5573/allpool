@@ -758,12 +758,12 @@ class Validate {
 
 			if ( isset( $_REQUEST['form_question'] ) && isset( $_REQUEST['form_question']['post_id'] ) && (int)$_REQUEST['form_question']['post_id'] > 0 ) {
 				$question_id = (int)$_REQUEST['form_question']['post_id'];
-				\PC::debug( ['updated' => $question_id], __FUNCTION__ );
+				
 				$original_price = (int) ap_get_post_field( 'price', $question_id );
 				$point += $original_price;
 			}
 
-			\PC::debug( ['업데이트를 고려한 포인트' => $point], __FUNCTION__ );
+			
 
 			if ( $value > 0 && $point < $value ) {
 				$field->add_error( 'price', '보유한 포인트보다 더 높게 설정할 수 없습니다. 마이페이지에서 포인트를 충전해주세요' );

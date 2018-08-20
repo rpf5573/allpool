@@ -1270,14 +1270,17 @@ APjs.admin = function () {};
 		var checkboxes = $('#taxonomy-question_category li input[type=checkbox]');
 		if ( checkboxes.length > 0 ) {
 			checkboxes.attr('disabled', 'true');
-			expert_categories = Object.values( expert_categories );
-			expert_categories.forEach(id => {
-				checkboxes.each(function(){
-					if ( this.id == ('in-question_category-' + id ) || this.id == ('in-popular-question_category-' + id ) ) {
-						$(this).removeAttr('disabled');
-					}
+			// expert_categories = Object.values( expert_categories );
+			console.dir( expert_categories );
+			if ( expert_categories.length > 0 ) {
+				expert_categories.forEach(id => {
+					checkboxes.each(function(){
+						if ( this.id == ('in-question_category-' + id ) || this.id == ('in-popular-question_category-' + id ) ) {
+							$(this).removeAttr('disabled');
+						}
+					});
 				});
-			});
+			}
 		}
 	}
 })(jQuery);

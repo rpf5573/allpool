@@ -469,7 +469,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 	public function get_link( $type, $filter, $term, $count ) {
 		$url = esc_url( admin_url( "edit.php?post_type={$type}&term_filter={$filter}&term_id={$term->term_id}&term_name={$term->name}" ) );
-		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+		$link = "<a href='" . $url . "'>" . $count . "</a>";
 		return $link;
 	}
 

@@ -169,7 +169,6 @@
 			return ;
 		}
 
-
 		this.$loadingTitle.css({
 			color: 		this.set.titleColor,
 			fontSize: 	this.set.titleFontSize,
@@ -263,8 +262,7 @@
 		var y2 = loadingHeight >>> 1;
 		var top = y1 - y2;
 
-		this.$modalLoading.css({ top, left });
-
+		this.$modalLoading.css({ 'top' : top, 'left' : left });
 	}
 
 	/**

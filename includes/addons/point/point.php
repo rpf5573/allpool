@@ -227,13 +227,11 @@ class AP_Point extends \AnsPress\Singleton {
 		}
 	}
 
-	public static function after_charge_point( $iamport_result ) {
-		if ( $iamport_result->success ) {
-			$user_id = get_current_user_id();
-			if ( $iamport_result->data->status == 'paid' && $iamport_result->data->amount > 0 && $user_id ) {
-				$point = (int)($iamport_result->data->amount);
-				ap_update_user_point( 'point_charge', $user_id, $point );
-			}
+	public static function after_charge_point( $ready, $order_status, $order, $result ) {
+		$user_id = get_current_user_id();
+		if ( $result->__get('status') == 'paid' && $result->__get('amount') > 0 && $user_id ) {
+			$point = (int)($result->__get('amount'));
+			ap_update_user_point( 'point_charge', $user_id, $point );
 		}
 	}
 

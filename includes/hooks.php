@@ -129,7 +129,7 @@ class AP_Hooks {
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Point', 'register_hooks', 999, 2 );
 		anspress()->add_filter( 'ap_user_mycred_creds', 'AP_Point', 'mycred_creds', 11 );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Point', 'ap_user_pages' );
-		anspress()->add_action( 'after_iamport_payment', 'AP_Point', 'after_charge_point' );
+		anspress()->add_action( 'iamport_button_order_status_changed', 'AP_Point', 'after_charge_point', 999, 4 );
 		anspress()->add_action( 'ap_vote_up', 'AP_Point', 'after_vote_up', 10, 2 );
 		anspress()->add_action( 'ap_select_answer', 'AP_Point', 'after_select_answer', 10, 2 );
 

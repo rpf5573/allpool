@@ -66,7 +66,7 @@ class AP_Duplicator {
     $new_post_status = (empty($status))? $post->post_status: $status;
     $title = $post->post_title;
 
-    \PC::debug( ['title' => $title], __FUNCTION__ );
+    
 
     $new_post_status = 'private';
     $new_post_author = wp_get_current_user();

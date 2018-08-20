@@ -297,7 +297,7 @@ class Editor extends Field {
 			}
 		}
 
-		\PC::debug( ['value' => $value], __FUNCTION__ );
+		
 
 		$this->value = preg_replace_callback( "/<img[^<]*src=([^<>]+)\/>/i", [ $this, 'image_process' ], $value );
 		// $this->value = preg_replace_callback( '/<img\s+src="([^"]+)"[^>]+>/i', [ $this, 'image_process' ], $value );

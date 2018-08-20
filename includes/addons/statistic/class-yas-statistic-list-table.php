@@ -314,7 +314,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 
 	public function get_link( $type, $filter, $year, $session, $count ) {
 		$url = esc_url( admin_url( "edit.php?post_type={$type}&yas_filter={$filter}&ap_year={$year}&ap_session={$session}&term_id={$this->term_id}&term_name={$this->term_name}" ) );
-		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
+		$link = "<a href='" . $url . "'>" . $count . "</a>";
 		return $link;
 	}
 

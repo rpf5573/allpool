@@ -348,7 +348,7 @@ class Upload extends Field {
 
 		$this->value    = $this->uploaded_files;
 
-		\PC::debug( ['this->value' => $this->value], __FUNCTION__ );
+		
 
 		$this->uploaded = true;
 	}
