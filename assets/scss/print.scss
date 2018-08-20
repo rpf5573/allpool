@@ -1,4 +1,7 @@
 @media print{
+  html,body {
+    background-color: yellow;
+  }
   html {
     background-color: green;
     height: auto;
