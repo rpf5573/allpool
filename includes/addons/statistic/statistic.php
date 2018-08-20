@@ -88,7 +88,7 @@ class AP_Statistic {
     $statistic_list_table = new AP_Tag_Statistic_List_Table();
     //Fetch, prepare, sort, and filter our data...
 		$statistic_list_table->prepare_items();	?>
-    <div class="statistic-table-container --tag statistic-table-container--tag">
+    <div class="statistic-table-container --tag w40">
 			<div class="statistic-title">
 				<h1> 태그별 통계 </h1>
 			</div>
