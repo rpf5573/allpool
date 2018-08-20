@@ -6914,6 +6914,7 @@ ul.ap-actions {
 
 @media print {
   html {
+    background-color: green;
     height: auto; }
     html #masthead {
       display: none; }
