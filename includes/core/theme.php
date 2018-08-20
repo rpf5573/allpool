@@ -954,3 +954,8 @@ function ap_page_class() {
   }
   echo $class;
 }
+
+function ap_print_icon() { 
+	$url = ANSPRESS_URL . 'assets/images/print-icon.png'; ?>
+	<a href="javascript:window.print()" class="print-btn"> <img src="<?php echo $url; ?>" alt=""> </a> <?
+}

@@ -470,6 +470,17 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/assets\/images\/print-icon.png": {
+		"ft": 32768,
+		"iS": 4011,
+		"oA": 0,
+		"oAP": "\/assets\/images\/print-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/assets\/images\/q-icon.png": {
 		"ft": 32768,
 		"iS": 3950,
@@ -3184,6 +3195,16 @@
 		"oA": 0,
 		"oAP": "\/page.php",
 		"oF": 0
+		},
+	"\/print-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/print-min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/print.css": {
 		"aP": 1,

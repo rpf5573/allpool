@@ -17,7 +17,8 @@
 ?>
 <div id="ap-single" class="ap-q clearfix">
 	<div class="ap-question-lr ap-row" itemtype="https://schema.org/Question" itemscope="">
-		<?php echo do_shortcode( '[print-me target="html"]' ); ?>
+		<?php //echo do_shortcode( '[print-me target="html"]' ); 
+		ap_print_icon(); ?>
 		<div class="ap-q-left <?php echo ( is_active_sidebar( 'ap-qsidebar' ) ) ? 'ap-col-8' : 'ap-col-12'; ?>">
 			<?php
 				/**
