@@ -3028,6 +3028,13 @@
 		"oAP": "\/includes\/core\/form\/uploader.php",
 		"oF": 0
 		},
+	"\/includes\/core\/installer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/includes\/core\/installer.php",
+		"oF": 0
+		},
 	"\/includes\/core\/options.php": {
 		"cB": 0,
 		"ft": 8192,

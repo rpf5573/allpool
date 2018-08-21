@@ -859,7 +859,7 @@ class AP_Admin {
 			$original_selected_id = (int) ap_get_post_field( 'selected_id', $question );
 			$selected_id = (int) ap_isset_post_value( 'selected_answer_id' );
 			if ( $original_selected_id == $selected_id ) {
-				\PC::debug( '나와 같다면...', __FUNCTION__ );
+				
 				return $qameta;
 			}
 			
