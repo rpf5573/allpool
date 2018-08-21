@@ -1503,8 +1503,8 @@ function is_edit_page($new_edit = null){
 			return in_array( $pagenow, array( 'post.php', 'post-new.php' ) );
 }
 
-function ap_get_term_family( $term_id ) {
-	$term_family = get_term_children( $term_id, 'question_category' );
+function ap_get_term_family( $term_id, $taxonomy ) {
+	$term_family = get_term_children( $term_id, $taxonomy );
 	$term_family[] = $term_id;
 	$terms = implode( ',', $term_family );
 

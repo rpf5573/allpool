@@ -1,3 +1,5 @@
+/*  Vendors ( SCSS Plugin made by other developers )
+/* --------------------------------------------------- */
 /*!
  * Font Awesome Free 5.1.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -3541,6 +3543,8 @@ readers do not read off random characters that represent icons */
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
 
+/*  Utils ( useful functions, mixins )
+/* --------------------------------------------------- */
 #anspress .ap-user-posts h3 {
   border-bottom: 2px solid #eee;
   margin-bottom: 0;
@@ -4820,7 +4824,7 @@ span.recount-msg {
   width: 98%; }
   .list-table-form .wrapper {
     overflow: auto;
-    height: 700px; }
+    height: 600px; }
   .list-table-form .tablenav {
     display: none; }
   .list-table-form .ap-list-table .toggle-row {
@@ -4837,13 +4841,10 @@ span.recount-msg {
   .list-table-form .ap-list-table th {
     background-color: white;
     text-align: center;
-    min-width: 10%;
     word-break: keep-all;
     word-wrap: normal; }
-    .list-table-form .ap-list-table th#answers {
-      width: 10%; }
     .list-table-form .ap-list-table th.column-primary {
-      width: 18%; }
+      width: 300px; }
   .list-table-form .ap-list-table td {
     text-align: center;
     vertical-align: middle; }
@@ -4891,12 +4892,6 @@ span.recount-msg {
     .statistic-title .fas:hover {
       transform: scale(1.1, 1.1); }
 
-.statistic-table-container.--tag {
-  width: 40%;
-  min-width: 300px; }
-  .statistic-table-container.--tag .list-table-form .ap-list-table th#answers {
-    width: 30%; }
-
 .width-double {
   width: 200%; }
   .width-double > .statistic-table-container {
@@ -4940,3 +4935,9 @@ span.MathJax + p {
 .w40 {
   width: 40%;
   min-width: 300px; }
+
+.width-double {
+  width: 200%; }
+
+.width-auto {
+  width: auto; }

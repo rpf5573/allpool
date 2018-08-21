@@ -44,7 +44,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 		if ( isset( $args['term_id'] ) ) {
 			$this->term_id = $args['term_id'];
 			$this->term_name = $args['term_name'];
-			$this->term_family = ap_get_term_family( $this->term_id );
+			$this->term_family = ap_get_term_family( $this->term_id, $args['taxonomy'] );
 			$this->years = ap_opt('year_filter_range');
 			$this->session = count( ap_opt('session_filter_range') );
 
@@ -306,7 +306,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 						ON posts.ID = qameta.post_id
 						WHERE ( term_relationships.term_taxonomy_id IN ({$this->term_family}) )
 						AND posts.post_type = 'answer'
-						AND posts.post_status = 'publish'
+						AND posts.post_status IN ('publish', 'private')
 						AND posts.post_parent IN ($ids) ";
 
 		return $sql;

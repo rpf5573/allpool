@@ -44,7 +44,7 @@ class AP_Post_Table_Hooks {
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_question_with_inspection_check', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'term_filter_answer_with_inspection_check', 100, 2 );
 
-		// statistic - yas
+		// statistic - yas : this is common with terms and analysis_keyword
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question_with_did_select_answer', 100, 2 );
@@ -52,6 +52,15 @@ class AP_Post_Table_Hooks {
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer_with_vote', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_question_with_inspection_check', 100, 2 );
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'yas_filter_answer_with_inspection_check', 100, 2 );
+
+		// analysis keyword
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_question', 100, 2 );
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_answer', 100, 2 );
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_question_with_did_select_answer', 100, 2 );
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_question_with_vote', 100, 2 );
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_answer_with_vote', 100, 2 );
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_question_with_inspection_check', 100, 2 );
+		// anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'anaylysis_keyword_filter_answer_with_inspection_check', 100, 2 );
 
 		// statistic - tag
 		anspress()->add_action( 'posts_clauses', 'AP_Statistic', 'tag_filter_question', 100, 2 );

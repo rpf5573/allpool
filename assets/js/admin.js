@@ -287,7 +287,7 @@ APjs.admin = function () {};
 						success: function (response) {
 
 							// remove existing yas table first
-							var group_table_container = $('.statistic-group-table-container');
+							var group_table_container = self.closest('.statistic-group-table-container');
 							var table_container = group_table_container.children( '.statistic-table-container' );
 							if ( table_container.length == 2 ) {
 								$(table_container[1]).remove();
@@ -297,16 +297,16 @@ APjs.admin = function () {};
 							group_table_container.addClass('width-double');
 							group_table_container.append( response );
 
-							var yas_form = $('.list-table-form.yas');
+							var yas_form = group_table_container.find('.list-table-form.yas');
 
 							// ready for navigation
-							var btn_go_to_yas = $('.go-to-yas');
+							var btn_go_to_yas = group_table_container.find('.go-to-yas');
 							btn_go_to_yas.css( 'display', 'block' );
 							btn_go_to_yas.on( 'click', function(){
 								scrollFromLeft(yas_form.offset().left);
 							} );
 
-							var btn_back_to_terms = $('.back-to-terms');
+							var btn_back_to_terms = group_table_container.find('.back-to-terms');
 							btn_back_to_terms.css( 'display', 'block' );
 							btn_back_to_terms.on( 'click', function(){
 								scrollFromLeft(0);
@@ -318,7 +318,7 @@ APjs.admin = function () {};
 								scrollFromLeft(yas_form.offset().left);
 							}, 300 );
 
-							$(".ap-list-table.yas").floatThead({
+							group_table_container.find(".ap-list-table.yas").floatThead({
 								position: 'absolute',
 								scrollContainer: function($table){
 									return $table.closest('.wrapper');

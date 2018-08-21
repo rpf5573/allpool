@@ -28,25 +28,26 @@ class AP_Statistic {
 	public static function statistic_page() { ?>
 		<div class="statistic-group-table-container"> <?php
 			// group for term and yas( yas will be added by js )
-			self::display_term_statistic_table(); ?>
+			self::display_term_statistic_table( 'question_category' ); ?>
+		</div>
+		<div class="statistic-group-table-container"> <?php
+			self::display_term_statistic_table( 'question_analysis_keyword' ); ?>
 		</div> <?php
 		self::display_tag_statistic_table();
 	}
 	
-  /**
-	 * Control the output of question selection.
-	 *
-	 * @return void
-	 * @since 2.0.0
-	 */
-	public static function display_term_statistic_table() {
+	public static function display_term_statistic_table( $taxonomy = 'question_category' ) {
+		$title = '카테고리별 통계';
+		if ( $taxonomy == 'question_analysis_keyword' ) {
+			$title = '문제분석용 키워드 통계';
+		}
 		//Create an instance of our package class...
-    $statistic_list_table = new AP_Term_Statistic_List_Table();
+    $statistic_list_table = new AP_Term_Statistic_List_Table( $taxonomy );
     //Fetch, prepare, sort, and filter our data...
 		$statistic_list_table->prepare_items();	?>
     <div class="statistic-table-container --term">
 			<div class="statistic-title">
-				<h1> 카테고리별 통계 </h1>
+				<h1><?php echo $title; ?></h1>
 				<i class="fas fa-4x fa-angle-double-right go-to-yas"></i>
 			</div>
 			<!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
@@ -88,7 +89,7 @@ class AP_Statistic {
     $statistic_list_table = new AP_Tag_Statistic_List_Table();
     //Fetch, prepare, sort, and filter our data...
 		$statistic_list_table->prepare_items();	?>
-    <div class="statistic-table-container --tag w40">
+    <div class="statistic-table-container --tag">
 			<div class="statistic-title">
 				<h1> 태그별 통계 </h1>
 			</div>
@@ -101,14 +102,15 @@ class AP_Statistic {
 				<?php $statistic_list_table->display(); ?>
 				</div>
 			</form>
-    </div>
-		<?php
+    </div> <?php
 	}
+
 
 	/*  Term Filters
 	/* --------------------------------------------------- */
 	public static function term_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -117,7 +119,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -128,6 +130,7 @@ class AP_Statistic {
 
 	public static function term_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -137,8 +140,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
-
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.post_parent";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -149,6 +151,7 @@ class AP_Statistic {
 
 	public static function term_filter_question_with_did_select_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'did_select_answer' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -157,7 +160,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -169,6 +172,7 @@ class AP_Statistic {
 
 	public static function term_filter_question_with_vote( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'vote' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -177,7 +181,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -189,6 +193,7 @@ class AP_Statistic {
 
 	public static function term_filter_answer_with_vote( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'vote' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -197,7 +202,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.post_parent";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -209,6 +214,7 @@ class AP_Statistic {
 
 	public static function term_filter_question_with_inspection_check( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'inspection_check' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -217,7 +223,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -229,6 +235,7 @@ class AP_Statistic {
 
 	public static function term_filter_answer_with_inspection_check( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'term_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'inspection_check' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			global $pagenow, $wpdb;
@@ -237,7 +244,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.post_parent";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )";
@@ -247,10 +254,12 @@ class AP_Statistic {
 		return $sql;
 	}
 
+
 	/*  Year & Session Filters
 	/* --------------------------------------------------- */
 	public static function yas_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -261,7 +270,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
@@ -275,6 +284,7 @@ class AP_Statistic {
 
 	public static function yas_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'term_name' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -286,7 +296,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$q_ids = ap_get_question_ids( $year, $session, $terms );
 			if ( ! empty( $q_ids ) ) {
 				$ids = implode( ',', $q_ids );
@@ -302,6 +312,7 @@ class AP_Statistic {
 
 	public static function yas_filter_question_with_did_select_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'did_select_answer' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -312,7 +323,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
@@ -328,6 +339,7 @@ class AP_Statistic {
 
 	public static function yas_filter_question_with_vote( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'vote' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -338,7 +350,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
@@ -352,6 +364,7 @@ class AP_Statistic {
 
 	public static function yas_filter_answer_with_vote( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'vote' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -362,7 +375,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$q_ids = ap_get_question_ids( $year, $session, $terms );
 			if ( ! empty( $q_ids ) ) {
 				$ids = implode( ',', $q_ids );
@@ -379,6 +392,7 @@ class AP_Statistic {
 
 	public static function yas_filter_question_with_inspection_check( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'inspection_check' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -389,7 +403,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$sql['join'] .= " LEFT JOIN {$wpdb->term_relationships} AS term_relationships
 													ON term_relationships.object_id={$wpdb->posts}.ID";
 			$sql['where'] .= " AND ( term_relationships.term_taxonomy_id IN ($terms) )
@@ -403,6 +417,7 @@ class AP_Statistic {
 
 	public static function yas_filter_answer_with_inspection_check( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'yas_filter' );
+		$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 		if ( $filter == 'inspection_check' ) {
 			$term_id = ap_isset_post_value( 'term_id' );
 			$year = ap_isset_post_value( 'ap_year' );
@@ -413,7 +428,7 @@ class AP_Statistic {
 				return $sql;
 			}
 
-			$terms = ap_get_term_family( $term_id );
+			$terms = ap_get_term_family( $term_id, $taxonomy );
 			$q_ids = ap_get_question_ids( $year, $session, $terms );
 			if ( ! empty( $q_ids ) ) {
 				$ids = implode( ',', $q_ids );
@@ -427,6 +442,7 @@ class AP_Statistic {
 
 		return $sql;
 	}
+
 
 	/*  Tag filter
 	/* --------------------------------------------------- */
@@ -464,6 +480,7 @@ class AP_Statistic {
 		return $sql;
 	}
 
+
 	/*  Users
 	/* --------------------------------------------------- */
 	public static function add_user_columns( $column ) {
@@ -474,6 +491,7 @@ class AP_Statistic {
 		}
 		return $column;
 	}
+
 	public static function user_column( $val, $column_name, $user_id ) {
 		switch( $column_name ) {
 			case 'questions' :
@@ -487,6 +505,7 @@ class AP_Statistic {
 		
 		return $val;
 	}
+
 	public static function user_questions_column( $user_id ) {
 		global $wpdb;
 		$prefix = $wpdb->prefix;
@@ -500,6 +519,7 @@ class AP_Statistic {
 
 		return $count;
 	}
+
 	public static function user_answers_column( $user_id ) {
 		global $wpdb;
 		$prefix = $wpdb->prefix;
@@ -512,6 +532,7 @@ class AP_Statistic {
 
 		return $count;
 	}
+
 	public static function user_get_sql( $type, $user_id ) {
 		global $wpdb;
 		$prefix = $wpdb->prefix;
@@ -523,12 +544,14 @@ class AP_Statistic {
 
 		return $sql;
 	}
+
 	public static function user_get_link( $type, $user_id, $count ) {
 		$url = esc_url( admin_url( "edit.php?post_type={$type}&user_filter=user_id&user_id={$user_id}" ) );
 		$link = "<a href='" . $url . "' target='_blank'>" . $count . "</a>";
 		
 		return $link;
 	}
+
 	public static function user_filter_question( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'user_filter' );
 		if ( $filter == 'user_id' ) {
@@ -544,6 +567,7 @@ class AP_Statistic {
 
 		return $sql;
 	}
+
 	public static function user_filter_answer( $sql, $instance ) {
 		$filter = ap_isset_post_value( 'user_filter' );
 		if ( $filter == 'user_id' ) {
@@ -559,12 +583,13 @@ class AP_Statistic {
 		return $sql;
 	}
 	
+
 	/*  Uncategorized
 	/* --------------------------------------------------- */
 
 	public static function show_statistic_term_filter_result() {
 		global $pagenow;
-		$filter = ap_isset_post_value( 'term_filter' );
+		$filter = ap_isset_post_value( 'term_filter', false );
 		if ( ( $filter ) && $pagenow == 'edit.php' ) { 
 			$output = '';
 			$term_name = ap_isset_post_value( 'term_name' );
@@ -685,4 +710,5 @@ class AP_Statistic {
 
 		return $qameta;
 	}
+
 }

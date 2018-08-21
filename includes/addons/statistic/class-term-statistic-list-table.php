@@ -28,7 +28,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 	private $callback_args;
 
-	private $taxonomy = 'question_category';
+	private $taxonomy;
 
 	private $per_page = 100;
 
@@ -50,15 +50,16 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $taxonomy = 'question_category' ) {
 		global $post_type, $action, $tax, $wpdb;
 
 		$this->prefix = $wpdb->prefix;
+		$this->taxonomy = $taxonomy;
 
 		parent::__construct( array(
 			'plural' => 'terms',
 			'singular' => 'term',
-      'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+      'screen' => null,
       'ajax'  => false,
 		) );
 
@@ -278,9 +279,10 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 		$args = wp_json_encode(
 			[
 				'__nonce' 	=> wp_create_nonce( 'statistic_' . $tag->term_id ),
-				'action' => 'open_yas_table_modal',
+				'action' 		=> 'open_yas_table_modal',
 				'term_id'		=> $tag->term_id,
-				'term_name'	=> $tag->name
+				'term_name'	=> $tag->name,
+				'taxonomy'  => $this->taxonomy
 			],
 			JSON_UNESCAPED_UNICODE
 		);
@@ -462,13 +464,13 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 						ON posts.ID = qameta.post_id
 						WHERE ( term_relationships.term_taxonomy_id IN ({$terms}) )
 						AND posts.post_type = '$type'
-						AND posts.post_status = 'publish' ";
+						AND posts.post_status IN ('publish', 'private') ";
 
 		return $sql;
 	}
 
 	public function get_link( $type, $filter, $term, $count ) {
-		$url = esc_url( admin_url( "edit.php?post_type={$type}&term_filter={$filter}&term_id={$term->term_id}&term_name={$term->name}" ) );
+		$url = esc_url( admin_url( "edit.php?post_type={$type}&term_filter={$filter}&term_id={$term->term_id}&term_name={$term->name}&taxonomy={$this->taxonomy}" ) );
 		$link = "<a href='" . $url . "'>" . $count . "</a>";
 		return $link;
 	}

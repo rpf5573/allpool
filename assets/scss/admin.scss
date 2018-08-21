@@ -1,6 +1,19 @@
 // I had no time to rewrite admin.css so, just copied and pasted
 
-@import "vendors/fontawesome/fontawesome";
+
+/*  Vendors ( SCSS Plugin made by other developers )
+/* --------------------------------------------------- */
+@import "vendors/susy/main",
+        "vendors/mq",
+        "vendors/open-color",
+        "vendors/family",
+        "vendors/fontawesome/fontawesome";
+
+/*  Utils ( useful functions, mixins )
+/* --------------------------------------------------- */
+@import "utils/functions",
+        "utils/mixins";
+
 
 #anspress {
   .ap-user-posts h3 {
@@ -1543,7 +1556,7 @@ span.recount-msg {
   width: 98%;
   .wrapper {
     overflow: auto;
-    height: 700px;
+    height: 600px;
   }
   .tablenav {
     display: none;
@@ -1565,14 +1578,13 @@ span.recount-msg {
     th {
       background-color: white;
       text-align: center;
-      min-width: 10%;
       word-break: keep-all;
       word-wrap: normal;
       &#answers {
-        width: 10%;
+        // width: 10%;
       }
       &.column-primary {
-        width: 18%;
+        width: 300px;
       }
     }
     td {
@@ -1646,12 +1658,17 @@ span.recount-msg {
 }
 
 .statistic-table-container.--tag {
-  width: 40%;
-  min-width: 300px;
+  // width: 40%;
+  // min-width: 300px;
   .list-table-form .ap-list-table th#answers {
-    width: 30%;
+    // width: 30%;
   }
+
 }
+
+#wpbody-content > .statistic-group-table-container {
+}
+
 .anspress_page_ap_statistic {
   #wpadminbar {
     // display: none;
@@ -1712,4 +1729,11 @@ span.MathJax + p {
 .w40 {
   width: 40%;
   min-width: 300px;
+}
+
+.width-double {
+  width: 200%;
+}
+.width-auto {
+  width: auto;
 }

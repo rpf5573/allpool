@@ -241,16 +241,18 @@ class AP_Admin_Ajax {
 		if ( $term_id ) {
 			if ( ap_verify_nonce( 'statistic_' . $term_id ) ) {
 				$term_name = ap_isset_post_value( 'term_name' );
+				$taxonomy = ap_isset_post_value( 'taxonomy', 'question_category' );
 				$args = array(
 					'term_id'		=>	$term_id,
 					'term_name' => $term_name,
 					'screen'		=> 'ap_statistic',
-					'term_name' => ap_isset_post_value( 'term_name' )
+					'term_name' => ap_isset_post_value( 'term_name' ),
+					'taxonomy'  => $taxonomy
 				);
 				AP_Statistic::display_yas_statistic_table( $args );
 			}
 		}
-
+		
 		wp_die();
 	}
 
