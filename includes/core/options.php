@@ -19,10 +19,10 @@ function ap_default_options() {
 
 	$defaults = array(
 		'question_page_slug'            => 'question',
-		'question_per_page'             => '20',
+		'question_per_page'             => '15',
 		'question_order_by'             => 'active',
 		'answers_sort'                  => 'active',
-		'answers_per_page'              => '5',
+		'answers_per_page'              => '15',
 		'max_upload_size'               => 3000000,
 		'read_question_per'             => 'anyone',
 		'read_answer_per'               => 'logged_in',

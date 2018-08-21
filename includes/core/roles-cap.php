@@ -165,7 +165,7 @@ function ap_role_caps( $role ) {
 			'ap_change_status'   => true,
 			'unfiltered_html'		 => true,
 			'unfiltered_upload'	 => true,
-			'view_query_monitor' => true,
+			'view_query_monitor' => true,			 
 		),
 		'expert'	=> array(
 			'read_private_posts'				=> true,
@@ -183,6 +183,7 @@ function ap_role_caps( $role ) {
 			'ap_delete_others_question' => true,
 			'ap_delete_others_answer'   => true,
 			'ap_delete_post_permanent'  => true,
+			'upload_files'							=> true,
 		),
 		'moderator'   => array(
 			'ap_restore_posts'          => true,

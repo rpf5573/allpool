@@ -11,3 +11,6 @@ html {
 #page #answer-form-c, #page .ap-minimal-editor {
   display: none;
 }
+.print-btn {
+  display: none;
+}

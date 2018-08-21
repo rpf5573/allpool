@@ -61,6 +61,9 @@
 /* ------------------------------------------------------------------------- *
  *  AnsPress
 /* ------------------------------------------------------------------------- */
+.ap-field-form_question-category {
+  float: left;
+}
 .ap-field-type-select, .ap-field-form_question-price {
   display: inline-block;
   margin-right: 15px;

@@ -73,6 +73,8 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 	public function get_columns() {
 		$columns = AP_Statistic::$slug_label;
 		unset( $columns['term_name'] );
+		unset( $columns['income'] );
+		
 		return $columns;
 	}
 
@@ -244,7 +246,7 @@ class AP_YaS_Statistic_List_Table extends AP_List_Table {
 		return $count;
 	}
 
-	public function column_income_of_answer( $item ) {
+	public function column_income( $item ) {
 		return 20;
 	}
 

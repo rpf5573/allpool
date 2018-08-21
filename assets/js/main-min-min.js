@@ -1958,6 +1958,15 @@ jQuery(document).ready(function () {
   /* ------------------------------------------------------------------------- *
     *  Question list page
   /* ------------------------------------------------------------------------- */ (function($){
+
+  var question_filter = $('.question-filter');
+  if ( question_filter.length > 0 ) {
+    question_filter.animate({
+      opacity : 1
+    }, 2000, function(){
+      
+    });
+  }
   
   /*  Search filter
   /* --------------------------------------------------- */
@@ -4224,6 +4233,15 @@ jQuery(document).ready(function () {
   /* ------------------------------------------------------------------------- *
     *  Question list page
   /* ------------------------------------------------------------------------- */ (function($){
+
+  var question_filter = $('.question-filter');
+  if ( question_filter.length > 0 ) {
+    question_filter.animate({
+      opacity : 1
+    }, 2000, function(){
+      
+    });
+  }
   
   /*  Search filter
   /* --------------------------------------------------- */

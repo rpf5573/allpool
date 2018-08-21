@@ -64,7 +64,12 @@ $current_tab = ap_sanitize_unslash( 'tab', 'r', 'questions' );
 					<div class="l-right">
 						<div class="ap-user-desktop-buttons">
 							<div class="user-mycred-creds">
-								<?php do_action( 'ap_user_mycred_creds', $user_id ); ?>
+								<div class="user-mycred-creds"> <?php
+									AP_Reputation::mycred_creds( $user_id );
+									if ( $is_mypage ) {
+										AP_Point::mycred_creds( $user_id );
+									} ?>
+								</div>
 							</div> <?php
 							if ( $is_mypage ) { ?>
 								<div class="point-charge"> <?php 

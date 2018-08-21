@@ -122,7 +122,9 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 		$columns = AP_Statistic::$slug_label;
 		unset( $columns['year'] );
 		unset( $columns['session'] );
-
+		if ( $this->taxonomy == 'question_analysis_keyword' ) {
+			unset( $columns['income'] );
+		}
 		return $columns;
 	}
 
@@ -398,8 +400,29 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 		return $count;
 	}
 
-	public function column_income_of_answer( $tag ) {
-		return 20;
+	public function column_income( $term ) {
+		global $wpdb;
+
+		$prefix = $this->prefix;
+		$terms = implode( ',', $this->terms_with_inline_family[$term->term_id] );
+		$sql = "SELECT SUM(qameta.price)
+						FROM {$prefix}posts as posts
+						LEFT JOIN {$prefix}term_relationships as term_relationships
+						ON (posts.ID = term_relationships.object_id)
+						LEFT JOIN {$prefix}ap_qameta as qameta
+						ON posts.ID = qameta.post_id
+						WHERE ( term_relationships.term_taxonomy_id IN ({$terms}) )
+						AND posts.post_type = 'question'
+						AND posts.post_status = 'publish'
+						AND qameta.price > 0";
+
+		$sum = $wpdb->get_var( $sql );
+		\PC::debug( ['sum' => $sum], __FUNCTION__ );
+		if ( $sum > 0 ) {
+			return $sum;
+		}
+
+		return 0;
 	}
 
 	/**

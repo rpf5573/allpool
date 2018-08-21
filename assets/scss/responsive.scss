@@ -170,7 +170,7 @@
       width: 100%;
     }
 
-    .printomatic {
+    .print-btn {
       display: none;
     }
 
@@ -386,6 +386,7 @@
     }
     .ap-user {
       .ap-user-bio > .l-row {
+        margin-bottom: 10px !important;
         @include first-child() {
           & > .l-row {
             @include last-child() {

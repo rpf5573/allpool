@@ -278,7 +278,7 @@ class Select_Answer extends \myCRED_Hook {
   
   public function run() {
     add_action( 'ap_select_answer', array( $this, 'select_answer' ), 10, 2 );
-    add_action( 'ap_unselect_answer', array( $this, 'unselect_answer' ), 10, 2 );
+    // add_action( 'ap_unselect_answer', array( $this, 'unselect_answer' ), 10, 2 );
   }
 
   public function select_answer( $_post ) {
@@ -325,29 +325,6 @@ class Select_Answer extends \myCRED_Hook {
           class="long">
       </li>
     </ol>
-
-    <h3> <?php _e( 'Unselect best answer', 'anspress-question-answer' ); ?> </h3>
-    <ol>
-      <li>
-        <label for="<?php echo $this->field_id( array('undo', 'creds') )?>" class="subheader"><?php echo $this->core->plural(); ?></label>
-        <input 
-          type="text" 
-          name="<?php echo $this->field_name( array( 'undo', 'creds' ) ); ?>" 
-          id="<?php echo $this->field_id( array( 'undo', 'creds' ) ); ?>"
-          value="<?php echo esc_attr( $prefs['undo']['creds'] ); ?>"
-          size="8">
-      </li>
-      <li>
-        <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
-        <input
-          type="text"
-          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
-          id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
-          value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
-          class="long">
-      </li>
-    </ol>
-
     <?php
   }
 
@@ -455,7 +432,7 @@ class Vote_Up extends \myCRED_Hook {
   
   public function run() {
     add_action( 'ap_vote_up', array( $this, 'vote_up' ), 10, 2 );
-    add_action( 'ap_undo_vote_up', array( $this, 'undo_vote_up' ), 10, 2 );
+    // add_action( 'ap_undo_vote_up', array( $this, 'undo_vote_up' ), 10, 2 );
   }
   
   public function vote_up( $post_id ) {
@@ -499,29 +476,6 @@ class Vote_Up extends \myCRED_Hook {
           class="long">
       </li>
     </ol>
-
-    <h3> <?php _e( 'Undo vote up', 'anspress-question-answer' ); ?> </h3>
-    <ol>
-      <li>
-        <label for="<?php echo $this->field_id( array('undo', 'creds') )?>" class="subheader"><?php echo $this->core->plural(); ?></label>
-        <input 
-          type="text" 
-          name="<?php echo $this->field_name( array( 'undo', 'creds' ) ); ?>" 
-          id="<?php echo $this->field_id( array( 'undo', 'creds' ) ); ?>"
-          value="<?php echo esc_attr( $prefs['undo']['creds'] ); ?>"
-          size="8">
-      </li>
-      <li>
-        <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
-        <input
-          type="text"
-          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
-          id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
-          value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
-          class="long">
-      </li>
-    </ol>
-
     <?php
   }
 
@@ -546,7 +500,7 @@ class Vote_Down extends \myCRED_Hook {
   
   public function run() {
     add_action( 'ap_vote_down', array( $this, 'vote_down' ), 10, 2 );
-    add_action( 'ap_undo_vote_down', array( $this, 'undo_vote_down' ), 10, 2 );
+    // add_action( 'ap_undo_vote_down', array( $this, 'undo_vote_down' ), 10, 2 );
   }
   
   public function vote_down( $post_id ) {
@@ -590,29 +544,6 @@ class Vote_Down extends \myCRED_Hook {
           class="long">
       </li>
     </ol>
-
-    <h3> <?php _e( 'Undo vote down', 'anspress-question-answer' ); ?> </h3>
-    <ol>
-      <li>
-        <label for="<?php echo $this->field_id( array('undo', 'creds') )?>" class="subheader"><?php echo $this->core->plural(); ?></label>
-        <input 
-          type="text" 
-          name="<?php echo $this->field_name( array( 'undo', 'creds' ) ); ?>" 
-          id="<?php echo $this->field_id( array( 'undo', 'creds' ) ); ?>"
-          value="<?php echo esc_attr( $prefs['undo']['creds'] ); ?>"
-          size="8">
-      </li>
-      <li>
-        <label class="subheader"><?php _e('Log template', 'anspress-question-answer'); ?></label>
-        <input
-          type="text"
-          name="<?php echo $this->field_name( array( 'undo', 'log' ) ); ?>"
-          id="<?php echo $this->field_id( array( 'undo', 'log' ) ); ?>" 
-          value="<?php echo esc_attr( $prefs['undo']['log'] ); ?>"
-          class="long">
-      </li>
-    </ol>
-
     <?php
   }
 
