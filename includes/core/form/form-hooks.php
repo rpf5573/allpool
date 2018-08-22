@@ -183,6 +183,8 @@ class AP_Form_Hooks {
 
 		$values = $form->get_values();
 
+		
+
 		// Store current values in session.
 		// submit => error => refresh => value is stored
 		// $form->save_values_session();
@@ -202,6 +204,8 @@ class AP_Form_Hooks {
 			'post_content' => $values['post_content']['value'],
 		);
 
+		
+
 		if ( ! empty( $values['post_id']['value'] ) ) {
 			$question_args['ID'] = $values['post_id']['value'];
 			$editing             = true;
@@ -212,6 +216,10 @@ class AP_Form_Hooks {
 				ap_ajax_json( 'something_wrong' );
 			}
 		}
+
+
+		
+
 
 		// Add default arguments if not editing.
 		if ( ! $editing ) {
@@ -239,6 +247,10 @@ class AP_Form_Hooks {
 			}
 		}
 
+
+		
+
+
 		// Set post parent.
 		$post_parent = ap_sanitize_unslash( 'post_parent', 'r' );
 		if ( ! empty( $post_parent ) && wp_verify_nonce( ap_sanitize_unslash( '__nonce_pp', 'r' ), 'post_parent_' . $post_parent ) ) {
@@ -253,6 +265,10 @@ class AP_Form_Hooks {
 		 * @since @3.0.0 Moved from process-form.php
 		 */
 		$question_args['post_content'] = apply_filters( 'ap_form_contents_filter', $question_args['post_content'] );
+
+
+		
+
 
 		$question_args['post_name'] = $question_args['post_title'];
 
@@ -381,8 +397,6 @@ class AP_Form_Hooks {
 				]
 			);
 		}
-
-		
 
 		$answer_args = array(
 			'post_title'   => $question_id,

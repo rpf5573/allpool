@@ -1,4 +1,4 @@
-window.redirect_wait_time = 100;
+window.redirect_wait_time = 1000;
 
 /**
  * Common AnsPress functions and constructor.

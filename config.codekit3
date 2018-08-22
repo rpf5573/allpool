@@ -3479,6 +3479,13 @@
 		"oAP": "\/template-parts\/profile\/point-log.php",
 		"oF": 0
 		},
+	"\/template-parts\/profile\/purchased-question.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/profile\/purchased-question.php",
+		"oF": 0
+		},
 	"\/template-parts\/profile\/questions.php": {
 		"cB": 0,
 		"ft": 8192,

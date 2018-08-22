@@ -61,7 +61,7 @@ class AP_Theme {
   
     // Main
 		wp_enqueue_style( 'ap-main', get_stylesheet_uri() );
-		$rand = random_int(1, 500);
+		$rand = random_int(1, 500) * 0.001;
 		wp_enqueue_script( 'ap-main', ANSPRESS_URL . 'assets/js/main-min.js', [ 'jquery', 'jquery-form', 'backbone', 'underscore' ], $rand, true );
 
 		wp_enqueue_style( 'ap-print', ANSPRESS_URL . 'print.css', array(), '1.0.0', 'print' );

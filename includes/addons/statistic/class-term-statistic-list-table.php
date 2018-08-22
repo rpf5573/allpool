@@ -417,7 +417,6 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 						AND qameta.price > 0";
 
 		$sum = $wpdb->get_var( $sql );
-		\PC::debug( ['sum' => $sum], __FUNCTION__ );
 		if ( $sum > 0 ) {
 			return $sum;
 		}

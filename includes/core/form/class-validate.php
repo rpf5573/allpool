@@ -198,6 +198,8 @@ class Validate {
 			// Remove single white single space in line.
 			// $new_value           = preg_replace( '/&nbsp;/', "\n", $new_value );
 
+			
+
 			return $new_value;
 		}
 	}

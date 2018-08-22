@@ -40,6 +40,8 @@ class AP_Point extends \AnsPress\Singleton {
 			[
 				'user_page_title_point' => __( '포인트', 'anspress-question-answer' ),
 				'user_page_slug_point'  => 'point',
+				'user_page_title_purchased_question' => '구매 리스트',
+				'user_page_slug_purchased_question' => 'purchased_question'
 			]
 		);
 	}
@@ -207,6 +209,14 @@ class AP_Point extends \AnsPress\Singleton {
 			'cb'    => [ __CLASS__, 'point_page' ],
 			'order' => 6,
 		);
+
+		anspress()->user_pages[] = array(
+			'slug' => 'purchased_question',
+			'label' => '구매 리스트',
+			'icon'  => 'fas fa-cart-arrow-down',
+			'cb'    => [ __CLASS__, 'purchased_question_page' ],
+			'order' => 9,
+		);
 	}
 
 	/**
@@ -225,6 +235,21 @@ class AP_Point extends \AnsPress\Singleton {
 				'body' => '다른 사용자의 포인트 기록은 확인하실 수 없습니다'
 			) );
 		}
+	}
+
+	public static function purchased_question_page() {
+		$user_id = get_queried_object_id();
+		$purchased_answer_ids = ap_get_purchased_answers( $user_id );
+
+		if ( ! empty( $purchased_answer_ids ) ) {
+			$args = array(
+				'post__in' => $purchased_answer_ids
+			);
+			anspress()->questions = new \Question_Query( $args );
+	
+			ap_template_part( 'profile/questions', null, array( 'user_id' => $user_id ) );
+		}
+
 	}
 
 	public static function after_charge_point( $ready, $order_status, $order, $result ) {

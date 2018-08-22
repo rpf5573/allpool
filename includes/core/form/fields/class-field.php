@@ -331,7 +331,9 @@ class Field {
 		}
 
 		$sanitized = $this->sanitize();
+		// 
 		if ( null !== $sanitized ) {
+			
 			return $sanitized;
 		}
 
@@ -569,6 +571,8 @@ class Field {
 				$this->sanitized_value = $unsafe_value;
 			}
 		} // End if().
+
+		// 
 
 
 		return $this->sanitized_value;

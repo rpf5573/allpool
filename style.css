@@ -6418,6 +6418,9 @@ form[apform] {
   color: blue;
   text-decoration: underline !important; }
 
+.ap-q-content p {
+  word-wrap: break-word; }
+
 #question {
   margin-top: 20px; }
 

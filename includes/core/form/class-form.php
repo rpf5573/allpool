@@ -468,7 +468,11 @@ class Form {
 
 		foreach ( (array) $fields as $field ) {
 			$field->pre_get();
+
+			
+			
 			$values[ $field->original_name ] = [ 'value' => $field->value() ];
+
 			if ( ! empty( $field->child ) && ! empty( $field->child->fields ) ) {
 				$values[ $field->original_name ]['child'] = $this->field_values( $field->child->fields );
 			}

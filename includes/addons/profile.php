@@ -262,7 +262,6 @@ class AP_Profile extends \AnsPress\Singleton {
 	 * Display user questions page.
 	 */
 	public static function question_page() {
-		
 		$user_id                        = ap_current_user_id();
 		$args['ap_current_user_ignore'] = true;
 		$args['author']                 = $user_id;
