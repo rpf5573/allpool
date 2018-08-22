@@ -40,7 +40,7 @@ class Answers_Query extends WP_Query {
 		$this->args                = wp_parse_args( $args, $defaults );
 		$this->args['ap_order_by'] = sanitize_title( $this->args['ap_order_by'] );
 
-		// Show trash posts to super admin.
+		// Show trash posts in admin page
 		if ( ap_is_admin() && is_admin() ) {
 			$this->args['post_status'][] = 'trash';
 		}
