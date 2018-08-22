@@ -176,6 +176,18 @@ function ap_answers_the_pagination_in_profile( $paged = false ) {
  */
 function ap_get_answers_count( $_post = null ) {
 	$_post = ap_get_post( $_post );
+
+	if ( ap_is_admin() && is_admin() ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix;
+		$sql = "SELECT COUNT(*) FROM {$prefix}posts as posts
+						WHERE posts.post_type = 'answer'
+						AND posts.post_parent = $_post->ID
+						AND posts.post_status IN ('publish', 'trash', 'private')";
+		$result = (int) $wpdb->get_var( $sql );
+		return $result;
+
+	}
 	
 	return $_post->answers;
 }

@@ -55,6 +55,11 @@
 					this.$el.find('.answer-actions > .untrash').remove();
 				}
 
+				if ( this.model.attributes.status == 'private' ) {
+					this.$el.find('.answer-actions > .clone').remove();
+					this.$el.find('.answer-actions .select_answer').remove();
+				}
+
 				if ( this.model.attributes.selected !== "0" ) {
 					this.$el.addClass('selected');
 					// var checkbox = this.$el.find('.answer-actions .select_answer_checkbox')

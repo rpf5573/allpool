@@ -43,6 +43,7 @@ class Answers_Query extends WP_Query {
 		// Show trash posts in admin page
 		if ( ap_is_admin() && is_admin() ) {
 			$this->args['post_status'][] = 'trash';
+			$this->args['post_status'][] = 'private';
 		}
 
 		if ( isset( $this->args['question_id'] ) ) {

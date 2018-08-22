@@ -237,7 +237,8 @@ class AP_Post_Table_Hooks {
 					'post_parent' => $post->ID,
 				), 'edit.php'
 			);
-			echo '<a class="ans-count" title="' . esc_html( sprintf( _n( '%d Answer', '%d Answers', $post->answers, 'anspress-question-answer' ), (int) $post->answers ) ) . '" href="' . esc_url( $url ) . '">' . esc_attr( $post->answers ) . '</a>';
+			$answers_count = ap_get_answers_count( $post );
+			echo '<a class="ans-count" title="' . esc_html( sprintf( _n( '%d Answer', '%d Answers', $answers_count, 'anspress-question-answer' ), $answers_count ) ) . '" href="' . esc_url( $url ) . '">' . esc_attr( $answers_count ) . '</a>';
 
 		} elseif ( 'parent_question' === $column ) {
 			$url = add_query_arg(

@@ -49,6 +49,7 @@ class Question_Query extends WP_Query {
 		// Show trash posts in admin page
 		if ( ap_is_admin() && is_admin() ) {
 			$this->args['post_status'][] = 'trash';
+			$this->args['post_status'][] = 'private';
 		}
 
 		$this->args['post_status'] = array_unique( $this->args['post_status'] );
