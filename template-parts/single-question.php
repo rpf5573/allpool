@@ -92,7 +92,7 @@
 									<?php the_title(); ?>
 								</h2>
 
-								<div class="question-content ap-q-content" itemprop="text">
+								<div class="question-content ap-q-content clearfix" itemprop="text">
 									<?php the_content(); ?>
 								</div>
 

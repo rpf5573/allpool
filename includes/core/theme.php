@@ -552,6 +552,8 @@ function ap_page( $current_page = '' ) {
 		$current_page = '' === $current_page ? 'base' : $current_page;
 	}
 
+	// 
+
 	if ( isset( $pages[ $current_page ]['func'] ) ) {
 		call_user_func( $pages[ $current_page ]['func'] );
 	} else {

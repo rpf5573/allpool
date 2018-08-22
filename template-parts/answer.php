@@ -47,7 +47,7 @@ if ( ap_user_can_read_answer() ) :
 					do_action( 'ap_before_answer_content' );
 					?>
 
-					<div class="ap-answer-content ap-q-content" itemprop="text" ap-content>
+					<div class="ap-answer-content ap-q-content clearfix" itemprop="text" ap-content>
 							<?php the_content(); ?>
 					</div>
 

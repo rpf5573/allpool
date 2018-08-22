@@ -61,6 +61,8 @@ class AP_BasePage_Shortcode {
 	public function anspress_sc( $atts, $content = '' ) {
 		global $ap_shortcode_loaded;
 
+		
+
 		// Drop current page variable cache. As we are allowing to change page from shortcode.
 		wp_cache_delete( 'current_page', 'anspress' );
 

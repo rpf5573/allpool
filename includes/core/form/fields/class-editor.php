@@ -192,6 +192,28 @@ class Editor extends Field {
 	}
 
 	/**
+	 *
+	 * Replace temporary images with img tags.
+	 *
+	 * @return void
+	 * @since 4.1.8 Process uploaded images.
+	 */
+	public function pre_get() {
+		$value = $this->value();
+
+		$form = anspress()->get_form('question');
+		foreach( $form->fields as $field ) {
+			if ( $field->have_errors() ) {
+				return;
+			}
+		}
+		
+		$this->value = preg_replace_callback( "/<img ([^<>]+)\/>/i", [ $this, 'image_process' ], $value );
+
+		// $this->value = preg_replace_callback( '/<img\s+src="([^"]+)"[^>]+>/i', [ $this, 'image_process' ], $value );
+	}
+
+	/**
 	 * Callback called in @see ::pre_get.
 	 *
 	 * Checks if current image is in `anspress-temp` directory and
@@ -206,11 +228,10 @@ class Editor extends Field {
 		if ( false === strpos( $matches[1], 'anspress-temp/' ) ) {
 			return $matches[0];
 		}
-
 		$img = array();
 
 		// get image url
-		preg_match('/\"(.*?)\"/i', $matches[1], $url);
+		preg_match('/src=\"(.*?)\"/i', $matches[1], $url);
 
 		if ( count($url) > 1 ) {
 			$img['url'] = $url[1];
@@ -231,6 +252,13 @@ class Editor extends Field {
 				$img['height'] = (int) $height[1];
 			} else {
 				$img['height'] = false;
+			}
+
+			preg_match('/class="(\S*)"/i', $matches[1], $class);
+			if ( count($class) > 1 ) {
+				$img['class'] = $class[1];
+			} else {
+				$img['class'] = false;
 			}
 
 		} else {
@@ -271,34 +299,18 @@ class Editor extends Field {
 				if ( $img['height'] ) {
 					$img_tag .= " height={$img['height']} ";
 				}
+				if ( $img['class'] ) {
+					$img_tag .= (' class="' . $img['class'] . ' "');
+				}
 				$img_tag .= ' />';
+
+				
 
 				return $img_tag;
 			}
 		}
 
 		return false;
-	}
-
-	/**
-	 *
-	 * Replace temporary images with img tags.
-	 *
-	 * @return void
-	 * @since 4.1.8 Process uploaded images.
-	 */
-	public function pre_get() {
-		$value = $this->value();
-
-		$form = anspress()->get_form('question');
-		foreach( $form->fields as $field ) {
-			if ( $field->have_errors() ) {
-				return;
-			}
-		}
-		
-		$this->value = preg_replace_callback( "/<img[^<]*src=([^<>]+)\/>/i", [ $this, 'image_process' ], $value );
-		// $this->value = preg_replace_callback( '/<img\s+src="([^"]+)"[^>]+>/i', [ $this, 'image_process' ], $value );
 	}
 
 	/**
