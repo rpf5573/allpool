@@ -89,6 +89,7 @@ class AP_Activate {
 			session tinyint(1) DEFAULT 0,
 			inspection_check tinyint(1) DEFAULT 0,
 			price bigint(20) DEFAULT 0,
+			sold_count bigint(20) DEFAULT 0,
 			attach LONGTEXT DEFAULT NULL,
 			activities LONGTEXT DEFAULT NULL,
 			fields LONGTEXT DEFAULT NULL,

@@ -161,8 +161,10 @@ class AP_Point extends \AnsPress\Singleton {
 		$user_id = get_current_user_id();
 		$_post = ap_get_post( $post_id );
 
+		\PC::debug( ['post' => $_post], __FUNCTION__ );
+
 		// nonce check
-		if ( 'question' === $_post->post_type && ! ap_verify_nonce( 'purchase_answers_of_' . $post_id ) ) {
+		if ( 'question' !== $_post->post_type || ! ap_verify_nonce( 'purchase_answers_of_' . $post_id ) ) {
 			ap_ajax_json( array(
 				'success' => false,
 				'snackbar' => [ 'message' => '알수없는 에러가 발생했습니다' ],
@@ -189,6 +191,7 @@ class AP_Point extends \AnsPress\Singleton {
 		} else {
 			ap_update_user_point( 'purchase_answers', $user_id, -$price, $post_id );
 			ap_update_purchased_answers( $user_id, $post_id );
+			ap_update_sold_count( $post_id );
 			ap_ajax_json( array(
 				'success' => true,
 				'snackbar' => [ 'message' => '성공적으로 구매하였습니다' ],
@@ -380,6 +383,15 @@ function ap_update_purchased_answers( $user_id, $question_id ) {
 	$purchased_answers[] = $question_id;
 	update_user_meta( $user_id, 'purchased_answers', maybe_serialize( $purchased_answers ) );
 }
+
+function ap_update_sold_count( $question_id ) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$sql = "UPDATE {$prefix}ap_qameta SET sold_count = sold_count + 1 WHERE post_id = {$question_id}";
+	$result = $wpdb->query( $sql );
+	\PC::debug( ['result' => $result], __FUNCTION__ );
+}
+
 
 function ap_get_rate_applied_point( $price, $ref ) {
 	$opt = ap_opt();

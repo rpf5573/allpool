@@ -3196,6 +3196,13 @@
 		"oAP": "\/LICENSE",
 		"oF": 0
 		},
+	"\/my-custom-page-template.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/my-custom-page-template.php",
+		"oF": 0
+		},
 	"\/page.php": {
 		"cB": 0,
 		"ft": 8192,

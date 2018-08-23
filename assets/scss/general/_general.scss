@@ -108,10 +108,16 @@ blockquote{
   margin-bottom: 10px;
 }
 
-.alignright {
-  float: right;
-}
-
 .alignleft {
-  float: left;
+	float: left;
+	margin-right: 15px;
+}
+.alignright {
+	float: right;
+	margin-left: 15px;
+}
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

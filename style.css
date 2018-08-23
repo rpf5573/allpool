@@ -5,7 +5,7 @@ Theme URI: https://presscat.co.kr/
 Author: Presscat
 Author URI: https://presscat.co.kr/
 Description: Alpool Project
-Version: 1.0
+Version: 2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: alpool
@@ -4925,11 +4925,18 @@ a.no-style {
   float: right;
   margin-bottom: 10px; }
 
-.alignright {
-  float: right; }
-
 .alignleft {
-  float: left; }
+  float: left;
+  margin-right: 15px; }
+
+.alignright {
+  float: right;
+  margin-left: 15px; }
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 
 /* ------------------------------------------------------------------------- *
  *  Semantic-ui
@@ -6425,7 +6432,8 @@ form[apform] {
   text-decoration: underline !important; }
 
 .ap-q-content p {
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  overflow: hidden; }
 
 #question {
   margin-top: 20px; }

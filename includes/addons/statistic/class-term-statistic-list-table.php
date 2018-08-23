@@ -36,6 +36,8 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 	private $terms_with_inline_family = array();
 
+	private $view_price_rate = 0.5;
+
 	/**
 	 * Constructor.
 	 *
@@ -55,6 +57,8 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 		$this->prefix = $wpdb->prefix;
 		$this->taxonomy = $taxonomy;
+
+		$this->view_price_rate = ap_opt( 'purchase_answers' ) * 0.01;
 
 		parent::__construct( array(
 			'plural' => 'terms',
@@ -405,7 +409,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 
 		$prefix = $this->prefix;
 		$terms = implode( ',', $this->terms_with_inline_family[$term->term_id] );
-		$sql = "SELECT SUM(qameta.price)
+		$sql = "SELECT SUM(qameta.price * qameta.sold_count * {$this->view_price_rate})
 						FROM {$prefix}posts as posts
 						LEFT JOIN {$prefix}term_relationships as term_relationships
 						ON (posts.ID = term_relationships.object_id)
@@ -416,7 +420,7 @@ class AP_Term_Statistic_List_Table extends AP_List_Table {
 						AND posts.post_status = 'publish'
 						AND qameta.price > 0";
 
-		$sum = $wpdb->get_var( $sql );
+		$sum = (int) $wpdb->get_var( $sql );
 		if ( $sum > 0 ) {
 			return $sum;
 		}
