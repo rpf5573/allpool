@@ -2273,7 +2273,7 @@ jQuery(document).ready(function () {
 
 });
 
-window.redirect_wait_time = 10000;
+window.redirect_wait_time = 100;
 
 /**
  * Common AnsPress functions and constructor.

@@ -161,7 +161,7 @@ class AP_Point extends \AnsPress\Singleton {
 		$user_id = get_current_user_id();
 		$_post = ap_get_post( $post_id );
 
-		\PC::debug( ['post' => $_post], __FUNCTION__ );
+		
 
 		// nonce check
 		if ( 'question' !== $_post->post_type || ! ap_verify_nonce( 'purchase_answers_of_' . $post_id ) ) {
@@ -389,7 +389,7 @@ function ap_update_sold_count( $question_id ) {
 	$prefix = $wpdb->prefix;
 	$sql = "UPDATE {$prefix}ap_qameta SET sold_count = sold_count + 1 WHERE post_id = {$question_id}";
 	$result = $wpdb->query( $sql );
-	\PC::debug( ['result' => $result], __FUNCTION__ );
+	
 }
 
 

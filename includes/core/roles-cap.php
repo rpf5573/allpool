@@ -851,6 +851,12 @@ function ap_is_in_expert_categories( $_post, $user_id = false ) {
 		$post_id = (int)( ( $_post->post_type == 'question' ) ? $_post->ID : $_post->post_parent );
 		$term_ids = array();
 		$terms = get_the_terms( $post_id, 'question_category' );
+
+		// return true if that post has no terms
+		if ( ! $terms ) {
+			return true;
+		}
+
 		if ( is_array( $terms ) ) {
 			foreach( $terms as $term ) {
 				$term_ids[] = $term->term_id;

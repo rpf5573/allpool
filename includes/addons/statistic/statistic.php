@@ -17,7 +17,7 @@ class AP_Statistic {
 		'vote_to_answer'		=> '추천(답변)',
 		'moderate_question'	=> '검수미완료(질문)',
 		'moderate_answer'		=> '검수미완료(답변)',
-		'income'						=> '추천수익'
+		'income'						=> '보기수익'
 	);
 
   public static function add_statistic_submenu() {
