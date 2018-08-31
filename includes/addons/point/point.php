@@ -15,13 +15,16 @@ class AP_Point extends \AnsPress\Singleton {
 	public static $mycred_type = 'mycred_point';
 
 	public static $mycred_entry = array(
-		'ask_question'					=> '질문 생성',
-		'edit_question_point'   => '질문 포인트 수정',
-		'purchase_answers' 			=> '답변 구매',
-		'point_charge'					=> '포인트 충전',
-		'best_answer'						=> '내가 올린 답변이 채택됨',
-		'vote_up_answer'				=> '추천을 받음',
-		'delete_question'				=> '질문 삭제(포인트 회수)'
+		'ask_question'							=> '질문 생성',
+		'edit_question_point'   		=> '질문 포인트 수정',
+		'purchase_answers' 					=> '답변 구매',
+		'point_charge'							=> '포인트 충전',
+		'selected_best_answer'			=> '베스트 답변으로 채택됨',
+		'unselected_best_answer'		=> '베스트 답변 채택 취소',
+		'vote_up_answer'						=> '추천을 받음',
+		'delete_question'						=> '질문 삭제(포인트 회수)',
+		'trash_question'						=> '질문 휴지통으로 이동',
+		'untrash_question'					=> '질문 복구'
 	);
 
 	/**
@@ -161,8 +164,6 @@ class AP_Point extends \AnsPress\Singleton {
 		$user_id = get_current_user_id();
 		$_post = ap_get_post( $post_id );
 
-		
-
 		// nonce check
 		if ( 'question' !== $_post->post_type || ! ap_verify_nonce( 'purchase_answers_of_' . $post_id ) ) {
 			ap_ajax_json( array(
@@ -175,6 +176,7 @@ class AP_Point extends \AnsPress\Singleton {
 			ap_ajax_json( array(
 				'success' => false,
 				'snackbar' => [ 'message' => '이미 구매하신 답변입니다' ],
+				'redirect' => get_permalink( $post_id )
 			) );
 		}
 
@@ -255,6 +257,18 @@ class AP_Point extends \AnsPress\Singleton {
 
 	}
 
+	public static function save_price_from_admin( $qameta, $post, $updated ) {
+    $acf = ap_isset_post_value( 'acf', false );
+    if ( $acf ) {
+      if ( isset( $acf['price'] ) ) {
+        $qameta['price'] = (int) $acf['price'];
+      }
+		}
+    return $qameta;
+  }
+
+	/*  myCRED Hooks
+	/* --------------------------------------------------- */
 	public static function after_charge_point( $ready, $order_status, $order, $result ) {
 		$user_id = get_current_user_id();
 		if ( $result->__get('status') == 'paid' && $result->__get('amount') > 0 && $user_id ) {
@@ -275,16 +289,32 @@ class AP_Point extends \AnsPress\Singleton {
 		}
 	}
 
-	public static function after_select_answer( $post, $question_id ) {
-		
+	public static function selected_best_answer( $post, $question_id ) {
 		$question = ap_get_post( $question_id );
-		
-		if ( $post->post_type == 'answer' && $post->selected && $question->post_type == 'question' ) {
-			$price = (int)$question->price;
-			$reward = ap_get_rate_applied_point( $price, 'best_answer' );
-			if ( $reward > 0 ) {
-				ap_update_user_point( 'best_answer', (int)$post->post_author, $reward, $question->ID );
+		$price = (int)$question->price;
+		$reward = ap_get_rate_applied_point( $price, 'best_answer' );
+		if ( $reward > 0 ) {
+			$by = '';
+			if ( is_admin() && ! wp_doing_ajax() ) {
+				$by = ' - 관리자권한';
 			}
+			$answer_id = $question->selected_id;
+			ap_update_user_point( 'selected_best_answer', (int)$post->post_author, $reward, $answer_id, $by );
+		}
+	}
+
+	public static function unselected_best_answer( $post, $question_id ) {
+		$question = ap_get_post( $question_id );
+		$price = (int)$question->price;
+		$reward = ap_get_rate_applied_point( $price, 'best_answer' );
+		if ( $reward > 0 ) {
+			$by = '';
+			if ( is_admin() && ! wp_doing_ajax() ) {
+				$by = ' - 관리자권한';
+			}
+			$answer_id = $post->ID;
+			
+			ap_update_user_point( 'unselected_best_answer', (int)$post->post_author, -$reward, $answer_id, $by );
 		}
 	}
 
@@ -292,16 +322,69 @@ class AP_Point extends \AnsPress\Singleton {
 		$answer_ids = ap_get_answer_ids( $post_id );
 		$post = ap_get_post( $post_id );
 		if ( ! $answer_ids && (int)$post->price > 0 ) {
-			ap_update_user_point( 'delete_question', (int)$post->post_author, (int)$post->price );
+			ap_update_user_point( 'delete_question', (int)$post->post_author, (int)$post->price, $post_id );
 		}
 	}
 
-	public static function mycred_after_general_setting() {}
+	public static function recover_point_after_trash_question_on_admin( $post_id, $post ) {
+		
+		if ( (int)$post->price > 0 ) {
+			ap_update_user_point( 'trash_question', (int)$post->post_author, (int)$post->price, $post_id, ' - 관리자권한' );
+		}
+	}
+
+	public static function reuse_point_after_untrash_question( $post_id, $post ) {
+		if ( (int)$post->price > 0 ) {
+			ap_update_user_point( 'untrash_question', (int)$post->post_author, -((int)$post->price), $post_id, ' - 관리자권한' );
+		}
+	}
+
+	public static function use_point_on_asking( $qameta, $post, $updated ) {
+
+		$values = anspress()->get_form( 'question' )->get_values();
+		if ( isset( $values['price'] ) && $values['price']['value'] ) {
+      $qameta['price'] = (int) $values['price']['value'];
+      $user_id = get_current_user_id();
+      if ( $user_id ) {
+        // refund point
+        if ( $updated ) {
+          $original_price = (int) ap_get_post_field( 'price', $post );
+          if ( $original_price > 0 && $qameta['price'] > 0 && $original_price != $qameta['price'] ) {
+            ap_update_user_point( 'edit_question_point', $user_id, $original_price - $qameta['price'], $post->ID );
+          }
+        } else {
+          // minus point of asker
+          ap_update_user_point( 'ask_question', $user_id, -$qameta['price'], $post->ID );
+        }
+      }
+		}
+		
+		return $qameta;
+	}
 	
 }
 
 // Initialize addon.
 AP_Point::init();
+
+function ap_update_user_point( $ref, $user_id, $point, $post_id = null, $by = '' ) {
+	$data = null;
+	if ( $post_id ) {
+		$_post = ap_get_post( $post_id );
+		
+		if ( $_post ) {
+			$data = array(
+				'post_title' 		=> $_post->post_title,
+				'post_content' 	=> esc_html( ap_truncate_chars( strip_tags( $_post->post_content ), 200 ) ),
+				'ptype'					=> $_post->post_type
+			);
+		}
+	}
+
+	\PC::debug( ['data' => $data], __FUNCTION__ );	
+
+	mycred_add( $ref, $user_id, $point, AP_Point::$mycred_entry[$ref] . $by, $post_id, $data, AP_Point::$mycred_type );
+}
 
 function ap_get_point_icon_class( $log_entry ) {
 	
@@ -324,12 +407,21 @@ function ap_get_point_icon_class( $log_entry ) {
 		break;
 		case 'vote_up_answer':
 			$icon_class .= 'thumb-up thumb-up answer';
-			if ( isset( $log_entry->data['parent'] ) ) {
-				$icon_class .= (' ' . $log_entry->data['parent']);
+			if ( isset( $log_entry->data['ptype'] ) ) {
+				$icon_class .= (' ' . $log_entry->data['ptype']);
 			}
 		break;
-		case 'best_answer':
-			$icon_class .= 'check best_answer';
+		case 'selected_best_answer':
+			$icon_class = 'fas fa-medal best_answer';
+		break;
+		case 'unselected_best_answer':
+			$icon_class = 'fas fa-medal best_answer undo';
+		break;
+		case 'trash_question':
+			$icon_class .= 'question ask undo';
+		break;
+		case 'untrash_question':
+			$icon_class .= 'question ask';
 		break;
 		case 'manual':
 			$icon_class = 'fas fa-balance-scale manual';
@@ -342,9 +434,22 @@ function ap_get_point_icon_class( $log_entry ) {
 function ap_point_ref_content( $log_entry ) {
 	if ( ! empty( $log_entry->ref_id ) ) {
 		$post = get_post( $log_entry->ref_id );
+
+		\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
+
+		// trash , delete have no link
+		if ( $log_entry->data && ( is_null( $post ) || $post->post_status == 'trash' ) ) { ?>
+			<div class="ap-user-point-log-ref ap-user-mycred-log-ref"> <?php 
+				if ( $log_entry->data['ptype'] == 'question'  ) { ?>
+					<strong><?php echo $log_entry->data['post_title']; ?> </strong> <?php
+				} ?>
+				<p><?php echo $log_entry->data['post_content']; ?></p>
+			</div> <?php
+			return;
+		}
 		
 		echo '<a class="ap-point-log-ref ap-user-mycred-log-ref" href="' . esc_url( ap_get_short_link( [ 'ap_p' => $log_entry->ref_id ] ) ) . '">';
-		if ( ! empty( $post->post_title ) ) {
+		if ( ! empty( $post->post_title ) && $post->post_type != 'answer' ) {
 			echo '<strong>' . esc_html( $post->post_title ) . '</strong>';
 		}
 		if ( ! empty( $post->post_content ) ) {
@@ -356,10 +461,6 @@ function ap_point_ref_content( $log_entry ) {
 
 function ap_get_user_point( $user_id ) {
 	return (int) mycred_get_users_balance( $user_id, AP_Point::$mycred_type );
-}
-
-function ap_update_user_point( $ref, $user_id, $point, $post_id = null ) {
-	mycred_add( $ref, $user_id, $point, AP_Point::$mycred_entry[$ref], $post_id, null, AP_Point::$mycred_type );
 }
 
 function ap_get_purchased_answers( $user_id ) {
@@ -389,9 +490,7 @@ function ap_update_sold_count( $question_id ) {
 	$prefix = $wpdb->prefix;
 	$sql = "UPDATE {$prefix}ap_qameta SET sold_count = sold_count + 1 WHERE post_id = {$question_id}";
 	$result = $wpdb->query( $sql );
-	
 }
-
 
 function ap_get_rate_applied_point( $price, $ref ) {
 	$opt = ap_opt();

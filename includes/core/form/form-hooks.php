@@ -183,7 +183,6 @@ class AP_Form_Hooks {
 
 		$values = $form->get_values();
 
-		
 
 		// Store current values in session.
 		// submit => error => refresh => value is stored

@@ -42,6 +42,9 @@
     }
     .col-date {}
     .col-creds {}
+    .ap-user-mycred-log-ref strong {
+      color: black;
+    }
   }
 
   &.ap-user-point-log .ap-user-point-log-item .col-creds > span {

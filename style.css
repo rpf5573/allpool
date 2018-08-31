@@ -6257,6 +6257,8 @@ form[apform] {
       color: black; }
     .ap-user-mycred-log .ap-user-mycred-log-item .col-event__ref p {
       color: gray; }
+  .ap-user-mycred-log .ap-user-mycred-log-item .ap-user-mycred-log-ref strong {
+    color: black; }
 
 .ap-user-mycred-log.ap-user-point-log .ap-user-point-log-item .col-creds > span {
   background-color: #2185d0; }

@@ -19,7 +19,11 @@
 		'number'	=> 10
 	);
 
-	$log = new myCRED_Query_Log( $args ); ?>
+	$log = new myCRED_Query_Log( $args ); 
+	
+	
+	
+	?>
 	<table>
 		<tbody id="the-list"> <?php
 			if ( $log->have_entries() ) {

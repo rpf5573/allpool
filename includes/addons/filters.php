@@ -215,9 +215,6 @@ class AP_Filters {
       if ( isset( $acf['session'] ) ) {
         $qameta['session'] = (int) $acf['session'];
       }
-      if ( isset( $acf['price'] ) ) {
-        $qameta['price'] = (int) $acf['price'];
-      }
     }
     return $qameta;
   }
@@ -230,23 +227,6 @@ class AP_Filters {
     }
     if ( isset( $values[$name_list['session']] ) && $values[$name_list['session']]['value'] ) {
       $qameta['session'] = $values[$name_list['session']]['value'];
-    }
-    if ( isset( $values['price'] ) && $values['price']['value'] ) {
-      $qameta['price'] = (int) $values['price']['value'];
-
-      $user_id = get_current_user_id();
-      if ( $user_id ) {
-        // refund point
-        if ( $updated ) {
-          $original_price = (int) ap_get_post_field( 'price', $post );
-          if ( $original_price > 0 && $qameta['price'] > 0 && $original_price != $qameta['price'] ) {
-            ap_update_user_point( 'edit_question_point', $user_id, $original_price - $qameta['price'], $post->ID );
-          }
-        } else {
-          // minus point of asker
-          ap_update_user_point( 'ask_question', $user_id, -$qameta['price'], $post->ID );
-        }
-      }
     }
 
     return $qameta;

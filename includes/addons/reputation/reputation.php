@@ -133,10 +133,6 @@ AP_Reputation::init();
 
 
 function ap_get_reputation_icon_class( $log_entry ) {
-
-	
-	// 
-	
 	// use apicon and fontawesome both
 	$icon_class = '';
 	switch( $log_entry->ref ) {
@@ -152,14 +148,14 @@ function ap_get_reputation_icon_class( $log_entry ) {
 		break;
 		case 'vote_up':
 			$icon_class = 'apicon-thumb-up thumb-up';
-			if ( isset( $log_entry->data['parent'] ) ) {
-				$icon_class .= (' ' . $log_entry->data['parent']);
+			if ( isset( $log_entry->data['ptype'] ) ) {
+				$icon_class .= (' ' . $log_entry->data['ptype']);
 			}
 		break;
 		case 'vote_down':
 			$icon_class = 'apicon-thumb-down thumb-down';
-			if ( isset( $log_entry->data['parent'] ) ) {
-				$icon_class .= (' ' . $log_entry->data['parent']);
+			if ( isset( $log_entry->data['ptype'] ) ) {
+				$icon_class .= (' ' . $log_entry->data['ptype']);
 			}
 		break;
 		case 'best_answer':
@@ -173,7 +169,7 @@ function ap_get_reputation_icon_class( $log_entry ) {
 			break;
 	}
 
-	if ( $log_entry->data && isset( $log_entry->data['type'] ) && $log_entry->data['type'] == 'undo' ) {
+	if ( $log_entry->data && isset( $log_entry->data['action'] ) && in_array( $log_entry->data['action'], array( 'undo', 'delete', 'trash', 'cancel' ) ) ) {
 		$icon_class .= ' undo';
 	}
 	
@@ -183,6 +179,19 @@ function ap_get_reputation_icon_class( $log_entry ) {
 function ap_reputation_ref_content( $log_entry ) {
 	if ( ! empty( $log_entry->ref_id ) ) {
 		$post = get_post( $log_entry->ref_id );
+
+		\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
+
+		// trash , delete have no link
+		if ( $log_entry->data && ( is_null( $post ) || $post->post_status == 'trash' ) ) { ?>
+			<div class="ap-user-reputation-log-ref ap-user-mycred-log-ref"> <?php
+				if ( $log_entry->ref == 'ask' ) { ?>
+					<strong><?php echo $log_entry->data['post_title']; ?> </strong> <?php
+				} ?>
+				<p><?php echo $log_entry->data['post_content']; ?></p>
+			</div> <?php
+			return;
+		}
 		
 		echo '<a class="ap-user-reputation-log-ref ap-user-mycred-log-ref" href="' . esc_url( ap_get_short_link( [ 'ap_p' => $log_entry->ref_id ] ) ) . '">';
 		if ( ! empty( $post->post_title ) && $post->post_type != 'answer' ) {

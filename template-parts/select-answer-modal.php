@@ -9,6 +9,6 @@
     <div class="ui negative button">
       취소
     </div>
-    <a href="#" class="ap-btn-select ap-btn ui positive button" ap="select_answer">채택</a>
+    <div class="ap-btn-select ui positive button" ap="select_answer">채택</div>
   </div>
 </div>

@@ -116,6 +116,9 @@ class AP_Admin {
 
 		// point
 		anspress()->add_filter( 'mycred_after_core_prefs', 'AP_Point', 'mycred_after_general_setting' );
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Point', 'save_price_from_admin', 10, 3 );
+		anspress()->add_filter( 'ap_trash_question', 'AP_Point', 'recover_point_after_trash_question_on_admin', 10, 2 );
+		anspress()->add_filter( 'ap_untrash_question', 'AP_Point', 'reuse_point_after_untrash_question', 10, 2 );
 
 		// duplicator
 		anspress()->add_filter( 'post_row_actions', 'AP_Duplicator', 'add_copy_answer_btn_on_row_actions', 999, 2 );
@@ -853,7 +856,7 @@ class AP_Admin {
 		}
 	}
 
-	public static function save_best_answer_selection($qameta, $question, $updated) {
+	public static function save_best_answer_selection($qameta, $question, $updated) {		
 		if ( ap_is_admin_update( 'question' ) ) {
 			
 			$original_selected_id = (int) ap_get_post_field( 'selected_id', $question );

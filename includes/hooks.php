@@ -131,7 +131,9 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_user_pages', 'AP_Point', 'ap_user_pages' );
 		anspress()->add_action( 'iamport_button_order_status_changed', 'AP_Point', 'after_charge_point', 999, 4 );
 		anspress()->add_action( 'ap_vote_up', 'AP_Point', 'after_vote_up', 10, 2 );
-		anspress()->add_action( 'ap_select_answer', 'AP_Point', 'after_select_answer', 10, 2 );
+		anspress()->add_action( 'ap_select_answer', 'AP_Point', 'selected_best_answer', 10, 2 );
+		anspress()->add_action( 'ap_unselect_answer', 'AP_Point', 'unselected_best_answer', 10, 2 );
+		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Point', 'use_point_on_asking', 10, 3 );
 
 		// Wishlist hooks.
 		anspress()->add_action( 'ap_display_question_metas', 'AP_Wishlist', 'display_question_metas', 10, 2 );
@@ -475,6 +477,7 @@ class AP_Hooks {
 		 * @since 4.1.0
 		 */
 		$qameta = apply_filters( 'ap_insert_question_qameta', $qameta, $post, $updated );
+
 		ap_insert_qameta( $post_id, $qameta );
 
 		if ( $updated ) {
