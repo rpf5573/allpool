@@ -1,10 +1,14 @@
 .login-trigger {
   display: flex;
   text-align: center;
+  &:before {
+    content: '|';
+    color: white;
+  }
   &__btn {
     cursor: pointer;
     display: inline-block;
-    width: 240px;
+    width: 180px;
     color: $login-trigger-color;
     &:hover {
       color: inherit;

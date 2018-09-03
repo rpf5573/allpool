@@ -1,14 +1,21 @@
 .main-menu {
   display: inline-flex;
   text-align: center;
-  background-color: #19202e;
+  // background-color: #19202e;
   .menu-item a {
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
     min-width: 100px;
     &:hover {
+      background-color: #19202e;
       color: $main-menu-text-hover;
+    }
+  }
+  .current_page_item {
+    background-color: #19202e;
+    & > a {
+      color: white;
     }
   }
 }
