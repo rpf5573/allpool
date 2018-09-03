@@ -180,12 +180,12 @@ function ap_reputation_ref_content( $log_entry ) {
 	if ( ! empty( $log_entry->ref_id ) ) {
 		$post = get_post( $log_entry->ref_id );
 
-		\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
+		
 
 		// trash , delete have no link
 		if ( $log_entry->data && ( is_null( $post ) || $post->post_status == 'trash' ) ) { ?>
 			<div class="ap-user-reputation-log-ref ap-user-mycred-log-ref"> <?php
-				if ( $log_entry->ref == 'ask' ) { ?>
+				if ( $log_entry->data['ptype'] == 'question' ) { ?>
 					<strong><?php echo $log_entry->data['post_title']; ?> </strong> <?php
 				} ?>
 				<p><?php echo $log_entry->data['post_content']; ?></p>

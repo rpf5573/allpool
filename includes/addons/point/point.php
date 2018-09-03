@@ -380,9 +380,6 @@ function ap_update_user_point( $ref, $user_id, $point, $post_id = null, $by = ''
 			);
 		}
 	}
-
-	\PC::debug( ['data' => $data], __FUNCTION__ );	
-
 	mycred_add( $ref, $user_id, $point, AP_Point::$mycred_entry[$ref] . $by, $post_id, $data, AP_Point::$mycred_type );
 }
 
@@ -434,9 +431,6 @@ function ap_get_point_icon_class( $log_entry ) {
 function ap_point_ref_content( $log_entry ) {
 	if ( ! empty( $log_entry->ref_id ) ) {
 		$post = get_post( $log_entry->ref_id );
-
-		\PC::debug( ['log_entry' => $log_entry], __FUNCTION__ );
-
 		// trash , delete have no link
 		if ( $log_entry->data && ( is_null( $post ) || $post->post_status == 'trash' ) ) { ?>
 			<div class="ap-user-point-log-ref ap-user-mycred-log-ref"> <?php 

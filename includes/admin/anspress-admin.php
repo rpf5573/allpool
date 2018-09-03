@@ -115,7 +115,7 @@ class AP_Admin {
 		anspress()->add_action( 'ap_insert_question_qameta', __CLASS__, 'save_best_answer_selection', 10, 3 );
 
 		// point
-		anspress()->add_filter( 'mycred_after_core_prefs', 'AP_Point', 'mycred_after_general_setting' );
+		// anspress()->add_filter( 'mycred_after_core_prefs', 'AP_Point', 'mycred_after_general_setting' );
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Point', 'save_price_from_admin', 10, 3 );
 		anspress()->add_filter( 'ap_trash_question', 'AP_Point', 'recover_point_after_trash_question_on_admin', 10, 2 );
 		anspress()->add_filter( 'ap_untrash_question', 'AP_Point', 'reuse_point_after_untrash_question', 10, 2 );
