@@ -6,7 +6,15 @@
   }
   .question-filter__list {
     flex: 1;
-    padding-right: 20px;
+    .SumoSelect .SelectBox i {
+      color: $theme-main-color;
+      background-image: none;
+      @include fa-icon();
+      @extend .fas;
+      &:before {
+        content: fa-content($fa-var-caret-down);
+      }
+    }
     .l-row:nth-child(1) {
       margin-bottom: 10px;
     }
@@ -15,6 +23,9 @@
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap;
+      .sumo_ap_category {
+        min-width: 320px;
+      }
       & > * {
         margin-right: 10px;
         margin-bottom: 10px;
@@ -22,6 +33,15 @@
       & > *:not(.question-filter__category) {
         .SumoSelect {
           max-width: 140px;
+        }
+      }
+      .question-filter__btn {
+        flex: 1;
+        margin-right: 0;
+        & > .ui.button {
+          background-color: $theme-main-color;
+          border: none;
+          color: white;
         }
       }
     }

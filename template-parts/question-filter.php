@@ -14,7 +14,6 @@ $archive_url = ap_get_questions_page_url();
       <div class="l-row">
         <div class="ui fluid input icon question-filter__title">
           <input name="<?php echo $filters['title']['name']; ?>" type="text" placeholder="<?php esc_attr_e( 'Search questions...', 'anspress-question-answer' ); ?>" value="<?php echo $value; ?>" />
-          <i class="search icon"></i>
         </div>
       </div> <?php
 
@@ -63,12 +62,16 @@ $archive_url = ap_get_questions_page_url();
             } ?>
           </select>
         </div>
+
+        <div class="question-filter__btn">
+			    <button class="ui fluid button search-btn">
+            <i class="search icon"></i>
+            질문 검색
+          </button>
+        </div>
         
       </div>
 
-    </div>
-    <div class="question-filter__btns">
-			<button class="ui primary basic fluid button search-btn">검색</button>
     </div>
   </form>
 </div>

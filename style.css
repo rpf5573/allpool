@@ -19,6 +19,7 @@ Text Domain: alpool
  */
 .fa,
 .fas,
+.question-filter .question-filter__list .SumoSelect .SelectBox i,
 .far,
 .fal,
 .fab {
@@ -102,6 +103,7 @@ Text Domain: alpool
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
+.question-filter .question-filter__list .SumoSelect .SelectBox i.fa-pull-left,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -109,6 +111,7 @@ Text Domain: alpool
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
+.question-filter .question-filter__list .SumoSelect .SelectBox i.fa-pull-right,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -3542,7 +3545,8 @@ readers do not read off random characters that represent icons */
   src: url("assets/scss/vendors/fontawesome/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("assets/scss/vendors/fontawesome/webfonts/fa-solid-900.woff2") format("woff2"), url("assets/scss/vendors/fontawesome/webfonts/fa-solid-900.woff") format("woff"), url("assets/scss/vendors/fontawesome/webfonts/fa-solid-900.ttf") format("truetype"), url("assets/scss/vendors/fontawesome/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
 .fa,
-.fas {
+.fas,
+.question-filter .question-filter__list .SumoSelect .SelectBox i {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
@@ -5791,15 +5795,18 @@ form[apform] {
   position: relative; }
 
 .page-banner {
-  background-image: url("assets/images/front-background-image.jpg");
+  background-image: url("assets/images/questions_top.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
   color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   margin-bottom: 20px; }
+  .page-banner h1, .page-banner h3 {
+    margin: 0;
+    line-height: 150%; }
 
 .question-categories a:last-child {
   margin-right: 0; }
@@ -5815,8 +5822,20 @@ form[apform] {
     display: flex;
     flex-wrap: nowrap; }
   .question-filter .question-filter__list {
-    flex: 1;
-    padding-right: 20px; }
+    flex: 1; }
+    .question-filter .question-filter__list .SumoSelect .SelectBox i {
+      color: #f9c00c;
+      background-image: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: normal;
+      line-height: 1;
+      vertical-align: -.125em; }
+      .question-filter .question-filter__list .SumoSelect .SelectBox i:before {
+        content: "\f0d7"; }
     .question-filter .question-filter__list .l-row:nth-child(1) {
       margin-bottom: 10px; }
     .question-filter .question-filter__list .l-row:nth-child(2) {
@@ -5824,11 +5843,20 @@ form[apform] {
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap; }
+      .question-filter .question-filter__list .l-row:nth-child(2) .sumo_ap_category {
+        min-width: 320px; }
       .question-filter .question-filter__list .l-row:nth-child(2) > * {
         margin-right: 10px;
         margin-bottom: 10px; }
       .question-filter .question-filter__list .l-row:nth-child(2) > *:not(.question-filter__category) .SumoSelect {
         max-width: 140px; }
+      .question-filter .question-filter__list .l-row:nth-child(2) .question-filter__btn {
+        flex: 1;
+        margin-right: 0; }
+        .question-filter .question-filter__list .l-row:nth-child(2) .question-filter__btn > .ui.button {
+          background-color: #f9c00c;
+          border: none;
+          color: white; }
 
 .ap-question-meta > .ap-display-meta-item {
   display: inline-block;
