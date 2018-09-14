@@ -1,14 +1,16 @@
 .site-info {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-top: 1px solid #e4e4e4;
-  font-size: 80%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: $site-info-background;
+  font-size: 14px;
+
+  .l-left, .l-right {
+    min-width: 300px;
+  }
+
   .site-info__links {
     & > ul {
       display: flex;
@@ -19,10 +21,13 @@
     margin-bottom: 2px;
   }
   .site-info__etc {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    color: theme-color('footer-site-info__etc');
+    text-align: left;
+    color: $site-info-text-color;
+    line-height: 170%;
+    font-weight: 300;
+    a {
+      color: $site-info-text-color;
+    }
   } 
 
   .footer-menu {

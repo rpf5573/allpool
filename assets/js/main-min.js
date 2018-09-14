@@ -1919,6 +1919,15 @@ jQuery(document).ready(function () {
       mobile_menu.removeClass( 'd-none' );
     }, 500);
   }
+
+  var go_to_bottom_btn = $('.go-to-bottom-btn');
+  if ( go_to_bottom_btn.length > 0 ) {
+    go_to_bottom_btn.on( 'click', function(){
+      $('html, body').animate({
+        scrollTop: $('.alpool-guide').offset().top
+      }, 1500);
+    } );
+  }
   
   })(jQuery);
   

@@ -7,8 +7,9 @@
     padding-left: 10px;
     padding-right: 10px;
     min-width: 100px;
+    color: $menu-text-color;
     &:hover {
-      background-color: #19202e;
+      background-color: $deep-blue;
       color: $main-menu-text-hover;
     }
   }

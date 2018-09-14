@@ -24,15 +24,27 @@ $color7:  #11a7db;
 $color8:  #eb5837;
 $color9:  #F4AC20;
 $color10: #2185d0;
+$color11: #2f364a;
 $white: white;
+$grey: #4e4e4e;
+$grey-100: #eeeeee;
+$sky-blue: #00b9f1;
+$theme-main-color: #f9c00c;
+$deep-blue: #011638;
+$menu-text-color: #101010;
 $theme-color-body: #6f7d95;
 $theme-color-a: #78829d;;
 $theme-color-a-hover: $color7;
-$theme-color-logo: $color9;
-$reputation-color: $color9;
+$theme-color-logo: $theme-main-color;
+$reputation-color: $theme-main-color;
 $point-color: $color10;
 $purchase-answers-background-color: $point-color;
 $charge-point-background-color: #e91e63;
+$header-background-color: $white;
+$widget-background-color: $deep-blue;
+$guid-box-border: #dddddd;
+$site-info-background: #eeeeee;
+$site-info-text-color: #333333;
 
 /*  Font
 /* --------------------------------------------------- */
@@ -52,19 +64,21 @@ $z-index-god: 99999;
 
 /*  Front message
 /* --------------------------------------------------- */
-$front-message-fs-default: 70px;
-$front-message-fs-mega: 60px;
-$front-message-fs-xl: 50px;
+$front-message-fs-default: 55px;
+$front-message-fs-mega: 50px;
+$front-message-fs-xl: 45px;
 $front-message-fs-lg: 40px;
 $front-message-fs-md: $front-message-fs-lg;
-$front-message-fs-sm: 30px;
+$front-message-fs-sm: 28px;
+$front-message-sub-rate : 0.6;
+
 
 /*  Front search
 /* --------------------------------------------------- */
-$front-category-search-fs-default: 25px;
+$front-category-search-fs-default: 20px;
 $front-category-search-fs-mega: $front-category-search-fs-default;
-$front-category-search-fs-xl: 20px;
-$front-category-search-fs-lg: 18px;
+$front-category-search-fs-xl: 18px;
+$front-category-search-fs-lg: 16px;
 $front-category-search-fs-md: $front-category-search-fs-lg;
 $front-category-search-fs-sm: 16px;
 

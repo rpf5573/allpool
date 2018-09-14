@@ -5,12 +5,34 @@
   font-size: $front-category-search-fs-default;
   & > form {
     display: flex;
-    .search {
+    .ui.search {
       flex : 1;
-      margin-right: 10px;
+      margin-right: 0;
+      border-radius: 0;
+      border: 0;
+      opacity: 0.96;
+      .menu {
+        border: none;
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+      .dropdown.icon {
+        color: $theme-main-color;
+      }
+      &.active.visible {
+        box-sizing: border-box;
+        border: 1px solid $theme-main-color;
+        border-right: none;
+      }
     }
   }
-  .fa-search {
-    display: none;
+  &__btn {
+    border: none;
+    background-color: $theme-color-logo;
+    padding: 0;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

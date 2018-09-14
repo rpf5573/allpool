@@ -6,6 +6,7 @@ if ( ap_is_login_related_page() ) {
 ?>
 <div class="login-trigger">
   <a class="login-trigger__btn no-style" <?php echo $just_be_here; ?>>
-    로그인 또는 회원가입
+    <i class="fas fa-user"></i>
+    로그인
   </a>
 </div>

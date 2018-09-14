@@ -9,8 +9,11 @@
   /* --------------------------------------------------- */
   @include mq($until: 'mega') {
     .front-page {
-      .front-message {
+      .front-message__main {
         font-size: $front-message-fs-mega;
+      }
+      .front-message__sub {
+        font-size: $front-message-fs-mega * $front-message-sub-rate;
       }
       .front-category-search {
         font-size: $front-category-search-fs-mega;
@@ -25,8 +28,11 @@
   /* --------------------------------------------------- */
   @include mq($until: 'xl') {
     .front-page {
-      .front-message {
+      .front-message__main {
         font-size: $front-message-fs-xl;
+      }
+      .front-message__sub {
+        font-size: $front-message-fs-xl * $front-message-sub-rate;
       }
       .front-category-search {
         font-size: $front-category-search-fs-xl;
@@ -41,8 +47,11 @@
   /* --------------------------------------------------- */
   @include mq($until: 'lg') {
     .front-page {
-      .front-message {
+      .front-message__main {
         font-size: $front-message-fs-lg;
+      }
+      .front-message__sub {
+        font-size: $front-message-fs-lg * $front-message-sub-rate;
       }
       .front-category-search {
         font-size: $front-category-search-fs-lg;
@@ -56,11 +65,10 @@
   /*  Medium
   /* --------------------------------------------------- */
   @include mq($until: 'md') {
-  
+
     // Header
     .site-header {
       padding-right: 20px;
-      margin-bottom: 20px;
       padding-top: 5px;
       .wrapper {
         justify-content: center;
@@ -86,16 +94,27 @@
   
     // Front page
     .front-page {
-      .front-message {
-        font-size: $front-message-fs-md;
-        margin-bottom: 20px;
-        white-space: pre-line;
+
+      .front-header {
+        & > .wrapper {
+          padding-top: 100px;
+        }
+        .go-to-bottom-btn-container {
+          padding-top: 100px;
+        }
       }
+
+      .front-message__main {
+        font-size: $front-message-fs-md;
+      }
+      .front-message__sub {
+        font-size: $front-message-fs-md * $front-message-sub-rate;
+      }
+      
       .front-category-search {
         font-size: $front-category-search-fs-md;
         form {
           .search {
-            margin-right: 6px;
             flex: 1;
           }
           button {
@@ -103,12 +122,64 @@
             span {
               display: none;
             }
-            .fa-search {
-              display: block;
+          }
+        }
+      }
+
+      .front-widgets {
+        .widget-list-item {
+          .l-left {
+            width: 36px;
+            padding-right: 10px;
+          }
+          .l-right {
+            span {
+              font-size: 14px;
+              line-height: 16px;
             }
           }
         }
       }
+
+      .alpool-guide {
+        text-align: center;
+        .main-title {
+          text-align: center;
+        }
+        .wrapper > .l-row {
+          margin-bottom: 40px;
+        }
+        .arrow {
+          transform: rotate(90deg);
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+        .point-get {
+          flex-direction: column;
+        }
+        .point-use {
+          flex-direction: column;
+          &__box {
+            margin-bottom: 60px;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+        }
+        .link-container {
+          padding-top: 0;
+          .go-to-ask,
+          .go-to-list {
+            width: 160px;
+            font-size: 22px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          }
+        }
+        .notice {
+          font-size: 15px;
+        }
+      }
+
     }
   
     // Questions
@@ -174,27 +245,40 @@
       display: none;
     }
 
+    .site-info {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      .l-left {
+        display: none;
+      }
+      .l-right {
+        text-align: center;
+        .site-info__links, .site-info__etc {
+          text-align: center;
+        } 
+        .footer-menu {
+          justify-content: center;
+        }
+      }
+    }
+
   }
   
   /*  Small
   /* --------------------------------------------------- */
   @include mq($until: 'sm') {
-    .wrs_modal_dialogContainer {
-      
-    }
 
-    // Front page
     .front-page {
-      .q-icon img,
-      .a-icon img {
-        display: none;
-      }
-      .front-message {
+      .front-message__main {
         font-size: $front-message-fs-sm;
       }
-      .front-category-search {
-        font-size: $front-category-search-fs-sm;
+      .front-message__sub {
+        font-size: $front-message-fs-sm * $front-message-sub-rate;
       }
+    }
+
+    .wrs_modal_dialogContainer {
+      
     }
   
     // Licence map

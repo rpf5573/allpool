@@ -10,6 +10,6 @@ $url = ap_get_questions_page_url(); ?>
         <option value="<?php echo $term_id; ?>"> <?php echo $label; ?> </option> <?php
       } ?>
     </select>
-    <button type="submit" class="ui primary basic button"> <span>검색</span> <i class="fas fa-search"></i> </button>
+    <button type="submit" class="front-category-search__btn"> <i class="fas fa-search"></i> </button>
   </form>
 </div>

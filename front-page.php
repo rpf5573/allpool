@@ -10,108 +10,62 @@ get_header(); ?>
 
 <div class="content-area">
   <main id="main" class="site-main" role="main">
-    <div class="m-center-box"> <?php
-      ap_template_part( 'front', 'message' );
-      ap_template_part( 'front', 'category-search' ); ?>
+    <div class="front-header">
+      <div class="wrapper max-box">
+        <div class="front-message">
+          <h1 class="front-message__main">
+            알풀에서 <span class="orange">답변</span> 달고 <span class="orange">점심값</span> 벌어가세요!
+          </h1>
+          <h6 class="front-message__sub">
+            알풀은 18년간 업계 1위를 지켜온 지식거래 사이트입니다.
+          </h6>
+        </div>
+        <div class="front-category-search"> <?php 
+          ap_template_part( 'front', 'category-search' ); ?>
+        </div>
+        <div class="go-to-bottom-btn-container">
+          <span class="go-to-bottom-btn">
+            <img src="<?php echo ANSPRESS_URL . 'assets/images/icon_scroll_down.png'; ?>" alt="">
+          </span>
+        </div>
+      </div>
     </div>
+    <div class="front-widgets">
+      <div class="max-box">
+        <ul class="widget-list no-style">
+          <li class="widget-list-item">
+          <div class="l-left">
+              <img src="<?php echo ANSPRESS_URL; ?>assets/images/icon_question_mark.png" alt="">
+            </div>
+            <div class="l-right">
+              <span>등록된 질문</span>
+              <span class="blue">4,020개</span>
+            </div>
+          </li>
+          <li class="widget-list-item">
+            <div class="l-left">
+              <img src="<?php echo ANSPRESS_URL; ?>assets/images/icon_bulb.png" alt="">
+            </div>
+            <div class="l-right">
+              <span>답변한 개수</span>
+              <span class="blue">4,020개</span>
+            </div>
+          </li>
+          <li class="widget-list-item">
+            <div class="l-left">
+              <img src="<?php echo ANSPRESS_URL; ?>assets/images/icon_won.png" alt="">
+            </div>
+            <div class="l-right">
+              <span>답변에 사용된 금액</span>
+              <span class="blue">5,569,500</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> <?php
+    ap_template_part( 'guide' ); ?>
   </main> <!-- #main -->
 </div> <!-- content-area -->
-
-<div style="display:none;"> 
-<button type="button" id="imp_card"> 신용카드 결제 </button>
-<button type="button" id="imp_phone"> 핸드폰 결제 </button>
-<button type="button" id="imp_vbank"> 가상계좌 </button>
-
-<script>
-  jQuery('#imp_card').on( 'click', function(){
-    IMP.init( 'imp07107339' );
-    IMP.request_pay({
-      pg : 'html5_inicis',
-      pay_method : 'card',
-      merchant_uid : 'merchant_' + new Date().getTime(),
-      name : '결제테스트',
-      amount : 14000,
-      buyer_email : 'rpf5573@gmail.com',
-      buyer_name : '윤병인',
-      buyer_tel : '010-9619-0918',
-      buyer_addr : '서울특별시 강남구 삼성동',
-      buyer_postcode : '123-456'
-    }, function(rsp){
-      if ( rsp.success ) {
-        var msg = '결제가 완료되었습니다';
-        msg += '고유ID : ' + rsp.imp_uid;
-        msg += '상점 거래ID' + rsp.merchant_uid;
-        msg += '결제 금액 : ' + rsp.paid_amount;
-        msg += '카드 승인번호 : ' + rsp.apply_num;
-      } else {
-        var msg = '결제에 실패하였습니다.';
-        msg += '에러내용 : ' + rsp.error_msg;
-      }
-
-      alert( msg );
-    });
-  } );
-  jQuery('#imp_vbank').on( 'click', function(){
-    IMP.init( 'imp07107339' );
-    IMP.request_pay({
-      pg : 'html5_inicis',
-      pay_method : 'vbank',
-      merchant_uid : 'merchant_' + new Date().getTime(),
-      name : '결제테스트',
-      amount : 12000,
-      buyer_email : 'rpf5573@gmail.com',
-      buyer_name : '윤병인',
-      buyer_tel : '010-9619-0918',
-      buyer_addr : '서울특별시 강남구 삼성동',
-      buyer_postcode : '123-456'
-    }, function(rsp){
-      if ( rsp.success ) {
-        console.dir( rsp );
-        var msg = '결제가 완료되었습니다';
-        msg += '고유ID : ' + rsp.imp_uid;
-        msg += '상점 거래ID' + rsp.merchant_uid;
-        msg += '결제 금액 : ' + rsp.paid_amount;
-        msg += '카드 승인번호 : ' + rsp.apply_num;
-      } else {
-        var msg = '결제에 실패하였습니다.';
-        msg += '에러내용 : ' + rsp.error_msg;
-      }
-
-      alert( msg );
-    });
-  } );
-  jQuery('#imp_phone').on( 'click', function(){
-    IMP.init( 'imp07107339' );
-    IMP.request_pay({
-      pg : 'html5_inicis',
-      pay_method : 'phone',
-      merchant_uid : 'merchant_' + new Date().getTime(),
-      name : '결제테스트',
-      amount : 1000,
-      buyer_email : 'rpf5573@gmail.com',
-      buyer_name : '윤병인',
-      buyer_tel : '010-9619-0918',
-      buyer_addr : '서울특별시 강남구 삼성동',
-      buyer_postcode : '123-456'
-    }, function(rsp){
-      if ( rsp.success ) {
-        console.dir( rsp );
-        var msg = '결제가 완료되었습니다';
-        msg += '고유ID : ' + rsp.imp_uid;
-        msg += '상점 거래ID' + rsp.merchant_uid;
-        msg += '결제 금액 : ' + rsp.paid_amount;
-        msg += '카드 승인번호 : ' + rsp.apply_num;
-      } else {
-        var msg = '결제에 실패하였습니다.';
-        msg += '에러내용 : ' + rsp.error_msg;
-      }
-
-      alert( msg );
-    });
-  } );
-</script>
-
-</div>
 
 <?php 
 get_footer(); ?>

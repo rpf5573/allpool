@@ -1,4 +1,8 @@
 .user-nav {
+  transition: 0.1s color ease-in;
+  .ui.pointing.dropdown.active {
+    color: $theme-main-color;
+  }
   .dropdown.ui {
     cursor: pointer;
     display: flex;
@@ -6,7 +10,6 @@
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-    color: white;
     &:hover {
       color: inherit;
     }

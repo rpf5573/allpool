@@ -1,9 +1,10 @@
 .site-header {
-  background-color:#2f364a;
-  margin-bottom: 40px;
+  background-color: $header-background-color;
+  //margin-bottom: 40px;
   min-height: 1px;
   flex-grow: 0;
   flex-shrink: 0;
+  border-bottom: 1px solid $grey-100;
   & > .wrapper {
     max-width: 1040px;
     margin-left: auto;

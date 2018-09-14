@@ -1,0 +1,133 @@
+.alpool-guide {
+  color: $deep-blue;
+  margin-bottom: 60px;
+  & > .wrapper > .l-row {
+    margin-bottom: 60px;
+  }
+  .main-title, .title {
+
+  }
+  .main-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  .title {
+    position: relative;
+    font-size: 26px;
+    margin-bottom: 50px;
+    span {
+      position: relative;
+      &:before {
+        content: '';
+        width: 24px;
+        height: 4px;
+        background-color: $sky-blue;
+
+        position: absolute;
+        left: 0;
+        top: -6px;
+      }
+    }
+  }
+
+  .point-get {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .arrow {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .point-get__box {
+    border: 1px solid $guid-box-border;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+
+    &__img_container {
+      img {
+        width: 100%;
+        max-width: 100px;
+      }
+    }
+    &__description {
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+
+  .point-use {
+    display: flex;
+    justify-content: space-between;
+    &__box {
+      border: 1px solid $guid-box-border;
+      text-align: center;
+      position: relative;
+
+      .number-img {
+        display: block;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        max-width: 60px;
+      }
+
+      .inner {
+        padding: 20px;
+        padding-top: 50px;
+      }
+
+      &:before {
+        
+      }
+      img {
+        width: 70px;
+      }
+      &__main_title {
+        font-size: 22px;
+        margin-top: 20px;
+        font-weight: 500;
+      }
+      &__sub_title {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .link-container {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    .go-to-ask, .go-to-list {
+      font-size: 26px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      width: 280px;
+      color: white;
+      border-radius: 6px;
+    }
+    .empty-space {
+      width: 30px;
+    }
+    .go-to-ask {
+      background-color: $deep-blue;
+    }
+    .go-to-list {
+      background-color: $sky-blue;
+    }
+  }
+
+  .notice {
+    font-size: 20px;
+    color: $grey;
+    font-weight: 300;
+    text-align: right;
+    line-height: 150%;
+  }
+}

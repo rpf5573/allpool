@@ -1,17 +1,20 @@
 .login-trigger {
-  display: flex;
-  text-align: center;
   &:before {
     content: '|';
-    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   &__btn {
     cursor: pointer;
-    display: inline-block;
-    width: 180px;
-    color: $login-trigger-color;
+    padding: 10px;
+    background-color: $theme-main-color;
+    color: white;
+    i {
+      padding-right: 4px;
+    }
     &:hover {
-      color: inherit;
+      color: $menu-text-color;
+      background-color: rgba(0,0,0,0);
     }   
   }
 }

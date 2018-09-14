@@ -1,22 +1,92 @@
 .front-page {
-  position: relative;
-  padding: 0;
-
   .site-header {
     margin-bottom: 0;
   }
-
   .site-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
+  .front-header {
+    background-image: url('./assets/images/main_top.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
 
-  & {
-    width: 100%; height: 100%;
+    // &:before {
+    //   content: '';
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    //   z-index: 1;
+    //   background-color: rgba(153, 153, 153, 0.4);
+    //   background-image: url('./assets/images/overlay-pattern.png');
+    // }
+
+    & > .wrapper {
+      position: relative;
+      z-index: 2;
+
+      padding-top: 150px;
+      text-align: center;
+
+      .front-message {
+        word-break: keep-all;
+        color: white;
+        .front-message__main {
+          font-size: $front-message-fs-default;
+          margin-top: 0;
+        }
+        .front-message__sub {
+          font-size: $front-message-fs-default * $front-message-sub-rate;
+          margin-top: 0;
+          font-weight: 300;
+        }
+      }
+      .go-to-bottom-btn-container {
+        padding-top: 120px;
+        padding-bottom: 30px;
+        .go-to-bottom-btn {
+          cursor: pointer;
+        }
+      }
+    }
+
+    & .l-bottom {
+      background-color: $widget-background-color;
+      .widgets {
+        display: flex;
+      }
+    }
   }
-
-  .center-box {
-    padding-bottom: 80px;
+  .front-widgets {
+    background-color: $widget-background-color;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    .widget-list {
+      display: flex;
+      justify-content: space-around;
+      .widget-list-item {
+        display: flex;
+        color: white;
+        align-items: center;
+        .l-left {
+          width: 70px;
+          img {
+            width: 100%;
+          }
+          padding-right: 20px;
+        }
+        span {
+          font-size: 24px;
+          display: block;
+          line-height: 26px;
+        }
+      }
+    }
   }
 }

@@ -256,6 +256,90 @@
 		"oAP": "\/assets\/fonts\/fontawesome\/fa-solid-900.woff2",
 		"oF": 0
 		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareB.eot": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareB.eot",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareB.ttf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareB.ttf",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareB.woff": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareB.woff",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareEB.eot": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareEB.eot",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareEB.ttf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareEB.ttf",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareEB.woff": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareEB.woff",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareL.eot": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareL.eot",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareL.ttf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareL.ttf",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareL.woff": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareL.woff",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareR.eot": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareR.eot",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareR.ttf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareR.ttf",
+		"oF": 0
+		},
+	"\/assets\/fonts\/nanumsquare\/NanumSquareR.woff": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareR.woff",
+		"oF": 0
+		},
 	"\/assets\/images\/a-icon.png": {
 		"ft": 32768,
 		"iS": 6069,
@@ -337,6 +421,138 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/assets\/images\/front-background-image.jpg": {
+		"ft": 16384,
+		"iS": 96741,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/front-background-image.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/icon_arrow_right.png": {
+		"ft": 32768,
+		"iS": 2948,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/icon_arrow_right.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/use-point-number1.png": {
+		"ft": 32768,
+		"iS": 5537,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/use-point-number1.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/use-point-number2.png": {
+		"ft": 32768,
+		"iS": 5631,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/use-point-number2.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/use-point-number3.png": {
+		"ft": 32768,
+		"iS": 5663,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/use-point-number3.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/use-point1.png": {
+		"ft": 32768,
+		"iS": 8029,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/use-point1.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/use-point2.png": {
+		"ft": 32768,
+		"iS": 7778,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/use-point2.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/use-point3.png": {
+		"ft": 32768,
+		"iS": 7185,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/use-point3.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/way-point-step1.png": {
+		"ft": 32768,
+		"iS": 10422,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/way-point-step1.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/way-point-step2.png": {
+		"ft": 32768,
+		"iS": 12552,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/way-point-step2.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/way-point-step3.png": {
+		"ft": 32768,
+		"iS": 10582,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/way-point-step3.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/guide\/way-point-step4.png": {
+		"ft": 32768,
+		"iS": 9927,
+		"oA": 0,
+		"oAP": "\/assets\/images\/guide\/way-point-step4.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
 	"\/assets\/images\/hovercard.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -346,6 +562,50 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
+		},
+	"\/assets\/images\/icon_bulb.png": {
+		"ft": 32768,
+		"iS": 4099,
+		"oA": 0,
+		"oAP": "\/assets\/images\/icon_bulb.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/icon_question_mark.png": {
+		"ft": 32768,
+		"iS": 5705,
+		"oA": 0,
+		"oAP": "\/assets\/images\/icon_question_mark.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/icon_scroll_down.png": {
+		"ft": 32768,
+		"iS": 3228,
+		"oA": 0,
+		"oAP": "\/assets\/images\/icon_scroll_down.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/icon_won.png": {
+		"ft": 32768,
+		"iS": 4042,
+		"oA": 0,
+		"oAP": "\/assets\/images\/icon_won.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
 		},
 	"\/assets\/images\/laptop.svg": {
 		"ft": 2097152,
@@ -407,6 +667,39 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/assets\/images\/logo_footer.png": {
+		"ft": 32768,
+		"iS": 7421,
+		"oA": 0,
+		"oAP": "\/assets\/images\/logo_footer.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/logo_header.png": {
+		"ft": 32768,
+		"iS": 7442,
+		"oA": 0,
+		"oAP": "\/assets\/images\/logo_header.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/main_top.jpg": {
+		"ft": 16384,
+		"iS": 246473,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/assets\/images\/main_top.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"\/assets\/images\/money.png": {
 		"ft": 32768,
 		"iS": 4114,
@@ -450,6 +743,28 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/assets\/images\/overlay-pattern-3.png": {
+		"ft": 32768,
+		"iS": 101,
+		"oA": 0,
+		"oAP": "\/assets\/images\/overlay-pattern-3.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/overlay-pattern.png": {
+		"ft": 32768,
+		"iS": 1643,
+		"oA": 0,
+		"oAP": "\/assets\/images\/overlay-pattern.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
 	"\/assets\/images\/php.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -486,6 +801,17 @@
 		"iS": 3950,
 		"oA": 0,
 		"oAP": "\/assets\/images\/q-icon.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/question-icon.png": {
+		"ft": 32768,
+		"iS": 24844,
+		"oA": 0,
+		"oAP": "\/assets\/images\/question-icon.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
@@ -1190,6 +1516,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/_front-message.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_guide.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/_guide.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -3358,6 +3697,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/front-message.php",
+		"oF": 0
+		},
+	"\/template-parts\/guide.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/guide.php",
 		"oF": 0
 		},
 	"\/template-parts\/list-head.php": {

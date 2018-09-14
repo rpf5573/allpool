@@ -125,12 +125,13 @@
   height: 100%;
   left: 0;
   top: 0;
+  padding-left: 15px;
   .wrap {
     cursor: pointer;
     width: 30px;
     height: 25px;
     i {
-      background-color: #fff;
+      background-color: $deep-blue;
       border-radius: 2px;
       content: '';
       display: block;

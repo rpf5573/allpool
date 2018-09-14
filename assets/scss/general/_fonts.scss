@@ -543,3 +543,37 @@ i {
     background-color: #0ca678;
   }
 }
+
+$nanum-font-path: "assets/fonts/nanumsquare" !default;
+@font-face {
+  font-family: 'NanumSquare';
+  font-weight: 400;
+  src: url('#{$nanum-font-path}/NanumSquareR.eot');
+  src: url('#{$nanum-font-path}/NanumSquareR.eot?#iefix') format('embedded-opentype'),
+       url('#{$nanum-font-path}/NanumSquareR.woff') format('woff'),
+       url('#{$nanum-font-path}/NanumSquareR.ttf') format('truetype');
+ }
+ @font-face {
+  font-family: 'NanumSquare';
+  font-weight: 700;
+  src: url('#{$nanum-font-path}/NanumSquareB.eot');
+  src: url('#{$nanum-font-path}/NanumSquareB.eot?#iefix') format('embedded-opentype'),
+       url('#{$nanum-font-path}/NanumSquareB.woff') format('woff'),
+       url('#{$nanum-font-path}/NanumSquareB.ttf') format('truetype');
+ }
+ @font-face {
+  font-family: 'NanumSquare';
+  font-weight: 800;
+  src: url('#{$nanum-font-path}/NanumSquareEB.eot');
+  src: url('#{$nanum-font-path}/NanumSquareEB.eot?#iefix') format('embedded-opentype'),
+       url('#{$nanum-font-path}/NanumSquareEB.woff') format('woff'),
+       url('#{$nanum-font-path}/NanumSquareEB.ttf') format('truetype');
+ }
+ @font-face {
+  font-family: 'NanumSquare';
+  font-weight: 300;
+  src: url('#{$nanum-font-path}/NanumSquareL.eot');
+  src: url('#{$nanum-font-path}/NanumSquareL.eot?#iefix') format('embedded-opentype'),
+       url('#{$nanum-font-path}/NanumSquareL.woff') format('woff'),
+       url('#{$nanum-font-path}/NanumSquareL.ttf') format('truetype');
+ }
