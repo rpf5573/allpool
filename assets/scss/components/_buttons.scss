@@ -131,9 +131,22 @@
 	float: right;
 	width: 32px;
 	height: 32px;
-	margin-bottom: 20px;
 	cursor: pointer;
 	img {
 		width: 100%;
+	}
+}
+
+.ap-btn-wish {
+	background-color: $sky-blue;
+	background-image: none;
+	color: white;
+	border: none;
+	&:hover {
+		background-color: $sky-blue;
+		color: white;
+	}
+	&.active {
+		background-color: red;
 	}
 }

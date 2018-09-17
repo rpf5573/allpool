@@ -5,7 +5,8 @@
 .ap-list-head{
   padding: 15px 15px 5px 15px;
   border: solid 1px #ddd;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  background-color: $grey-100;
   .ap-btn-ask{
     background: $color1;
     border-radius: 2px;
@@ -35,6 +36,10 @@
     padding: 15px 15px;
     width: 100%;
     position: relative;
+
+    @include even() {
+      background-color: $grey-100;
+    }
 
     &.status-trash{
       background: #fff6f7;
@@ -79,8 +84,26 @@
         height: 29px;
         margin-bottom: 1px;
       }
+      &.ap-questions-vcount {
+        background-color: $sky-blue;
+        span {
+          color: $sky-blue;
+          background-color: white;
+        }
+        label {
+          color: white;
+        }
+      }
       &.ap-questions-acount {
-        border-color: $color1;
+        border-color: $sky-blue;
+        background-color: $deep-blue;
+        span {
+          color: $deep-blue;
+          background-color: white;
+        }
+        label {
+          color: white;
+        }
       }
     }
     .ap-questions-summery{
@@ -91,7 +114,7 @@
     .ap-display-meta-item {
       font-size: 12px;
       color: $color4;
-      margin-right: 10px;
+      
       a{
         color: $color4;
       }
@@ -119,20 +142,6 @@
     }
     .ap-list-counts{
       float: right;
-    }
-    .ap-display-meta-item{
-      i{
-        font-style: normal;
-        &:before {
-          margin-right: 5px;
-        }
-      }
-      [class^="apicon-"]::before, [class*=" apicon-"]::before{
-        margin-right: 5px;
-      }
-      &.price > i:before {
-        margin-right: 1px;
-      }
     }
   }
 }

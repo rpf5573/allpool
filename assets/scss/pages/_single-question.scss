@@ -2,6 +2,13 @@
 // Question page style
 // --------------------------------------------------
 .single-question .ap-q {
+	margin-top: 40px;
+	.ap-question-meta {
+		margin-left: 70px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 	&-inner {
 		padding: 15px;
 	}

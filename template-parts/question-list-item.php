@@ -27,14 +27,14 @@ $clearfix_class = array( 'ap-questions-item clearfix' );
 			<?php if ( ! ap_opt( 'disable_voting_on_question' ) ) : ?>
 				<span class="ap-questions-count ap-questions-vcount">
 					<span itemprop="upvoteCount"><?php ap_votes_net(); ?></span>
-					<?php _e( 'Votes', 'anspress-question-answer' ); ?>
+					<label for="">추천</label>
 				</span>
 			<?php endif; ?>
 
 			<!-- Answer Count -->
 			<a class="ap-questions-count ap-questions-acount" href="<?php echo ap_answers_link(); ?>">
 				<span itemprop="answerCount"><?php ap_answers_count(); ?></span>
-				<?php _e( 'Ans', 'anspress-question-answer' ); ?>
+				<label for="">답변</label>
 			</a>
 		</div>
 
@@ -44,8 +44,8 @@ $clearfix_class = array( 'ap-questions-item clearfix' );
 				<a class="ap-questions-hyperlink" itemprop="url" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 				<?php // the_ID(); ?>
 			</span>
-			<div class="ap-display-question-meta">
-				<?php echo ap_question_metas(); ?>
+			<div class="ap-question-meta"> <?php 
+				echo ap_question_metas(); ?>
 			</div>
 		</div>
 	</div>

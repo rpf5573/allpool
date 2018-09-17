@@ -17,8 +17,6 @@
 ?>
 <div id="ap-single" class="ap-q clearfix">
 	<div class="ap-question-lr ap-row" itemtype="https://schema.org/Question" itemscope="">
-		<?php //echo do_shortcode( '[print-me target="html"]' );
-		ap_print_icon(); ?>
 		<div class="ap-q-left <?php echo ( is_active_sidebar( 'ap-qsidebar' ) ) ? 'ap-col-8' : 'ap-col-12'; ?>">
 			<?php
 				/**
@@ -28,8 +26,13 @@
 				 */
 				do_action( 'ap_before_question_meta' );
 			?>
-			<div class="ap-question-meta clearfix">
-				<?php ap_question_metas(); // xss ok. ?>
+			<div class="ap-question-meta"> 
+				<div class="l-left"> <?php  
+					ap_question_metas(); ?>
+				</div>
+				<div class="l-right"> <?php
+					ap_question_btns(); ?>
+				</div>
 			</div>
 			<?php
 				/**

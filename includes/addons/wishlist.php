@@ -83,16 +83,16 @@ class AP_Wishlist extends \AnsPress\Singleton {
 		) );
 	}
 
-	public static function display_question_metas( $metas, $question_id ) {
+	public static function add_wishlist_question_btn( $question_id, $btns ) {
 		if ( is_user_logged_in() && is_question() ) {
 			$_post = ap_get_post();
 			$user_id = get_current_user_id();
 			if ( $_post->post_author != $user_id ) {
-				$metas['wish'] = ap_wish_btn( $_post, false );
+				$btns['wish'] = ap_wish_btn( $_post, false );
 			}
 		}
 
-		return $metas;
+		return $btns;
 	}
 
 	/**
@@ -192,7 +192,7 @@ function ap_wish_btn( $_post = false, $echo = true ) {
 	);
 
 	$wished = ap_has_user_wishlist( $_post->ID );
-	$label = $wished ? __( 'Remove from wishlist', 'anspress-question-answer' ) : __( 'Add to wishlist', 'anspress-question-answer' );
+	$label = $wished ? '위시리스트에서 삭제' : '위시리스트에 추가';
 	$html = '<button class="ap-btn ap-btn-wish ap-btn-big ' . ( $wished ? 'active' : '' ) . '" apwish apquery="' . esc_js( $args ) . '">' . esc_attr( $label ) . '</button>';
 
 	if ( ! $echo ) {

@@ -1,38 +1,41 @@
 .ap-question-meta {
-  >.ap-display-meta-item {
+
+  .ap-display-meta-item {
     display: inline-block;
-    margin-right: 15px;
-    &:last-child {
-      margin-right: 0;
+    @include all-but(1) {
+      &::before {
+        content: '|';
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
-    &.wish {
-      float: right;
+    i{
+      font-style: normal;
+      margin-right: 5px;
     }
-    &:before {
-      display: none;
+    // [class^="apicon-"], [class*=" apicon-"]{
+    //   margin-right: 5px;
+    // }
+    &.price > i:before {
+      margin-right: 1px;
     }
-    i {
-      vertical-align: middle;
-      color: $color5;
-      margin-right: 4px;
-    }
-    >span {
-      vertical-align: middle;
-    }
-  }
-  .solved {
-    font-size: 12px;
-    height: 19px;
-    margin-right: 7px;
-    padding: 1px 6px;
-    color: #fff;
-    border-radius: 2px;
-    background: #FF5722;
-    margin-right: 20px;
-    background: $color1;
-    i {
-      margin-right: 0;
-      color: #fff;
+    &.solved > .apicon-check {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $theme-main-color;
+
+      &:before {
+        color: white;
+      }
     }
   }
+
+  .ap-btn-wish {
+    margin-right: 8px;
+  }
+
 }

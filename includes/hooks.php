@@ -136,7 +136,7 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Point', 'use_point_on_asking', 10, 3 );
 
 		// Wishlist hooks.
-		anspress()->add_action( 'ap_display_question_metas', 'AP_Wishlist', 'display_question_metas', 10, 2 );
+		anspress()->add_action( 'ap_display_question_btns', 'AP_Wishlist', 'add_wishlist_question_btn', 10, 2 );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Wishlist', 'ap_user_pages' );
 
 		// Profile hooks.

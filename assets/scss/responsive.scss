@@ -210,7 +210,14 @@
             flex-basis: 50%;
           }
           .question-filter__did_select {
-            margin-right: 10px;
+            flex-basis: 50%;
+            padding-right: 5px;
+          }
+          .question-filter__has_answer {
+            flex-basis: 50%;
+          }
+          .question-filter__btn {
+            flex-basis: 100%;
           }
         }
       }
@@ -223,6 +230,26 @@
     // Licence map
     .licence-map {
       font-size: $licence-map-fs-md;
+    }
+
+    .ap-display-meta-item {
+      @include all-but(1) {
+        &::before {
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+    }
+
+    #ap-single {
+      .ap-question-meta {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        .l-left {
+          margin-bottom: 10px;
+        }
+      }
     }
 
     .question-list-item {
@@ -303,10 +330,14 @@
       &.history {
         display: none;
       }
-    }
-    .ap-display-meta-item:before {
-      width: 4px;
-      height: 4px;
+      @include all-but(1) {
+        &::before {
+          content: '|';
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+      
     }
     .ap-questions-item {
       padding: 8px 2px;
