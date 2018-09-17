@@ -121,7 +121,7 @@ class AP_Hooks {
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'unset_useless_hooks', 10, 2 );
 		anspress()->add_filter( 'mycred_setup_hooks', 'AP_Reputation', 'register_hooks', 999, 2 );
 		anspress()->add_filter( 'ap_user_mycred_creds', 'AP_Reputation', 'mycred_creds', 10 );
-		anspress()->add_filter( 'ap_user_display_name', 'AP_Reputation', 'display_name', 10, 2 );
+		anspress()->add_filter( 'ap_user_display_meta', 'AP_Reputation', 'display_mini_creds', 10, 2 );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Reputation', 'ap_user_pages' );
 
 		// Point hooks.

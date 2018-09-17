@@ -8,6 +8,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		.ap-display-meta-item.solved {
+			padding-left: 2px;
+			padding-right: 2px;
+			display: inline-flex;
+			align-items: center;
+			background-color: $theme-main-color;
+			color: white;
+			border-radius: 2px;
+		}
 	}
 	&-inner {
 		padding: 15px;
@@ -44,6 +54,16 @@
 	.ap-answers {
 		.status-trash .ap-cell-inner {
 			border-color: #EF9A9A;
+		}
+	}
+
+	.ap-q-metas {
+		.ap-author,
+		.ap-author-meta {
+			margin-right: 15px;
+		}
+		label {
+			padding-right: 10px;
 		}
 	}
 }

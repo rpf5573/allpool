@@ -62,7 +62,10 @@
 						<div class="ap-cell-inner">
 							<div class="ap-q-metas">
 								<span class="ap-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-									<?php echo ap_user_display_name( [ 'html' => true ] ); ?>
+									<?php echo '<label>작성자</label>' . ap_user_display_name( [ 'html' => true ] ); ?>
+								</span>
+								<span class="ap-author-meta">
+									<?php echo ap_user_display_meta(); ?>
 								</span>
 								<a href="<?php the_permalink(); ?>" class="ap-posted">
 									<?php
@@ -74,7 +77,7 @@
 										$time = ap_human_time( $time );
 									}
 
-									printf( '<time itemprop="datePublished" datetime="%1$s">%2$s</time>', ap_get_time( get_the_ID(), 'c' ), $time );
+									printf( '<label>작성일</label> <time itemprop="datePublished" datetime="%1$s">%2$s</time>', ap_get_time( get_the_ID(), 'c' ), $time );
 									?>
 								</a>
 								<?php // the_ID(); ?>

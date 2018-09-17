@@ -6378,10 +6378,8 @@ form[apform] {
   display: inline-block;
   text-align: center;
   border-radius: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  margin-left: 4px;
-  margin-right: 4px; }
+  padding-left: 5px;
+  padding-right: 5px; }
   .mini-creds.ap-user-reputation-creds {
     background-color: #f9c00c; }
   .mini-creds.ap-user-point-creds {
@@ -6606,6 +6604,14 @@ form[apform] {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+    .single-question .ap-q .ap-question-meta .ap-display-meta-item.solved {
+      padding-left: 2px;
+      padding-right: 2px;
+      display: inline-flex;
+      align-items: center;
+      background-color: #f9c00c;
+      color: white;
+      border-radius: 2px; }
   .single-question .ap-q-inner {
     padding: 15px; }
   .single-question .ap-q .ap-content {
@@ -6632,6 +6638,11 @@ form[apform] {
     font-size: 18px; }
   .single-question .ap-q .ap-answers .status-trash .ap-cell-inner {
     border-color: #EF9A9A; }
+  .single-question .ap-q .ap-q-metas .ap-author,
+  .single-question .ap-q .ap-q-metas .ap-author-meta {
+    margin-right: 15px; }
+  .single-question .ap-q .ap-q-metas label {
+    padding-right: 10px; }
 
 .ap-q-head {
   margin-bottom: 20px; }

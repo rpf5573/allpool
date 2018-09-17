@@ -478,6 +478,26 @@ function ap_user_display_name( $args = [] ) {
 	echo $return; // xss okay.
 }
 
+function ap_user_display_meta( $args = [] ) {
+	global $post;
+
+	$defaults = array(
+		'user_id'         => get_the_author_meta( 'ID' ),
+	);
+
+	// When only user id passed.
+	if ( is_numeric( $args ) ) {
+		$defaults['user_id'] = $args;
+		$args                = $defaults;
+	} else {
+		$args = wp_parse_args( $args, $defaults );
+	}
+
+	$return = '';
+	$return = apply_filters( 'ap_user_display_meta', $return, $args );
+	echo $return;
+}
+
 /**
  * Verify the __nonce field.
  *
