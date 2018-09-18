@@ -60,31 +60,36 @@
 					</div>
 					<div class="ap-cell clearfix">
 						<div class="ap-cell-inner">
-							<div class="ap-q-metas">
-								<span class="ap-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-									<?php echo '<label>작성자</label>' . ap_user_display_name( [ 'html' => true ] ); ?>
-								</span>
-								<span class="ap-author-meta">
-									<?php echo ap_user_display_meta(); ?>
-								</span>
-								<a href="<?php the_permalink(); ?>" class="ap-posted">
-									<?php
-									$posted = 'future' === get_post_status() ? __( 'Scheduled for', 'anspress-question-answer' ) : __( 'Published', 'anspress-question-answer' );
+							<div class="ap-cell-head">
+								<div class="ap-cell-metas">
+									<span class="ap-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+										<?php echo '<label>작성자</label>' . ap_user_display_name( [ 'html' => true ] ); ?>
+									</span>
+									<span class="ap-author-meta">
+										<?php echo ap_user_display_meta(); ?>
+									</span>
+									<a href="<?php the_permalink(); ?>" class="ap-posted">
+										<?php
+										$posted = 'future' === get_post_status() ? __( 'Scheduled for', 'anspress-question-answer' ) : __( 'Published', 'anspress-question-answer' );
 
-									$time = ap_get_time( get_the_ID(), 'U' );
+										$time = ap_get_time( get_the_ID(), 'U' );
 
-									if ( 'future' !== get_post_status() ) {
-										$time = ap_human_time( $time );
-									}
+										if ( 'future' !== get_post_status() ) {
+											$time = ap_human_time( $time );
+										}
 
-									printf( '<label>작성일</label> <time itemprop="datePublished" datetime="%1$s">%2$s</time>', ap_get_time( get_the_ID(), 'c' ), $time );
-									?>
-								</a>
-								<?php // the_ID(); ?>
+										printf( '<label>작성일</label> <time itemprop="datePublished" datetime="%1$s">%2$s</time>', ap_get_time( get_the_ID(), 'c' ), $time );
+										?>
+									</a>
+									<?php // the_ID(); ?>
+								</div>
+								<h2 class="question-title">
+									<?php the_title(); ?>
+								</h2>
 							</div>
 
 							<!-- Start ap-content-inner -->
-							<div class="ap-q-inner">
+							<div class="ap-cell-content-wrapper">
 								<?php
 								/**
 								 * Action triggered before question content.
@@ -94,11 +99,7 @@
 								do_action( 'ap_before_question_content' );
 								?>
 
-								<h2 class="question-title">
-									<?php the_title(); ?>
-								</h2>
-
-								<div class="question-content ap-q-content clearfix" itemprop="text">
+								<div class="question-content ap-cell-content clearfix" itemprop="text">
 									<?php the_content(); ?>
 								</div>
 

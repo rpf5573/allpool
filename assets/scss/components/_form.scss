@@ -180,9 +180,13 @@ form[apform] {
 	position: relative;
 }
 .ap-minimal-editor {
+	position: relative;
+	margin-top: 60px;
+
 	#ap-form-main{
 		display: none;
 	}
+
 	.ap-cell {
 		font-size: 14px;
 		margin-left: $cell-left-margin;

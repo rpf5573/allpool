@@ -1,0 +1,47 @@
+.ap-content {
+  position: relative;
+  padding-right: 40px;
+  .ap-single-vote {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .ap-avatar {
+    position: absolute;
+    float: left;
+    margin-right: 0x;
+  }
+  .ap-cell {
+    font-size: 14px;
+    margin-left: $cell-left-margin;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+
+    .ap-cell-inner {
+      .ap-cell-head {
+        border-bottom: 1px solid $grey-100;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .ap-cell-metas {
+          .ap-author,
+          .ap-author-meta {
+            margin-right: 15px;
+          }
+          label {
+            padding-right: 6px;
+          }
+          span[itemprop=name],
+          time[itemprop=datePublished] {
+            color: black;
+          }
+        }
+      }
+      .ap-cell-content {
+        padding: 20px;
+      }
+    }
+  }
+}

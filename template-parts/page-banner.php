@@ -1,6 +1,11 @@
 <?php
 $main_title = get_field('page_banner__main');
 if ( $main_title ) { ?>
+  <style>
+    .site-header {
+      margin-bottom: 0px;
+    }
+  </style>
   <div class="page-banner">
     <h1 class="page-banner__main">
       <?php echo $main_title; ?>

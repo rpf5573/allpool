@@ -22,22 +22,31 @@ if ( ap_user_can_read_answer() ) :
 		</div>
 		<div class="ap-cell clearfix">
 			<div class="ap-cell-inner">
-				<div class="ap-q-metas">
-					<?php echo ap_user_display_name( [ 'html' => true ] ); ?>
-					<a href="<?php the_permalink(); ?>" class="ap-posted">
-						<time itemprop="datePublished" datetime="<?php echo ap_get_time( get_the_ID(), 'c' ); ?>">
+				<div class="ap-cell-head">
+					<div class="ap-cell-metas">
+						<span class="ap-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+							<?php echo '<label>작성자</label>' . ap_user_display_name( [ 'html' => true ] ); ?>
+						</span>
+						<span class="ap-author-meta">
+							<?php echo ap_user_display_meta(); ?>
+						</span>
+						<a href="<?php the_permalink(); ?>" class="ap-posted">
 							<?php
-							printf(
-								__( 'Posted %s', 'anspress-question-answer' ),
-								ap_human_time( ap_get_time( get_the_ID(), 'U' ) )
-							);
-								?>
-						</time>
-					</a>
-					<?php // the_ID(); ?>
+							$posted = 'future' === get_post_status() ? __( 'Scheduled for', 'anspress-question-answer' ) : __( 'Published', 'anspress-question-answer' );
+
+							$time = ap_get_time( get_the_ID(), 'U' );
+
+							if ( 'future' !== get_post_status() ) {
+								$time = ap_human_time( $time );
+							}
+
+							printf( '<label>작성일</label> <time itemprop="datePublished" datetime="%1$s">%2$s</time>', ap_get_time( get_the_ID(), 'c' ), $time );
+							?>
+						</a>
+					</div>
 				</div>
 
-				<div class="ap-q-inner">
+				<div class="ap-cell-content-wrapper">
 					<?php
 					/**
 					 * Action triggered before answer content.
@@ -47,7 +56,7 @@ if ( ap_user_can_read_answer() ) :
 					do_action( 'ap_before_answer_content' );
 					?>
 
-					<div class="ap-answer-content ap-q-content clearfix" itemprop="text" ap-content>
+					<div class="ap-answer-content ap-cell-content clearfix" itemprop="text" ap-content>
 							<?php the_content(); ?>
 					</div>
 

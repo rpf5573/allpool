@@ -437,7 +437,9 @@ class AP_Theme {
 		}
 		if ( isset( $group['answer'] ) && $group['answer'] ) { ?>
 			<div class="question-answer"> 
-				정답 : <span> <?php echo $group['answer']; ?> </span>
+				<span>
+					정답 : <span> <?php echo $group['answer']; ?> </span>
+				</span>
 			</div> <?php
 		}
 	}
