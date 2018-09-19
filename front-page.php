@@ -1,5 +1,8 @@
 <?php
-get_header(); ?>
+get_header(); 
+$total_question_count = ap_total_posts_count( 'question' );
+$total_answer_count = ap_total_posts_count( 'answer' ); 
+$total_price_used_to_open_answers = ap_get_total_price_used_to_open_answers(); ?>
 
 <div class="content-area">
   <main id="main" class="site-main" role="main">
@@ -32,7 +35,7 @@ get_header(); ?>
             </div>
             <div class="l-right">
               <span>등록된 질문</span>
-              <span class="blue">4,020개</span>
+              <span class="blue"><?php echo $total_question_count->publish; ?>개</span>
             </div>
           </li>
           <li class="widget-list-item">
@@ -41,7 +44,7 @@ get_header(); ?>
             </div>
             <div class="l-right">
               <span>답변한 개수</span>
-              <span class="blue">4,020개</span>
+              <span class="blue"><?php echo $total_answer_count->publish; ?>개</span>
             </div>
           </li>
           <li class="widget-list-item">
@@ -50,7 +53,7 @@ get_header(); ?>
             </div>
             <div class="l-right">
               <span>답변에 사용된 금액</span>
-              <span class="blue">5,569,500</span>
+              <span class="blue"><?php echo number_format($total_price_used_to_open_answers); ?>원</span>
             </div>
           </li>
         </ul>

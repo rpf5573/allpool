@@ -18,7 +18,7 @@
         <li class="point-get__box">
           <img src="<?php echo ANSPRESS_URL . 'assets/images/guide/way-point-step2.png'; ?>" alt="">
           <div class="l-row point-get__box__description">
-            질문 등록 및 포인트 사용
+            등록된 질문에 대한 답변
           </div>
         </li>
         <li class="arrow">
@@ -27,7 +27,7 @@
         <li class="point-get__box">
           <img src="<?php echo ANSPRESS_URL . 'assets/images/guide/way-point-step3.png'; ?>" alt="">
           <div class="l-row point-get__box__description">
-            질문 등록 및 포인트 사용
+            질문자 채택 또는 회원 추천
           </div>
         </li>
         <li class="arrow">
@@ -36,7 +36,7 @@
         <li class="point-get__box">
           <img src="<?php echo ANSPRESS_URL . 'assets/images/guide/way-point-step4.png'; ?>" alt="">
           <div class="l-row point-get__box__description">
-            질문 등록 및 포인트 사용
+            포인트 획득
           </div>
         </li>
       </ul>

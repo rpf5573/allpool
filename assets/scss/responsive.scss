@@ -156,6 +156,10 @@
         }
         .point-get {
           flex-direction: column;
+          justify-content: center;
+          &__box {
+            align-self: auto;
+          }
         }
         .point-use {
           flex-direction: column;
@@ -248,6 +252,17 @@
         align-items: flex-end;
         .l-left {
           margin-bottom: 10px;
+        }
+      }
+
+      .ap-sorting-tab {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .answer {
+        .ap-content {
+          padding-top: 35px;
         }
       }
     }

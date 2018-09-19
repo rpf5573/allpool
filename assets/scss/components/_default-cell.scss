@@ -26,6 +26,9 @@
         padding-right: 20px;
 
         .ap-cell-metas {
+          span, a {
+            display: inline-block;
+          }
           .ap-author,
           .ap-author-meta {
             margin-right: 15px;

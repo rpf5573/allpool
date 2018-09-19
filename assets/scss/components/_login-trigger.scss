@@ -7,14 +7,15 @@
   &__btn {
     cursor: pointer;
     padding: 10px;
-    background-color: $theme-main-color;
-    color: white;
+    color: $menu-text-color;
+    background-color: rgba(0,0,0,0);
+    
     i {
       padding-right: 4px;
     }
     &:hover {
-      color: $menu-text-color;
-      background-color: rgba(0,0,0,0);
+      background-color: $theme-main-color;
+      color: white;
     }   
   }
 }

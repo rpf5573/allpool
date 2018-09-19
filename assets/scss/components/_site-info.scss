@@ -11,6 +11,8 @@
     min-width: 300px;
   }
 
+  font-weight: 400;
+
   .site-info__links {
     & > ul {
       display: flex;
@@ -24,9 +26,11 @@
     text-align: left;
     color: $site-info-text-color;
     line-height: 170%;
-    font-weight: 300;
     a {
       color: $site-info-text-color;
+      &:hover {
+        color: $theme-main-color;
+      }
     }
   } 
 
@@ -38,6 +42,12 @@
           content: "|";
           padding-left: 6px;
           padding-right: 6px;
+        }
+      }
+      a {
+        color: $deep-blue;
+        &:hover {
+          color: $theme-main-color;
         }
       }
     }

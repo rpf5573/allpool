@@ -150,6 +150,25 @@ function ap_get_question_price( $question_id = null ) {
 	return (int)$_post->price;
 }
 
+function ap_get_total_price_used_to_open_answers() {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$view_price_rate = ap_opt( 'purchase_answers' ) * 0.01;
+	$sum = 0;
+	if ( $view_price_rate ) {
+		$sql = "SELECT SUM(qameta.price * qameta.sold_count * {$view_price_rate})
+							FROM {$prefix}posts as posts
+							LEFT JOIN {$prefix}ap_qameta as qameta
+							ON posts.ID = qameta.post_id
+							WHERE posts.post_type = 'question'
+							AND posts.post_status = 'publish'
+							AND qameta.price > 0";
+
+		$sum = (int) $wpdb->get_var( $sql );
+	}
+	return $sum;
+}
+
 
 /*  Answer
 /* --------------------------------------------------- */

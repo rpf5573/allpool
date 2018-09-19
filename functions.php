@@ -190,7 +190,7 @@ function ap_total_posts_count( $post_type = 'question', $ap_type = false, $user_
 		$join = "INNER JOIN {$wpdb->ap_qameta} qameta ON p.ID = qameta.post_id";
 	}
 
-	$where = "WHERE p.post_status NOT IN ('trash', 'draft') AND $type $meta";
+	$where = "WHERE p.post_status NOT IN ('trash', 'draft', 'private') AND $type $meta";
 
 	if ( false !== $user_id && (int) $user_id > 0 ) {
 		$where .= ' AND p.post_author = ' . (int) $user_id;

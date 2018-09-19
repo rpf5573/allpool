@@ -36,6 +36,8 @@
       .front-message {
         word-break: keep-all;
         color: white;
+        padding-left: 10px;
+        padding-right: 10px;
         .front-message__main {
           font-size: $front-message-fs-default;
           margin-top: 0;
@@ -43,7 +45,8 @@
         .front-message__sub {
           font-size: $front-message-fs-default * $front-message-sub-rate;
           margin-top: 0;
-          font-weight: 300;
+          font-weight: 500;
+          color: #eeeeee;
         }
       }
       .go-to-bottom-btn-container {
@@ -82,7 +85,7 @@
           padding-right: 20px;
         }
         span {
-          font-size: 24px;
+          font-size: 22px;
           display: block;
           line-height: 26px;
         }

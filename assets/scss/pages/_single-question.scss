@@ -115,11 +115,31 @@
 .ap-answers {
 	margin-top: 40px;
 	.ap-sorting-tab {
-		margin-bottom: 0;
-		padding-left: 70px;
-		padding-right: 40px;
-		// border-bottom: solid 1px #ddd;
 		text-align: center;
+		position: relative;
+		margin-left: 70px;
+		margin-right: 40px;
+		.slash-pattern {
+			position: absolute;
+			left: 0;
+			right: 0;
+			transform: translateY(-50%);
+			top: 50%;
+			height: 12px;
+			background-image: url(assets/images/pattern_slash.png);
+		}
+		.ap-answers-label {
+			display: inline-block;
+			position: relative;
+    	z-index: 10;
+    	background-color: white;
+			font-size: 17px;
+			line-height: 37px;
+			margin: 0;
+			padding-left: 10px;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
 	}
 	#answers {
 		.ap-content {
@@ -170,32 +190,6 @@
 					background-color: rgba($color: $theme-main-color, $alpha: 0.3);
 				}
 			}
-		}
-	}
-	.ap-sorting-tab {
-		position: relative;
-		margin-left: 70px;
-		margin-right: 40px;
-		.slash-pattern {
-			position: absolute;
-			left: 0;
-			right: 0;
-			transform: translateY(-50%);
-			top: 50%;
-			height: 12px;
-			background-image: url(assets/images/pattern_slash.png);
-		}
-		.ap-answers-label {
-			display: inline-block;
-			position: relative;
-    	z-index: 10;
-    	background-color: white;
-			font-size: 17px;
-			line-height: 37px;
-			margin: 0 15px 0 0;
-			padding-left: 10px;
-			padding-right: 10px;
-			white-space: nowrap;
 		}
 	}
 }

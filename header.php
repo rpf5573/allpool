@@ -11,7 +11,7 @@
 
 <div id="page" class="site <?php ap_page_class(); ?>">
   <header id="masthead" class="site-header" role="banner"> 
-    <div class="wrapper"> <?php
+    <div class="wrapper max-box"> <?php
       // mobile menu trigger --- logo --- user icon
       ap_template_part( 'mobile', 'menu-trigger' ); ?>
       <div class="l-left"> <?php
