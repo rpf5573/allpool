@@ -38,6 +38,9 @@
   .arrow {
     padding-left: 15px;
     padding-right: 15px;
+    img {
+      width: 18px;
+    }
   }
   .point-get__box {
     border: 1px solid $guid-box-border;
@@ -51,6 +54,7 @@
 
     img {
       width: 100%;
+      max-width: 160px;
     }
 
     &__img_container {

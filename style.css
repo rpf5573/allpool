@@ -4979,7 +4979,7 @@ a.no-style {
   color: #00b9f1; }
 
 .max-box {
-  max-width: 1040px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -6428,6 +6428,8 @@ form[apform] {
   .alpool-guide .arrow {
     padding-left: 15px;
     padding-right: 15px; }
+    .alpool-guide .arrow img {
+      width: 18px; }
   .alpool-guide .point-get__box {
     border: 1px solid #dddddd;
     padding-left: 30px;
@@ -6438,7 +6440,8 @@ form[apform] {
     align-self: stretch;
     box-sizing: content-box; }
     .alpool-guide .point-get__box img {
-      width: 100%; }
+      width: 100%;
+      max-width: 160px; }
     .alpool-guide .point-get__box__img_container img {
       width: 100%;
       max-width: 100px; }
@@ -7092,7 +7095,20 @@ ul.ap-actions {
       font-size: 18px; }
       #ap-responsive .licence-map .subject-item {
         flex-basis: 32.2033898305%; }
-    #ap-responsive .ap-list-counts,
+    #ap-responsive .ap-list-counts {
+      display: flex;
+      flex-direction: column; }
+      #ap-responsive .ap-list-counts .ap-questions-count {
+        margin-left: 5px;
+        font-size: 10px;
+        padding-bottom: 2px; }
+        #ap-responsive .ap-list-counts .ap-questions-count:first-child {
+          margin-bottom: 4px; }
+        #ap-responsive .ap-list-counts .ap-questions-count label {
+          display: none; }
+        #ap-responsive .ap-list-counts .ap-questions-count span {
+          width: 30px;
+          border-bottom: none; }
     #ap-responsive .ap-questions-item .ap-avatar,
     #ap-responsive #answer-form-c .ap-avatar {
       display: none; }

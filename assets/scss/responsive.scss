@@ -331,7 +331,26 @@
       }
     }
 
-    .ap-list-counts,
+    .ap-list-counts {
+      display: flex;
+      flex-direction: column;
+      .ap-questions-count {
+        margin-left: 5px;
+        font-size: 10px;
+        padding-bottom: 2px;
+        @include first(1) {
+          margin-bottom: 4px;
+        }
+        label {
+          display: none;
+        }
+        span {
+          width: 30px;
+          border-bottom: none;
+        }
+      } 
+    }
+
     .ap-questions-item .ap-avatar,
     #answer-form-c .ap-avatar {
       display: none;
