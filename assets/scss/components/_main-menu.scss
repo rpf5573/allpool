@@ -2,23 +2,31 @@
   display: inline-flex;
   text-align: center;
   // background-color: #19202e;
-  .menu-item a {
-    display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-    min-width: 100px;
-    color: $menu-text-color;
-    font-size: 17px;
-    font-weight: 600;
+  .menu-item {
+    a {
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+      min-width: 100px;
+      color: $menu-text-color;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
     &:hover {
       background-color: $deep-blue;
-      color: $main-menu-text-hover;
+      a {
+        color: $main-menu-text-hover;
+      }
     }
   }
   .current_page_item {
-    background-color: #19202e;
-    & > a {
+    background-color: $theme-main-color;
+    a {
       color: white;
+    }
+    &:hover {
+      background-color: $theme-main-color;
     }
   }
 }

@@ -234,6 +234,9 @@
     // Licence map
     .licence-map {
       font-size: $licence-map-fs-md;
+      .subject-item {
+        flex-basis: span(6 of 12);
+      }
     }
 
     .ap-display-meta-item {
@@ -327,7 +330,17 @@
     .licence-map {
       font-size: $licence-map-fs-sm;
       .subject-item {
-        flex-basis: span(4);
+        margin-top: 10px;
+        margin-bottom: 10px;
+        a {
+          padding-left: 30px;
+          &:before {
+            width: 20px;
+          }
+          &:after {
+            left: 20px;
+          }
+        }
       }
     }
 

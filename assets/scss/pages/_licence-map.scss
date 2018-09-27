@@ -1,16 +1,59 @@
 .licence-map {
+  .ui.menu {
+    min-height: 0;
+  }
   //margin-bottom: 0px;
   font-size: 2rem;
-  .ui.pointing.level-1 {
+  .ui.pointing.menu.level-1 {
+    display: flex;
     font-size: 90%;
+    min-height: 0;
+    margin-bottom: 40px;
     & ~ .tab.segment {
       font-size: 90%;
+      border: none;
+      padding: 0;
+    }
+    & > .item {
+      width: 50%;
+      justify-content: center;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: $grey-100;
+      &.active {
+        background-color: $deep-blue;
+        color: white;
+        &:after {
+          background-color: inherit;
+        }
+      }
     }
   }
-  .ui.pointing.level-2 {
+  .ui.pointing.menu.level-2 {
     font-size: 90%;
+    justify-content: center;
+    background-color: $grey-100;
+    border: 1px solid $grey-300;
+    & > a.item {
+      background-color: $white-grey;
+      margin: 0;
+      align-self: auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-left: 1px solid $grey-300;
+      border-right: 1px solid $grey-300;
+      
+      &.active {
+        background-color: $sky-blue;
+        color: white;
+        font-weight: 400;
+        border-top: none;
+        border-bottom: none;
+        border-color: $grey-300;;
+      }
+    }
     & ~ .tab.segment {
-      font-size: 90%;
+      font-size: 70%;
     }
   }
   .ui.pointing.level-3 {
@@ -18,15 +61,59 @@
       
     }
   }
-  .subject-list {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    .subject-item {
-      flex-basis: span(3);
-      padding: 0 gutter();
-      margin-top: 20px;
-      margin-bottom: 20px;
+  .ui.tab.segment {
+    .subject-list {
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      .subject-item {
+        flex-basis: 25%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        font-size: inherit;
+        position: relative;
+        a {
+          display: block;
+          background-color: $grey-100;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          margin-left: 10px;
+          margin-right: 10px;
+          padding-left: 50px;
+          position: relative;
+
+          &:before {
+            content: " ";
+            display: block;
+            width: 30px;
+            background-color: $grey-300;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            transition: 0.1s background-color ease-in-out;
+          }
+
+          &:after {
+            content: " ";
+            display: block;
+            width: 10px;
+            height: 10px;
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            position: absolute;
+            left: 30px;
+            background-color: $grey-100;
+            top: 50%;
+          }
+
+          &:hover {
+            &:before {
+              background-color: $theme-main-color;
+            }
+          }
+        }
+      }
     }
   }
 }

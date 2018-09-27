@@ -1,5 +1,5 @@
 {
-"AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and\/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https:\/\/codekitapp.com\/",
+"AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https://codekitapp.com/",
 "buildSteps": [
 	{
 		"name": "Process All Remaining Files and Folders",
@@ -7,1464 +7,1464 @@
 		"uuidString": "88353832-AC9F-41AF-A617-462447A5A2B0"
 		}
 	],
-"creatorBuild": "26680",
+"creatorBuild": "28815",
 "files": {
-	"\/.gitattributes": {
+	"/.gitattributes": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/.gitattributes",
+		"oAP": "/.gitattributes",
 		"oF": 0
 		},
-	"\/.gitignore": {
+	"/.gitignore": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/.gitignore",
+		"oAP": "/.gitignore",
 		"oF": 0
 		},
-	"\/.vscode\/settings.json": {
+	"/.vscode/settings.json": {
 		"ft": 524288,
 		"oA": 1,
-		"oAP": "\/.vscode\/settings-min.json",
+		"oAP": "/.vscode/settings-min.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
 		},
-	"\/404.php": {
+	"/404.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/404.php",
+		"oAP": "/404.php",
 		"oF": 0
 		},
-	"\/admin.css": {
+	"/admin.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/admin-min.css",
+		"oAP": "/admin-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/alpool_dumydata_maker\/data.csv": {
+	"/alpool_dumydata_maker/data.csv": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/alpool_dumydata_maker\/data.csv",
+		"oAP": "/alpool_dumydata_maker/data.csv",
 		"oF": 0
 		},
-	"\/alpool_dumydata_maker\/maker.py": {
+	"/alpool_dumydata_maker/maker.py": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/alpool_dumydata_maker\/maker.py",
+		"oAP": "/alpool_dumydata_maker/maker.py",
 		"oF": 0
 		},
-	"\/archive.php": {
+	"/archive.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/archive.php",
+		"oAP": "/archive.php",
 		"oF": 0
 		},
-	"\/assets\/fonts\/anspress\/anspress.eot": {
+	"/assets/fonts/anspress/anspress.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/anspress\/anspress.eot",
+		"oAP": "/assets/fonts/anspress/anspress.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/anspress\/anspress.svg": {
+	"/assets/fonts/anspress/anspress.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/fonts\/anspress\/anspress.svg",
+		"oAP": "/assets/fonts/anspress/anspress.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/fonts\/anspress\/anspress.ttf": {
+	"/assets/fonts/anspress/anspress.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/anspress\/anspress.ttf",
+		"oAP": "/assets/fonts/anspress/anspress.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/anspress\/anspress.woff": {
+	"/assets/fonts/anspress/anspress.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/anspress\/anspress.woff",
+		"oAP": "/assets/fonts/anspress/anspress.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/avatar-fonts\/calibri.ttf": {
+	"/assets/fonts/avatar-fonts/calibri.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/avatar-fonts\/calibri.ttf",
+		"oAP": "/assets/fonts/avatar-fonts/calibri.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/avatar-fonts\/DeliusSwashCaps.ttf": {
+	"/assets/fonts/avatar-fonts/DeliusSwashCaps.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/avatar-fonts\/DeliusSwashCaps.ttf",
+		"oAP": "/assets/fonts/avatar-fonts/DeliusSwashCaps.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/avatar-fonts\/Glegoo-Bold.ttf": {
+	"/assets/fonts/avatar-fonts/Glegoo-Bold.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/avatar-fonts\/Glegoo-Bold.ttf",
+		"oAP": "/assets/fonts/avatar-fonts/Glegoo-Bold.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/avatar-fonts\/OpenSans.ttf": {
+	"/assets/fonts/avatar-fonts/OpenSans.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/avatar-fonts\/OpenSans.ttf",
+		"oAP": "/assets/fonts/avatar-fonts/OpenSans.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/avatar-fonts\/Pacifico.ttf": {
+	"/assets/fonts/avatar-fonts/Pacifico.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/avatar-fonts\/Pacifico.ttf",
+		"oAP": "/assets/fonts/avatar-fonts/Pacifico.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/avatar-fonts\/SIL Open Font License.txt": {
+	"/assets/fonts/avatar-fonts/SIL Open Font License.txt": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/avatar-fonts\/SIL Open Font License.txt",
+		"oAP": "/assets/fonts/avatar-fonts/SIL Open Font License.txt",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-brands-400.eot": {
+	"/assets/fonts/fontawesome/fa-brands-400.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-brands-400.eot",
+		"oAP": "/assets/fonts/fontawesome/fa-brands-400.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-brands-400.svg": {
+	"/assets/fonts/fontawesome/fa-brands-400.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-brands-400.svg",
+		"oAP": "/assets/fonts/fontawesome/fa-brands-400.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-brands-400.ttf": {
+	"/assets/fonts/fontawesome/fa-brands-400.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-brands-400.ttf",
+		"oAP": "/assets/fonts/fontawesome/fa-brands-400.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-brands-400.woff": {
+	"/assets/fonts/fontawesome/fa-brands-400.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-brands-400.woff",
+		"oAP": "/assets/fonts/fontawesome/fa-brands-400.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-brands-400.woff2": {
+	"/assets/fonts/fontawesome/fa-brands-400.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-brands-400.woff2",
+		"oAP": "/assets/fonts/fontawesome/fa-brands-400.woff2",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-regular-400.eot": {
+	"/assets/fonts/fontawesome/fa-regular-400.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-regular-400.eot",
+		"oAP": "/assets/fonts/fontawesome/fa-regular-400.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-regular-400.svg": {
+	"/assets/fonts/fontawesome/fa-regular-400.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-regular-400.svg",
+		"oAP": "/assets/fonts/fontawesome/fa-regular-400.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-regular-400.ttf": {
+	"/assets/fonts/fontawesome/fa-regular-400.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-regular-400.ttf",
+		"oAP": "/assets/fonts/fontawesome/fa-regular-400.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-regular-400.woff": {
+	"/assets/fonts/fontawesome/fa-regular-400.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-regular-400.woff",
+		"oAP": "/assets/fonts/fontawesome/fa-regular-400.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-regular-400.woff2": {
+	"/assets/fonts/fontawesome/fa-regular-400.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-regular-400.woff2",
+		"oAP": "/assets/fonts/fontawesome/fa-regular-400.woff2",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-solid-900.eot": {
+	"/assets/fonts/fontawesome/fa-solid-900.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-solid-900.eot",
+		"oAP": "/assets/fonts/fontawesome/fa-solid-900.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-solid-900.svg": {
+	"/assets/fonts/fontawesome/fa-solid-900.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-solid-900.svg",
+		"oAP": "/assets/fonts/fontawesome/fa-solid-900.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-solid-900.ttf": {
+	"/assets/fonts/fontawesome/fa-solid-900.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-solid-900.ttf",
+		"oAP": "/assets/fonts/fontawesome/fa-solid-900.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-solid-900.woff": {
+	"/assets/fonts/fontawesome/fa-solid-900.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-solid-900.woff",
+		"oAP": "/assets/fonts/fontawesome/fa-solid-900.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/fontawesome\/fa-solid-900.woff2": {
+	"/assets/fonts/fontawesome/fa-solid-900.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/fontawesome\/fa-solid-900.woff2",
+		"oAP": "/assets/fonts/fontawesome/fa-solid-900.woff2",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareB.eot": {
+	"/assets/fonts/nanumsquare/NanumSquareB.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareB.eot",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareB.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareB.ttf": {
+	"/assets/fonts/nanumsquare/NanumSquareB.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareB.ttf",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareB.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareB.woff": {
+	"/assets/fonts/nanumsquare/NanumSquareB.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareB.woff",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareB.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareEB.eot": {
+	"/assets/fonts/nanumsquare/NanumSquareEB.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareEB.eot",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareEB.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareEB.ttf": {
+	"/assets/fonts/nanumsquare/NanumSquareEB.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareEB.ttf",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareEB.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareEB.woff": {
+	"/assets/fonts/nanumsquare/NanumSquareEB.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareEB.woff",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareEB.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareL.eot": {
+	"/assets/fonts/nanumsquare/NanumSquareL.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareL.eot",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareL.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareL.ttf": {
+	"/assets/fonts/nanumsquare/NanumSquareL.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareL.ttf",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareL.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareL.woff": {
+	"/assets/fonts/nanumsquare/NanumSquareL.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareL.woff",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareL.woff",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareR.eot": {
+	"/assets/fonts/nanumsquare/NanumSquareR.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareR.eot",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareR.eot",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareR.ttf": {
+	"/assets/fonts/nanumsquare/NanumSquareR.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareR.ttf",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareR.ttf",
 		"oF": 0
 		},
-	"\/assets\/fonts\/nanumsquare\/NanumSquareR.woff": {
+	"/assets/fonts/nanumsquare/NanumSquareR.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/fonts\/nanumsquare\/NanumSquareR.woff",
+		"oAP": "/assets/fonts/nanumsquare/NanumSquareR.woff",
 		"oF": 0
 		},
-	"\/assets\/images\/a-icon.png": {
+	"/assets/images/a-icon.png": {
 		"ft": 32768,
 		"iS": 6069,
 		"oA": 0,
-		"oAP": "\/assets\/images\/a-icon.png",
+		"oAP": "/assets/images/a-icon.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/answer.png": {
+	"/assets/images/answer.png": {
 		"ft": 32768,
 		"iS": 3181,
 		"oA": 0,
-		"oAP": "\/assets\/images\/answer.png",
+		"oAP": "/assets/images/answer.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/backbone-js.svg": {
+	"/assets/images/backbone-js.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/backbone-js.svg",
+		"oAP": "/assets/images/backbone-js.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/cancel.svg": {
+	"/assets/images/cancel.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/cancel.svg",
+		"oAP": "/assets/images/cancel.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/coding.svg": {
+	"/assets/images/coding.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/coding.svg",
+		"oAP": "/assets/images/coding.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/cover.jpg": {
+	"/assets/images/cover.jpg": {
 		"ft": 16384,
 		"iS": 62996,
 		"jF": 0,
 		"oA": 0,
-		"oAP": "\/assets\/images\/cover.jpg",
+		"oAP": "/assets/images/cover.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
 		"q": 100
 		},
-	"\/assets\/images\/cover.psd": {
+	"/assets/images/cover.psd": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/images\/cover.psd",
+		"oAP": "/assets/images/cover.psd",
 		"oF": 0
 		},
-	"\/assets\/images\/editor-buttons.png": {
+	"/assets/images/editor-buttons.png": {
 		"ft": 32768,
 		"iS": 3540,
 		"oA": 0,
-		"oAP": "\/assets\/images\/editor-buttons.png",
+		"oAP": "/assets/images/editor-buttons.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/front-background-image.jpg": {
+	"/assets/images/front-background-image.jpg": {
 		"ft": 16384,
 		"iS": 96741,
 		"jF": 0,
 		"oA": 0,
-		"oAP": "\/assets\/images\/front-background-image.jpg",
+		"oAP": "/assets/images/front-background-image.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/icon_arrow_right.png": {
+	"/assets/images/guide/icon_arrow_right.png": {
 		"ft": 32768,
 		"iS": 2948,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/icon_arrow_right.png",
+		"oAP": "/assets/images/guide/icon_arrow_right.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/use-point-number1.png": {
+	"/assets/images/guide/use-point-number1.png": {
 		"ft": 32768,
 		"iS": 5537,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/use-point-number1.png",
+		"oAP": "/assets/images/guide/use-point-number1.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/use-point-number2.png": {
+	"/assets/images/guide/use-point-number2.png": {
 		"ft": 32768,
 		"iS": 5631,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/use-point-number2.png",
+		"oAP": "/assets/images/guide/use-point-number2.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/use-point-number3.png": {
+	"/assets/images/guide/use-point-number3.png": {
 		"ft": 32768,
 		"iS": 5663,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/use-point-number3.png",
+		"oAP": "/assets/images/guide/use-point-number3.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/use-point1.png": {
+	"/assets/images/guide/use-point1.png": {
 		"ft": 32768,
 		"iS": 8029,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/use-point1.png",
+		"oAP": "/assets/images/guide/use-point1.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/use-point2.png": {
+	"/assets/images/guide/use-point2.png": {
 		"ft": 32768,
 		"iS": 7778,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/use-point2.png",
+		"oAP": "/assets/images/guide/use-point2.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/use-point3.png": {
+	"/assets/images/guide/use-point3.png": {
 		"ft": 32768,
 		"iS": 7185,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/use-point3.png",
+		"oAP": "/assets/images/guide/use-point3.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/way-point-step1.png": {
+	"/assets/images/guide/way-point-step1.png": {
 		"ft": 32768,
 		"iS": 10422,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/way-point-step1.png",
+		"oAP": "/assets/images/guide/way-point-step1.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/way-point-step2.png": {
+	"/assets/images/guide/way-point-step2.png": {
 		"ft": 32768,
 		"iS": 12552,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/way-point-step2.png",
+		"oAP": "/assets/images/guide/way-point-step2.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/way-point-step3.png": {
+	"/assets/images/guide/way-point-step3.png": {
 		"ft": 32768,
 		"iS": 10582,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/way-point-step3.png",
+		"oAP": "/assets/images/guide/way-point-step3.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/guide\/way-point-step4.png": {
+	"/assets/images/guide/way-point-step4.png": {
 		"ft": 32768,
 		"iS": 9927,
 		"oA": 0,
-		"oAP": "\/assets\/images\/guide\/way-point-step4.png",
+		"oAP": "/assets/images/guide/way-point-step4.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/hovercard.svg": {
+	"/assets/images/hovercard.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/hovercard.svg",
+		"oAP": "/assets/images/hovercard.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/icon_bulb.png": {
+	"/assets/images/icon_bulb.png": {
 		"ft": 32768,
 		"iS": 4099,
 		"oA": 0,
-		"oAP": "\/assets\/images\/icon_bulb.png",
+		"oAP": "/assets/images/icon_bulb.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/icon_question_mark.png": {
+	"/assets/images/icon_question_mark.png": {
 		"ft": 32768,
 		"iS": 5705,
 		"oA": 0,
-		"oAP": "\/assets\/images\/icon_question_mark.png",
+		"oAP": "/assets/images/icon_question_mark.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/icon_scroll_down.png": {
+	"/assets/images/icon_scroll_down.png": {
 		"ft": 32768,
 		"iS": 3228,
 		"oA": 0,
-		"oAP": "\/assets\/images\/icon_scroll_down.png",
+		"oAP": "/assets/images/icon_scroll_down.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/icon_won.png": {
+	"/assets/images/icon_won.png": {
 		"ft": 32768,
 		"iS": 4042,
 		"oA": 0,
-		"oAP": "\/assets\/images\/icon_won.png",
+		"oAP": "/assets/images/icon_won.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/laptop.svg": {
+	"/assets/images/laptop.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/laptop.svg",
+		"oAP": "/assets/images/laptop.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/line-chart.svg": {
+	"/assets/images/line-chart.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/line-chart.svg",
+		"oAP": "/assets/images/line-chart.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/loading.gif": {
+	"/assets/images/loading.gif": {
 		"ft": 4194304,
 		"iS": 5552,
 		"oA": 0,
-		"oAP": "\/assets\/images\/loading.gif",
+		"oAP": "/assets/images/loading.gif",
 		"oF": 0,
 		"opt": 1
 		},
-	"\/assets\/images\/loading.png": {
+	"/assets/images/loading.png": {
 		"ft": 32768,
 		"iS": 13045,
 		"oA": 0,
-		"oAP": "\/assets\/images\/loading.png",
+		"oAP": "/assets/images/loading.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/loading.svg": {
+	"/assets/images/loading.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/loading.svg",
+		"oAP": "/assets/images/loading.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/logo.png": {
+	"/assets/images/logo.png": {
 		"ft": 32768,
 		"iS": 6107,
 		"oA": 0,
-		"oAP": "\/assets\/images\/logo.png",
+		"oAP": "/assets/images/logo.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/logo_footer.png": {
+	"/assets/images/logo_footer.png": {
 		"ft": 32768,
 		"iS": 7421,
 		"oA": 0,
-		"oAP": "\/assets\/images\/logo_footer.png",
+		"oAP": "/assets/images/logo_footer.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/logo_header.png": {
+	"/assets/images/logo_header.png": {
 		"ft": 32768,
 		"iS": 7442,
 		"oA": 0,
-		"oAP": "\/assets\/images\/logo_header.png",
+		"oAP": "/assets/images/logo_header.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/main_top.jpg": {
+	"/assets/images/main_top.jpg": {
 		"ft": 16384,
 		"iS": 246473,
 		"jF": 0,
 		"oA": 0,
-		"oAP": "\/assets\/images\/main_top.jpg",
+		"oAP": "/assets/images/main_top.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
 		"q": 100
 		},
-	"\/assets\/images\/money.png": {
+	"/assets/images/money.png": {
 		"ft": 32768,
 		"iS": 4114,
 		"oA": 0,
-		"oAP": "\/assets\/images\/money.png",
+		"oAP": "/assets/images/money.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/money2.png": {
+	"/assets/images/money2.png": {
 		"ft": 32768,
 		"iS": 4422,
 		"oA": 0,
-		"oAP": "\/assets\/images\/money2.png",
+		"oAP": "/assets/images/money2.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/money3.png": {
+	"/assets/images/money3.png": {
 		"ft": 32768,
 		"iS": 5699,
 		"oA": 0,
-		"oAP": "\/assets\/images\/money3.png",
+		"oAP": "/assets/images/money3.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/more_functions.svg": {
+	"/assets/images/more_functions.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/more_functions.svg",
+		"oAP": "/assets/images/more_functions.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/overlay-pattern-3.png": {
+	"/assets/images/overlay-pattern-3.png": {
 		"ft": 32768,
 		"iS": 101,
 		"oA": 0,
-		"oAP": "\/assets\/images\/overlay-pattern-3.png",
+		"oAP": "/assets/images/overlay-pattern-3.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/overlay-pattern.png": {
+	"/assets/images/overlay-pattern.png": {
 		"ft": 32768,
 		"iS": 1643,
 		"oA": 0,
-		"oAP": "\/assets\/images\/overlay-pattern.png",
+		"oAP": "/assets/images/overlay-pattern.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/pattern_slash.png": {
+	"/assets/images/pattern_slash.png": {
 		"ft": 32768,
 		"iS": 1608,
 		"oA": 0,
-		"oAP": "\/assets\/images\/pattern_slash.png",
+		"oAP": "/assets/images/pattern_slash.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/php.svg": {
+	"/assets/images/php.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/php.svg",
+		"oAP": "/assets/images/php.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/plug.svg": {
+	"/assets/images/plug.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/plug.svg",
+		"oAP": "/assets/images/plug.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/print-icon.png": {
+	"/assets/images/print-icon.png": {
 		"ft": 32768,
 		"iS": 4011,
 		"oA": 0,
-		"oAP": "\/assets\/images\/print-icon.png",
+		"oAP": "/assets/images/print-icon.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/q-icon.png": {
+	"/assets/images/q-icon.png": {
 		"ft": 32768,
 		"iS": 3950,
 		"oA": 0,
-		"oAP": "\/assets\/images\/q-icon.png",
+		"oAP": "/assets/images/q-icon.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/question-icon.png": {
+	"/assets/images/question-icon.png": {
 		"ft": 32768,
 		"iS": 24844,
 		"oA": 0,
-		"oAP": "\/assets\/images\/question-icon.png",
+		"oAP": "/assets/images/question-icon.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/question.png": {
+	"/assets/images/question.png": {
 		"ft": 32768,
 		"iS": 3116,
 		"oA": 0,
-		"oAP": "\/assets\/images\/question.png",
+		"oAP": "/assets/images/question.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/images\/questions_top.jpg": {
+	"/assets/images/questions_top.jpg": {
 		"ft": 16384,
 		"iS": 311056,
 		"jF": 0,
 		"oA": 0,
-		"oAP": "\/assets\/images\/questions_top.jpg",
+		"oAP": "/assets/images/questions_top.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
 		"q": 100
 		},
-	"\/assets\/images\/server.svg": {
+	"/assets/images/server.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/server.svg",
+		"oAP": "/assets/images/server.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/images\/small_cover.jpg": {
+	"/assets/images/small_cover.jpg": {
 		"ft": 16384,
 		"iS": 18439,
 		"jF": 0,
 		"oA": 0,
-		"oAP": "\/assets\/images\/small_cover.jpg",
+		"oAP": "/assets/images/small_cover.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
 		"q": 100
 		},
-	"\/assets\/images\/user.svg": {
+	"/assets/images/user.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/images\/user.svg",
+		"oAP": "/assets/images/user.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/js\/admin-min.js": {
+	"/assets/js/admin-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/admin-min-min.js",
+		"oAP": "/assets/js/admin-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/admin.js": {
+	"/assets/js/admin.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/admin-min.js",
+		"oAP": "/assets/js/admin-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/ask.js": {
+	"/assets/js/ask.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/ask-min.js",
+		"oAP": "/assets/js/ask-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/common.js": {
+	"/assets/js/common.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/common-min.js",
+		"oAP": "/assets/js/common-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/list.js": {
+	"/assets/js/list.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/list-min.js",
+		"oAP": "/assets/js/list-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/main-min-min.js": {
+	"/assets/js/main-min-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-min-min-min.js",
+		"oAP": "/assets/js/main-min-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/main-min.js": {
+	"/assets/js/main-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-min-min.js",
+		"oAP": "/assets/js/main-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/main.js": {
+	"/assets/js/main.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/main-min.js",
+		"oAP": "/assets/js/main-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/notifications-min.js": {
+	"/assets/js/notifications-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/notifications-min-min.js",
+		"oAP": "/assets/js/notifications-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/notifications.js": {
+	"/assets/js/notifications.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/js\/notifications-min.js",
+		"oAP": "/assets/js/notifications-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/question.js": {
+	"/assets/js/question.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/question-min.js",
+		"oAP": "/assets/js/question-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/tags.js": {
+	"/assets/js/tags.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/tags-min.js",
+		"oAP": "/assets/js/tags-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/theme.js": {
+	"/assets/js/theme.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/assets\/js\/theme-min.js",
+		"oAP": "/assets/js/theme-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/jquery.floatThead-min.js": {
+	"/assets/lib/jquery.floatThead-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/jquery.floatThead-min-min.js",
+		"oAP": "/assets/lib/jquery.floatThead-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/jquery.floatThead.js": {
+	"/assets/lib/jquery.floatThead.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/jquery.floatThead-min.js",
+		"oAP": "/assets/lib/jquery.floatThead-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/loading-indicator\/.eslintrc-min.js": {
+	"/assets/lib/loading-indicator/.eslintrc-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-min-min.js",
+		"oAP": "/assets/lib/loading-indicator/.eslintrc-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/loading-indicator\/.eslintrc.js": {
+	"/assets/lib/loading-indicator/.eslintrc.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/.eslintrc-min.js",
+		"oAP": "/assets/lib/loading-indicator/.eslintrc-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/loading-indicator\/.gitignore": {
+	"/assets/lib/loading-indicator/.gitignore": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/.gitignore",
+		"oAP": "/assets/lib/loading-indicator/.gitignore",
 		"oF": 0
 		},
-	"\/assets\/lib\/loading-indicator\/css\/modal-loading-min.css": {
+	"/assets/lib/loading-indicator/css/modal-loading-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/css\/modal-loading-min-min.css",
+		"oAP": "/assets/lib/loading-indicator/css/modal-loading-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/loading-indicator\/css\/modal-loading.css": {
+	"/assets/lib/loading-indicator/css/modal-loading.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/css\/modal-loading-min.css",
+		"oAP": "/assets/lib/loading-indicator/css/modal-loading-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js": {
+	"/assets/lib/loading-indicator/js/modal-loading-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min-min.js",
+		"oAP": "/assets/lib/loading-indicator/js/modal-loading-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/loading-indicator\/js\/modal-loading.js": {
+	"/assets/lib/loading-indicator/js/modal-loading.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/loading-indicator\/js\/modal-loading-min.js",
+		"oAP": "/assets/lib/loading-indicator/js/modal-loading-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/mmenu\/jquery.mmenu.all-min.css": {
+	"/assets/lib/mmenu/jquery.mmenu.all-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min-min.css",
+		"oAP": "/assets/lib/mmenu/jquery.mmenu.all-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/mmenu\/jquery.mmenu.all-min.js": {
+	"/assets/lib/mmenu/jquery.mmenu.all-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min-min.js",
+		"oAP": "/assets/lib/mmenu/jquery.mmenu.all-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/mmenu\/jquery.mmenu.all.css": {
+	"/assets/lib/mmenu/jquery.mmenu.all.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min.css",
+		"oAP": "/assets/lib/mmenu/jquery.mmenu.all-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/mmenu\/jquery.mmenu.all.js": {
+	"/assets/lib/mmenu/jquery.mmenu.all.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/mmenu\/jquery.mmenu.all-min.js",
+		"oAP": "/assets/lib/mmenu/jquery.mmenu.all-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/selectize.min-min.js": {
+	"/assets/lib/selectize.min-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/selectize.min-min-min.js",
+		"oAP": "/assets/lib/selectize.min-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/selectize.min.js": {
+	"/assets/lib/selectize.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/selectize.min-min.js",
+		"oAP": "/assets/lib/selectize.min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/semantic-ui\/semantic.min-min.css": {
+	"/assets/lib/semantic-ui/semantic.min-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min-min.css",
+		"oAP": "/assets/lib/semantic-ui/semantic.min-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/semantic-ui\/semantic.min-min.js": {
+	"/assets/lib/semantic-ui/semantic.min-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min-min.js",
+		"oAP": "/assets/lib/semantic-ui/semantic.min-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/semantic-ui\/semantic.min.css": {
+	"/assets/lib/semantic-ui/semantic.min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min.css",
+		"oAP": "/assets/lib/semantic-ui/semantic.min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/semantic-ui\/semantic.min.js": {
+	"/assets/lib/semantic-ui/semantic.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/semantic.min-min.js",
+		"oAP": "/assets/lib/semantic-ui/semantic.min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.eot": {
+	"/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.eot",
+		"oAP": "/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.eot",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.svg": {
+	"/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.svg",
+		"oAP": "/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.ttf": {
+	"/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.woff": {
+	"/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/basic\/assets\/fonts\/icons.woff",
+		"oAP": "/assets/lib/semantic-ui/themes/basic/assets/fonts/icons.woff",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.eot": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.eot",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.eot",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.svg": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.svg",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.ttf": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.woff": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.woff",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.woff",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.woff2": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/brand-icons.woff2",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/brand-icons.woff2",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.eot": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/icons.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.eot",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/icons.eot",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.svg": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/icons.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.svg",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/icons.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.ttf": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/icons.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/icons.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.woff": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/icons.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.woff",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/icons.woff",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.woff2": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/icons.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/icons.woff2",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/icons.woff2",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.eot": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.eot",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.eot",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.svg": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.svg",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.ttf": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.woff": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.woff",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.woff",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.woff2": {
+	"/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/fonts\/outline-icons.woff2",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/fonts/outline-icons.woff2",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/default\/assets\/images\/flags.png": {
+	"/assets/lib/semantic-ui/themes/default/assets/images/flags.png": {
 		"ft": 32768,
 		"iS": 28123,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/default\/assets\/images\/flags.png",
+		"oAP": "/assets/lib/semantic-ui/themes/default/assets/images/flags.png",
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons-local.ttf": {
+	"/assets/lib/semantic-ui/themes/github/assets/fonts/octicons-local.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons-local.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/github/assets/fonts/octicons-local.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons.svg": {
+	"/assets/lib/semantic-ui/themes/github/assets/fonts/octicons.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons.svg",
+		"oAP": "/assets/lib/semantic-ui/themes/github/assets/fonts/octicons.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons.ttf": {
+	"/assets/lib/semantic-ui/themes/github/assets/fonts/octicons.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/github/assets/fonts/octicons.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons.woff": {
+	"/assets/lib/semantic-ui/themes/github/assets/fonts/octicons.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/github\/assets\/fonts\/octicons.woff",
+		"oAP": "/assets/lib/semantic-ui/themes/github/assets/fonts/octicons.woff",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.eot": {
+	"/assets/lib/semantic-ui/themes/material/assets/fonts/icons.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.eot",
+		"oAP": "/assets/lib/semantic-ui/themes/material/assets/fonts/icons.eot",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.svg": {
+	"/assets/lib/semantic-ui/themes/material/assets/fonts/icons.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.svg",
+		"oAP": "/assets/lib/semantic-ui/themes/material/assets/fonts/icons.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.ttf": {
+	"/assets/lib/semantic-ui/themes/material/assets/fonts/icons.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.ttf",
+		"oAP": "/assets/lib/semantic-ui/themes/material/assets/fonts/icons.ttf",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.woff": {
+	"/assets/lib/semantic-ui/themes/material/assets/fonts/icons.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.woff",
+		"oAP": "/assets/lib/semantic-ui/themes/material/assets/fonts/icons.woff",
 		"oF": 0
 		},
-	"\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.woff2": {
+	"/assets/lib/semantic-ui/themes/material/assets/fonts/icons.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/semantic-ui\/themes\/material\/assets\/fonts\/icons.woff2",
+		"oAP": "/assets/lib/semantic-ui/themes/material/assets/fonts/icons.woff2",
 		"oF": 0
 		},
-	"\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js": {
+	"/assets/lib/sumoselect/jquery.sumoselect-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min-min.js",
+		"oAP": "/assets/lib/sumoselect/jquery.sumoselect-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/sumoselect\/jquery.sumoselect.js": {
+	"/assets/lib/sumoselect/jquery.sumoselect.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/jquery.sumoselect-min.js",
+		"oAP": "/assets/lib/sumoselect/jquery.sumoselect-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/lib\/sumoselect\/sumoselect-min-min.css": {
+	"/assets/lib/sumoselect/sumoselect-min-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/sumoselect-min-min-min.css",
+		"oAP": "/assets/lib/sumoselect/sumoselect-min-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/lib\/sumoselect\/sumoselect-min.css": {
+	"/assets/lib/sumoselect/sumoselect-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/assets\/lib\/sumoselect\/sumoselect-min-min.css",
+		"oAP": "/assets/lib/sumoselect/sumoselect-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/assets\/scss\/admin.scss": {
+	"/assets/scss/admin.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1472,12 +1472,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/admin.css",
+		"oAP": "/admin.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_buttons.scss": {
+	"/assets/scss/components/_buttons.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1485,12 +1485,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_buttons.css",
+		"oAP": "/_buttons.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_default-cell.scss": {
+	"/assets/scss/components/_default-cell.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1498,12 +1498,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_default-cell.css",
+		"oAP": "/_default-cell.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_dropdown.scss": {
+	"/assets/scss/components/_dropdown.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1511,12 +1511,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_dropdown.css",
+		"oAP": "/_dropdown.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_form.scss": {
+	"/assets/scss/components/_form.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1524,12 +1524,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_form.css",
+		"oAP": "/_form.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_front-category-search.scss": {
+	"/assets/scss/components/_front-category-search.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1537,12 +1537,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_front-category-search.css",
+		"oAP": "/_front-category-search.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_front-message.scss": {
+	"/assets/scss/components/_front-message.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1550,12 +1550,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_front-message.css",
+		"oAP": "/_front-message.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_guide.scss": {
+	"/assets/scss/components/_guide.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1563,12 +1563,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_guide.css",
+		"oAP": "/_guide.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_list.scss": {
+	"/assets/scss/components/_list.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1576,12 +1576,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_list.css",
+		"oAP": "/_list.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_login-modal.scss": {
+	"/assets/scss/components/_login-modal.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1589,12 +1589,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_login-modal.css",
+		"oAP": "/_login-modal.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_login-trigger.scss": {
+	"/assets/scss/components/_login-trigger.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1602,12 +1602,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_login-trigger.css",
+		"oAP": "/_login-trigger.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_main-menu.scss": {
+	"/assets/scss/components/_main-menu.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1615,12 +1615,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_main-menu.css",
+		"oAP": "/_main-menu.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_mobile-menu-trigger.scss": {
+	"/assets/scss/components/_mobile-menu-trigger.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1628,12 +1628,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_mobile-menu-trigger.css",
+		"oAP": "/_mobile-menu-trigger.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_modal.scss": {
+	"/assets/scss/components/_modal.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1641,12 +1641,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_modal.css",
+		"oAP": "/_modal.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_mycred-creds.scss": {
+	"/assets/scss/components/_mycred-creds.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1654,12 +1654,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_mycred-creds.css",
+		"oAP": "/_mycred-creds.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_page-banner.scss": {
+	"/assets/scss/components/_page-banner.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1667,12 +1667,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_page-banner.css",
+		"oAP": "/_page-banner.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_purchase-answers-button.scss": {
+	"/assets/scss/components/_purchase-answers-button.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1680,12 +1680,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_purchase-answers-button.css",
+		"oAP": "/_purchase-answers-button.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_purchase-answers-modal.scss": {
+	"/assets/scss/components/_purchase-answers-modal.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1693,12 +1693,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_purchase-answers-modal.css",
+		"oAP": "/_purchase-answers-modal.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_question-categories.scss": {
+	"/assets/scss/components/_question-categories.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1706,12 +1706,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_question-categories.css",
+		"oAP": "/_question-categories.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_question-filter.scss": {
+	"/assets/scss/components/_question-filter.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1719,12 +1719,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_question-filter.css",
+		"oAP": "/_question-filter.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_question-list-meta.scss": {
+	"/assets/scss/components/_question-list-meta.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1732,12 +1732,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_question-list-meta.css",
+		"oAP": "/_question-list-meta.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_question-meta.scss": {
+	"/assets/scss/components/_question-meta.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1745,12 +1745,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_question-meta.css",
+		"oAP": "/_question-meta.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_site-info.scss": {
+	"/assets/scss/components/_site-info.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1758,12 +1758,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_site-info.css",
+		"oAP": "/_site-info.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_site-logo.scss": {
+	"/assets/scss/components/_site-logo.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1771,12 +1771,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_site-logo.css",
+		"oAP": "/_site-logo.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_snackbar.scss": {
+	"/assets/scss/components/_snackbar.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1784,12 +1784,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_snackbar.css",
+		"oAP": "/_snackbar.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_upload.scss": {
+	"/assets/scss/components/_upload.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1797,12 +1797,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_upload.css",
+		"oAP": "/_upload.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user-answers.scss": {
+	"/assets/scss/components/_user-answers.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1810,12 +1810,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_user-answers.css",
+		"oAP": "/_user-answers.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user-bio.scss": {
+	"/assets/scss/components/_user-bio.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1823,12 +1823,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_user-bio.css",
+		"oAP": "/_user-bio.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user-mycred-log.scss": {
+	"/assets/scss/components/_user-mycred-log.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1836,12 +1836,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_user-mycred-log.css",
+		"oAP": "/_user-mycred-log.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user-nav.scss": {
+	"/assets/scss/components/_user-nav.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1849,12 +1849,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_user-nav.css",
+		"oAP": "/_user-nav.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user-posts.scss": {
+	"/assets/scss/components/_user-posts.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1862,12 +1862,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_user-posts.css",
+		"oAP": "/_user-posts.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/components\/_user.scss": {
+	"/assets/scss/components/_user.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1875,12 +1875,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_user.css",
+		"oAP": "/_user.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/general\/_fonts.scss": {
+	"/assets/scss/general/_fonts.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1888,12 +1888,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_fonts.css",
+		"oAP": "/_fonts.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/general\/_general.scss": {
+	"/assets/scss/general/_general.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1901,12 +1901,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_general.css",
+		"oAP": "/_general.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/general\/_override.scss": {
+	"/assets/scss/general/_override.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1914,12 +1914,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_override.css",
+		"oAP": "/_override.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/general\/_reset.scss": {
+	"/assets/scss/general/_reset.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1927,12 +1927,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_reset.css",
+		"oAP": "/_reset.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/general\/_variables.scss": {
+	"/assets/scss/general/_variables.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1940,12 +1940,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_variables.css",
+		"oAP": "/_variables.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/layout\/_footer.scss": {
+	"/assets/scss/layout/_footer.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1953,12 +1953,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_footer.css",
+		"oAP": "/_footer.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/layout\/_header.scss": {
+	"/assets/scss/layout/_header.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1966,12 +1966,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_header.css",
+		"oAP": "/_header.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/pages\/_ask.scss": {
+	"/assets/scss/pages/_ask.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1979,12 +1979,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_ask.css",
+		"oAP": "/_ask.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/pages\/_front.scss": {
+	"/assets/scss/pages/_front.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1992,12 +1992,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_front.css",
+		"oAP": "/_front.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/pages\/_licence-map.scss": {
+	"/assets/scss/pages/_licence-map.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2005,12 +2005,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_licence-map.css",
+		"oAP": "/_licence-map.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/pages\/_single-question.scss": {
+	"/assets/scss/pages/_single-question.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2018,12 +2018,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_single-question.css",
+		"oAP": "/_single-question.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/responsive.scss": {
+	"/assets/scss/responsive.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2031,272 +2031,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/responsive.css",
+		"oAP": "/responsive.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/style.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/style.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/utils\/_functions.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_functions.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/utils\/_mixins.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_mixins.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/_family.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_family.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/_mq.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_mq.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/_open-color.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_open-color.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_animated.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_animated.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_bordered-pulled.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_bordered-pulled.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_core.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_core.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_fixed-width.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_fixed-width.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_icons.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_icons.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_larger.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_larger.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_list.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_list.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_mixins.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_mixins.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_rotated-flipped.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_rotated-flipped.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_screen-reader.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_screen-reader.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_shims.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_shims.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_stacked.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_stacked.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/_variables.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/_variables.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/fa-brands.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/fa-brands.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/assets\/scss\/vendors\/fontawesome\/fa-regular.scss": {
+	"/assets/scss/style.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2304,12 +2044,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/fa-regular.css",
+		"oAP": "/style.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/fa-solid.scss": {
+	"/assets/scss/utils/_functions.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2317,12 +2057,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/fa-solid.css",
+		"oAP": "/_functions.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/fontawesome.scss": {
+	"/assets/scss/utils/_mixins.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2330,12 +2070,233 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/fontawesome.css",
+		"oAP": "/_mixins.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/v4-shims.scss": {
+	"/assets/scss/vendors/_family.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_family.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/_mq.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_mq.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/_open-color.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_open-color.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_animated.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_animated.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_bordered-pulled.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_bordered-pulled.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_core.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_core.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_fixed-width.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_fixed-width.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_icons.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_icons.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_larger.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_larger.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_list.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_list.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_mixins.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_mixins.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_rotated-flipped.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_rotated-flipped.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_screen-reader.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_screen-reader.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_shims.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_shims.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_stacked.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_stacked.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/_variables.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_variables.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/fa-brands.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/fa-brands.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/fa-regular.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2343,126 +2304,165 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/v4-shims.css",
+		"oAP": "/fa-regular.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.eot": {
+	"/assets/scss/vendors/fontawesome/fa-solid.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/fa-solid.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/fontawesome.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/fontawesome.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/v4-shims.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/v4-shims.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.eot",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.eot",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.svg": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.svg",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.ttf": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.ttf",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.ttf",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.woff": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.woff",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.woff",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.woff2": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-brands-400.woff2",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-brands-400.woff2",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.eot": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.eot",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.eot",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.svg": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.svg",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.ttf": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.ttf",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.ttf",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.woff": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.woff",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.woff",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.woff2": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-regular-400.woff2",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-regular-400.woff2",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.eot": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.eot": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.eot",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.eot",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.svg": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.svg",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.ttf": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.ttf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.ttf",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.ttf",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.woff": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.woff": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.woff",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.woff",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.woff2": {
+	"/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.woff2": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/assets\/scss\/vendors\/fontawesome\/webfonts\/fa-solid-900.woff2",
+		"oAP": "/assets/scss/vendors/fontawesome/webfonts/fa-solid-900.woff2",
 		"oF": 0
 		},
-	"\/assets\/scss\/vendors\/susy\/_main.scss": {
+	"/assets/scss/vendors/susy/_main.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2470,12 +2470,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_main.css",
+		"oAP": "/_main.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/_susy-prefix.scss": {
+	"/assets/scss/vendors/susy/_susy-prefix.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2483,12 +2483,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_susy-prefix.css",
+		"oAP": "/_susy-prefix.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/_version.scss": {
+	"/assets/scss/vendors/susy/_version.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2496,12 +2496,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_version.css",
+		"oAP": "/_version.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/_svg-grid.scss": {
+	"/assets/scss/vendors/susy/plugins/_svg-grid.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2509,12 +2509,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_svg-grid.css",
+		"oAP": "/_svg-grid.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/svg-grid\/_prefix.scss": {
+	"/assets/scss/vendors/susy/plugins/svg-grid/_prefix.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2522,12 +2522,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_prefix.css",
+		"oAP": "/_prefix.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/svg-grid\/_svg-api.scss": {
+	"/assets/scss/vendors/susy/plugins/svg-grid/_svg-api.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2535,12 +2535,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_svg-api.css",
+		"oAP": "/_svg-api.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/svg-grid\/_svg-grid-math.scss": {
+	"/assets/scss/vendors/susy/plugins/svg-grid/_svg-grid-math.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2548,12 +2548,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_svg-grid-math.css",
+		"oAP": "/_svg-grid-math.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/svg-grid\/_svg-settings.scss": {
+	"/assets/scss/vendors/susy/plugins/svg-grid/_svg-settings.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2561,12 +2561,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_svg-settings.css",
+		"oAP": "/_svg-settings.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/svg-grid\/_svg-unprefix.scss": {
+	"/assets/scss/vendors/susy/plugins/svg-grid/_svg-unprefix.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2574,12 +2574,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_svg-unprefix.css",
+		"oAP": "/_svg-unprefix.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/plugins\/svg-grid\/_svg-utilities.scss": {
+	"/assets/scss/vendors/susy/plugins/svg-grid/_svg-utilities.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2587,12 +2587,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_svg-utilities.css",
+		"oAP": "/_svg-utilities.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_api.scss": {
+	"/assets/scss/vendors/susy/susy/_api.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2600,12 +2600,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_api.css",
+		"oAP": "/_api.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_normalize.scss": {
+	"/assets/scss/vendors/susy/susy/_normalize.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2613,12 +2613,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_normalize.css",
+		"oAP": "/_normalize.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_parse.scss": {
+	"/assets/scss/vendors/susy/susy/_parse.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2626,12 +2626,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_parse.css",
+		"oAP": "/_parse.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_settings.scss": {
+	"/assets/scss/vendors/susy/susy/_settings.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2639,12 +2639,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_settings.css",
+		"oAP": "/_settings.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_su-math.scss": {
+	"/assets/scss/vendors/susy/susy/_su-math.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2652,12 +2652,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_su-math.css",
+		"oAP": "/_su-math.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_su-validate.scss": {
+	"/assets/scss/vendors/susy/susy/_su-validate.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2665,12 +2665,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_su-validate.css",
+		"oAP": "/_su-validate.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_syntax-helpers.scss": {
+	"/assets/scss/vendors/susy/susy/_syntax-helpers.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2678,12 +2678,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_syntax-helpers.css",
+		"oAP": "/_syntax-helpers.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_unprefix.scss": {
+	"/assets/scss/vendors/susy/susy/_unprefix.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2691,12 +2691,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_unprefix.css",
+		"oAP": "/_unprefix.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/assets\/scss\/vendors\/susy\/susy\/_utilities.scss": {
+	"/assets/scss/vendors/susy/susy/_utilities.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -2704,914 +2704,914 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/_utilities.css",
+		"oAP": "/_utilities.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/editor-min.css": {
+	"/editor-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/editor-min-min.css",
+		"oAP": "/editor-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/editor.css": {
+	"/editor.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/editor-min.css",
+		"oAP": "/editor-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/fa-regular.css": {
+	"/fa-regular.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/fa-regular-min.css",
+		"oAP": "/fa-regular-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/footer.php": {
+	"/footer.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/footer.php",
+		"oAP": "/footer.php",
 		"oF": 0
 		},
-	"\/front-page.php": {
+	"/front-page.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/front-page.php",
+		"oAP": "/front-page.php",
 		"oF": 0
 		},
-	"\/functions.php": {
+	"/functions.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/functions.php",
+		"oAP": "/functions.php",
 		"oF": 0
 		},
-	"\/header.php": {
+	"/header.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/header.php",
+		"oAP": "/header.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/analysis-keyword.php": {
+	"/includes/addons/analysis-keyword.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/analysis-keyword.php",
+		"oAP": "/includes/addons/analysis-keyword.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/avatar\/avatar.php": {
+	"/includes/addons/avatar/avatar.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/avatar\/avatar.php",
+		"oAP": "/includes/addons/avatar/avatar.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/avatar\/class-generator.php": {
+	"/includes/addons/avatar/class-generator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/avatar\/class-generator.php",
+		"oAP": "/includes/addons/avatar/class-generator.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/category.php": {
+	"/includes/addons/category.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/category.php",
+		"oAP": "/includes/addons/category.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/dummy.php": {
+	"/includes/addons/dummy.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/dummy.php",
+		"oAP": "/includes/addons/dummy.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/duplicator.php": {
+	"/includes/addons/duplicator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/duplicator.php",
+		"oAP": "/includes/addons/duplicator.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/filters.php": {
+	"/includes/addons/filters.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/filters.php",
+		"oAP": "/includes/addons/filters.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/css\/go-back.svg": {
+	"/includes/addons/point/iamport/assets/css/go-back.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/css\/go-back.svg",
+		"oAP": "/includes/addons/point/iamport/assets/css/go-back.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/css\/iamport-payment-shortcode.css": {
+	"/includes/addons/point/iamport/assets/css/iamport-payment-shortcode.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/css\/iamport-payment-shortcode-min.css",
+		"oAP": "/includes/addons/point/iamport/assets/css/iamport-payment-shortcode-min.css",
 		"oF": 1,
 		"oS": 3
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/css\/iamport-payment.css": {
+	"/includes/addons/point/iamport/assets/css/iamport-payment.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/css\/iamport-payment-min.css",
+		"oAP": "/includes/addons/point/iamport/assets/css/iamport-payment-min.css",
 		"oF": 1,
 		"oS": 3
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/css\/iamport-shortcode-page.css": {
+	"/includes/addons/point/iamport/assets/css/iamport-shortcode-page.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/css\/iamport-shortcode-page-min.css",
+		"oAP": "/includes/addons/point/iamport/assets/css/iamport-shortcode-page-min.css",
 		"oF": 1,
 		"oS": 3
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/css\/order-list.css": {
+	"/includes/addons/point/iamport/assets/css/order-list.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/css\/order-list-min.css",
+		"oAP": "/includes/addons/point/iamport/assets/css/order-list-min.css",
 		"oF": 1,
 		"oS": 3
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/css\/order-view.css": {
+	"/includes/addons/point/iamport/assets/css/order-view.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/css\/order-view-min.css",
+		"oAP": "/includes/addons/point/iamport/assets/css/order-view-min.css",
 		"oF": 1,
 		"oS": 3
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/img\/close-button.png": {
+	"/includes/addons/point/iamport/assets/img/close-button.png": {
 		"ft": 32768,
 		"iS": 256,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/img\/close-button.png",
+		"oAP": "/includes/addons/point/iamport/assets/img/close-button.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/img\/iamport.jpg": {
+	"/includes/addons/point/iamport/assets/img/iamport.jpg": {
 		"ft": 16384,
 		"iS": 4166,
 		"jF": 0,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/img\/iamport.jpg",
+		"oAP": "/includes/addons/point/iamport/assets/img/iamport.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
-	"\/includes\/addons\/point\/iamport\/assets\/img\/select.svg": {
+	"/includes/addons/point/iamport/assets/img/select.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "\/includes\/addons\/point\/iamport\/assets\/img\/select.svg",
+		"oAP": "/includes/addons/point/iamport/assets/img/select.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/includes\/addons\/point\/iamport\/controller\/custom-fields.js": {
+	"/includes/addons/point/iamport/controller/custom-fields.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/controller\/custom-fields-min.js",
+		"oAP": "/includes/addons/point/iamport/controller/custom-fields-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/includes\/addons\/point\/iamport\/dist\/main-babel.js": {
+	"/includes/addons/point/iamport/dist/main-babel.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/dist\/main-babel-min.js",
+		"oAP": "/includes/addons/point/iamport/dist/main-babel-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/includes\/addons\/point\/iamport\/dist\/main.js": {
+	"/includes/addons/point/iamport/dist/main.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/dist\/main-babel.js",
+		"oAP": "/includes/addons/point/iamport/dist/main-babel.js",
 		"oF": 2,
 		"sC": 0,
 		"tS": 1
 		},
-	"\/includes\/addons\/point\/iamport\/iamportPaymentPlugin.php": {
+	"/includes/addons/point/iamport/iamportPaymentPlugin.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/iamportPaymentPlugin.php",
+		"oAP": "/includes/addons/point/iamport/iamportPaymentPlugin.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/custom-fields\/button-fields.js": {
+	"/includes/addons/point/iamport/model/custom-fields/button-fields.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/button-fields-min.js",
+		"oAP": "/includes/addons/point/iamport/model/custom-fields/button-fields-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/select-fields.js": {
+	"/includes/addons/point/iamport/model/custom-fields/custom-types/select-fields.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/select-fields-min.js",
+		"oAP": "/includes/addons/point/iamport/model/custom-fields/custom-types/select-fields-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/text-fields.js": {
+	"/includes/addons/point/iamport/model/custom-fields/custom-types/text-fields.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/custom-fields\/custom-types\/text-fields-min.js",
+		"oAP": "/includes/addons/point/iamport/model/custom-fields/custom-types/text-fields-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/iamport-order.php": {
+	"/includes/addons/point/iamport/model/iamport-order.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/iamport-order.php",
+		"oAP": "/includes/addons/point/iamport/model/iamport-order.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/iamport-payment-button.php": {
+	"/includes/addons/point/iamport/model/iamport-payment-button.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/iamport-payment-button.php",
+		"oAP": "/includes/addons/point/iamport/model/iamport-payment-button.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/iamport-payment-info.php": {
+	"/includes/addons/point/iamport/model/iamport-payment-info.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/iamport-payment-info.php",
+		"oAP": "/includes/addons/point/iamport/model/iamport-payment-info.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/iamport-payment-shortcode.php": {
+	"/includes/addons/point/iamport/model/iamport-payment-shortcode.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/iamport-payment-shortcode.php",
+		"oAP": "/includes/addons/point/iamport/model/iamport-payment-shortcode.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/model\/iamport.php": {
+	"/includes/addons/point/iamport/model/iamport.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/model\/iamport.php",
+		"oAP": "/includes/addons/point/iamport/model/iamport.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/admin\/edit-order.php": {
+	"/includes/addons/point/iamport/view/admin/edit-order.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/admin\/edit-order.php",
+		"oAP": "/includes/addons/point/iamport/view/admin/edit-order.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/admin\/setting.php": {
+	"/includes/addons/point/iamport/view/admin/setting.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/admin\/setting.php",
+		"oAP": "/includes/addons/point/iamport/view/admin/setting.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/history\/order-list.php": {
+	"/includes/addons/point/iamport/view/history/order-list.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/order-list.php",
+		"oAP": "/includes/addons/point/iamport/view/history/order-list.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/history\/order-view.php": {
+	"/includes/addons/point/iamport/view/history/order-view.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/order-view.php",
+		"oAP": "/includes/addons/point/iamport/view/history/order-view.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/history\/thankyou-fail.php": {
+	"/includes/addons/point/iamport/view/history/thankyou-fail.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/thankyou-fail.php",
+		"oAP": "/includes/addons/point/iamport/view/history/thankyou-fail.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/history\/thankyou-success.php": {
+	"/includes/addons/point/iamport/view/history/thankyou-success.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/history\/thankyou-success.php",
+		"oAP": "/includes/addons/point/iamport/view/history/thankyou-success.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/background.php": {
+	"/includes/addons/point/iamport/view/modal/background.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/background.php",
+		"oAP": "/includes/addons/point/iamport/view/modal/background.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/login.php": {
+	"/includes/addons/point/iamport/view/modal/login.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/login.php",
+		"oAP": "/includes/addons/point/iamport/view/modal/login.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/payment.php": {
+	"/includes/addons/point/iamport/view/modal/payment.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/payment.php",
+		"oAP": "/includes/addons/point/iamport/view/modal/payment.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/iamport\/view\/modal\/result.php": {
+	"/includes/addons/point/iamport/view/modal/result.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/iamport\/view\/modal\/result.php",
+		"oAP": "/includes/addons/point/iamport/view/modal/result.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/point\/point.php": {
+	"/includes/addons/point/point.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/point\/point.php",
+		"oAP": "/includes/addons/point/point.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/profile.php": {
+	"/includes/addons/profile.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/profile.php",
+		"oAP": "/includes/addons/profile.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/reputation\/mycred-hooks.php": {
+	"/includes/addons/reputation/mycred-hooks.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/reputation\/mycred-hooks.php",
+		"oAP": "/includes/addons/reputation/mycred-hooks.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/reputation\/reputation.php": {
+	"/includes/addons/reputation/reputation.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/reputation\/reputation.php",
+		"oAP": "/includes/addons/reputation/reputation.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/statistic\/class-ap-list-table.php": {
+	"/includes/addons/statistic/class-ap-list-table.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/statistic\/class-ap-list-table.php",
+		"oAP": "/includes/addons/statistic/class-ap-list-table.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/statistic\/class-tag-statistic-list-table.php": {
+	"/includes/addons/statistic/class-tag-statistic-list-table.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/statistic\/class-tag-statistic-list-table.php",
+		"oAP": "/includes/addons/statistic/class-tag-statistic-list-table.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/statistic\/class-term-statistic-list-table.php": {
+	"/includes/addons/statistic/class-term-statistic-list-table.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/statistic\/class-term-statistic-list-table.php",
+		"oAP": "/includes/addons/statistic/class-term-statistic-list-table.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/statistic\/class-yas-statistic-list-table.php": {
+	"/includes/addons/statistic/class-yas-statistic-list-table.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/statistic\/class-yas-statistic-list-table.php",
+		"oAP": "/includes/addons/statistic/class-yas-statistic-list-table.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/statistic\/statistic.php": {
+	"/includes/addons/statistic/statistic.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/statistic\/statistic.php",
+		"oAP": "/includes/addons/statistic/statistic.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/tag.php": {
+	"/includes/addons/tag.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/tag.php",
+		"oAP": "/includes/addons/tag.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/views.php": {
+	"/includes/addons/views.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/views.php",
+		"oAP": "/includes/addons/views.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/votes.php": {
+	"/includes/addons/votes.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/votes.php",
+		"oAP": "/includes/addons/votes.php",
 		"oF": 0
 		},
-	"\/includes\/addons\/wishlist.php": {
+	"/includes/addons/wishlist.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/addons\/wishlist.php",
+		"oAP": "/includes/addons/wishlist.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/ajax.php": {
+	"/includes/admin/ajax.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/ajax.php",
+		"oAP": "/includes/admin/ajax.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/anspress-admin.php": {
+	"/includes/admin/anspress-admin.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/anspress-admin.php",
+		"oAP": "/includes/admin/anspress-admin.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/custom-settings.php": {
+	"/includes/admin/custom-settings.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/custom-settings.php",
+		"oAP": "/includes/admin/custom-settings.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/functions.php": {
+	"/includes/admin/functions.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/functions.php",
+		"oAP": "/includes/admin/functions.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/list-table-hooks.php": {
+	"/includes/admin/list-table-hooks.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/list-table-hooks.php",
+		"oAP": "/includes/admin/list-table-hooks.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/meta-box.php": {
+	"/includes/admin/meta-box.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/meta-box.php",
+		"oAP": "/includes/admin/meta-box.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/about.php": {
+	"/includes/admin/views/about.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/about.php",
+		"oAP": "/includes/admin/views/about.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/dashboard.php": {
+	"/includes/admin/views/dashboard.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/dashboard.php",
+		"oAP": "/includes/admin/views/dashboard.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/index.php": {
+	"/includes/admin/views/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/index.php",
+		"oAP": "/includes/admin/views/index.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/options.php": {
+	"/includes/admin/views/options.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/options.php",
+		"oAP": "/includes/admin/views/options.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/select_question.php": {
+	"/includes/admin/views/select_question.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/select_question.php",
+		"oAP": "/includes/admin/views/select_question.php",
 		"oF": 0
 		},
-	"\/includes\/admin\/views\/uninstall.php": {
+	"/includes/admin/views/uninstall.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/admin\/views\/uninstall.php",
+		"oAP": "/includes/admin/views/uninstall.php",
 		"oF": 0
 		},
-	"\/includes\/core\/acf.php": {
+	"/includes/core/acf.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/acf.php",
+		"oAP": "/includes/core/acf.php",
 		"oF": 0
 		},
-	"\/includes\/core\/activate.php": {
+	"/includes/core/activate.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/activate.php",
+		"oAP": "/includes/core/activate.php",
 		"oF": 0
 		},
-	"\/includes\/core\/ajax-hooks.php": {
+	"/includes/core/ajax-hooks.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/ajax-hooks.php",
+		"oAP": "/includes/core/ajax-hooks.php",
 		"oF": 0
 		},
-	"\/includes\/core\/anspress.php": {
+	"/includes/core/anspress.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/anspress.php",
+		"oAP": "/includes/core/anspress.php",
 		"oF": 0
 		},
-	"\/includes\/core\/common-pages.php": {
+	"/includes/core/common-pages.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/common-pages.php",
+		"oAP": "/includes/core/common-pages.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/class-form.php": {
+	"/includes/core/form/class-form.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/class-form.php",
+		"oAP": "/includes/core/form/class-form.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/class-validate.php": {
+	"/includes/core/form/class-validate.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/class-validate.php",
+		"oAP": "/includes/core/form/class-validate.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-checkbox.php": {
+	"/includes/core/form/fields/class-checkbox.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-checkbox.php",
+		"oAP": "/includes/core/form/fields/class-checkbox.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-editor.php": {
+	"/includes/core/form/fields/class-editor.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-editor.php",
+		"oAP": "/includes/core/form/fields/class-editor.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-field.php": {
+	"/includes/core/form/fields/class-field.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-field.php",
+		"oAP": "/includes/core/form/fields/class-field.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-group.php": {
+	"/includes/core/form/fields/class-group.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-group.php",
+		"oAP": "/includes/core/form/fields/class-group.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-input.php": {
+	"/includes/core/form/fields/class-input.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-input.php",
+		"oAP": "/includes/core/form/fields/class-input.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-radio.php": {
+	"/includes/core/form/fields/class-radio.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-radio.php",
+		"oAP": "/includes/core/form/fields/class-radio.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-repeatable.php": {
+	"/includes/core/form/fields/class-repeatable.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-repeatable.php",
+		"oAP": "/includes/core/form/fields/class-repeatable.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-select.php": {
+	"/includes/core/form/fields/class-select.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-select.php",
+		"oAP": "/includes/core/form/fields/class-select.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-tags.php": {
+	"/includes/core/form/fields/class-tags.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-tags.php",
+		"oAP": "/includes/core/form/fields/class-tags.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-textarea.php": {
+	"/includes/core/form/fields/class-textarea.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-textarea.php",
+		"oAP": "/includes/core/form/fields/class-textarea.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/fields\/class-upload.php": {
+	"/includes/core/form/fields/class-upload.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/fields\/class-upload.php",
+		"oAP": "/includes/core/form/fields/class-upload.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/form-hooks.php": {
+	"/includes/core/form/form-hooks.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/form-hooks.php",
+		"oAP": "/includes/core/form/form-hooks.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/process-form.php": {
+	"/includes/core/form/process-form.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/process-form.php",
+		"oAP": "/includes/core/form/process-form.php",
 		"oF": 0
 		},
-	"\/includes\/core\/form\/uploader.php": {
+	"/includes/core/form/uploader.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/form\/uploader.php",
+		"oAP": "/includes/core/form/uploader.php",
 		"oF": 0
 		},
-	"\/includes\/core\/installer.php": {
+	"/includes/core/installer.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/installer.php",
+		"oAP": "/includes/core/installer.php",
 		"oF": 0
 		},
-	"\/includes\/core\/options.php": {
+	"/includes/core/options.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/options.php",
+		"oAP": "/includes/core/options.php",
 		"oF": 0
 		},
-	"\/includes\/core\/post-types.php": {
+	"/includes/core/post-types.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/post-types.php",
+		"oAP": "/includes/core/post-types.php",
 		"oF": 0
 		},
-	"\/includes\/core\/qameta.php": {
+	"/includes/core/qameta.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/qameta.php",
+		"oAP": "/includes/core/qameta.php",
 		"oF": 0
 		},
-	"\/includes\/core\/query\/answer-query.php": {
+	"/includes/core/query/answer-query.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/query\/answer-query.php",
+		"oAP": "/includes/core/query/answer-query.php",
 		"oF": 0
 		},
-	"\/includes\/core\/query\/qaquery-hooks.php": {
+	"/includes/core/query/qaquery-hooks.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/query\/qaquery-hooks.php",
+		"oAP": "/includes/core/query/qaquery-hooks.php",
 		"oF": 0
 		},
-	"\/includes\/core\/query\/qaquery.php": {
+	"/includes/core/query/qaquery.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/query\/qaquery.php",
+		"oAP": "/includes/core/query/qaquery.php",
 		"oF": 0
 		},
-	"\/includes\/core\/query\/question-query.php": {
+	"/includes/core/query/question-query.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/query\/question-query.php",
+		"oAP": "/includes/core/query/question-query.php",
 		"oF": 0
 		},
-	"\/includes\/core\/rewrite.php": {
+	"/includes/core/rewrite.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/rewrite.php",
+		"oAP": "/includes/core/rewrite.php",
 		"oF": 0
 		},
-	"\/includes\/core\/roles-cap.php": {
+	"/includes/core/roles-cap.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/roles-cap.php",
+		"oAP": "/includes/core/roles-cap.php",
 		"oF": 0
 		},
-	"\/includes\/core\/shortcode.php": {
+	"/includes/core/shortcode.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/shortcode.php",
+		"oAP": "/includes/core/shortcode.php",
 		"oF": 0
 		},
-	"\/includes\/core\/theme.php": {
+	"/includes/core/theme.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/theme.php",
+		"oAP": "/includes/core/theme.php",
 		"oF": 0
 		},
-	"\/includes\/core\/toggle-best-answer.php": {
+	"/includes/core/toggle-best-answer.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/core\/toggle-best-answer.php",
+		"oAP": "/includes/core/toggle-best-answer.php",
 		"oF": 0
 		},
-	"\/includes\/hooks.php": {
+	"/includes/hooks.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/hooks.php",
+		"oAP": "/includes/hooks.php",
 		"oF": 0
 		},
-	"\/includes\/start.php": {
+	"/includes/start.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/start.php",
+		"oAP": "/includes/start.php",
 		"oF": 0
 		},
-	"\/includes\/tools\/ajax.php": {
+	"/includes/tools/ajax.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/tools\/ajax.php",
+		"oAP": "/includes/tools/ajax.php",
 		"oF": 0
 		},
-	"\/includes\/tools\/rapid-addon.php": {
+	"/includes/tools/rapid-addon.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/tools\/rapid-addon.php",
+		"oAP": "/includes/tools/rapid-addon.php",
 		"oF": 0
 		},
-	"\/includes\/tools\/session.php": {
+	"/includes/tools/session.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/tools\/session.php",
+		"oAP": "/includes/tools/session.php",
 		"oF": 0
 		},
-	"\/includes\/tools\/singleton.php": {
+	"/includes/tools/singleton.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/tools\/singleton.php",
+		"oAP": "/includes/tools/singleton.php",
 		"oF": 0
 		},
-	"\/includes\/tools\/wp-all-import.php": {
+	"/includes/tools/wp-all-import.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/includes\/tools\/wp-all-import.php",
+		"oAP": "/includes/tools/wp-all-import.php",
 		"oF": 0
 		},
-	"\/index.php": {
+	"/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/index.php",
+		"oAP": "/index.php",
 		"oF": 0
 		},
-	"\/languages\/ko_KR.mo": {
+	"/languages/ko_KR.mo": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/languages\/ko_KR.mo",
+		"oAP": "/languages/ko_KR.mo",
 		"oF": 0
 		},
-	"\/languages\/ko_KR.po": {
+	"/languages/ko_KR.po": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/languages\/ko_KR.po",
+		"oAP": "/languages/ko_KR.po",
 		"oF": 0
 		},
-	"\/LICENSE": {
+	"/LICENSE": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/LICENSE",
+		"oAP": "/LICENSE",
 		"oF": 0
 		},
-	"\/my-custom-page-template.php": {
+	"/my-custom-page-template.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/my-custom-page-template.php",
+		"oAP": "/my-custom-page-template.php",
 		"oF": 0
 		},
-	"\/page.php": {
+	"/page.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/page.php",
+		"oAP": "/page.php",
 		"oF": 0
 		},
-	"\/print-min.css": {
+	"/print-min.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/print-min-min.css",
+		"oAP": "/print-min-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/print.css": {
+	"/print.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/print-min.css",
+		"oAP": "/print-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/README.html": {
+	"/README.html": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/README.html",
+		"oAP": "/README.html",
 		"oF": 0
 		},
-	"\/README.md": {
+	"/README.md": {
 		"cB": 0,
 		"cS": 0,
 		"eF": 1,
@@ -3620,7 +3620,7 @@
 		"eSQ": 1,
 		"ft": 4096,
 		"oA": 0,
-		"oAP": "\/README.html",
+		"oAP": "/README.html",
 		"oF": 0,
 		"oFM": 0,
 		"oS": 0,
@@ -3629,378 +3629,378 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/ref.php": {
+	"/ref.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/ref.php",
+		"oAP": "/ref.php",
 		"oF": 0
 		},
-	"\/screenshot.png": {
+	"/screenshot.png": {
 		"ft": 32768,
 		"iS": 165325,
 		"oA": 0,
-		"oAP": "\/screenshot.png",
+		"oAP": "/screenshot.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
-	"\/search.php": {
+	"/search.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/search.php",
+		"oAP": "/search.php",
 		"oF": 0
 		},
-	"\/single.php": {
+	"/single.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/single.php",
+		"oAP": "/single.php",
 		"oF": 0
 		},
-	"\/style.css": {
+	"/style.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/style-min.css",
+		"oAP": "/style-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/template-parts\/answer-form.php": {
+	"/template-parts/answer-form.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/answer-form.php",
+		"oAP": "/template-parts/answer-form.php",
 		"oF": 0
 		},
-	"\/template-parts\/answer.php": {
+	"/template-parts/answer.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/answer.php",
+		"oAP": "/template-parts/answer.php",
 		"oF": 0
 		},
-	"\/template-parts\/answers.php": {
+	"/template-parts/answers.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/answers.php",
+		"oAP": "/template-parts/answers.php",
 		"oF": 0
 		},
-	"\/template-parts\/archive.php": {
+	"/template-parts/archive.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/archive.php",
+		"oAP": "/template-parts/archive.php",
 		"oF": 0
 		},
-	"\/template-parts\/ask.php": {
+	"/template-parts/ask.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/ask.php",
+		"oAP": "/template-parts/ask.php",
 		"oF": 0
 		},
-	"\/template-parts\/categories.php": {
+	"/template-parts/categories.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/categories.php",
+		"oAP": "/template-parts/categories.php",
 		"oF": 0
 		},
-	"\/template-parts\/content-none.php": {
+	"/template-parts/content-none.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/content-none.php",
+		"oAP": "/template-parts/content-none.php",
 		"oF": 0
 		},
-	"\/template-parts\/front-category-search.php": {
+	"/template-parts/front-category-search.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/front-category-search.php",
+		"oAP": "/template-parts/front-category-search.php",
 		"oF": 0
 		},
-	"\/template-parts\/front-message.php": {
+	"/template-parts/front-message.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/front-message.php",
+		"oAP": "/template-parts/front-message.php",
 		"oF": 0
 		},
-	"\/template-parts\/guide.php": {
+	"/template-parts/guide.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/guide.php",
+		"oAP": "/template-parts/guide.php",
 		"oF": 0
 		},
-	"\/template-parts\/list-head.php": {
+	"/template-parts/list-head.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/list-head.php",
+		"oAP": "/template-parts/list-head.php",
 		"oF": 0
 		},
-	"\/template-parts\/login-modal.php": {
+	"/template-parts/login-modal.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/login-modal.php",
+		"oAP": "/template-parts/login-modal.php",
 		"oF": 0
 		},
-	"\/template-parts\/login-signup.php": {
+	"/template-parts/login-signup.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/login-signup.php",
+		"oAP": "/template-parts/login-signup.php",
 		"oF": 0
 		},
-	"\/template-parts\/login-trigger.php": {
+	"/template-parts/login-trigger.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/login-trigger.php",
+		"oAP": "/template-parts/login-trigger.php",
 		"oF": 0
 		},
-	"\/template-parts\/message.php": {
+	"/template-parts/message.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/message.php",
+		"oAP": "/template-parts/message.php",
 		"oF": 0
 		},
-	"\/template-parts\/mobile-menu-trigger.php": {
+	"/template-parts/mobile-menu-trigger.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/mobile-menu-trigger.php",
+		"oAP": "/template-parts/mobile-menu-trigger.php",
 		"oF": 0
 		},
-	"\/template-parts\/mobile-menu.php": {
+	"/template-parts/mobile-menu.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/mobile-menu.php",
+		"oAP": "/template-parts/mobile-menu.php",
 		"oF": 0
 		},
-	"\/template-parts\/not-found.php": {
+	"/template-parts/not-found.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/not-found.php",
+		"oAP": "/template-parts/not-found.php",
 		"oF": 0
 		},
-	"\/template-parts\/page-banner.php": {
+	"/template-parts/page-banner.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/page-banner.php",
+		"oAP": "/template-parts/page-banner.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/answer-item.php": {
+	"/template-parts/profile/answer-item.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/answer-item.php",
+		"oAP": "/template-parts/profile/answer-item.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/answers.php": {
+	"/template-parts/profile/answers.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/answers.php",
+		"oAP": "/template-parts/profile/answers.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/email-edit-modal.php": {
+	"/template-parts/profile/email-edit-modal.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/email-edit-modal.php",
+		"oAP": "/template-parts/profile/email-edit-modal.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/index.php": {
+	"/template-parts/profile/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/index.php",
+		"oAP": "/template-parts/profile/index.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/nickname-edit-modal.php": {
+	"/template-parts/profile/nickname-edit-modal.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/nickname-edit-modal.php",
+		"oAP": "/template-parts/profile/nickname-edit-modal.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/password-edit-modal.php": {
+	"/template-parts/profile/password-edit-modal.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/password-edit-modal.php",
+		"oAP": "/template-parts/profile/password-edit-modal.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/point-charge-button.php": {
+	"/template-parts/profile/point-charge-button.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/point-charge-button.php",
+		"oAP": "/template-parts/profile/point-charge-button.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/point-log-item.php": {
+	"/template-parts/profile/point-log-item.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/point-log-item.php",
+		"oAP": "/template-parts/profile/point-log-item.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/point-log.php": {
+	"/template-parts/profile/point-log.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/point-log.php",
+		"oAP": "/template-parts/profile/point-log.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/purchased-question.php": {
+	"/template-parts/profile/purchased-question.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/purchased-question.php",
+		"oAP": "/template-parts/profile/purchased-question.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/questions.php": {
+	"/template-parts/profile/questions.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/questions.php",
+		"oAP": "/template-parts/profile/questions.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/reputation-log-item.php": {
+	"/template-parts/profile/reputation-log-item.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/reputation-log-item.php",
+		"oAP": "/template-parts/profile/reputation-log-item.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/reputation-log.php": {
+	"/template-parts/profile/reputation-log.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/reputation-log.php",
+		"oAP": "/template-parts/profile/reputation-log.php",
 		"oF": 0
 		},
-	"\/template-parts\/profile\/wishlist.php": {
+	"/template-parts/profile/wishlist.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/profile\/wishlist.php",
+		"oAP": "/template-parts/profile/wishlist.php",
 		"oF": 0
 		},
-	"\/template-parts\/purchase-answers-button.php": {
+	"/template-parts/purchase-answers-button.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/purchase-answers-button.php",
+		"oAP": "/template-parts/purchase-answers-button.php",
 		"oF": 0
 		},
-	"\/template-parts\/purchase-answers-modal.php": {
+	"/template-parts/purchase-answers-modal.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/purchase-answers-modal.php",
+		"oAP": "/template-parts/purchase-answers-modal.php",
 		"oF": 0
 		},
-	"\/template-parts\/question-filter.php": {
+	"/template-parts/question-filter.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/question-filter.php",
+		"oAP": "/template-parts/question-filter.php",
 		"oF": 0
 		},
-	"\/template-parts\/question-list-item.php": {
+	"/template-parts/question-list-item.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/question-list-item.php",
+		"oAP": "/template-parts/question-list-item.php",
 		"oF": 0
 		},
-	"\/template-parts\/question-list.php": {
+	"/template-parts/question-list.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/question-list.php",
+		"oAP": "/template-parts/question-list.php",
 		"oF": 0
 		},
-	"\/template-parts\/select-answer-modal.php": {
+	"/template-parts/select-answer-modal.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/select-answer-modal.php",
+		"oAP": "/template-parts/select-answer-modal.php",
 		"oF": 0
 		},
-	"\/template-parts\/single-question.php": {
+	"/template-parts/single-question.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/single-question.php",
+		"oAP": "/template-parts/single-question.php",
 		"oF": 0
 		},
-	"\/template-parts\/site-info.php": {
+	"/template-parts/site-info.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/site-info.php",
+		"oAP": "/template-parts/site-info.php",
 		"oF": 0
 		},
-	"\/template-parts\/site-logo.php": {
+	"/template-parts/site-logo.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/site-logo.php",
+		"oAP": "/template-parts/site-logo.php",
 		"oF": 0
 		},
-	"\/template-parts\/site-nav.php": {
+	"/template-parts/site-nav.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/site-nav.php",
+		"oAP": "/template-parts/site-nav.php",
 		"oF": 0
 		},
-	"\/template-parts\/user-nav.php": {
+	"/template-parts/user-nav.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/user-nav.php",
+		"oAP": "/template-parts/user-nav.php",
 		"oF": 0
 		},
-	"\/v4-shims.css": {
+	"/v4-shims.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/v4-shims-min.css",
+		"oAP": "/v4-shims-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/warning.php": {
+	"/warning.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/warning.php",
+		"oAP": "/warning.php",
 		"oF": 0
 		},
-	"\/wp_core.po": {
+	"/wp_core.po": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/wp_core.po",
+		"oAP": "/wp_core.po",
 		"oF": 0
 		}
 	},
@@ -4020,141 +4020,94 @@
 	"alwaysUseExternalServer": 1,
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
-	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
 	"autoprefixerEnableIEGrid": 0,
+	"babel7PresetType": 1,
+	"babelAllowRCFiles": 0,
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
-	"babelConfigFileHandlingType": 0,
+	"babelConfigType": 0,
 	"babelCustomPluginsList": "",
 	"babelCustomPresetsList": "",
 	"babelInsertModuleIDs": 0,
 	"babelModuleID": "",
 	"babelNoComments": 0,
 	"babelPlugins": {
+		"arrow-functions": {
+			"active": 0
+			},
 		"async-generator-functions": {
 			"active": 0
 			},
 		"async-to-generator": {
 			"active": 0
 			},
-		"async-to-module-method": {
+		"block-scoped-functions": {
+			"active": 0
+			},
+		"block-scoping": {
 			"active": 0
 			},
 		"class-properties": {
 			"active": 0
 			},
+		"classes": {
+			"active": 0
+			},
+		"computed-properties": {
+			"active": 0
+			},
 		"decorators": {
 			"active": 0
 			},
-		"decorators-legacy": {
+		"destructuring": {
 			"active": 0
 			},
 		"do-expressions": {
 			"active": 0
 			},
-		"es2015-arrow-functions": {
+		"dotall-regex": {
 			"active": 0
 			},
-		"es2015-block-scoped-functions": {
-			"active": 0
-			},
-		"es2015-block-scoping": {
-			"active": 0
-			},
-		"es2015-classes": {
-			"active": 0
-			},
-		"es2015-computed-properties": {
-			"active": 0
-			},
-		"es2015-constants": {
-			"active": 0
-			},
-		"es2015-destructuring": {
-			"active": 0
-			},
-		"es2015-duplicate-keys": {
-			"active": 0
-			},
-		"es2015-for-of": {
-			"active": 0
-			},
-		"es2015-function-name": {
-			"active": 0
-			},
-		"es2015-literals": {
-			"active": 0
-			},
-		"es2015-modules-amd": {
-			"active": 0
-			},
-		"es2015-modules-commonjs": {
-			"active": 0
-			},
-		"es2015-modules-systemjs": {
-			"active": 0
-			},
-		"es2015-modules-umd": {
-			"active": 0
-			},
-		"es2015-object-super": {
-			"active": 0
-			},
-		"es2015-parameters": {
-			"active": 0
-			},
-		"es2015-shorthand-properties": {
-			"active": 0
-			},
-		"es2015-spread": {
-			"active": 0
-			},
-		"es2015-sticky-regex": {
-			"active": 0
-			},
-		"es2015-template-literals": {
-			"active": 0
-			},
-		"es2015-typeof-symbol": {
-			"active": 0
-			},
-		"es2015-unicode-regex": {
-			"active": 0
-			},
-		"es3-member-expression-literals": {
-			"active": 0
-			},
-		"es3-property-literals": {
-			"active": 0
-			},
-		"es5-property-mutators": {
-			"active": 0
-			},
-		"eval": {
+		"duplicate-keys": {
 			"active": 0
 			},
 		"exponentiation-operator": {
 			"active": 0
 			},
-		"export-extensions": {
+		"export-default-from": {
+			"active": 0
+			},
+		"export-namespace-from": {
 			"active": 0
 			},
 		"external-helpers": {
 			"active": 0
 			},
-		"flow-comments": {
+		"flow-strip-types": {
 			"active": 0
 			},
-		"flow-strip-types": {
+		"for-of": {
 			"active": 0
 			},
 		"function-bind": {
 			"active": 0
 			},
-		"inline-environment-variables": {
+		"function-name": {
+			"active": 0
+			},
+		"function-sent": {
+			"active": 0
+			},
+		"instanceof": {
 			"active": 0
 			},
 		"jscript": {
+			"active": 0
+			},
+		"literals": {
+			"active": 0
+			},
+		"logical-assignment-operators": {
 			"active": 0
 			},
 		"member-expression-literals": {
@@ -4166,7 +4119,28 @@
 		"minify-booleans": {
 			"active": 0
 			},
+		"modules-amd": {
+			"active": 0
+			},
+		"modules-commonjs": {
+			"active": 0
+			},
+		"modules-systemjs": {
+			"active": 0
+			},
+		"modules-umd": {
+			"active": 0
+			},
+		"new-target": {
+			"active": 0
+			},
 		"node-env-inline": {
+			"active": 0
+			},
+		"nullish-coalescing-operator": {
+			"active": 0
+			},
+		"numeric-separator": {
 			"active": 0
 			},
 		"object-assign": {
@@ -4178,7 +4152,25 @@
 		"object-set-prototype-of-to-assign": {
 			"active": 0
 			},
+		"object-super": {
+			"active": 0
+			},
+		"optional-catch-binding": {
+			"active": 0
+			},
+		"optional-chaining": {
+			"active": 0
+			},
+		"parameters": {
+			"active": 0
+			},
+		"pipeline-operator": {
+			"active": 0
+			},
 		"property-literals": {
+			"active": 0
+			},
+		"property-mutators": {
 			"active": 0
 			},
 		"proto-to-assign": {
@@ -4214,53 +4206,46 @@
 		"remove-debugger": {
 			"active": 0
 			},
+		"reserved-words": {
+			"active": 0
+			},
 		"runtime": {
+			"active": 0
+			},
+		"shorthand-properties": {
 			"active": 0
 			},
 		"simplify-comparison-operators": {
 			"active": 0
 			},
+		"spread": {
+			"active": 0
+			},
+		"sticky-regex": {
+			"active": 0
+			},
 		"strict-mode": {
 			"active": 0
 			},
-		"syntax-async-generators": {
+		"template-literals": {
 			"active": 0
 			},
-		"syntax-class-properties": {
+		"throw-expressions": {
 			"active": 0
 			},
-		"syntax-decorators": {
-			"active": 0
-			},
-		"syntax-do-expressions": {
-			"active": 0
-			},
-		"syntax-export-extensions": {
-			"active": 0
-			},
-		"syntax-flow": {
-			"active": 0
-			},
-		"syntax-function-bind": {
-			"active": 0
-			},
-		"syntax-function-sent": {
-			"active": 0
-			},
-		"syntax-jsx": {
-			"active": 0
-			},
-		"syntax-object-rest-spread": {
-			"active": 0
-			},
-		"undeclared-variables-check": {
+		"typeof-symbol": {
 			"active": 0
 			},
 		"undefined-to-void": {
 			"active": 0
+			},
+		"unicode-property-regex": {
+			"active": 0
+			},
+		"unicode-regex": {
+			"active": 0
 			}
 		},
-	"babelPresetType": 193,
 	"babelRetainLines": 0,
 	"bowerAbbreviatedPath": "bower_components",
 	"bowerAutoCreateInfoFile": 1,
@@ -4269,6 +4254,7 @@
 	"bowerSaveDevDependencies": 0,
 	"bowerUseExactVersion": 0,
 	"browserRefreshDelay": 0,
+	"browserslistString": ">0.2%, last 2 versions, Firefox ESR, not dead",
 	"buildFolderActive": 0,
 	"buildFolderName": "build",
 	"cleanBuild": 1,
@@ -4626,6 +4612,10 @@
 			"active": 0,
 			"optionString": "'always', {exceptAfterSingleLine: false}"
 			},
+		"max-classes-per-file": {
+			"active": 0,
+			"optionString": "1"
+			},
 		"max-depth": {
 			"active": 0,
 			"optionString": "{'max': 4}"
@@ -4637,6 +4627,10 @@
 		"max-lines": {
 			"active": 0,
 			"optionString": "{'max': 300, 'skipBlankLines': true, 'skipComments': true}"
+			},
+		"max-lines-per-function": {
+			"active": 0,
+			"optionString": "{'max': 50, 'skipBlankLines': true, 'skipComments': true, 'IIFEs': false}"
 			},
 		"max-nested-callbacks": {
 			"active": 0,
@@ -4682,6 +4676,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"no-async-promise-executor": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-await-in-loop": {
 			"active": 0,
 			"optionString": ""
@@ -4700,10 +4698,6 @@
 			},
 		"no-case-declarations": {
 			"active": 1,
-			"optionString": ""
-			},
-		"no-catch-shadow": {
-			"active": 0,
 			"optionString": ""
 			},
 		"no-class-assign": {
@@ -4902,9 +4896,13 @@
 			"active": 0,
 			"optionString": "{'ignore': [], 'ignoreArrayIndexes': true, 'enforceConst': false, 'detectObjects': false}"
 			},
+		"no-misleading-character-class": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-mixed-operators": {
 			"active": 0,
-			"optionString": "{'groups': [['+', '-', '*', '\/', '%', '**'], ['&', '|', '^', '~', '<<', '>>', '>>>'], ['==', '!=', '===', '!==', '>', '>=', '<', '<='], ['&&', '||'], ['in', 'instanceof']], 'allowSamePrecedence': true}"
+			"optionString": "{'groups': [['+', '-', '*', '/', '%', '**'], ['&', '|', '^', '~', '<<', '>>', '>>>'], ['==', '!=', '===', '!==', '>', '>=', '<', '<='], ['&&', '||'], ['in', 'instanceof']], 'allowSamePrecedence': true}"
 			},
 		"no-mixed-requires": {
 			"active": 0,
@@ -5258,6 +5256,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"prefer-object-spread": {
+			"active": 0,
+			"optionString": ""
+			},
 		"prefer-promise-reject-errors": {
 			"active": 0,
 			"optionString": "{'allowEmptyReject': false}"
@@ -5286,6 +5288,10 @@
 			"active": 0,
 			"optionString": "'always'"
 			},
+		"require-atomic-updates": {
+			"active": 0,
+			"optionString": ""
+			},
 		"require-await": {
 			"active": 0,
 			"optionString": ""
@@ -5293,6 +5299,10 @@
 		"require-jsdoc": {
 			"active": 0,
 			"optionString": "{'require': {'FunctionDeclaration': true, 'MethodDefinition': false, 'ClassDeclaration': false, 'ArrowFunctionExpression': false}}"
+			},
+		"require-unicode-regexp": {
+			"active": 0,
+			"optionString": ""
 			},
 		"require-yield": {
 			"active": 1,
@@ -5348,7 +5358,7 @@
 			},
 		"spaced-comment": {
 			"active": 0,
-			"optionString": "'always', {'line': {'markers': ['\/'], 'exceptions': ['-', '+']}, 'block': {'markers': ['!'], 'exceptions': ['*'], 'balanced': false}}"
+			"optionString": "'always', {'line': {'markers': ['/'], 'exceptions': ['-', '+']}, 'block': {'markers': ['!'], 'exceptions': ['*'], 'balanced': false}}"
 			},
 		"strict": {
 			"active": 0,
@@ -5408,7 +5418,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "http:\/\/localhost:8888",
+	"externalServerAddress": "http://localhost:8888",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
@@ -5803,7 +5813,6 @@
 		"escapeHTMLCharacters": 0,
 		"noEscapeInAttributes": 0,
 		"outputFormat": 2,
-		"outputStyle": 0,
 		"shouldRunCacheBuster": 0,
 		"useCDATA": 0,
 		"useDoubleQuotes": 0,
@@ -5822,7 +5831,7 @@
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*-min.js",
-		"autoOutputPathRelativePath": "\/min",
+		"autoOutputPathRelativePath": "/min",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
@@ -5854,19 +5863,19 @@
 		"allowInsecureImports": 0,
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "..\/css",
+		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "less",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
 		"createSourceMap": 1,
-		"disableJavascript": 0,
+		"enableJavascript": 0,
 		"ieCompatibility": 1,
+		"mathStyle": 0,
 		"outputStyle": 0,
-		"relativeURLS": 0,
+		"rewriteURLStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"strictImports": 0,
-		"strictMath": 0,
 		"strictUnits": 0
 		},
 	"languageDefaultsMARKDOWN": {
@@ -5922,7 +5931,7 @@
 	"languageDefaultsSASS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "\/",
+		"autoOutputPathRelativePath": "/",
 		"autoOutputPathReplace1": "sass",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 1,
@@ -5951,7 +5960,7 @@
 	"languageDefaultsSTYLUS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "..\/css",
+		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "stylus",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
@@ -5975,36 +5984,70 @@
 	"languageDefaultsTS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.js",
-		"autoOutputPathRelativePath": "\/js",
+		"autoOutputPathRelativePath": "/js",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
 		"createDeclarationFile": 0,
 		"createSourceMap": 0,
-		"jsxMode": 0,
 		"minifyOutput": 0,
 		"moduleResolutionType": 0,
 		"moduleType": 2,
-		"noImplicitAny": 0,
-		"preserveConstEnums": 0,
 		"removeComments": 0,
-		"suppressImplicitAnyIndexErrors": 0,
 		"targetECMAVersion": 0
 		},
 	"languageDefaultsUserDefined": [
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
-	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, \/storage\/framework\/sessions, node_modules",
+	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
+	"tsAllowSyntheticDefaultImports": 0,
+	"tsAllowUnreachableCode": 0,
+	"tsAllowUnusedLabels": 0,
+	"tsAlwaysStrict": 0,
+	"tsDownlevelIteration": 0,
+	"tsEmitBOM": 0,
+	"tsEmitDecoratorMetadata": 0,
+	"tsESModuleInterop": 0,
+	"tsForceConsistentCasingInFileNames": 0,
+	"tsImportHelpers": 0,
+	"tsIsolatedModules": 0,
+	"tsJSXFactory": "React.createElement",
+	"tsKeyofStringsOnly": 0,
+	"tsNoEmitHelpers": 0,
+	"tsNoFallthroughCasesInSwitch": 0,
+	"tsNoImplicitAny": 0,
+	"tsNoImplicitReturns": 0,
+	"tsNoImplicitThis": 0,
+	"tsNoImplicitUseStrict": 0,
+	"tsNoLib": 0,
+	"tsNoResolve": 0,
+	"tsNoStrictGenericChecks": 0,
+	"tsNoUnusedLocals": 0,
+	"tsNoUnusedParameters": 0,
+	"tsPreserveConstEnums": 0,
+	"tsPreserveSymlinks": 0,
+	"tsResolveJsonModule": 0,
+	"tsSkipLibCheck": 0,
+	"tsStrictFunctionTypes": 0,
+	"tsStrictNullChecks": 0,
+	"tsStrictPropertyInitialization": 0,
+	"tsStripInternal": 0,
+	"tsSuppressExcessPropertyErrors": 0,
+	"tsSuppressImplicitAnyIndexErrors": 0,
 	"uglifyDefinesString": "",
 	"uglifyFlags2": {
-		"ascii-only": {
+		"arguments": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"ascii_only": {
 			"active": 0,
 			"flagValue": -1
 			},
-		"bare-returns": {
+		"bare_returns": {
 			"active": 0,
 			"flagValue": -1
 			},
@@ -6012,11 +6055,11 @@
 			"active": 1,
 			"flagValue": -1
 			},
-		"bracketize": {
+		"braces": {
 			"active": 0,
 			"flagValue": -1
 			},
-		"cascade": {
+		"collapse_vars": {
 			"active": 1,
 			"flagValue": -1
 			},
@@ -6040,6 +6083,10 @@
 			"active": 0,
 			"flagValue": -1
 			},
+		"directives": {
+			"active": 1,
+			"flagValue": -1
+			},
 		"drop_console": {
 			"active": 0,
 			"flagValue": -1
@@ -6056,7 +6103,15 @@
 			"active": 1,
 			"flagValue": -1
 			},
+		"expression": {
+			"active": 0,
+			"flagValue": -1
+			},
 		"hoist_funs": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"hoist_props": {
 			"active": 1,
 			"flagValue": -1
 			},
@@ -6064,20 +6119,32 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"if_return": {
+		"html5_comments": {
 			"active": 1,
 			"flagValue": -1
 			},
-		"indent-level": {
+		"ie8": {
 			"active": 0,
-			"flagValue": 4
+			"flagValue": -1
+			},
+		"if_return": {
+			"active": 1,
+			"flagValue": -1
 			},
 		"indent-start": {
 			"active": 0,
 			"flagValue": 0
 			},
-		"inline-script": {
+		"indent_level": {
 			"active": 0,
+			"flagValue": 4
+			},
+		"inline": {
+			"active": 1,
+			"flagValue": 3
+			},
+		"inline_script": {
+			"active": 1,
 			"flagValue": -1
 			},
 		"join_vars": {
@@ -6092,6 +6159,14 @@
 			"active": 0,
 			"flagValue": -1
 			},
+		"keep_infinity": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"keep_quoted_props": {
+			"active": 0,
+			"flagValue": -1
+			},
 		"loops": {
 			"active": 1,
 			"flagValue": -1
@@ -6100,12 +6175,20 @@
 			"active": 1,
 			"flagValue": -1
 			},
-		"max-line-len": {
+		"max_line_len": {
 			"active": 1,
 			"flagValue": 32000
 			},
 		"negate_iife": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"passes": {
+			"active": 1,
+			"flagValue": 1
+			},
+		"preserve_line": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"properties": {
@@ -6116,11 +6199,19 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"quote-keys": {
+		"quote_keys": {
 			"active": 0,
 			"flagValue": -1
 			},
-		"screw-ie8": {
+		"quote_style": {
+			"active": 1,
+			"flagValue": 0
+			},
+		"reduce_funcs": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"reduce_vars": {
 			"active": 1,
 			"flagValue": -1
 			},
@@ -6132,23 +6223,51 @@
 			"active": 1,
 			"flagValue": -1
 			},
-		"sort": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"space-colon": {
+		"shebang": {
 			"active": 1,
 			"flagValue": -1
 			},
-		"support-ie8": {
-			"active": 0,
+		"side_effects": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"switches": {
+			"active": 1,
 			"flagValue": -1
 			},
 		"toplevel": {
 			"active": 0,
 			"flagValue": -1
 			},
+		"typeofs": {
+			"active": 1,
+			"flagValue": -1
+			},
 		"unsafe": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe_comps": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe_Function": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe_math": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe_proto": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe_regexp": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe_undefined": {
 			"active": 0,
 			"flagValue": -1
 			},
@@ -6160,9 +6279,17 @@
 			"active": 0,
 			"flagValue": -1
 			},
+		"webkit": {
+			"active": 0,
+			"flagValue": -1
+			},
 		"width": {
 			"active": 1,
 			"flagValue": 80
+			},
+		"wrap_iife": {
+			"active": 0,
+			"flagValue": -1
 			}
 		},
 	"uglifyReservedNamesString": "$",
