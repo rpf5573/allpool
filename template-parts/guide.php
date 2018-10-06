@@ -55,7 +55,7 @@
             </div>
             <div class="point-use__box__sub_title">
               원하는 답변을 빨리 받아보려면? <br>
-              질문을 등록할때 포인틀르 걸어보세요!
+              질문을 등록할때 포인트를를 걸어보세요!
             </div>
           </div>
         </li>
