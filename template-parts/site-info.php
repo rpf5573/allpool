@@ -20,7 +20,7 @@
     <div class="site-info__etc">
       알풀사업부 사업자등록번호: 784-86-00650 / 관리자 이메일 : alpool.co.kr@gmail.com <br>
       Copyright 2018 www.alpool.co.kr . All Rights Reserved. <br>
-      made by <a href="https://presscat.co.kr/">PRESSCAT</a>.
+      Created by <a href="https://presscat.co.kr/" title="홈페이지 제작 업체 프레스캣">PRESSCAT</a>.
     </div>
   </div>
 </div>
