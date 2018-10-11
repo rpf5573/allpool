@@ -192,6 +192,7 @@
       // filter setting
       .question-filter__list {
         padding-right: 0;
+        flex: auto;
         & > .l-row:nth-child(2) {
           & > * {
             margin-right: 0;
@@ -208,14 +209,20 @@
           }
           .question-filter__year {
             flex-basis: 50%;
-            padding-right: 5px;
+            // ie11
+            & > div {
+              padding-right: 5px;
+            }
           }
           .question-filter__session {
             flex-basis: 50%;
           }
           .question-filter__did_select {
             flex-basis: 50%;
-            padding-right: 5px;
+            // ie11
+            & > div {
+              padding-right: 5px;
+            }
           }
           .question-filter__has_answer {
             flex-basis: 50%;
@@ -254,6 +261,7 @@
         flex-direction: column;
         align-items: flex-end;
         .l-left {
+          width: 100%;
           margin-bottom: 10px;
         }
       }
