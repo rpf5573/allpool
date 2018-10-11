@@ -7,7 +7,7 @@
 		"uuidString": "88353832-AC9F-41AF-A617-462447A5A2B0"
 		}
 	],
-"creatorBuild": "28815",
+"creatorBuild": "28905",
 "files": {
 	"/.gitattributes": {
 		"cB": 0,
@@ -418,6 +418,17 @@
 		"oF": 0,
 		"oIPL": 1,
 		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/assets/images/favicon.png": {
+		"ft": 32768,
+		"iS": 1313,
+		"oA": 0,
+		"oAP": "/assets/images/favicon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
