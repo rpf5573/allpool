@@ -445,7 +445,6 @@ class AP_Theme {
 	}
 
 	public static function print_btn( $btns, $question_id ) {
-		\PC::debug( ['btns' => $btns], __FUNCTION__ );
 		$url = ANSPRESS_URL . 'assets/images/print-icon.png';
 		$print_btn = '<a href="javascript:window.print();" class="print-btn"> <img src="' . $url . '" alt=""> </a>';
 		

@@ -27,7 +27,7 @@
 				do_action( 'ap_before_question_meta' );
 			?>
 			<div class="ap-question-meta"> 
-				<div class="l-top"> <?php  
+				<div class="l-top"> <?php
 					ap_question_btns(); ?>
 				</div>
 				<div class="l-bottom"> <?php
