@@ -6542,6 +6542,8 @@ form[apform] {
         color: black; }
     .ap-content .ap-cell .ap-cell-inner .ap-cell-content {
       padding: 20px; }
+      .ap-content .ap-cell .ap-cell-inner .ap-cell-content img {
+        max-width: 100%; }
 
 /*  Layout
 /* --------------------------------------------------- */
