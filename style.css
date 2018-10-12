@@ -6727,10 +6727,11 @@ form[apform] {
   margin-top: 40px; }
   .single-question .ap-q .ap-question-meta {
     margin-left: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px; }
+    .single-question .ap-q .ap-question-meta .l-top {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: flex-end; }
     .single-question .ap-q .ap-question-meta .ap-display-meta-item.solved {
       padding-left: 2px;
       padding-right: 2px;
@@ -7135,7 +7136,7 @@ ul.ap-actions {
       margin-left: 0;
       flex-direction: column;
       align-items: flex-end; }
-      #ap-responsive #ap-single .ap-question-meta .l-left {
+      #ap-responsive #ap-single .ap-question-meta .l-bottom {
         width: 100%;
         margin-bottom: 10px; }
     #ap-responsive #ap-single .ap-sorting-tab {
@@ -7339,4 +7340,7 @@ ul.ap-actions {
         justify-content: space-between;
         align-items: flex-end; }
       #ap-responsive .ap-user .ap-user-mobile-buttons .iamport_btn {
-        margin-left: 0; } }
+        margin-left: 0; }
+    #ap-responsive .ap-cell-content img {
+      width: 100% !important;
+      height: auto; } }

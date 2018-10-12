@@ -97,6 +97,7 @@ class AP_Hooks {
 		anspress()->add_filter( 'human_time_diff', 'AP_Theme', 'human_time_diff' );
 		anspress()->add_filter( 'mce_buttons', 'AP_Theme', 'set_mce_btns' );
 		anspress()->add_action( 'ap_after_question_content', 'AP_Theme', 'question_choices_answer' );
+		anspress()->add_filter( 'ap_display_question_btns', 'AP_Theme', 'print_btn', 20, 2 );
 
     // Upload hooks.
     anspress()->add_action( 'deleted_post', 'AP_Uploader', 'deleted_attachment' );
@@ -136,7 +137,7 @@ class AP_Hooks {
 		anspress()->add_filter( 'ap_insert_question_qameta', 'AP_Point', 'use_point_on_asking', 10, 3 );
 
 		// Wishlist hooks.
-		anspress()->add_action( 'ap_display_question_btns', 'AP_Wishlist', 'add_wishlist_question_btn', 10, 2 );
+		anspress()->add_filter( 'ap_display_question_btns', 'AP_Wishlist', 'add_wishlist_question_btn', 10, 2 );
 		anspress()->add_filter( 'ap_user_pages', 'AP_Wishlist', 'ap_user_pages' );
 
 		// Profile hooks.

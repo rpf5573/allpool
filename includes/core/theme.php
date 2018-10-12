@@ -444,6 +444,16 @@ class AP_Theme {
 		}
 	}
 
+	public static function print_btn( $btns, $question_id ) {
+		\PC::debug( ['btns' => $btns], __FUNCTION__ );
+		$url = ANSPRESS_URL . 'assets/images/print-icon.png';
+		$print_btn = '<a href="javascript:window.print();" class="print-btn"> <img src="' . $url . '" alt=""> </a>';
+		
+		$btns['print_btn'] = $print_btn;
+	
+		return $btns;
+	}
+
 }
 
 function ap_template_part( $slug, $name = null, $template_args = array() ) {
@@ -960,18 +970,12 @@ function ap_page_class() {
   echo $class;
 }
 
-
 function ap_question_btns( $question_id = false ) {
 	if ( false === $question_id ) {
 		$question_id = get_the_ID();
 	}
-	$url = ANSPRESS_URL . 'assets/images/print-icon.png';
-	$print_btn = '<a href="javascript:window.print();" class="print-btn"> <img src="' . $url . '" alt=""> </a>';
-	
-	$btns = array(
-		'print_btn' => $print_btn
-	);
-	$btns = apply_filters( 'ap_display_question_btns', $question_id, $btns );
+	$btns = array();
+	$btns = apply_filters( 'ap_display_question_btns', $btns, $question_id );
 	if ( count( $btns ) > 0 ) {
 		foreach( $btns as $btn ) {
 			echo $btn;

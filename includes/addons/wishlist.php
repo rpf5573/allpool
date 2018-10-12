@@ -83,7 +83,7 @@ class AP_Wishlist extends \AnsPress\Singleton {
 		) );
 	}
 
-	public static function add_wishlist_question_btn( $question_id, $btns ) {
+	public static function add_wishlist_question_btn( $btns, $question_id ) {
 		if ( is_user_logged_in() && is_question() ) {
 			$_post = ap_get_post();
 			$user_id = get_current_user_id();
