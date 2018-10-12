@@ -4836,30 +4836,6 @@ i.point-charge {
 i.edit_question_point {
   background-color: #0ca678; }
 
-@font-face {
-  font-family: 'NanumSquare';
-  font-weight: 400;
-  src: url("assets/fonts/nanumsquare/NanumSquareR.eot");
-  src: url("assets/fonts/nanumsquare/NanumSquareR.eot?#iefix") format("embedded-opentype"), url("assets/fonts/nanumsquare/NanumSquareR.woff") format("woff"), url("assets/fonts/nanumsquare/NanumSquareR.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'NanumSquare';
-  font-weight: 700;
-  src: url("assets/fonts/nanumsquare/NanumSquareB.eot");
-  src: url("assets/fonts/nanumsquare/NanumSquareB.eot?#iefix") format("embedded-opentype"), url("assets/fonts/nanumsquare/NanumSquareB.woff") format("woff"), url("assets/fonts/nanumsquare/NanumSquareB.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'NanumSquare';
-  font-weight: 800;
-  src: url("assets/fonts/nanumsquare/NanumSquareEB.eot");
-  src: url("assets/fonts/nanumsquare/NanumSquareEB.eot?#iefix") format("embedded-opentype"), url("assets/fonts/nanumsquare/NanumSquareEB.woff") format("woff"), url("assets/fonts/nanumsquare/NanumSquareEB.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'NanumSquare';
-  font-weight: 300;
-  src: url("assets/fonts/nanumsquare/NanumSquareL.eot");
-  src: url("assets/fonts/nanumsquare/NanumSquareL.eot?#iefix") format("embedded-opentype"), url("assets/fonts/nanumsquare/NanumSquareL.woff") format("woff"), url("assets/fonts/nanumsquare/NanumSquareL.ttf") format("truetype"); }
-
 /* ------------------------------------------------------------------------- *
  *  Base
 /* ------------------------------------------------------------------------- */
@@ -6544,6 +6520,9 @@ form[apform] {
       padding: 20px; }
       .ap-content .ap-cell .ap-cell-inner .ap-cell-content img {
         max-width: 100%; }
+
+.ap-avatar img {
+  border-radius: 50%; }
 
 /*  Layout
 /* --------------------------------------------------- */

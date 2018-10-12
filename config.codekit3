@@ -585,6 +585,17 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/assets/images/icon_print.png": {
+		"ft": 32768,
+		"iS": 3439,
+		"oA": 0,
+		"oAP": "/assets/images/icon_print.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/assets/images/icon_question_mark.png": {
 		"ft": 32768,
 		"iS": 5705,
@@ -1484,6 +1495,19 @@
 		"ma": 0,
 		"oA": 0,
 		"oAP": "/admin.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/assets/scss/components/_avatar.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/_avatar.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
