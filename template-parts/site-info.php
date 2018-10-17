@@ -20,8 +20,7 @@
     <div class="site-info__etc">
       알풀사업부 사업자등록번호: 784-86-00650 / 관리자 이메일 : alpool.co.kr@gmail.com <br>
       주소: 인천광역시 연수구 송도과학로 32 (송도동, 송도테크노파크IT센터) S동 2004호 / 전화번호: 032-209-7079 <br>
-      Copyright 2018 www.alpool.co.kr . All Rights Reserved. <br>
-      Created by <a href="https://presscat.co.kr/" title="홈페이지 제작 업체 프레스캣">PRESSCAT</a>.
+      Copyright 2018 www.alpool.co.kr . All Rights Reserved. Created by <a href="https://presscat.co.kr/" title="홈페이지 제작 업체 프레스캣">PRESSCAT</a>.
     </div>
   </div>
 </div>
