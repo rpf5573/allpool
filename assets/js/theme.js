@@ -239,6 +239,7 @@ jQuery(document).ready(function () {
       });
     }
 
+    // stop using this code
     var select_answer_modal_btn = $('.ap-btn-select-answer-modal');
     var select_answer_modal = $('.select-answers-modal');
     // stop
@@ -258,7 +259,7 @@ jQuery(document).ready(function () {
                 AnsPress.hideLoading(e);
                 if(data.success){
                   if(data.selected){
-                    var cell = selected_answer_modal_btn.closest( 'answer' );
+                    var cell = selected_answer_modal_btn.closest( 'ap-cell' );
                     cell.addClass('best-answer');
                     AnsPress.trigger('answerToggle', [self.model, true]);
                     if ( (typeof data.allow_unselect_answer !== 'undefined') && ! data.allow_unselect_answer ) {

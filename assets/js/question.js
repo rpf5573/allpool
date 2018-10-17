@@ -292,7 +292,6 @@
 			var self = this;
 			var q = $.parseJSON($(e.target).attr('apquery'));
 			q.action = 'ap_toggle_best_answer';
-			console.dir( q );
 			var positive_btn = modal.find( '.positive.button' );
 			AnsPress.showLoading(positive_btn);
 			AnsPress.ajax({
@@ -302,7 +301,7 @@
 					modal.modal('hide');
 					if(data.success){
 						if(data.selected){
-							cell.addClass('best-answer');
+							cell.closest('.answer').addClass('best-answer');
 							AnsPress.trigger('answerToggle', [self.model, true]);
 							if ( (typeof data.allow_unselect_answer !== 'undefined') && ! data.allow_unselect_answer ) {
 								$(e.target).remove();
