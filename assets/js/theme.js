@@ -258,7 +258,7 @@ jQuery(document).ready(function () {
                 AnsPress.hideLoading(e);
                 if(data.success){
                   if(data.selected){
-                    var cell = selected_answer_modal_btn.closest( 'ap-cell' );
+                    var cell = selected_answer_modal_btn.closest( 'answer' );
                     cell.addClass('best-answer');
                     AnsPress.trigger('answerToggle', [self.model, true]);
                     if ( (typeof data.allow_unselect_answer !== 'undefined') && ! data.allow_unselect_answer ) {
