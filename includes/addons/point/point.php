@@ -122,7 +122,7 @@ class AP_Point extends \AnsPress\Singleton {
 	}
 
 	public static function point_charge_button() {
-		echo do_shortcode( '[iamport_payment_button title="포인트 충전" class="iamport_btn" description="아래 정보를 기입 후 결제진행해주세요." name="알풀 포인트 충전" amount="1000,3000,5000,10000" pay_method_list="card,trans,phone"]포인트 충전[/iamport_payment_button]' );
+		echo do_shortcode( '[iamport_payment_button title="포인트 충전" class="iamport_btn" description="아래 정보를 기입 후 결제진행해주세요." name="알풀 포인트 충전" amount="1000,3000,5000,10000" pay_method_list="kakao"]포인트 충전[/iamport_payment_button]' );
 	}
 
 	/**
